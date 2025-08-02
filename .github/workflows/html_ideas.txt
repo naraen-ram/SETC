@@ -1,0 +1,17 @@
+dashboard
+{boxes showing attendance(in,out,active,absent,leave),percentages
+piechart(showing the same in a circle),
+barchart over last week
+left sidebar link to other pages(by depot,month,week,employee...),
+header with name ,login page
+}
+
+details page
+{search bar,sort(dropdown),filters(depot,date,month,type of emp,)
+table(with changeable columns)
+}
+login page{
+header with dashboard link,
+username,password,sign in,
+
+}
