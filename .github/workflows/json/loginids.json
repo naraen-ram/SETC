@@ -1,0 +1,14 @@
+[
+    {
+        "id":"master",
+        "key":"masterkey"
+    },
+    {
+        "id":"depot",
+        "key":"depotkey"
+    },
+    {
+        "id":"test",
+        "key":"testkey"
+    }
+]
