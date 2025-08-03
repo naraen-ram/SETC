@@ -37,7 +37,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 loginButton.addEventListener("click",async function () {
     let user = username.value
     let pass = password.value
-    if(user=="" || pass ==||){
+    if(user==="" || pass ==="" ){
         return
     }
     for (let x = 0; x < ids.length; x++) {
