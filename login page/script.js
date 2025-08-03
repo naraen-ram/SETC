@@ -58,5 +58,4 @@ loginButton.addEventListener("click",async function () {
     username.value = ""
     password.value = ""
     username.focus()
-    // await sleep(1000);
 });
