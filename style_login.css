@@ -127,6 +127,7 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     border: 2px solid #ddd;
     transition: box-shadow 0.3s ease;
+    height: 240px;
 }
 
 .login-container:hover {
@@ -137,6 +138,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+#invalidEmailOrPass {
+    display: none;
+    color: #d1051d;
+    font-size: 0.9em;
+    text-align: center;
+    margin:none;
 }
 
 .input-group {

@@ -36,12 +36,15 @@
     
             <div class="login-container">
                 <div class="login-box">
-                    <form action="#">
+                    <form action="#" id="loginForm">
                         <div class="input-group">
                             <input type="text" id="username" name="username" placeholder="user name" required>
                         </div>
                         <div class="input-group">
                             <input type="password" id="password" name="password" placeholder="password" required>
+                        </div>
+                        <div>
+                            <p id="invalidEmailOrPass">Invalid email-id or password</p>
                         </div>
                         <button type="submit" class="login-button">LOGIN</button>
                     </form>
@@ -50,4 +53,7 @@
         </div>
     </div>
 </body>
+<script src="script.js">
+
+</script>
 </html>
