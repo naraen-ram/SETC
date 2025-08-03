@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #c8d9e8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 1000px;
+    width: 90%;
+    text-align: center;
+    border: 3px solid #0056b3;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+
+.subtitle1 {
+    font-size: 2em;
+    font-weight: 600;
+    color: #0056b3;
+    margin-top: 5px;
+    justify-content: center;
+}
+.subtitle2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #d1051d;
+    margin-top: 5px;
+    justify-content: center;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.image-container {
+    display: flex;             
+    justify-content: left;
+    align-items: left;  
+    gap: 20px;            
+    margin-top: 20px;   
+}
+
+.gallery-img {
+    width: 200px;           
+    height: auto;             
+    border-radius: 10px;   
+    box-shadow: 0 4px 8px rgba(8, 128, 150, 0.594); 
+}
+
+.gallery-img1 {
+    width: 40px;           
+    height: auto;             
+    border-radius: 10px;   
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+.info-boxes {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.info-box {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #fff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: rotate(45deg);
+}
+
+.info-box:hover {
+    transform: rotate(45deg) scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.info-box .number {
+    font-size: 2em;
+    font-weight: 700;
+    transform: rotate(-45deg);
+}
+
+.info-box .label {
+    font-size: 0.9em;
+    font-weight: 400;
+    transform: rotate(-45deg);
+    margin-top: 5px;
+}
+
+
+.box-1 { background: linear-gradient(45deg, #1abc9c, #16a085); }
+.box-2 { background: linear-gradient(45deg, #3498db, #2980b9); }
+.box-3 { background: linear-gradient(45deg, #9b59b6, #8e44ad); }
+
+.login-container {
+    width: 300px;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ddd;
+    transition: box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 2px solid #ced4da;
+    font-size: 1em;
+    color: #495057;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.login-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-button:hover {
+    background: linear-gradient(90deg, #0056b3, #004085);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    .title {
+        font-size: 1.8em;
+    }
+    .subtitle {
+        font-size: 1em;
+    }
+    .content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 30px;
+    }
+    .info-boxes {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .login-container {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 600px) {
+    .image-container {
+        flex-direction: column; 
+    }
+}
+
+@media (max-width: 480px) {
+    .info-box {
+        width: 120px;
+        height: 120px;
+    }
+    .info-box .number {
+        font-size: 1.5em;
+    }
+    .info-box .label {
+        font-size: 0.8em;
+    }
+    .login-box {
+        padding: 20px;
+    }
+    .input-group input, .login-button {
+        padding: 10px;
+    }
+}
