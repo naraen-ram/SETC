@@ -55,5 +55,8 @@ loginButton.addEventListener("click",async function () {
     console.log("Login failed. Invalid username or password.")
     await sleep(1); // to overcome "Please select the field error || if you dont understand this, just comment this line and see what happens"
     invalidEmailOrPass.style.display = "block"
-    await sleep(1000);
+    username.value = ""
+    password.value = ""
+    username.focus()
+    // await sleep(1000);
 });
