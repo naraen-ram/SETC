@@ -46,8 +46,7 @@ loginButton.addEventListener("click",async function () {
             await sleep(100);
             invalidEmailOrPass.style.display = "none"
             
-            await sleep(1500);
-            // location.reload()
+            window.location.href='https://www.youtube.com';
             return
 
         }
