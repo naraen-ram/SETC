@@ -21,7 +21,7 @@
     
     function disp()
     {
-       let data = [
+       let data =[
   [1, "Alice", "09:00 AM", "Engineer", "Mumbai"],
   [2, "Bob", "09:15 AM", "Designer", "Delhi"],
   [3, "Charlie", "08:50 AM", "Manager", "Bangalore"],
@@ -85,7 +85,11 @@
       <th>Column 5</th>
     </tr>
   </thead><tbody>`;
-
+    if(data.length==0)
+    {
+            document.querySelector(".bottom").innerHTML="NO CONTENT TO DISPLAY!!";
+            return;
+    }
     for(let i=0;i<data.length;i++)
     {
         html+=`<tr>
