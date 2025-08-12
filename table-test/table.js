@@ -17,13 +17,13 @@ butt.addEventListener("click",()=>{
 })
 function createTable()
 {
-let html=`<table>
+let html=`<table class="tableJS">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>ID</th>
-      <th>Depot</th>
-      <th>Intime</th>
+      <th onclick="sortTable(0)">Name</th>
+      <th onclick="sortTable(1)">ID</th>
+      <th onclick="sortTable(2)">Depot</th>
+      <th onclick="sortTable(3)">Intime</th>
     </tr>
   </thead><tbody>`;
   if(data.length==0)
