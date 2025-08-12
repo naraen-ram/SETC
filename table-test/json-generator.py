@@ -13,7 +13,6 @@ def generate_random_time(start_time_str,end_time_str):
     # Calculate the total duration in seconds
     delta = end_time - start_time
     total_seconds = delta.total_seconds()
-    
     # Generate a random number of seconds within the range
     random_seconds = random.randint(0, int(total_seconds))
     
@@ -21,7 +20,36 @@ def generate_random_time(start_time_str,end_time_str):
     random_time = start_time + timedelta(seconds=random_seconds)
     
     return random_time.strftime("%H:%M:%S")
+def generate_random_date():
+    """
+    Generates a random date between two given dates (inclusive).
 
+    Args:
+        start_date (datetime.date): The start of the date range.
+        end_date (datetime.date): The end of the date range.
+
+    Returns:
+        datetime.date: A randomly generated date within the range.
+    """
+    # Calculate the total number of days between the two dates.
+    # The `total_seconds()` method is more robust for timedelta objects.
+    
+    days_between_dates = 31
+
+    # Generate a random number of days to add to the start date.
+    # The randrange() function generates an integer from 0 up to (but not including) the argument.
+    # This ensures the end date is inclusive if the random number is the maximum.
+    random_number_of_days = random.randrange(days_between_dates + 1)
+
+    # Create a timedelta object with the random number of days.
+    random_timedelta = timedelta(days=random_number_of_days)
+
+    # Add the random timedelta to the start date to get the random date.
+    xdate=datetime(2025,8,1)
+    start_date=xdate.date()
+    random_date = start_date + random_timedelta
+
+    return random_date
 def generate_bus_schedule(num_entries=50):
     """
     Generates a list of dictionaries representing bus schedules.
@@ -40,7 +68,6 @@ def generate_bus_schedule(num_entries=50):
     ]
     
     schedule = []
-    
     for i in range(num_entries):
         # Generate a unique bus ID
         bus_id = f"E{random.randint(10, 99)}X{random.randint(1000, 9999)}"
@@ -54,22 +81,20 @@ def generate_bus_schedule(num_entries=50):
         # Get a random arrival time within the specified range
         arrival_time = generate_random_time("8:45:00","9:30:00")
         out_time=generate_random_time("16:30:00","17:30:00")
+        onlydate=generate_random_date().strftime("%Y-%m-%d")
         schedule.append({
             "name": bus_name,
             "id": bus_id,
             "depot": bus_depot,
             "intime": arrival_time,
-            "out_time": out_time
+            "out_time": out_time,
+            "date": onlydate
         })
         
     return schedule
 
 # Generate the schedule
 bus_schedule_data = generate_bus_schedule()
-
-# Save the data to a JSON string with an indentation for readability
 json_output = json.dumps(bus_schedule_data, indent=4)
 with open('dummy.json', 'w') as f:
     f.write(json_output)
-# Print the JSON output
-print(json_output)

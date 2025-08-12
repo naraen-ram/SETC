@@ -16,6 +16,7 @@ butt.addEventListener("click",()=>{
     
 })
 getdata();
+const today=new Date();
 function createTable()
 {
 let html=`<table id="tableJS">
@@ -26,6 +27,8 @@ let html=`<table id="tableJS">
       <th onclick="sortTable(2)">Depot</th>
       <th onclick="sortTable(3)">In Time</th>
       <th onclick="sortTable(4)">Out Time</th>
+      <th onclick="sortTable(5)">Date</th>
+      <th onclick="sortTable(6)">Hours worked</th>
     </tr>
   </thead><tbody>`;
   if(data.length==0)
@@ -34,6 +37,12 @@ let html=`<table id="tableJS">
             return;
     }
     data.forEach(element => {
+        let intime=new Date(element.date+'T'+element.intime+'Z');
+        let out_time=new Date(element.date+'T'+element.out_time+'Z');
+        let temphours=new Date(out_time-intime);
+        let hours=temphours.getHours()-5;
+        let min=temphours.getMinutes()%30;
+
         html+=`
         <tr>
         <td>${element.name}</td>
@@ -41,6 +50,8 @@ let html=`<table id="tableJS">
         <td>${element.depot}</td>
         <td>${element.intime}</td>
         <td>${element.out_time}</td>
+        <td>${element.date}</td>
+        <td>${hours}:${min.toString().padStart(2,'0')}</td>
         </tr>`
     });
     html+=`</tbody></table>`;
