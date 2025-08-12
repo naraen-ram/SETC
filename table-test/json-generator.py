@@ -2,10 +2,9 @@ import json
 import random
 from datetime import datetime, timedelta
 
-def generate_random_time():
+def generate_random_time(start_time_str,end_time_str):
     """Generates a random time between 8:45:00 and 10:00:00."""
-    start_time_str = "08:45:00"
-    end_time_str = "10:00:00"
+    
     
     # Convert time strings to datetime objects for easy manipulation
     start_time = datetime.strptime(start_time_str, "%H:%M:%S")
@@ -53,13 +52,14 @@ def generate_bus_schedule(num_entries=50):
         bus_depot = random.choice(depots)
         
         # Get a random arrival time within the specified range
-        arrival_time = generate_random_time()
-        
+        arrival_time = generate_random_time("8:45:00","9:30:00")
+        out_time=generate_random_time("16:30:00","17:30:00")
         schedule.append({
             "name": bus_name,
             "id": bus_id,
             "depot": bus_depot,
-            "intime": arrival_time
+            "intime": arrival_time,
+            "out_time": out_time
         })
         
     return schedule

@@ -15,6 +15,7 @@ butt.addEventListener("click",()=>{
     getdata();
     
 })
+getdata();
 function createTable()
 {
 let html=`<table id="tableJS">
@@ -23,7 +24,8 @@ let html=`<table id="tableJS">
       <th onclick="sortTable(0)">Name</th>
       <th onclick="sortTable(1)">ID</th>
       <th onclick="sortTable(2)">Depot</th>
-      <th onclick="sortTable(3)">Intime</th>
+      <th onclick="sortTable(3)">In Time</th>
+      <th onclick="sortTable(4)">Out Time</th>
     </tr>
   </thead><tbody>`;
   if(data.length==0)
@@ -38,6 +40,7 @@ let html=`<table id="tableJS">
         <td>${element.id}</td>
         <td>${element.depot}</td>
         <td>${element.intime}</td>
+        <td>${element.out_time}</td>
         </tr>`
     });
     html+=`</tbody></table>`;
