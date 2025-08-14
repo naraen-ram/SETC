@@ -10,7 +10,7 @@ async function getdata() {
     data = allData;
     createTable(data);
 }
-
+let but=document.getElementById("search");
 let butt = document.querySelector(".searchButton");
 /*butt.addEventListener("click", () => {
     let query = document.getElementById("search").value.trim().toLowerCase();
@@ -27,8 +27,17 @@ let butt = document.querySelector(".searchButton");
     }
     createTable(data);
 });*/
+but.addEventListener('keyup',(val)=>{
+    searcher();
+});
 butt.addEventListener("click", () => {
-    let query = document.getElementById("search").value.trim().toLowerCase();
+   searcher();
+});
+getdata();
+function searcher()
+{
+     let query =
+    document.getElementById("search").value.trim().toLowerCase();
     if (!query) {
         data = allData;
     } else {
@@ -57,8 +66,7 @@ butt.addEventListener("click", () => {
         }
     }
     createTable(data);
-});
-getdata();
+}
 function createTable(tableData) {
     let html = `<table id="tableJS">
   <thead>
