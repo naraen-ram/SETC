@@ -99,3 +99,16 @@ body
     border-radius: 30px;
 }
 
+.label
+{
+    position:relative;
+    padding-top: 5px;
+    top:10px;
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.number
+{
+  font-size: 60px;
+}
