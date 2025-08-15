@@ -8,6 +8,7 @@ async function getdata() {
     }
     allData = await jsonFile.json();
     data = allData;
+    resetSortArray();
     datefilter();
     createTable(data);
 }
@@ -38,7 +39,7 @@ searchButton.addEventListener("click", () => {
 });
 getdata();
 function datefilter()
-{   
+{   resetSortArray();
     let startDate=document.getElementById("startDate").value.toString();
     let endDate=document.getElementById("endDate").value.toString();
     if(!startDate)
@@ -55,7 +56,7 @@ let endDate=document.getElementById("endDate");
 startDate.addEventListener('change',()=>{ endDate.min=startDate.value})
    
 function searcher()
-{
+{  resetSortArray();
      let query =
     document.getElementById("search").value.trim().toLowerCase();
     if (!query) {
@@ -124,45 +125,260 @@ function createTable(tableData) {
     html += `</tbody></table>`;
     document.querySelector(".bottom").innerHTML = html;
 }
-
-   
-    
-
-function sortTable(n) {
-    let table, direction = 'asc', rows, switching = true, i, x, y, shouldSwitch, switchcount = 0;
-    table = document.getElementById("tableJS");
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 1; i < rows.length - 1; i++) {
-            shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
-            if (direction === "asc") {
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-            else if (direction === "desc") {
-                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-        }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            switchcount++;
-        }
-        else {
-            if (switchcount === 0 && direction === "asc") {
-                direction = "desc";
-                switching = true;
-            }
-        }
+function resetSortArray()
+{
+    direction=['','','','','','',''];
+}
+function quicksortName(data)
+{   if(data.length<2)
+    return data;
+    let left=[],right=[],pivot=data[data.length-1];
+    for(i=0;i<data.length-1;i++)
+    {
+        if(data[i].name.toLowerCase()>pivot.name.toLowerCase())
+            right.push(data[i]);
+        else
+            left.push(data[i]);
     }
+    return [...quicksortName(left),pivot,...quicksortName(right)];
+}   
+    function quicksortId(data)
+{   if(data.length<2)
+    return data;
+    let left=[],right=[],pivot=data[data.length-1];
+    for(i=0;i<data.length-1;i++)
+    {
+        if(data[i].id.toLowerCase()>pivot.id.toLowerCase())
+            right.push(data[i]);
+        else
+            left.push(data[i]);
+    }
+    return [...quicksortId(left),pivot,...quicksortId(right)];
+}   
+function quicksortDepot(data)
+{   if(data.length<2)
+    return data;
+    let left=[],right=[],pivot=data[data.length-1];
+    for(i=0;i<data.length-1;i++)
+    {
+        if(data[i].depot.toLowerCase()>pivot.depot.toLowerCase())
+            right.push(data[i]);
+        else
+            left.push(data[i]);
+    }
+    return [...quicksortDepot(left),pivot,...quicksortDepot(right)];
+}   function quicksortInTime(data)
+{   if(data.length<2)
+    return data;
+    let left=[],right=[],pivot=data[data.length-1];
+    for(i=0;i<data.length-1;i++)
+    {
+        if(data[i].intime.toLowerCase()>pivot.intime.toLowerCase())
+            right.push(data[i]);
+        else
+            left.push(data[i]);
+    }
+    return [...quicksortInTime(left),pivot,...quicksortInTime(right)];
+}   function quicksortout_time(data)
+{   if(data.length<2)
+    return data;
+    let left=[],right=[],pivot=data[data.length-1];
+    for(i=0;i<data.length-1;i++)
+    {
+        if(data[i].out_time.toLowerCase()>pivot.out_time.toLowerCase())
+            right.push(data[i]);
+        else
+            left.push(data[i]);
+    }
+    return [...quicksortout_time(left),pivot,...quicksortout_time(right)];
+}  function quicksortdate(data)
+{   if(data.length<2)
+    return data;
+    let left=[],right=[],pivot=data[data.length-1];
+    for(i=0;i<data.length-1;i++)
+    {
+        if(data[i].date.toLowerCase()>pivot.date.toLowerCase())
+            right.push(data[i]);
+        else
+            left.push(data[i]);
+    }
+    return [...quicksortdate(left),pivot,...quicksortdate(right)];
+}  function quicksortHours(data)
+{   if(data.length<2)
+    return data;
+    let left=[],right=[],pivot=data[data.length-1];
+    for(i=0;i<data.length-1;i++)
+    {
+        if(data[i].hours>pivot.hours)
+            right.push(data[i]);
+        else
+            left.push(data[i]);
+    }
+    return [...quicksortHours(left),pivot,...quicksortHours(right)];
+}     
+let direction=['','','','','','',''];
+function sortTable(n) {
+    
+    switch(n)
+    {
+        case 0:
+            if(!direction[0])
+            {data=quicksortName(data);
+            createTable(data);
+            resetSortArray();
+            direction[0]='asc';
+            break;
+            }
+            if(direction[0]==='asc')
+            {
+            direction[0]='desc';
+            data=data.reverse();
+            createTable(data);
+            break;
+            }
+            if(direction[0]==='desc')
+            {
+                direction[0]='asc';
+                data=data.reverse();
+                createTable(data);
+                break;
+            }
+            case 1:
+            if(!direction[1])
+            {data=quicksortId(data);
+            resetSortArray();
+            createTable(data);
+            direction[1]='asc';
+            break;
+            }
+            if(direction[1]==='asc')
+            {
+            direction[1]='desc';
+            data=data.reverse();
+            createTable(data);
+            break;
+            }
+            if(direction[1]==='desc')
+            {
+                direction[1]='asc';
+                data=data.reverse();
+                createTable(data);
+                break;
+            }
+            case 2:
+            if(!direction[2])
+            {data=quicksortDepot(data);
+            createTable(data);
+            resetSortArray();
+            direction[2]='asc';
+            break;
+            }
+            if(direction[2]==='asc')
+            {
+            direction[2]='desc';
+            data=data.reverse();
+            createTable(data);
+            break;
+            }
+            if(direction[2]==='desc')
+            {
+                direction[2]='asc';
+                data=data.reverse();
+                createTable(data);
+                break;
+            }
+            case 3:
+            if(!direction[3])
+            {data=quicksortInTime(data);
+            createTable(data);
+            resetSortArray();
+            direction[3]='asc';
+            break;
+            }
+            if(direction[3]==='asc')
+            {
+            direction[3]='desc';
+            data=data.reverse();
+            createTable(data);
+            break;
+            }
+            if(direction[3]==='desc')
+            {
+                direction[3]='asc';
+                data=data.reverse();
+                createTable(data);
+                break;
+            }
+            case 4:
+            if(!direction[4])
+            {data=quicksortout_time(data);
+            createTable(data);
+            resetSortArray();
+            direction[4]='asc';
+            break;
+            }
+            if(direction[4]==='asc')
+            {
+            direction[4]='desc';
+            data=data.reverse();
+            createTable(data);
+            break;
+            }
+            if(direction[4]==='desc')
+            {
+                direction[4]='asc';
+                data=data.reverse();
+                createTable(data);
+                break;
+            }
+            case 5:
+            if(!direction[5])
+            {data=quicksortdate(data);
+            createTable(data);
+            resetSortArray();
+            direction[5]='asc';
+            break;
+            }
+            if(direction[5]==='asc')
+            {
+            direction[5]='desc';
+            data=data.reverse();
+            createTable(data);
+            break;
+            }
+            if(direction[5]==='desc')
+            {
+                direction[5]='asc';
+                data=data.reverse();
+                createTable(data);
+                break;
+            }
+            case 6:
+            if(!direction[6])
+            {data=quicksortHours(data);
+            createTable(data);
+            resetSortArray();
+            direction[6]='asc';
+            break;
+            }
+            if(direction[6]==='asc')
+            {
+            direction[6]='desc';
+            data=data.reverse();
+            data=quicksortHours(data);
+            createTable(data);
+            break;
+            }
+            if(direction[6]==='desc')
+            {
+                direction[6]='asc';
+                data=data.reverse();
+                createTable(data);
+                break;
+            }
+            
+            
+}
 }
 
 // Make sortTable globally accessible
