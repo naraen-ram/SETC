@@ -14,7 +14,6 @@ async function getdata() {
 }
 let searchBar=document.getElementById("search");
 let searchButton = document.querySelector(".searchButton");
-let getStartDate=document.querySelector(".getStartDate");
 /*butt.addEventListener("click", () => {
     let query = document.getElementById("search").value.trim().toLowerCase();
     if (!query) {
@@ -30,7 +29,6 @@ let getStartDate=document.querySelector(".getStartDate");
     }
     createTable(data);
 });*/
-getStartDate.addEventListener('click',()=>datefilter(allData))
 searchBar.addEventListener('keyup',(val)=>{
     searcher();
 });
@@ -53,7 +51,14 @@ function datefilter(allData)
 }
 let startDate=document.getElementById("startDate");
 let endDate=document.getElementById("endDate");
-startDate.addEventListener('change',()=>{ endDate.min=startDate.value})
+startDate.addEventListener('change',()=>{ endDate.min=startDate.value;
+    searcher();
+    datefilter(data);
+});
+endDate.addEventListener('change',()=>{
+    searcher();
+    datefilter(data);
+})
    
 function searcher()
 {  resetSortArray();
@@ -224,7 +229,7 @@ function sortTable(n) {
         case 0:
             if(!direction[0])
             {data=quicksortName(data);
-            createTable(data);
+            datefilter(data);
             resetSortArray();
             direction[0]='asc';
             break;
