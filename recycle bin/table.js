@@ -1,25 +1,94 @@
-let data=[];
-async function getdata()
-{
-    let jsonFIle=await fetch("dummy.json");
-    if(!jsonFIle.ok)
-    {
-        throw new Error("cant pull data");
-    }
-    data=await jsonFIle.json();
-    createTable();
-}
+let data = [];
+let allData = [];
 
-let butt=document.querySelector(".searchButton");
-butt.addEventListener("click",()=>{
-    getdata();
-    
-})
+async function getdata() {
+    let jsonFile = await fetch("dummy.json");
+    if (!jsonFile.ok) {
+        throw new Error("can't pull data");
+    }
+    allData = await jsonFile.json();
+    data = allData;
+    datefilter();
+    createTable(data);
+}
+let searchBar=document.getElementById("search");
+let searchButton = document.querySelector(".searchButton");
+let getStartDate=document.querySelector(".getStartDate");
+/*butt.addEventListener("click", () => {
+    let query = document.getElementById("search").value.trim().toLowerCase();
+    if (!query) {
+        data = allData;
+    } else {
+        data = allData.filter(element =>
+            element.name.toLowerCase().includes(query) ||
+            String(element.id).toLowerCase().includes(query) ||
+            element.depot.toLowerCase().includes(query) ||
+            (element.intime && element.intime.toLowerCase().includes(query)) ||
+            (element.out_time && element.out_time.toLowerCase().includes(query))
+        );
+    }
+    createTable(data);
+});*/
+getStartDate.addEventListener('click',()=>datefilter())
+searchBar.addEventListener('keyup',(val)=>{
+    searcher();
+});
+searchButton.addEventListener("click", () => {
+   searcher();
+});
 getdata();
-const today=new Date();
-function createTable()
+function datefilter()
+{   
+    let startDate=document.getElementById("startDate").value.toString();
+    let endDate=document.getElementById("endDate").value.toString();
+    if(!startDate)
+        data=allData;
+    else
+    {
+    let results=allData.filter(element=>element.date>=startDate && element.date<=endDate)
+    data=results;
+    }
+    createTable(data);
+}
+let startDate=document.getElementById("startDate");
+let endDate=document.getElementById("endDate");
+startDate.addEventListener('change',()=>{ endDate.min=startDate.value})
+   
+function searcher()
 {
-let html=`<table id="tableJS">
+     let query =
+    document.getElementById("search").value.trim().toLowerCase();
+    if (!query) {
+        data = allData;
+    } else {
+        // 1. "Starts with" search
+        let startsWithResults = allData.filter(element =>
+            element.name.toLowerCase().startsWith(query) /*||
+            String(element.id).toLowerCase().startsWith(query) ||
+            element.depot.toLowerCase().startsWith(query) ||
+            (element.intime && element.intime.toLowerCase().startsWith(query)) ||
+            (element.out_time && element.out_time.toLowerCase().startsWith(query))
+        */);
+        if (startsWithResults.length > 0) {
+            data = startsWithResults;
+        } else {
+            // 2. Substring search, but exclude "starts with" matches
+            data = allData.filter(element => {
+                // Check if any field contains the query, but does NOT start with it
+                return (
+                    (element.name.toLowerCase().includes(query) && !element.name.toLowerCase().startsWith(query)) /*||
+                    (String(element.id).toLowerCase().includes(query) && !String(element.id).toLowerCase().startsWith(query)) ||
+                    (element.depot.toLowerCase().includes(query) && !element.depot.toLowerCase().startsWith(query)) ||
+                    (element.intime && element.intime.toLowerCase().includes(query) && !element.intime.toLowerCase().startsWith(query)) ||
+                    (element.out_time && element.out_time.toLowerCase().includes(query) && !element.out_time.toLowerCase().startsWith(query))*/
+                );
+            });
+        }
+    }
+    createTable(data);
+}
+function createTable(tableData) {
+    let html = `<table id="tableJS">
   <thead>
     <tr>
       <th onclick="sortTable(0)">Name</th>
@@ -31,73 +100,70 @@ let html=`<table id="tableJS">
       <th onclick="sortTable(6)">Hours worked</th>
     </tr>
   </thead><tbody>`;
-  if(data.length==0)
-    {
-            document.querySelector(".bottom").innerHTML="NO CONTENT TO DISPLAY!!";
-            return;
+    if (!tableData || tableData.length == 0) {
+        document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
+        return;
     }
-    data.forEach(element => {
+    tableData.forEach(element=> {
         let intime=new Date(element.date+'T'+element.intime+'Z');
         let out_time=new Date(element.date+'T'+element.out_time+'Z');
         let temphours=new Date(out_time-intime);
         let hours=temphours.getHours()-5;
         let min=temphours.getMinutes()%30;
-
-        html+=`
+        html += `
         <tr>
-        <td>${element.name}</td>
+         <td>${element.name}</td>
         <td>${element.id}</td>
         <td>${element.depot}</td>
         <td>${element.intime}</td>
         <td>${element.out_time}</td>
         <td>${element.date}</td>
         <td>${hours}:${min.toString().padStart(2,'0')}</td>
-        </tr>`
-    });
-    html+=`</tbody></table>`;
-    document.querySelector(".bottom").innerHTML=html;
+        </tr>`;
+        });
+    html += `</tbody></table>`;
+    document.querySelector(".bottom").innerHTML = html;
 }
-function sortTable(n)
-{
-    let table,direction='asc',rows,switching=true,i,x,y,shouldSwitch,switchcount=0;
-    table=document.getElementById("tableJS");
-    while(switching)
-    {
-        switching=false;
-        rows=table.rows;
-        for(i=1;i<rows.length-1;i++)
-        {
-            shouldSwitch=false;
-            x=rows[i].getElementsByTagName("TD")[n];
-            y=rows[i+1].getElementsByTagName("TD")[n];
-            if(direction==="asc")
-            {
-                if(x.innerHTML.toLowerCase()>y.innerHTML.toLowerCase())
-                {
-                    shouldSwitch=true;
+
+   
+    
+
+function sortTable(n) {
+    let table, direction = 'asc', rows, switching = true, i, x, y, shouldSwitch, switchcount = 0;
+    table = document.getElementById("tableJS");
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < rows.length - 1; i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            if (direction === "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
                     break;
                 }
             }
-            else if(direction==="desc"){
-                if(x.innerHTML.toLowerCase()<y.innerHTML.toLowerCase())
-                {
-                    shouldSwitch=true;
+            else if (direction === "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
                     break;
                 }
             }
         }
-        if(shouldSwitch)
-        {
-            rows[i].parentNode.insertBefore(rows[i+1],rows[i]);
-            switching=true;
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
             switchcount++;
         }
-        else{
-            if(switchcount===0 && direction==="asc")
-            {
-                direction="desc";
-                switching=true;
+        else {
+            if (switchcount === 0 && direction === "asc") {
+                direction = "desc";
+                switching = true;
             }
         }
     }
 }
+
+// Make sortTable globally accessible
+window.sortTable = sortTable;
