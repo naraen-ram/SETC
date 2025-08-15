@@ -8,10 +8,12 @@ async function getdata() {
     }
     allData = await jsonFile.json();
     data = allData;
+    datefilter();
     createTable(data);
 }
-let but=document.getElementById("search");
-let butt = document.querySelector(".searchButton");
+let searchBar=document.getElementById("search");
+let searchButton = document.querySelector(".searchButton");
+let getStartDate=document.querySelector(".getStartDate");
 /*butt.addEventListener("click", () => {
     let query = document.getElementById("search").value.trim().toLowerCase();
     if (!query) {
@@ -27,13 +29,27 @@ let butt = document.querySelector(".searchButton");
     }
     createTable(data);
 });*/
-but.addEventListener('keyup',(val)=>{
+getStartDate.addEventListener('click',()=>datefilter())
+searchBar.addEventListener('keyup',(val)=>{
     searcher();
 });
-butt.addEventListener("click", () => {
+searchButton.addEventListener("click", () => {
    searcher();
 });
 getdata();
+function datefilter()
+{   
+    let startDate=document.getElementById("startDate").value.toString();
+    let endDate=document.getElementById("endDate").value.toString();
+    if(!startDate)
+        data=allData;
+    else
+    {
+    let results=allData.filter(element=>element.date>=startDate && element.date<=endDate)
+    data=results;
+    }
+    createTable(data);
+}
 function searcher()
 {
      let query =
@@ -84,7 +100,7 @@ function createTable(tableData) {
         document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
         return;
     }
-    tableData.forEach(element => {
+    tableData.forEach(element=> {
         let intime=new Date(element.date+'T'+element.intime+'Z');
         let out_time=new Date(element.date+'T'+element.out_time+'Z');
         let temphours=new Date(out_time-intime);
@@ -100,10 +116,13 @@ function createTable(tableData) {
         <td>${element.date}</td>
         <td>${hours}:${min.toString().padStart(2,'0')}</td>
         </tr>`;
-    });
+        });
     html += `</tbody></table>`;
     document.querySelector(".bottom").innerHTML = html;
 }
+
+   
+    
 
 function sortTable(n) {
     let table, direction = 'asc', rows, switching = true, i, x, y, shouldSwitch, switchcount = 0;

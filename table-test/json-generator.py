@@ -82,7 +82,7 @@ def generate_bus_schedule(num_entries=50):
         
         #onlydate=generate_random_date().strftime("%Y-%m-%d")
         for j in range(0,31):
-            onlydate=datetime(2025,8,1+j).strftime("%Y-%m-%d")
+            onlydate=datetime(2025,8,1+j).strftime("%Y/%m/%d")
             arrival_time = generate_random_time("8:45:00","9:30:00")
             out_time=generate_random_time("16:30:00","17:30:00")
             schedule.append({
@@ -97,7 +97,8 @@ def generate_bus_schedule(num_entries=50):
     return schedule
 
 # Generate the schedule
-bus_schedule_data = generate_bus_schedule(30)
+
+bus_schedule_data=generate_bus_schedule(10)
 json_output = json.dumps(bus_schedule_data, indent=4)
 with open('dummy.json', 'w') as f:
     f.write(json_output)
