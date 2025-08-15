@@ -9,8 +9,8 @@ async function getdata() {
     allData = await jsonFile.json();
     data = allData;
     resetSortArray();
-    datefilter();
-    createTable(data);
+    datefilter(data);
+    
 }
 let searchBar=document.getElementById("search");
 let searchButton = document.querySelector(".searchButton");
@@ -30,7 +30,7 @@ let getStartDate=document.querySelector(".getStartDate");
     }
     createTable(data);
 });*/
-getStartDate.addEventListener('click',()=>datefilter())
+getStartDate.addEventListener('click',()=>datefilter(allData))
 searchBar.addEventListener('keyup',(val)=>{
     searcher();
 });
@@ -38,7 +38,7 @@ searchButton.addEventListener("click", () => {
    searcher();
 });
 getdata();
-function datefilter()
+function datefilter(allData)
 {   resetSortArray();
     let startDate=document.getElementById("startDate").value.toString();
     let endDate=document.getElementById("endDate").value.toString();
@@ -86,7 +86,7 @@ function searcher()
             });
         }
     }
-    createTable(data);
+    datefilter(data);
 }
 function createTable(tableData) {
     let html = `<table id="tableJS">
