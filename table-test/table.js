@@ -50,6 +50,10 @@ function datefilter()
     }
     createTable(data);
 }
+let startDate=document.getElementById("startDate");
+let endDate=document.getElementById("endDate");
+startDate.addEventListener('change',()=>{ endDate.min=startDate.value})
+   
 function searcher()
 {
      let query =
