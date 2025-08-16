@@ -1,6 +1,6 @@
 let data = [];
 let allData = [];
-
+showabsent=false;
 async function getdata() {
     let jsonFile = await fetch("dummy.json");
     if (!jsonFile.ok) {
@@ -14,6 +14,15 @@ async function getdata() {
 }
 let searchBar=document.getElementById("search");
 let searchButton = document.querySelector(".searchButton");
+let toggle=document.getElementById("toggle");
+toggle.addEventListener('click',()=>
+{
+if(toggle.checked===true)
+    showabsent=true;
+else
+    showabsent=false;
+createTable(data);
+})
 /*butt.addEventListener("click", () => {
     let query = document.getElementById("search").value.trim().toLowerCase();
     if (!query) {
@@ -94,7 +103,19 @@ function searcher()
     }
     datefilter(data);
 }
-function createTable(tableData) {
+
+function createTable(tableData)
+{
+    if(showabsent===true)
+         {createTableWithAbsent(tableData);
+
+         }
+    else
+        {createTableWithoutAbsent(tableData);
+
+        }
+}
+function createTableWithoutAbsent(tableData) {
     let html = `<table id="tableJS">
   <thead>
     <tr>
@@ -113,6 +134,38 @@ function createTable(tableData) {
     }
     tableData.forEach(element=> {
         if(element.present)
+        html += `
+        <tr>
+         <td>${element.name}</td>
+        <td>${element.id}</td>
+        <td>${element.depot}</td>
+        <td>${element.intime}</td>
+        <td>${element.out_time}</td>
+        <td>${element.date}</td>
+        <td>${element.hours}</td>
+        </tr>`;
+        });
+    html += `</tbody></table>`;
+    document.querySelector(".bottom").innerHTML = html;
+}
+function createTableWithAbsent(tableData){
+    let html = `<table id="tableJS">
+  <thead>
+    <tr>
+      <th onclick="sortTable(0)">Name</th>
+      <th onclick="sortTable(1)">ID</th>
+      <th onclick="sortTable(2)">Depot</th>
+      <th onclick="sortTable(3)">In Time</th>
+      <th onclick="sortTable(4)">Out Time</th>
+      <th onclick="sortTable(5)">Date</th>
+      <th onclick="sortTable(6)">Hours worked</th>
+    </tr>
+  </thead><tbody>`;
+    if (!tableData || tableData.length == 0) {
+        document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
+        return;
+    }
+    tableData.forEach(element=> {
         html += `
         <tr>
          <td>${element.name}</td>
