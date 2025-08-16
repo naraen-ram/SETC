@@ -113,8 +113,17 @@ body
   font-size: 60px;
 }
 
-.more-details
+.search
 {
-    background-color: red;
+    background-color:bisque;
     border: none;
+}
+
+li
+{
+  padding-left: 15px;
+  padding-top: 30px;
+  font-size: 20px;
+  font-weight: 200;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
