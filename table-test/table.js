@@ -1,6 +1,7 @@
 let data = [];
 let allData = [];
 showabsent=false;
+currentTable=0;
 async function getdata() {
     let jsonFile = await fetch("dummy.json");
     if (!jsonFile.ok) {
@@ -10,8 +11,27 @@ async function getdata() {
     data = allData;
     resetSortArray();
    datefilter(data);
-    //createTable(data)
+    //createTable(data,currentPage)
 }
+const rowsPerPage=50;
+let currentPage=1;
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+nextBtn.addEventListener('click', () => {
+    const totalPages = Math.ceil(data.length / rowsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        createTable(data, currentPage);
+    }
+});
+
+prevBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        createTable(data, currentPage);
+    }
+});
+const pageInfo = document.getElementById('pageInfo');
 let searchBar=document.getElementById("search");
 let searchButton = document.querySelector(".searchButton");
 let toggle=document.getElementById("toggle");
@@ -21,8 +41,19 @@ if(toggle.checked===true)
     showabsent=true;
 else
     showabsent=false;
-createTable(data);
+datefilter(data);
+currentPage=1;
 })
+function pageControl()
+{   let totalPages;
+    if(showabsent)
+    totalPages=Math.ceil(data.length/rowsPerPage);
+    else
+        totalPages=Math.ceil(filterpresent(data).length/rowsPerPage);
+    pageInfo.textContent=`Page ${currentPage} of ${totalPages}`;
+    prevBtn.disabled=currentPage===1;
+    nextBtn.diabled=currentPage===totalPages;
+}
 /*butt.addEventListener("click", () => {
     let query = document.getElementById("search").value.trim().toLowerCase();
     if (!query) {
@@ -36,7 +67,7 @@ createTable(data);
             (element.out_time && element.out_time.toLowerCase().includes(query))
         );
     }
-    createTable(data);
+    createTable(data,currentPage);
 });*/
 searchBar.addEventListener('keyup',(val)=>{
     searcher();
@@ -47,17 +78,15 @@ searchButton.addEventListener("click", () => {
 getdata();
 function datefilter(allData)
 {   resetSortArray();
-    let startDate=document.getElementById("startDate").value.toString();
-    let endDate=document.getElementById("endDate").value.toString();
-    if(!startDate)
-        data=allData;
-    else
-    {
-    let results=allData.filter(element=>element.date>=startDate && element.date<=endDate);
-    data=results;
-    }
+    let results=[];
+    let startDateVal=document.getElementById("startDate").value.toString();
+    let endDateVal=document.getElementById("endDate").value.toString();
+        results=allData.filter(element =>(element.date>=startDateVal && element.date<=endDateVal));    
+        data=results;
 
-    createTable(data);
+
+    currentPage=1;
+    createTable(data,currentPage);
 }
 let startDate=document.getElementById("startDate");
 let endDate=document.getElementById("endDate");
@@ -104,54 +133,27 @@ function searcher()
     datefilter(data);
 }
 
-function createTable(tableData)
+function createTable(tableData,page)
 {
     if(showabsent===true)
-         {createTableWithAbsent(tableData);
+         {createTableWithAbsent(tableData,page);
 
          }
     else
-        {createTableWithoutAbsent(tableData);
+        {createTableWithoutAbsent(filterpresent(tableData),page);
 
         }
 }
-function createTableWithoutAbsent(tableData) {
-    let html = `<table id="tableJS">
-  <thead>
-    <tr>
-      <th onclick="sortTable(0)">Name</th>
-      <th onclick="sortTable(1)">ID</th>
-      <th onclick="sortTable(2)">Depot</th>
-      <th onclick="sortTable(3)">In Time</th>
-      <th onclick="sortTable(4)">Out Time</th>
-      <th onclick="sortTable(5)">Date</th>
-      <th onclick="sortTable(6)">Hours worked</th>
-    </tr>
-  </thead><tbody>`;
-    if (!tableData || tableData.length == 0) {
-        document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
-        return;
-    }
-    tableData.forEach(element=> {
-        if(element.present)
-        html += `
-        <tr>
-         <td>${element.name}</td>
-        <td>${element.id}</td>
-        <td>${element.depot}</td>
-        <td>${element.intime}</td>
-        <td>${element.out_time}</td>
-        <td>${element.date}</td>
-        <td>${element.hours}</td>
-        </tr>`;
-        });
-    html += `</tbody></table>`;
-    document.querySelector(".bottom").innerHTML = html;
+function filterpresent(data)
+{
+    filteredData=data.filter(element=>element.present);
+    return filteredData;
 }
-function createTableWithAbsent(tableData){
+function createTableWithoutAbsent(tableData,page) {
     let html = `<table id="tableJS">
   <thead>
     <tr>
+      <th>No</th>
       <th onclick="sortTable(0)">Name</th>
       <th onclick="sortTable(1)">ID</th>
       <th onclick="sortTable(2)">Depot</th>
@@ -165,9 +167,15 @@ function createTableWithAbsent(tableData){
         document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
         return;
     }
-    tableData.forEach(element=> {
+    const startIndex=(page-1)*rowsPerPage;
+    const endIndex=startIndex+rowsPerPage;
+    const pageData=tableData.slice(startIndex,endIndex);
+currentTable=(page-1)*rowsPerPage;
+    pageData.forEach(element=> {
+    
         html += `
         <tr>
+        <td>${++currentTable}</td>
          <td>${element.name}</td>
         <td>${element.id}</td>
         <td>${element.depot}</td>
@@ -176,9 +184,52 @@ function createTableWithAbsent(tableData){
         <td>${element.date}</td>
         <td>${element.hours}</td>
         </tr>`;
+    
         });
     html += `</tbody></table>`;
     document.querySelector(".bottom").innerHTML = html;
+    pageControl();
+}
+function createTableWithAbsent(tableData,page){
+    let html = `<table id="tableJS">
+  <thead>
+    <tr>
+        <th>No</th>
+      <th onclick="sortTable(0)">Name</th>
+      <th onclick="sortTable(1)">ID</th>
+      <th onclick="sortTable(2)">Depot</th>
+      <th onclick="sortTable(3)">In Time</th>
+      <th onclick="sortTable(4)">Out Time</th>
+      <th onclick="sortTable(5)">Date</th>
+      <th onclick="sortTable(6)">Hours worked</th>
+    </tr>
+  </thead><tbody>`;
+    if (!tableData || tableData.length == 0) {
+        document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
+        return;
+    }
+    currentTable=(page-1)*rowsPerPage;
+    const startIndex=(page-1)*rowsPerPage;
+    const endIndex=startIndex+rowsPerPage;
+    const pageData=data.slice(startIndex,endIndex);
+    pageData.forEach(element=> {
+    
+        html += `
+        <tr>
+        <td>${++currentTable}</td>
+         <td>${element.name}</td>
+        <td>${element.id}</td>
+        <td>${element.depot}</td>
+        <td>${element.intime}</td>
+        <td>${element.out_time}</td>
+        <td>${element.date}</td>
+        <td>${element.hours}</td>
+        </tr>`;
+    
+        });
+    html += `</tbody></table>`;
+    document.querySelector(".bottom").innerHTML = html;
+    pageControl();
 }
 function resetSortArray()
 {
@@ -288,21 +339,21 @@ function sortTable(n) {
             {
             direction[0]='desc';
             data=data.reverse();
-            createTable(data);
+            createTable(data,currentPage);
             break;
             }
             if(direction[0]==='desc')
             {
                 direction[0]='asc';
                 data=data.reverse();
-                createTable(data);
+                createTable(data,currentPage);
                 break;
             }
             case 1:
             if(!direction[1])
             {data=quicksortId(data);
             resetSortArray();
-            createTable(data);
+            createTable(data,currentPage);
             direction[1]='asc';
             break;
             }
@@ -310,20 +361,20 @@ function sortTable(n) {
             {
             direction[1]='desc';
             data=data.reverse();
-            createTable(data);
+            createTable(data,currentPage);
             break;
             }
             if(direction[1]==='desc')
             {
                 direction[1]='asc';
                 data=data.reverse();
-                createTable(data);
+                createTable(data,currentPage);
                 break;
             }
             case 2:
             if(!direction[2])
             {data=quicksortDepot(data);
-            createTable(data);
+            createTable(data,currentPage);
             resetSortArray();
             direction[2]='asc';
             break;
@@ -332,20 +383,20 @@ function sortTable(n) {
             {
             direction[2]='desc';
             data=data.reverse();
-            createTable(data);
+            createTable(data,currentPage);
             break;
             }
             if(direction[2]==='desc')
             {
                 direction[2]='asc';
                 data=data.reverse();
-                createTable(data);
+                createTable(data,currentPage);
                 break;
             }
             case 3:
             if(!direction[3])
             {data=quicksortInTime(data);
-            createTable(data);
+            createTable(data,currentPage);
             resetSortArray();
             direction[3]='asc';
             break;
@@ -354,20 +405,20 @@ function sortTable(n) {
             {
             direction[3]='desc';
             data=data.reverse();
-            createTable(data);
+            createTable(data,currentPage);
             break;
             }
             if(direction[3]==='desc')
             {
                 direction[3]='asc';
                 data=data.reverse();
-                createTable(data);
+                createTable(data,currentPage);
                 break;
             }
             case 4:
             if(!direction[4])
             {data=quicksortout_time(data);
-            createTable(data);
+            createTable(data,currentPage);
             resetSortArray();
             direction[4]='asc';
             break;
@@ -376,20 +427,20 @@ function sortTable(n) {
             {
             direction[4]='desc';
             data=data.reverse();
-            createTable(data);
+            createTable(data,currentPage);
             break;
             }
             if(direction[4]==='desc')
             {
                 direction[4]='asc';
                 data=data.reverse();
-                createTable(data);
+                createTable(data,currentPage);
                 break;
             }
             case 5:
             if(!direction[5])
             {data=quicksortdate(data);
-            createTable(data);
+            createTable(data,currentPage);
             resetSortArray();
             direction[5]='asc';
             break;
@@ -398,20 +449,20 @@ function sortTable(n) {
             {
             direction[5]='desc';
             data=data.reverse();
-            createTable(data);
+            createTable(data,currentPage);
             break;
             }
             if(direction[5]==='desc')
             {
                 direction[5]='asc';
                 data=data.reverse();
-                createTable(data);
+                createTable(data,currentPage);
                 break;
             }
             case 6:
             if(!direction[6])
             {data=quicksortHours(data);
-            createTable(data);
+            createTable(data,currentPage);
             resetSortArray();
             direction[6]='asc';
             break;
@@ -420,14 +471,14 @@ function sortTable(n) {
             {
             direction[6]='desc';
             data=data.reverse();
-            createTable(data);
+            createTable(data,currentPage);
             break;
             }
             if(direction[6]==='desc')
             {
                 direction[6]='asc';
                 data=data.reverse();
-                createTable(data);
+                createTable(data,currentPage);
                 break;
             }
             
