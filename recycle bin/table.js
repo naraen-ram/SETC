@@ -1,169 +1,94 @@
-let data = [];
-let allData = [];
-
-async function getdata() {
-    let jsonFile = await fetch("dummy.json");
-    if (!jsonFile.ok) {
-        throw new Error("can't pull data");
-    }
-    allData = await jsonFile.json();
-    data = allData;
-    datefilter();
-    createTable(data);
-}
-let searchBar=document.getElementById("search");
-let searchButton = document.querySelector(".searchButton");
-let getStartDate=document.querySelector(".getStartDate");
-/*butt.addEventListener("click", () => {
-    let query = document.getElementById("search").value.trim().toLowerCase();
-    if (!query) {
-        data = allData;
-    } else {
-        data = allData.filter(element =>
-            element.name.toLowerCase().includes(query) ||
-            String(element.id).toLowerCase().includes(query) ||
-            element.depot.toLowerCase().includes(query) ||
-            (element.intime && element.intime.toLowerCase().includes(query)) ||
-            (element.out_time && element.out_time.toLowerCase().includes(query))
-        );
-    }
-    createTable(data);
-});*/
-getStartDate.addEventListener('click',()=>datefilter())
-searchBar.addEventListener('keyup',(val)=>{
-    searcher();
-});
-searchButton.addEventListener("click", () => {
-   searcher();
-});
-getdata();
-function datefilter()
-{   
-    let startDate=document.getElementById("startDate").value.toString();
-    let endDate=document.getElementById("endDate").value.toString();
-    if(!startDate)
-        data=allData;
-    else
+ function disp()
     {
-    let results=allData.filter(element=>element.date>=startDate && element.date<=endDate)
-    data=results;
-    }
-    createTable(data);
-}
-let startDate=document.getElementById("startDate");
-let endDate=document.getElementById("endDate");
-startDate.addEventListener('change',()=>{ endDate.min=startDate.value})
-   
-function searcher()
-{
-     let query =
-    document.getElementById("search").value.trim().toLowerCase();
-    if (!query) {
-        data = allData;
-    } else {
-        // 1. "Starts with" search
-        let startsWithResults = allData.filter(element =>
-            element.name.toLowerCase().startsWith(query) /*||
-            String(element.id).toLowerCase().startsWith(query) ||
-            element.depot.toLowerCase().startsWith(query) ||
-            (element.intime && element.intime.toLowerCase().startsWith(query)) ||
-            (element.out_time && element.out_time.toLowerCase().startsWith(query))
-        */);
-        if (startsWithResults.length > 0) {
-            data = startsWithResults;
-        } else {
-            // 2. Substring search, but exclude "starts with" matches
-            data = allData.filter(element => {
-                // Check if any field contains the query, but does NOT start with it
-                return (
-                    (element.name.toLowerCase().includes(query) && !element.name.toLowerCase().startsWith(query)) /*||
-                    (String(element.id).toLowerCase().includes(query) && !String(element.id).toLowerCase().startsWith(query)) ||
-                    (element.depot.toLowerCase().includes(query) && !element.depot.toLowerCase().startsWith(query)) ||
-                    (element.intime && element.intime.toLowerCase().includes(query) && !element.intime.toLowerCase().startsWith(query)) ||
-                    (element.out_time && element.out_time.toLowerCase().includes(query) && !element.out_time.toLowerCase().startsWith(query))*/
-                );
-            });
-        }
-    }
-    createTable(data);
-}
-function createTable(tableData) {
-    let html = `<table id="tableJS">
+       let data =[
+  [1, "Alice", "09:00 AM", "Engineer", "Mumbai"],
+  [2, "Bob", "09:15 AM", "Designer", "Delhi"],
+  [3, "Charlie", "08:50 AM", "Manager", "Bangalore"],
+  [4, "David", "09:05 AM", "Engineer", "Hyderabad"],
+  [5, "Eva", "09:10 AM", "Support", "Pune"],
+  [6, "Frank", "09:00 AM", "HR", "Chennai"],
+  [7, "Grace", "08:55 AM", "Engineer", "Kolkata"],
+  [8, "Henry", "09:20 AM", "Sales", "Ahmedabad"],
+  [9, "Ivy", "09:00 AM", "Designer", "Jaipur"],
+  [10, "Jack", "09:30 AM", "Manager", "Lucknow"],
+  [11, "Karen", "09:02 AM", "Support", "Patna"],
+  [12, "Leo", "09:18 AM", "Engineer", "Nagpur"],
+  [13, "Mona", "09:22 AM", "HR", "Surat"],
+  [14, "Nina", "08:59 AM", "Sales", "Bhopal"],
+  [15, "Oscar", "09:11 AM", "Engineer", "Ranchi"],
+  [16, "Pam", "09:13 AM", "Designer", "Kanpur"],
+  [17, "Quinn", "09:07 AM", "Manager", "Guwahati"],
+  [18, "Ray", "09:03 AM", "Engineer", "Indore"],
+  [19, "Sara", "09:16 AM", "Support", "Coimbatore"],
+  [20, "Tom", "09:09 AM", "HR", "Varanasi"],
+  [21, "Uma", "09:01 AM", "Sales", "Nashik"],
+  [22, "Victor", "09:19 AM", "Engineer", "Amritsar"],
+  [23, "Wendy", "09:17 AM", "Designer", "Thane"],
+  [24, "Xavier", "08:58 AM", "Manager", "Vijayawada"],
+  [25, "Yara", "09:08 AM", "Support", "Mysore"],
+  [26, "Zane", "09:14 AM", "Engineer", "Hubli"],
+  [27, "Aanya", "09:06 AM", "HR", "Udaipur"],
+  [28, "Bhavya", "09:12 AM", "Sales", "Bareilly"],
+  [29, "Chetan", "09:04 AM", "Engineer", "Jodhpur"],
+  [30, "Deepa", "09:21 AM", "Designer", "Agra"],
+  [31, "Eshan", "09:25 AM", "Manager", "Jabalpur"],
+  [32, "Farah", "09:23 AM", "Support", "Gaya"],
+  [33, "Gautam", "09:27 AM", "HR", "Kozhikode"],
+  [34, "Harsh", "08:57 AM", "Sales", "Nellore"],
+  [35, "Ishita", "09:24 AM", "Engineer", "Belgaum"],
+  [36, "Jatin", "09:26 AM", "Designer", "Raipur"],
+  [37, "Kriti", "09:29 AM", "Manager", "Guntur"],
+  [38, "Laksh", "09:31 AM", "Support", "Durgapur"],
+  [39, "Meena", "09:28 AM", "HR", "Bhilai"],
+  [40, "Nikhil", "09:32 AM", "Sales", "Kharagpur"],
+  [41, "Om", "09:33 AM", "Engineer", "Siliguri"],
+  [42, "Pia", "09:35 AM", "Designer", "Tirupati"],
+  [43, "Ravi", "09:34 AM", "Manager", "Warangal"],
+  [44, "Sneha", "09:37 AM", "Support", "Rajkot"],
+  [45, "Tanvi", "09:36 AM", "HR", "Bikaner"],
+  [46, "Ujjwal", "09:38 AM", "Sales", "Jamshedpur"],
+  [47, "Vani", "09:39 AM", "Engineer", "Dehradun"],
+  [48, "Wasim", "09:40 AM", "Designer", "Mathura"],
+  [49, "Yusuf", "09:41 AM", "Manager", "Jhansi"],
+  [50, "Zoya", "09:42 AM", "Support", "Rewa"]
+];
+
+
+    let html=`<table>
   <thead>
     <tr>
-      <th onclick="sortTable(0)">Name</th>
-      <th onclick="sortTable(1)">ID</th>
-      <th onclick="sortTable(2)">Depot</th>
-      <th onclick="sortTable(3)">In Time</th>
-      <th onclick="sortTable(4)">Out Time</th>
-      <th onclick="sortTable(5)">Date</th>
-      <th onclick="sortTable(6)">Hours worked</th>
+      <th>Column 1</th>
+      <th>Column 2</th>
+      <th>Column 3</th>
+      <th>Column 4</th>
+      <th>Column 5</th>
     </tr>
   </thead><tbody>`;
-    if (!tableData || tableData.length == 0) {
-        document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
-        return;
+    if(data.length==0)
+    {
+            document.querySelector(".bottom").innerHTML="NO CONTENT TO DISPLAY!!";
+            return;
     }
-    tableData.forEach(element=> {
-        let intime=new Date(element.date+'T'+element.intime+'Z');
-        let out_time=new Date(element.date+'T'+element.out_time+'Z');
-        let temphours=new Date(out_time-intime);
-        let hours=temphours.getHours()-5;
-        let min=temphours.getMinutes()%30;
-        html += `
-        <tr>
-         <td>${element.name}</td>
-        <td>${element.id}</td>
-        <td>${element.depot}</td>
-        <td>${element.intime}</td>
-        <td>${element.out_time}</td>
-        <td>${element.date}</td>
-        <td>${hours}:${min.toString().padStart(2,'0')}</td>
-        </tr>`;
-        });
-    html += `</tbody></table>`;
-    document.querySelector(".bottom").innerHTML = html;
-}
-
-   
+    for(let i=0;i<data.length;i++)
+    {
+        html+=`<tr>
+      <td>${data[i][0]}</td>
+      <td>${data[i][1]}</td>
+      <td>${data[i][2]}</td>
+      <td>${data[i][3]}</td>
+      <td>${data[i][4]}</td>
     
-
-function sortTable(n) {
-    let table, direction = 'asc', rows, switching = true, i, x, y, shouldSwitch, switchcount = 0;
-    table = document.getElementById("tableJS");
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 1; i < rows.length - 1; i++) {
-            shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
-            if (direction === "asc") {
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-            else if (direction === "desc") {
-                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-        }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            switchcount++;
-        }
-        else {
-            if (switchcount === 0 && direction === "asc") {
-                direction = "desc";
-                switching = true;
-            }
-        }
+     </tr>`;
     }
-}
 
-// Make sortTable globally accessible
-window.sortTable = sortTable;
+    html+=`</tbody></table>`;
+    document.querySelector(".bottom").innerHTML=html;
+
+    }
+
+    document.getElementById("search").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+         setTimeout(disp,1000);
+    }
+     }
+    )

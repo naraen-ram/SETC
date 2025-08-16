@@ -12,6 +12,16 @@ async function getdata() {
     datefilter(data);
     
 }
+function gethours(element)
+{
+let intime=new Date(element.date+'T'+element.intime+'Z');
+        let out_time=new Date(element.date+'T'+element.out_time+'Z');
+        let temphours=new Date(out_time-intime);
+        let hours=temphours.getHours()-5;
+        let min=temphours.getMinutes()%30;
+        hours=hours+':'+min.toString().padStart(2,'0');
+        return hours;
+}
 let searchBar=document.getElementById("search");
 let searchButton = document.querySelector(".searchButton");
 /*butt.addEventListener("click", () => {
@@ -111,11 +121,7 @@ function createTable(tableData) {
         return;
     }
     tableData.forEach(element=> {
-        let intime=new Date(element.date+'T'+element.intime+'Z');
-        let out_time=new Date(element.date+'T'+element.out_time+'Z');
-        let temphours=new Date(out_time-intime);
-        let hours=temphours.getHours()-5;
-        let min=temphours.getMinutes()%30;
+        hours=gethours(element);
         html += `
         <tr>
          <td>${element.name}</td>
@@ -124,7 +130,7 @@ function createTable(tableData) {
         <td>${element.intime}</td>
         <td>${element.out_time}</td>
         <td>${element.date}</td>
-        <td>${hours}:${min.toString().padStart(2,'0')}</td>
+        <td>${hours}</td>
         </tr>`;
         });
     html += `</tbody></table>`;
@@ -212,9 +218,10 @@ function quicksortDepot(data)
 {   if(data.length<2)
     return data;
     let left=[],right=[],pivot=data[data.length-1];
+    let pivotHours=gethours(pivot);
     for(i=0;i<data.length-1;i++)
-    {
-        if(data[i].hours>pivot.hours)
+    {   let hours=gethours(data[i]);
+        if(hours>pivotHours)
             right.push(data[i]);
         else
             left.push(data[i]);
