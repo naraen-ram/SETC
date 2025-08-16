@@ -82,16 +82,34 @@ def generate_bus_schedule(num_entries=50):
         
         #onlydate=generate_random_date().strftime("%Y-%m-%d")
         for j in range(0,31):
-            onlydate=datetime(2025,8,1+j).strftime("%Y/%m/%d")
-            arrival_time = generate_random_time("8:45:00","9:30:00")
-            out_time=generate_random_time("16:30:00","17:30:00")
+            hours=None
+            mins=None
+            hours_string=None
+            onlydate=datetime(2025,8,1+j).strftime("%Y-%m-%d")
+            randomizer=random.randint(0,10)
+            if(randomizer>2):
+                arrival_time = generate_random_time("8:45:00","9:30:00")
+                out_time=generate_random_time("16:30:00","17:30:00")
+                start_time = datetime.strptime(arrival_time, "%H:%M:%S")
+                end_time = datetime.strptime(out_time, "%H:%M:%S")
+                hours=int((end_time-start_time).total_seconds()/3600)
+                mins=int((end_time-start_time).total_seconds()%60)
+                temp_hours_string=str(hours)+":"+str(mins)
+                if(len(temp_hours_string)<4):
+                    hours_string=temp_hours_string[0:2]+'0'+temp_hours_string[2:]
+                else:
+                    hours_string=temp_hours_string
+            else:
+                arrival_time=None
+                out_time=None
             schedule.append({
             "name": bus_name,
             "id": bus_id,
             "depot": bus_depot,
             "intime": arrival_time,
             "out_time": out_time,
-            "date": onlydate
+            "date": onlydate,
+            "hours":hours_string
              })
         
     return schedule
@@ -100,5 +118,5 @@ def generate_bus_schedule(num_entries=50):
 
 bus_schedule_data=generate_bus_schedule(10)
 json_output = json.dumps(bus_schedule_data, indent=4)
-with open('dummy.json', 'w') as f:
+with open('table-test/dummy.json', 'w') as f:
     f.write(json_output)

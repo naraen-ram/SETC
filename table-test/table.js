@@ -9,18 +9,8 @@ async function getdata() {
     allData = await jsonFile.json();
     data = allData;
     resetSortArray();
-    datefilter(data);
-    
-}
-function gethours(element)
-{
-let intime=new Date(element.date+'T'+element.intime+'Z');
-        let out_time=new Date(element.date+'T'+element.out_time+'Z');
-        let temphours=new Date(out_time-intime);
-        let hours=temphours.getHours()-5;
-        let min=temphours.getMinutes()%30;
-        hours=hours+':'+min.toString().padStart(2,'0');
-        return hours;
+   datefilter(data);
+    //createTable(data)
 }
 let searchBar=document.getElementById("search");
 let searchButton = document.querySelector(".searchButton");
@@ -54,9 +44,10 @@ function datefilter(allData)
         data=allData;
     else
     {
-    let results=allData.filter(element=>element.date>=startDate && element.date<=endDate)
+    let results=allData.filter(element=>element.date>=startDate && element.date<=endDate);
     data=results;
     }
+
     createTable(data);
 }
 let startDate=document.getElementById("startDate");
@@ -121,7 +112,7 @@ function createTable(tableData) {
         return;
     }
     tableData.forEach(element=> {
-        hours=gethours(element);
+        if(element.hours)
         html += `
         <tr>
          <td>${element.name}</td>
@@ -130,7 +121,7 @@ function createTable(tableData) {
         <td>${element.intime}</td>
         <td>${element.out_time}</td>
         <td>${element.date}</td>
-        <td>${hours}</td>
+        <td>${element.hours}</td>
         </tr>`;
         });
     html += `</tbody></table>`;
@@ -218,10 +209,9 @@ function quicksortDepot(data)
 {   if(data.length<2)
     return data;
     let left=[],right=[],pivot=data[data.length-1];
-    let pivotHours=gethours(pivot);
     for(i=0;i<data.length-1;i++)
-    {   let hours=gethours(data[i]);
-        if(hours>pivotHours)
+    {  
+        if(data[i].hours>pivot.hours)
             right.push(data[i]);
         else
             left.push(data[i]);
@@ -377,7 +367,6 @@ function sortTable(n) {
             {
             direction[6]='desc';
             data=data.reverse();
-            data=quicksortHours(data);
             createTable(data);
             break;
             }
