@@ -112,3 +112,9 @@ body
 {
   font-size: 60px;
 }
+
+.more-details
+{
+    background-color: red;
+    border: none;
+}
