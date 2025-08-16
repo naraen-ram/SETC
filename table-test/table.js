@@ -112,7 +112,7 @@ function createTable(tableData) {
         return;
     }
     tableData.forEach(element=> {
-        if(element.hours)
+        if(element.present)
         html += `
         <tr>
          <td>${element.name}</td>
