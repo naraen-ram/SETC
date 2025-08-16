@@ -70,7 +70,7 @@ loginButton.addEventListener("click", async function () {
                 localStorage.setItem("remember", false);
             }
 
-            window.location.href = 'https://www.tnstc.in/OTRSOnline/';
+            window.location.href = '../dash_board/dash.html';
             return
 
         }
