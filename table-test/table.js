@@ -63,6 +63,7 @@ searchBar.addEventListener('keyup',(val)=>{
 searchButton.addEventListener("click", () => {
    searcher();
    searcherId();
+   searcherDepot();
 }
 );
 searchIdButton.addEventListener('keyup',(val)=>{
@@ -71,6 +72,33 @@ searchIdButton.addEventListener('keyup',(val)=>{
 })
 
 getdata();
+function searcherDepot() {
+    resetSortArray();
+    let query = document.getElementById("searchDepot").value.trim().toLowerCase();
+    if (!query) {
+        return;
+        //data = allData;  
+    } else {
+        // 1. "Starts with" search
+        // let startsWithResults = allData.filter(element =>
+        //     element.depot.toLowerCase().startsWith(query)
+        // );
+        let startsWithResults = data.filter(element =>
+            element.depot.toLowerCase().startsWith(query)
+        );
+        if (startsWithResults.length > 0) {
+            data = startsWithResults;
+        } 
+        else {
+            // 2. Substring search, but exclude "starts with" matches
+            data = allData.filter(element =>
+                element.depot.toLowerCase().includes(query) &&
+                !element.depot.toLowerCase().startsWith(query)
+            );
+        }
+    }
+    datefilter(data);
+}
 function datefilter(allData) {
     resetSortArray();
     let results = [];
