@@ -136,11 +136,12 @@ function searcher()
 function createTable(tableData,page)
 {
     if(showabsent===true)
-         {createTableWithAbsent(tableData,page);
+         {renderTable(tableData,page);
 
          }
     else
-        {createTableWithoutAbsent(filterpresent(tableData),page);
+        {
+        renderTable(filterpresent(tableData),page);
 
         }
 }
@@ -149,48 +150,8 @@ function filterpresent(data)
     filteredData=data.filter(element=>element.present);
     return filteredData;
 }
-function createTableWithoutAbsent(tableData,page) {
-    let html = `<table id="tableJS">
-  <thead>
-    <tr>
-      <th>No</th>
-      <th onclick="sortTable(0)">Name</th>
-      <th onclick="sortTable(1)">ID</th>
-      <th onclick="sortTable(2)">Depot</th>
-      <th onclick="sortTable(3)">In Time</th>
-      <th onclick="sortTable(4)">Out Time</th>
-      <th onclick="sortTable(5)">Date</th>
-      <th onclick="sortTable(6)">Hours worked</th>
-    </tr>
-  </thead><tbody>`;
-    if (!tableData || tableData.length == 0) {
-        document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
-        return;
-    }
-    const startIndex=(page-1)*rowsPerPage;
-    const endIndex=startIndex+rowsPerPage;
-    const pageData=tableData.slice(startIndex,endIndex);
-currentTable=(page-1)*rowsPerPage;
-    pageData.forEach(element=> {
-    
-        html += `
-        <tr>
-        <td>${++currentTable}</td>
-         <td>${element.name}</td>
-        <td>${element.id}</td>
-        <td>${element.depot}</td>
-        <td>${element.intime}</td>
-        <td>${element.out_time}</td>
-        <td>${element.date}</td>
-        <td>${element.hours}</td>
-        </tr>`;
-    
-        });
-    html += `</tbody></table>`;
-    document.querySelector(".bottom").innerHTML = html;
-    pageControl();
-}
-function createTableWithAbsent(tableData,page){
+
+function renderTable(tableData,page){
     let html = `<table id="tableJS">
   <thead>
     <tr>
@@ -211,7 +172,7 @@ function createTableWithAbsent(tableData,page){
     currentTable=(page-1)*rowsPerPage;
     const startIndex=(page-1)*rowsPerPage;
     const endIndex=startIndex+rowsPerPage;
-    const pageData=data.slice(startIndex,endIndex);
+    const pageData=tableData.slice(startIndex,endIndex);
     pageData.forEach(element=> {
     
         html += `
