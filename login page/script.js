@@ -70,7 +70,7 @@ loginButton.addEventListener("click", async function () {
                 localStorage.setItem("remember", false);
             }
 
-            window.location.href = '../dash_board/dash.html';
+            window.location.href = '../dashboard/dashboard.html';
             return
 
         }
