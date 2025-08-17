@@ -53,13 +53,14 @@ currentPage=1;
 });
 function pageControl() {
     let totalPages;
+
     if (showabsent)
-        totalPages = Math.ceil(data.length / rowsPerPage);
+        totalPages = Math.ceil(filterDepot(data).length / rowsPerPage);
     else
-        totalPages = Math.ceil(filterpresent(data).length / rowsPerPage);
+        totalPages = Math.ceil(filterDepot(filterpresent(data)).length / rowsPerPage);
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages;
+    prevBtn.disabled = currentPage === 1 || totalPages===0;
+    nextBtn.disabled = currentPage === totalPages || totalPages===0;
 }
 
 searchBar.addEventListener('keyup',(val)=>{
@@ -236,11 +237,12 @@ function renderTable(tableData, page) {
       <th onclick="sortTable(6)">Hours worked</th>
     </tr>
   </thead><tbody>`;
+  tableData=filterDepot(tableData);
     if (!tableData || tableData.length == 0) {
         document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
         return;
     }
-    tableData=filterDepot(tableData);
+    
     currentTable = (page - 1) * rowsPerPage;
     const startIndex = (page - 1) * rowsPerPage;
     const endIndex = startIndex + rowsPerPage;
