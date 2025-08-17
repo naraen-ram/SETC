@@ -48,12 +48,30 @@
 
                     <!-- Search by Depot form (hidden by default) -->
                     <div class="search-form depot-wise" style="display: none;">
-                        <select id="depotSelect" class="dropdown-select">
-                            <option value="">Select Depot</option>
-                            <option value="depotA">Depot A</option>
-                            <option value="depotB">Depot B</option>
-                            <option value="depotC">Depot C</option>
-                        </select>
+                        <input id="search" type="text" placeholder="Search by name">
+                <input id="searchId" type="text" placeholder="Search by id">
+                        <select id="searchDepot" class="dropdown-select">
+                           <option value="All depots">All depots</option>
+        <option value="Ambattur Depot">Ambattur Depot</option>
+        <option value="Coimbatore Gandhipuram Depot">Coimbatore Gandhipuram Depot</option>
+        <option value="Dindigul Depot">Dindigul Depot</option>
+        <option value="Erode Depot">Erode Depot</option>
+        <option value="Hosur Depot">Hosur Depot</option>
+        <option value="Koyambedu Depot">Koyambedu Depot</option>
+        <option value="Madurai Arappalayam Depot">Madurai Arappalayam Depot</option>
+        <option value="Mofussil Depot">Mofussil Depot</option>
+        <option value="Nagercoil Vadasery Depot">Nagercoil Vadasery Depot</option>
+        <option value="Pudukkottai Depot">Pudukkottai Depot</option>
+        <option value="Salem New Bus Stand Depot">Salem New Bus Stand Depot</option>
+        <option value="Tambaram Depot">Tambaram Depot</option>
+        <option value="Thanjavur New Bus Stand Depot">Thanjavur New Bus Stand Depot</option>
+        <option value="Tiruchirappalli Chathiram Depot">Tiruchirappalli Chathiram Depot</option>
+        <option value="Tiruppur Depot">Tiruppur Depot</option>
+        <option value="Vandalur Depot">Vandalur Depot</option>
+        <option value="Vellore New Bus Stand Depot">Vellore New Bus Stand Depot</option>
+        <option value="Virudhunagar Depot">Virudhunagar</option>
+        </select>
+            
                         <select id="categorySelect" class="dropdown-select">
                             <option value="all" selected>Select Category (All)</option>
                             <option value="dnc">DnC</option>
@@ -63,10 +81,14 @@
                         </select>
                         <div class="date-range-container">
                             <label for="fromDateDepot" class="date-label">From</label>
-                            <input type="date" id="fromDateDepot" class="date-input">
+                            <input type="date" id="startDate" class="date-input"
+                            min="2025-08-01" max="2025-08-31" name="start date" value="2025-08-01">
                             <label for="toDateDepot" class="date-label">To</label>
-                            <input type="date" id="toDateDepot" class="date-input">
+                            <input type="date"  class="date-input"
+                            id="endDate" value="2025-08-31" min="2025-08-01"max="2025-08-31">
                         </div>
+                         <input type="checkbox" id="toggle">
+  <span class="slider round"></span>
                     </div>
 
                     <button class="searchButton">
@@ -82,36 +104,16 @@
                     <div class="table-container bottom">
                         <!-- js table -->
                     </div>
+                    <div id="paginationControls">
+        <button id="prevBtn" disabled>Previous</button>
+        <span id="pageInfo">Page 1 of ?</span>
+        <button id="nextBtn">Next</button>
+    </div>
                 </section>
             </div>
         </main>
     </div>
     
     <script src="table.js"></script>
-    <!-- New script for handling UI toggles -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchByIdRadio = document.getElementById('searchById');
-            const searchByDepotRadio = document.getElementById('searchByDepot');
-            const idWiseForm = document.querySelector('.search-form.id-wise');
-            const depotWiseForm = document.querySelector('.search-form.depot-wise');
-
-            function toggleSearchForm() {
-                if (searchByIdRadio.checked) {
-                    idWiseForm.style.display = 'flex';
-                    depotWiseForm.style.display = 'none';
-                } else {
-                    idWiseForm.style.display = 'none';
-                    depotWiseForm.style.display = 'flex';
-                }
-            }
-
-            searchByIdRadio.addEventListener('change', toggleSearchForm);
-            searchByDepotRadio.addEventListener('change', toggleSearchForm);
-            
-            // Initial call to set the correct form on page load
-            toggleSearchForm();
-        });
-    </script>
 </body>
 </html>
