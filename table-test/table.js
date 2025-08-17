@@ -34,7 +34,6 @@ prevBtn.addEventListener('click', () => {
 const pageInfo = document.getElementById('pageInfo');
 let searchBar = document.getElementById("search");
 let searchButton = document.querySelector(".searchButton");
-<<<<<<< HEAD
 let searchIdButton=document.getElementById("searchId");
 let toggle=document.getElementById("toggle");
 toggle.addEventListener('click',()=>
@@ -45,22 +44,7 @@ else
     showabsent=false;
 datefilter(data);
 currentPage=1;
-})
-function pageControl()
-{   let totalPages;
-    if(showabsent)
-    totalPages=Math.ceil(data.length/rowsPerPage);
-=======
-let toggle = document.getElementById("toggle");
-toggle.addEventListener('click', () => {
-    if (toggle.checked === true)
-        showabsent = true;
->>>>>>> d61e5e88c5bc5cdb77e735cbd9ea1da3e4856a1d
-    else
-        showabsent = false;
-    datefilter(data);
-    currentPage = 1;
-})
+});
 function pageControl() {
     let totalPages;
     if (showabsent)
@@ -73,14 +57,18 @@ function pageControl() {
 }
 
 searchBar.addEventListener('keyup',(val)=>{
-    searcherId();
     searcher();
+    searchIdButton.value='';
 });
 searchButton.addEventListener("click", () => {
    searcher();
    searcherId();
 }
 );
+searchIdButton.addEventListener('keyup',(val)=>{
+    searcherId();
+    searchBar.value='';
+})
 
 getdata();
 function datefilter(allData) {
@@ -106,7 +94,7 @@ endDate.addEventListener('change', () => {
     searcher();
     datefilter(data);
 })
-<<<<<<< HEAD
+
    
 function searcherId()
 {  resetSortArray();
@@ -141,17 +129,11 @@ function searcherId()
     }
     datefilter(data);
 }
-function searcher()
-{  resetSortArray();
-     let query =
-    document.getElementById("search").value.trim().toLowerCase();
-=======
 
 function searcher() {
     resetSortArray();
     let query =
         document.getElementById("search").value.trim().toLowerCase();
->>>>>>> d61e5e88c5bc5cdb77e735cbd9ea1da3e4856a1d
     if (!query) {
         data = allData;
     } else {
@@ -181,17 +163,11 @@ function searcher() {
     }
     datefilter(data);
 }
-<<<<<<< HEAD
-function createTable(tableData,page)
-{
-    if(showabsent===true)
-         {renderTable(tableData,page);
-=======
+
 
 function createTable(tableData, page) {
     if (showabsent === true) {
         renderTable(tableData, page);
->>>>>>> d61e5e88c5bc5cdb77e735cbd9ea1da3e4856a1d
 
     }
     else {
