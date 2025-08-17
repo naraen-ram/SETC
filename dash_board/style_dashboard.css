@@ -1,5 +1,133 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button
+{
+    border: none;
+}
+body
+{
+     padding-top:100px;
+}
+
+.top
+{
+    display: flex;
+    position: fixed;
+    overflow: hidden;
+    background-color: beige;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    top:0;
+}
+.top-text
+{
+    color: rgb(127, 127, 198);
+    font-size: 50px;
+}
+.menu-button img
+{   
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left:0;
+    margin-top: -16px;
+    transition: left 1s ease;
+    background-color: transparent;
+    
+}
+.menu-button-open img
+{  
+    
+    position: absolute;
+    left:250px;
+    margin-top: -16px;
+    transition: left 1s;
+   
+
+}
+.menu
+{   
+    display: block;
+    overflow: none;
+    position: fixed;
+    left:-250px;
+    width:250px;
+    height:calc(100vh - 100px);
+    margin-top: -20px;
+    background-color: bisque;
+    transition: 1s left;
+    z-index: 999;
+}
+
+.menu-open
+{
+   left:0;
+   position: fixed;
+   transition: 1s left;
+}
+
+.flex1
+{   
+    top:100px;
+    display: flex;
+
+    flex-direction: row;
+    gap:30px;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    margin-right: 60px;
+    min-height: 200px;
+}
+.flex2
+{   
+
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    margin-left: 60px;
+    background-color: red;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+}
+
+.label
+{
+    position:relative;
+    padding-top: 5px;
+    top:10px;
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.number
+{
+  font-size: 60px;
+}
+
+.search
+{
+    background-color:bisque;
+    border: none;
+}
+
+li
+{
+  padding-left: 15px;
+  padding-top: 30px;
+  font-size: 20px;
+  font-weight: 200;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 html, body {
     height: 100%;
     margin: 0;

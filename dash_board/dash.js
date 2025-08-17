@@ -19,7 +19,7 @@ async function getdata()
 {   
     
     
-    let jsonFile = await fetch("../../table-test/dummy.json");
+    let jsonFile = await fetch("dummy.json");
     if (!jsonFile.ok) 
     {
         throw new Error("can't pull data");
@@ -44,7 +44,7 @@ async function getdata()
 absentCount=allData.length-inCount;
 
     document.querySelector("#in").innerHTML=inCount.toString();
-    document.querySelector("#out").innerHTML=outCount.toString();
+   document.querySelector("#out").innerHTML=outCount.toString();
     document.querySelector("#late").innerHTML=lateCount.toString();
     document.querySelector("#absent").innerHTML=absentCount.toString();
     document.querySelector("#active").innerHTML=activeCount.toString();

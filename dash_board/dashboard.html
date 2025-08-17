@@ -11,8 +11,20 @@
 <body>
     <div class="dashboard-container">
         <main class="main-content">
+            <button class="menu-button" onclick="openmenu()"><img src="menu.jpeg"></button>
+                <div class="menu"><ul>
+                <button class="search" onclick="location.href='../table-test/table.html'"><li>Search</li></button>
+                <li>Menu 2</li>
+                <li>Menu 3</li>
+                <li>Menu 4</li>
+                <li>Menu 5</li>
+                <li>Menu 6</li>
+                <li>Menu 7</li>
+                
+                 </ul>
+                 </div>
             <header class="main-header">
-                <div class="logo-container">
+                 <div class="logo-container">
                     <img src="setc_name.png" alt="SETC-LOGO" class="gallery-img">
                 </div>
                 
@@ -26,19 +38,19 @@
                     <h2 class="section-title">TODAY'S OVERALL ATTENDANCE</h2>
                     <div class="attendance-stats">
                         <div class="stat-box present">
-                            <span class="stat-number">1575</span>
-                            <span class="stat-label">PRESENT</span>
+                            <span class="stat-number" id="in">0</span>
+                            <span class="stat-label" >PRESENT</span>
                         </div>
                         <div class="stat-box absent">
-                            <span class="stat-number">142</span>
+                            <span class="stat-number" id="absent">0</span>
                             <span class="stat-label">ABSENT</span>
                         </div>
                         <div class="stat-box on-leave">
-                            <span class="stat-number">12</span>
-                            <span class="stat-label">ON LEAVE</span>
+                            <span class="stat-number"id="late">0</span>
+                            <span class="stat-label">LATE</span>
                         </div>
                         <div class="button-container">
-                            <a href="..\emp_wise\employee_data.html" class="employee-details-btn">CLICK HERE FOR<br>EMPLOYEE DETAILS</a>
+                            <a href="..\emp_data\employee_data.html" class="employee-details-btn">CLICK HERE FOR<br>EMPLOYEE DETAILS</a>
                         </div>
                     </div>
                 </section>
@@ -109,4 +121,5 @@
         </main>
     </div>
 </body>
+<script src="dash.js"></script>
 </html>
