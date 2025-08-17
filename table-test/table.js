@@ -306,150 +306,29 @@ function quicksortDepot(data) {
 }
 let direction = ['', '', '', '', '', '', ''];
 function sortTable(n) {
+    const sortFunctions = [
+        quicksortName,
+        quicksortId,
+        quicksortDepot,
+        quicksortInTime,
+        quicksortout_time,
+        quicksortdate,
+        quicksortHours
+    ];
 
-    switch (n) {
-        case 0:
-            if (!direction[0]) {
-                data = quicksortName(data);
-                datefilter(data);
-                resetSortArray();
-                direction[0] = 'asc';
-                break;
-            }
-            if (direction[0] === 'asc') {
-                direction[0] = 'desc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-            if (direction[0] === 'desc') {
-                direction[0] = 'asc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-        case 1:
-            if (!direction[1]) {
-                data = quicksortId(data);
-                resetSortArray();
-                createTable(data, currentPage);
-                direction[1] = 'asc';
-                break;
-            }
-            if (direction[1] === 'asc') {
-                direction[1] = 'desc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-            if (direction[1] === 'desc') {
-                direction[1] = 'asc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-        case 2:
-            if (!direction[2]) {
-                data = quicksortDepot(data);
-                createTable(data, currentPage);
-                resetSortArray();
-                direction[2] = 'asc';
-                break;
-            }
-            if (direction[2] === 'asc') {
-                direction[2] = 'desc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-            if (direction[2] === 'desc') {
-                direction[2] = 'asc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-        case 3:
-            if (!direction[3]) {
-                data = quicksortInTime(data);
-                createTable(data, currentPage);
-                resetSortArray();
-                direction[3] = 'asc';
-                break;
-            }
-            if (direction[3] === 'asc') {
-                direction[3] = 'desc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-            if (direction[3] === 'desc') {
-                direction[3] = 'asc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-        case 4:
-            if (!direction[4]) {
-                data = quicksortout_time(data);
-                createTable(data, currentPage);
-                resetSortArray();
-                direction[4] = 'asc';
-                break;
-            }
-            if (direction[4] === 'asc') {
-                direction[4] = 'desc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-            if (direction[4] === 'desc') {
-                direction[4] = 'asc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-        case 5:
-            if (!direction[5]) {
-                data = quicksortdate(data);
-                createTable(data, currentPage);
-                resetSortArray();
-                direction[5] = 'asc';
-                break;
-            }
-            if (direction[5] === 'asc') {
-                direction[5] = 'desc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-            if (direction[5] === 'desc') {
-                direction[5] = 'asc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-        case 6:
-            if (!direction[6]) {
-                data = quicksortHours(data);
-                createTable(data, currentPage);
-                resetSortArray();
-                direction[6] = 'asc';
-                break;
-            }
-            if (direction[6] === 'asc') {
-                direction[6] = 'desc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-            if (direction[6] === 'desc') {
-                direction[6] = 'asc';
-                data = data.reverse();
-                createTable(data, currentPage);
-                break;
-            }
-
-
+    if (!direction[n]) {
+        data = sortFunctions[n](data);
+        createTable(data, currentPage);
+        resetSortArray();
+        direction[n] = 'asc';
+    } else if (direction[n] === 'asc') {
+        direction[n] = 'desc';
+        data = data.reverse();
+        createTable(data, currentPage);
+    } else if (direction[n] === 'desc') {
+        direction[n] = 'asc';
+        data = data.reverse();
+        createTable(data, currentPage);
     }
 }
 
