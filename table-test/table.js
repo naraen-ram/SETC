@@ -240,7 +240,7 @@ function quicksortDepot(data)
     let left=[],right=[],pivot=data[data.length-1];
     for(i=0;i<data.length-1;i++)
     {
-        if(data[i].intime.toLowerCase()>pivot.intime.toLowerCase())
+        if(data[i].intime>pivot.intime)
             right.push(data[i]);
         else
             left.push(data[i]);
@@ -252,7 +252,7 @@ function quicksortDepot(data)
     let left=[],right=[],pivot=data[data.length-1];
     for(i=0;i<data.length-1;i++)
     {
-        if(data[i].out_time.toLowerCase()>pivot.out_time.toLowerCase())
+        if(data[i].out_time>pivot.out_time)
             right.push(data[i]);
         else
             left.push(data[i]);
