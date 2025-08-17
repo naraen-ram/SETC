@@ -1,5 +1,6 @@
 let data = [];
 let allData = [];
+let direction = ['', '', '', '', '', '', ''];
 showabsent = false;
 currentTable = 0;
 async function getdata() {
@@ -36,6 +37,11 @@ let searchBar = document.getElementById("search");
 let searchButton = document.querySelector(".searchButton");
 let searchIdButton=document.getElementById("searchId");
 let toggle=document.getElementById("toggle");
+let searchDepot = document.getElementById("searchDepot");
+searchDepot.addEventListener('change',()=>
+{
+    datefilter(data);
+});
 toggle.addEventListener('click',()=>
 {
 if(toggle.checked===true)
@@ -63,7 +69,6 @@ searchBar.addEventListener('keyup',(val)=>{
 searchButton.addEventListener("click", () => {
    searcher();
    searcherId();
-   searcherDepot();
 }
 );
 searchIdButton.addEventListener('keyup',(val)=>{
@@ -72,9 +77,9 @@ searchIdButton.addEventListener('keyup',(val)=>{
 })
 
 getdata();
-function searcherDepot() {
+/*function searcherDepot() {
     resetSortArray();
-    let query = document.getElementById("searchDepot").value.trim().toLowerCase();
+    let query = searchDepot.value.trim().toLowerCase();
     if (!query) {
         return;
         //data = allData;  
@@ -98,7 +103,7 @@ function searcherDepot() {
         }
     }
     datefilter(data);
-}
+}*/
 function datefilter(allData) {
     resetSortArray();
     let results = [];
@@ -207,6 +212,15 @@ function filterpresent(data) {
     filteredData = data.filter(element => element.present);
     return filteredData;
 }
+function filterDepot(data)
+{   let currentDepot=searchDepot.value;
+    let result;
+    if(currentDepot!=='All depots')
+    result=data.filter(element=>element.depot===currentDepot);
+    else
+        result=data;
+    return result;
+}
 
 function renderTable(tableData, page) {
     let html = `<table id="tableJS">
@@ -226,6 +240,7 @@ function renderTable(tableData, page) {
         document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
         return;
     }
+    tableData=filterDepot(tableData);
     currentTable = (page - 1) * rowsPerPage;
     const startIndex = (page - 1) * rowsPerPage;
     const endIndex = startIndex + rowsPerPage;
@@ -332,7 +347,7 @@ function quicksortDepot(data) {
     }
     return [...quicksortHours(left), pivot, ...quicksortHours(right)];
 }
-let direction = ['', '', '', '', '', '', ''];
+
 function sortTable(n) {
     const sortFunctions = [
         quicksortName,

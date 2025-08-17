@@ -13,10 +13,27 @@
     <div class="top"> 
         <input id="search" type="text" placeholder="Search by name">
         <input id="searchId" type="text" placeholder="Search by id">
-        <input id="searchDepot" list="depot" placeholder="Search by depot">
-        <datalist id="depot">
-            <option value="Ambattur Depot"><option value="Coimbatore Gandhipuram Depot"><option value="Dindigul Depot"><option value="Erode Depot"><option value="Hosur Depot"><option value="Koyambedu Depot"><option value="Madurai Arappalayam Depot"><option value="Mofussil Depot"><option value="Nagercoil Vadasery Depot"><option value="Pudukkottai Depot"><option value="Salem New Bus Stand Depot"><option value="Tambaram Depot"><option value="Thanjavur New Bus Stand Depot"><option value="Tiruchirappalli Chathiram Depot"><option value="Tiruppur Depot"><option value="Vandalur Depot"><option value="Vellore New Bus Stand Depot"><option value="Virudhunagar Depot">
-        </datalist>
+        <select id="searchDepot">
+        <option value="All depots">All depots</option>
+        <option value="Ambattur Depot">Ambattur Depot</option>
+        <option value="Coimbatore Gandhipuram Depot">Coimbatore Gandhipuram Depot</option>
+        <option value="Dindigul Depot">Dindigul Depot</option>
+        <option value="Erode Depot">Erode Depot</option>
+        <option value="Hosur Depot">Hosur Depot</option>
+        <option value="Koyambedu Depot">Koyambedu Depot</option>
+        <option value="Madurai Arappalayam Depot">Madurai Arappalayam Depot</option>
+        <option value="Mofussil Depot">Mofussil Depot</option>
+        <option value="Nagercoil Vadasery Depot">Nagercoil Vadasery Depot</option>
+        <option value="Pudukkottai Depot">Pudukkottai Depot</option>
+        <option value="Salem New Bus Stand Depot">Salem New Bus Stand Depot</option>
+        <option value="Tambaram Depot">Tambaram Depot</option>
+        <option value="Thanjavur New Bus Stand Depot">Thanjavur New Bus Stand Depot</option>
+        <option value="Tiruchirappalli Chathiram Depot">Tiruchirappalli Chathiram Depot</option>
+        <option value="Tiruppur Depot">Tiruppur Depot</option>
+        <option value="Vandalur Depot">Vandalur Depot</option>
+        <option value="Vellore New Bus Stand Depot">Vellore New Bus Stand Depot</option>
+        <option value="Virudhunagar Depot">Virudhunagar</option>
+        </select>
         <button  class="searchButton"><img src="search-icon.png" class="searchIcon"></button>
         <input type="date" min="2025-08-01" max="2025-08-31"id="startDate" name="start date" value="2025-08-01">
         <input type="date" id="endDate" value="2025-08-01" min="2025-08-01"max="2025-08-31">
