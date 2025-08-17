@@ -19,7 +19,7 @@ var invalidEmailOrPass = document.getElementById("invalidEmailOrPass");
 
 let ids = [], passwords = [];
 async function getIdsAndPasswords() {
-    let jsonFIle = fetch("userPasswords.json")
+    let jsonFIle = fetch("../database/userPasswords.json")
     let response = await jsonFIle
     if (!response.ok) {
         throw new Error("Network response was not ok")
