@@ -19,7 +19,7 @@ async function getdata()
 {   
     
     
-    let jsonFile = await fetch("dummy.json");
+    let jsonFile = await fetch("../../table-test/dummy.json");
     if (!jsonFile.ok) 
     {
         throw new Error("can't pull data");
