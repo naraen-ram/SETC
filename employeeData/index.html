@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data</title>
+</head>
+
+<body>
+    <h1 id="empDataHeader">Details of the Employee</h1>
+    <div id="baseDetails">
+        <p id="empHeadName">Employer Name :</p>
+        <p id="empHeadId">Employee ID : </p>
+        <p id="empHeadDesignation">Designation : </p>
+        <p id="empHeadDepot">Depot : </p>
+    </div>
+    <table id="empTable">
+        <thead>
+            <tr>
+                <th>S No</th>
+                <th>Date</th>
+                <th>In Time</th>
+                <th>Out Time</th>
+                <th>Attendance</th>
+                <th>Arrival</th>
+            </tr>
+        </thead>
+        <tbody id="empData">
+
+        </tbody>
+
+    </table>
+    <div id="paginationControls" style="display: flex; justify-content: center; margin-top: 20px;">
+        <button id="prevBtn" disabled>Previous</button>
+        <span id="pageInfo">Page 1</span>
+        <button id="nextBtn">Next</button>
+    </div>
+</body>
+<script src="script.js">
+</script>
+</body>
+
+</html>

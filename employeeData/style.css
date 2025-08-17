@@ -1,0 +1,30 @@
+/* *{
+  
+} */
+#empDataHeader {
+  height: 60px;
+  text-align: center;
+}
+
+#baseDetails {
+  margin-left: 20px;
+  width: 100%;
+  
+}
+
+#empTable{
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+#empTable th, #empTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+}
+
+#empTable th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
