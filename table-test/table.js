@@ -252,7 +252,7 @@ function renderTable(tableData, page) {
         html += `
         <tr>
         <td>${++currentTable}</td>
-         <td>${element.name}</td>
+        <td><a href="../../employeeData/index.html?id=${element.id}">${element.name}</a></td>
         <td>${element.id}</td>
         <td>${element.depot}</td>
         <td>${element.intime}</td>
