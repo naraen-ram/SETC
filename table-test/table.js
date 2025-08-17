@@ -1,7 +1,7 @@
 let data = [];
 let allData = [];
-showabsent=false;
-currentTable=0;
+showabsent = false;
+currentTable = 0;
 async function getdata() {
     let jsonFile = await fetch("dummy.json");
     if (!jsonFile.ok) {
@@ -10,11 +10,11 @@ async function getdata() {
     allData = await jsonFile.json();
     data = allData;
     resetSortArray();
-   datefilter(data);
+    datefilter(data);
     //createTable(data,currentPage)
 }
-const rowsPerPage=50;
-let currentPage=1;
+const rowsPerPage = 50;
+let currentPage = 1;
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 nextBtn.addEventListener('click', () => {
@@ -32,8 +32,9 @@ prevBtn.addEventListener('click', () => {
     }
 });
 const pageInfo = document.getElementById('pageInfo');
-let searchBar=document.getElementById("search");
+let searchBar = document.getElementById("search");
 let searchButton = document.querySelector(".searchButton");
+<<<<<<< HEAD
 let searchIdButton=document.getElementById("searchId");
 let toggle=document.getElementById("toggle");
 toggle.addEventListener('click',()=>
@@ -49,27 +50,28 @@ function pageControl()
 {   let totalPages;
     if(showabsent)
     totalPages=Math.ceil(data.length/rowsPerPage);
+=======
+let toggle = document.getElementById("toggle");
+toggle.addEventListener('click', () => {
+    if (toggle.checked === true)
+        showabsent = true;
+>>>>>>> d61e5e88c5bc5cdb77e735cbd9ea1da3e4856a1d
     else
-        totalPages=Math.ceil(filterpresent(data).length/rowsPerPage);
-    pageInfo.textContent=`Page ${currentPage} of ${totalPages}`;
-    prevBtn.disabled=currentPage===1;
-    nextBtn.diabled=currentPage===totalPages;
+        showabsent = false;
+    datefilter(data);
+    currentPage = 1;
+})
+function pageControl() {
+    let totalPages;
+    if (showabsent)
+        totalPages = Math.ceil(data.length / rowsPerPage);
+    else
+        totalPages = Math.ceil(filterpresent(data).length / rowsPerPage);
+    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
 }
-/*butt.addEventListener("click", () => {
-    let query = document.getElementById("search").value.trim().toLowerCase();
-    if (!query) {
-        data = allData;
-    } else {
-        data = allData.filter(element =>
-            element.name.toLowerCase().includes(query) ||
-            String(element.id).toLowerCase().includes(query) ||
-            element.depot.toLowerCase().includes(query) ||
-            (element.intime && element.intime.toLowerCase().includes(query)) ||
-            (element.out_time && element.out_time.toLowerCase().includes(query))
-        );
-    }
-    createTable(data,currentPage);
-});*/
+
 searchBar.addEventListener('keyup',(val)=>{
     searcherId();
     searcher();
@@ -77,30 +79,34 @@ searchBar.addEventListener('keyup',(val)=>{
 searchButton.addEventListener("click", () => {
    searcher();
    searcherId();
-});
-getdata();
-function datefilter(allData)
-{   resetSortArray();
-    let results=[];
-    let startDateVal=document.getElementById("startDate").value.toString();
-    let endDateVal=document.getElementById("endDate").value.toString();
-        results=allData.filter(element =>(element.date>=startDateVal && element.date<=endDateVal));    
-        data=results;
-
-
-    currentPage=1;
-    createTable(data,currentPage);
 }
-let startDate=document.getElementById("startDate");
-let endDate=document.getElementById("endDate");
-startDate.addEventListener('change',()=>{ endDate.min=startDate.value;
+);
+
+getdata();
+function datefilter(allData) {
+    resetSortArray();
+    let results = [];
+    let startDateVal = document.getElementById("startDate").value.toString();
+    let endDateVal = document.getElementById("endDate").value.toString();
+    results = allData.filter(element => (element.date >= startDateVal && element.date <= endDateVal));
+    data = results;
+
+
+    currentPage = 1;
+    createTable(data, currentPage);
+}
+let startDate = document.getElementById("startDate");
+let endDate = document.getElementById("endDate");
+startDate.addEventListener('change', () => {
+    endDate.min = startDate.value;
     searcher();
     datefilter(data);
 });
-endDate.addEventListener('change',()=>{
+endDate.addEventListener('change', () => {
     searcher();
     datefilter(data);
 })
+<<<<<<< HEAD
    
 function searcherId()
 {  resetSortArray();
@@ -139,6 +145,13 @@ function searcher()
 {  resetSortArray();
      let query =
     document.getElementById("search").value.trim().toLowerCase();
+=======
+
+function searcher() {
+    resetSortArray();
+    let query =
+        document.getElementById("search").value.trim().toLowerCase();
+>>>>>>> d61e5e88c5bc5cdb77e735cbd9ea1da3e4856a1d
     if (!query) {
         data = allData;
     } else {
@@ -168,25 +181,30 @@ function searcher()
     }
     datefilter(data);
 }
+<<<<<<< HEAD
 function createTable(tableData,page)
 {
     if(showabsent===true)
          {renderTable(tableData,page);
+=======
 
-         }
-    else
-        {
-        renderTable(filterpresent(tableData),page);
+function createTable(tableData, page) {
+    if (showabsent === true) {
+        renderTable(tableData, page);
+>>>>>>> d61e5e88c5bc5cdb77e735cbd9ea1da3e4856a1d
 
-        }
+    }
+    else {
+        renderTable(filterpresent(tableData), page);
+
+    }
 }
-function filterpresent(data)
-{
-    filteredData=data.filter(element=>element.present);
+function filterpresent(data) {
+    filteredData = data.filter(element => element.present);
     return filteredData;
 }
 
-function renderTable(tableData,page){
+function renderTable(tableData, page) {
     let html = `<table id="tableJS">
   <thead>
     <tr>
@@ -204,12 +222,12 @@ function renderTable(tableData,page){
         document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
         return;
     }
-    currentTable=(page-1)*rowsPerPage;
-    const startIndex=(page-1)*rowsPerPage;
-    const endIndex=startIndex+rowsPerPage;
-    const pageData=tableData.slice(startIndex,endIndex);
-    pageData.forEach(element=> {
-    
+    currentTable = (page - 1) * rowsPerPage;
+    const startIndex = (page - 1) * rowsPerPage;
+    const endIndex = startIndex + rowsPerPage;
+    const pageData = tableData.slice(startIndex, endIndex);
+    pageData.forEach(element => {
+
         html += `
         <tr>
         <td>${++currentTable}</td>
@@ -221,265 +239,242 @@ function renderTable(tableData,page){
         <td>${element.date}</td>
         <td>${element.hours}</td>
         </tr>`;
-    
-        });
+
+    });
     html += `</tbody></table>`;
     document.querySelector(".bottom").innerHTML = html;
     pageControl();
 }
-function resetSortArray()
-{
-    direction=['','','','','','',''];
+function resetSortArray() {
+    direction = ['', '', '', '', '', '', ''];
 }
-function quicksortName(data)
-{   if(data.length<2)
-    return data;
-    let left=[],right=[],pivot=data[data.length-1];
-    for(i=0;i<data.length-1;i++)
-    {
-        if(data[i].name.toLowerCase()>pivot.name.toLowerCase())
+function quicksortName(data) {
+    if (data.length < 2)
+        return data;
+    let left = [], right = [], pivot = data[data.length - 1];
+    for (i = 0; i < data.length - 1; i++) {
+        if (data[i].name.toLowerCase() > pivot.name.toLowerCase())
             right.push(data[i]);
         else
             left.push(data[i]);
     }
-    return [...quicksortName(left),pivot,...quicksortName(right)];
-}   
-    function quicksortId(data)
-{   if(data.length<2)
-    return data;
-    let left=[],right=[],pivot=data[data.length-1];
-    for(i=0;i<data.length-1;i++)
-    {
-        if(data[i].id.toLowerCase()>pivot.id.toLowerCase())
+    return [...quicksortName(left), pivot, ...quicksortName(right)];
+}
+function quicksortId(data) {
+    if (data.length < 2)
+        return data;
+    let left = [], right = [], pivot = data[data.length - 1];
+    for (i = 0; i < data.length - 1; i++) {
+        if (data[i].id.toLowerCase() > pivot.id.toLowerCase())
             right.push(data[i]);
         else
             left.push(data[i]);
     }
-    return [...quicksortId(left),pivot,...quicksortId(right)];
-}   
-function quicksortDepot(data)
-{   if(data.length<2)
-    return data;
-    let left=[],right=[],pivot=data[data.length-1];
-    for(i=0;i<data.length-1;i++)
-    {
-        if(data[i].depot.toLowerCase()>pivot.depot.toLowerCase())
+    return [...quicksortId(left), pivot, ...quicksortId(right)];
+}
+function quicksortDepot(data) {
+    if (data.length < 2)
+        return data;
+    let left = [], right = [], pivot = data[data.length - 1];
+    for (i = 0; i < data.length - 1; i++) {
+        if (data[i].depot.toLowerCase() > pivot.depot.toLowerCase())
             right.push(data[i]);
         else
             left.push(data[i]);
     }
-    return [...quicksortDepot(left),pivot,...quicksortDepot(right)];
-}   function quicksortInTime(data)
-{   if(data.length<2)
-    return data;
-    let left=[],right=[],pivot=data[data.length-1];
-    for(i=0;i<data.length-1;i++)
-    {
-        if(data[i].intime>pivot.intime)
+    return [...quicksortDepot(left), pivot, ...quicksortDepot(right)];
+} function quicksortInTime(data) {
+    if (data.length < 2)
+        return data;
+    let left = [], right = [], pivot = data[data.length - 1];
+    for (i = 0; i < data.length - 1; i++) {
+        if (data[i].intime > pivot.intime)
             right.push(data[i]);
         else
             left.push(data[i]);
     }
-    return [...quicksortInTime(left),pivot,...quicksortInTime(right)];
-}   function quicksortout_time(data)
-{   if(data.length<2)
-    return data;
-    let left=[],right=[],pivot=data[data.length-1];
-    for(i=0;i<data.length-1;i++)
-    {
-        if(data[i].out_time>pivot.out_time)
+    return [...quicksortInTime(left), pivot, ...quicksortInTime(right)];
+} function quicksortout_time(data) {
+    if (data.length < 2)
+        return data;
+    let left = [], right = [], pivot = data[data.length - 1];
+    for (i = 0; i < data.length - 1; i++) {
+        if (data[i].out_time > pivot.out_time)
             right.push(data[i]);
         else
             left.push(data[i]);
     }
-    return [...quicksortout_time(left),pivot,...quicksortout_time(right)];
-}  function quicksortdate(data)
-{   if(data.length<2)
-    return data;
-    let left=[],right=[],pivot=data[data.length-1];
-    for(i=0;i<data.length-1;i++)
-    {
-        if(data[i].date.toLowerCase()>pivot.date.toLowerCase())
+    return [...quicksortout_time(left), pivot, ...quicksortout_time(right)];
+} function quicksortdate(data) {
+    if (data.length < 2)
+        return data;
+    let left = [], right = [], pivot = data[data.length - 1];
+    for (i = 0; i < data.length - 1; i++) {
+        if (data[i].date.toLowerCase() > pivot.date.toLowerCase())
             right.push(data[i]);
         else
             left.push(data[i]);
     }
-    return [...quicksortdate(left),pivot,...quicksortdate(right)];
-}  function quicksortHours(data)
-{   if(data.length<2)
-    return data;
-    let left=[],right=[],pivot=data[data.length-1];
-    for(i=0;i<data.length-1;i++)
-    {  
-        if(data[i].hours>pivot.hours)
+    return [...quicksortdate(left), pivot, ...quicksortdate(right)];
+} function quicksortHours(data) {
+    if (data.length < 2)
+        return data;
+    let left = [], right = [], pivot = data[data.length - 1];
+    for (i = 0; i < data.length - 1; i++) {
+        if (data[i].hours > pivot.hours)
             right.push(data[i]);
         else
             left.push(data[i]);
     }
-    return [...quicksortHours(left),pivot,...quicksortHours(right)];
-}     
-let direction=['','','','','','',''];
+    return [...quicksortHours(left), pivot, ...quicksortHours(right)];
+}
+let direction = ['', '', '', '', '', '', ''];
 function sortTable(n) {
-    
-    switch(n)
-    {
+
+    switch (n) {
         case 0:
-            if(!direction[0])
-            {data=quicksortName(data);
-            datefilter(data);
-            resetSortArray();
-            direction[0]='asc';
-            break;
-            }
-            if(direction[0]==='asc')
-            {
-            direction[0]='desc';
-            data=data.reverse();
-            createTable(data,currentPage);
-            break;
-            }
-            if(direction[0]==='desc')
-            {
-                direction[0]='asc';
-                data=data.reverse();
-                createTable(data,currentPage);
+            if (!direction[0]) {
+                data = quicksortName(data);
+                datefilter(data);
+                resetSortArray();
+                direction[0] = 'asc';
                 break;
             }
-            case 1:
-            if(!direction[1])
-            {data=quicksortId(data);
-            resetSortArray();
-            createTable(data,currentPage);
-            direction[1]='asc';
-            break;
-            }
-            if(direction[1]==='asc')
-            {
-            direction[1]='desc';
-            data=data.reverse();
-            createTable(data,currentPage);
-            break;
-            }
-            if(direction[1]==='desc')
-            {
-                direction[1]='asc';
-                data=data.reverse();
-                createTable(data,currentPage);
+            if (direction[0] === 'asc') {
+                direction[0] = 'desc';
+                data = data.reverse();
+                createTable(data, currentPage);
                 break;
             }
-            case 2:
-            if(!direction[2])
-            {data=quicksortDepot(data);
-            createTable(data,currentPage);
-            resetSortArray();
-            direction[2]='asc';
-            break;
-            }
-            if(direction[2]==='asc')
-            {
-            direction[2]='desc';
-            data=data.reverse();
-            createTable(data,currentPage);
-            break;
-            }
-            if(direction[2]==='desc')
-            {
-                direction[2]='asc';
-                data=data.reverse();
-                createTable(data,currentPage);
+            if (direction[0] === 'desc') {
+                direction[0] = 'asc';
+                data = data.reverse();
+                createTable(data, currentPage);
                 break;
             }
-            case 3:
-            if(!direction[3])
-            {data=quicksortInTime(data);
-            createTable(data,currentPage);
-            resetSortArray();
-            direction[3]='asc';
-            break;
-            }
-            if(direction[3]==='asc')
-            {
-            direction[3]='desc';
-            data=data.reverse();
-            createTable(data,currentPage);
-            break;
-            }
-            if(direction[3]==='desc')
-            {
-                direction[3]='asc';
-                data=data.reverse();
-                createTable(data,currentPage);
+        case 1:
+            if (!direction[1]) {
+                data = quicksortId(data);
+                resetSortArray();
+                createTable(data, currentPage);
+                direction[1] = 'asc';
                 break;
             }
-            case 4:
-            if(!direction[4])
-            {data=quicksortout_time(data);
-            createTable(data,currentPage);
-            resetSortArray();
-            direction[4]='asc';
-            break;
-            }
-            if(direction[4]==='asc')
-            {
-            direction[4]='desc';
-            data=data.reverse();
-            createTable(data,currentPage);
-            break;
-            }
-            if(direction[4]==='desc')
-            {
-                direction[4]='asc';
-                data=data.reverse();
-                createTable(data,currentPage);
+            if (direction[1] === 'asc') {
+                direction[1] = 'desc';
+                data = data.reverse();
+                createTable(data, currentPage);
                 break;
             }
-            case 5:
-            if(!direction[5])
-            {data=quicksortdate(data);
-            createTable(data,currentPage);
-            resetSortArray();
-            direction[5]='asc';
-            break;
-            }
-            if(direction[5]==='asc')
-            {
-            direction[5]='desc';
-            data=data.reverse();
-            createTable(data,currentPage);
-            break;
-            }
-            if(direction[5]==='desc')
-            {
-                direction[5]='asc';
-                data=data.reverse();
-                createTable(data,currentPage);
+            if (direction[1] === 'desc') {
+                direction[1] = 'asc';
+                data = data.reverse();
+                createTable(data, currentPage);
                 break;
             }
-            case 6:
-            if(!direction[6])
-            {data=quicksortHours(data);
-            createTable(data,currentPage);
-            resetSortArray();
-            direction[6]='asc';
-            break;
-            }
-            if(direction[6]==='asc')
-            {
-            direction[6]='desc';
-            data=data.reverse();
-            createTable(data,currentPage);
-            break;
-            }
-            if(direction[6]==='desc')
-            {
-                direction[6]='asc';
-                data=data.reverse();
-                createTable(data,currentPage);
+        case 2:
+            if (!direction[2]) {
+                data = quicksortDepot(data);
+                createTable(data, currentPage);
+                resetSortArray();
+                direction[2] = 'asc';
                 break;
             }
-            
-            
-}
+            if (direction[2] === 'asc') {
+                direction[2] = 'desc';
+                data = data.reverse();
+                createTable(data, currentPage);
+                break;
+            }
+            if (direction[2] === 'desc') {
+                direction[2] = 'asc';
+                data = data.reverse();
+                createTable(data, currentPage);
+                break;
+            }
+        case 3:
+            if (!direction[3]) {
+                data = quicksortInTime(data);
+                createTable(data, currentPage);
+                resetSortArray();
+                direction[3] = 'asc';
+                break;
+            }
+            if (direction[3] === 'asc') {
+                direction[3] = 'desc';
+                data = data.reverse();
+                createTable(data, currentPage);
+                break;
+            }
+            if (direction[3] === 'desc') {
+                direction[3] = 'asc';
+                data = data.reverse();
+                createTable(data, currentPage);
+                break;
+            }
+        case 4:
+            if (!direction[4]) {
+                data = quicksortout_time(data);
+                createTable(data, currentPage);
+                resetSortArray();
+                direction[4] = 'asc';
+                break;
+            }
+            if (direction[4] === 'asc') {
+                direction[4] = 'desc';
+                data = data.reverse();
+                createTable(data, currentPage);
+                break;
+            }
+            if (direction[4] === 'desc') {
+                direction[4] = 'asc';
+                data = data.reverse();
+                createTable(data, currentPage);
+                break;
+            }
+        case 5:
+            if (!direction[5]) {
+                data = quicksortdate(data);
+                createTable(data, currentPage);
+                resetSortArray();
+                direction[5] = 'asc';
+                break;
+            }
+            if (direction[5] === 'asc') {
+                direction[5] = 'desc';
+                data = data.reverse();
+                createTable(data, currentPage);
+                break;
+            }
+            if (direction[5] === 'desc') {
+                direction[5] = 'asc';
+                data = data.reverse();
+                createTable(data, currentPage);
+                break;
+            }
+        case 6:
+            if (!direction[6]) {
+                data = quicksortHours(data);
+                createTable(data, currentPage);
+                resetSortArray();
+                direction[6] = 'asc';
+                break;
+            }
+            if (direction[6] === 'asc') {
+                direction[6] = 'desc';
+                data = data.reverse();
+                createTable(data, currentPage);
+                break;
+            }
+            if (direction[6] === 'desc') {
+                direction[6] = 'asc';
+                data = data.reverse();
+                createTable(data, currentPage);
+                break;
+            }
+
+
+    }
 }
 
 // Make sortTable globally accessible
