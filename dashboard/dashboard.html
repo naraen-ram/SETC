@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Attendance Monitoring System</title>
+    <link rel="icon" href="tn_logo.png">
+    <link rel="stylesheet" href="style_dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <main class="main-content">
+            <header class="main-header">
+                <div class="logo-container">
+                    <img src="setc_name.png" alt="SETC-LOGO" class="gallery-img">
+                </div>
+                
+                <div class="profile-box">
+                    <span class="user-name">User Name</span>
+                    <button class="logout-btn"><img src="logout_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Logout" class="profile-icon"></button>
+                </div>
+            </header>
+            <div class="content-body">
+                <section class="overview-section">
+                    <h2 class="section-title">TODAY'S OVERALL ATTENDANCE</h2>
+                    <div class="attendance-stats">
+                        <div class="stat-box present">
+                            <span class="stat-number">1575</span>
+                            <span class="stat-label">PRESENT</span>
+                        </div>
+                        <div class="stat-box absent">
+                            <span class="stat-number">142</span>
+                            <span class="stat-label">ABSENT</span>
+                        </div>
+                        <div class="stat-box on-leave">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">ON LEAVE</span>
+                        </div>
+                        <div class="button-container">
+                            <a href="D:\software_project\emp_wise\employee_data.html" class="employee-details-btn">CLICK HERE FOR<br>EMPLOYEE DETAILS</a>
+                        </div>
+                    </div>
+                </section>
+                
+                <div class="data-display-container">
+                    <section class="employee-data-section">
+                        <h2 class="section-title">EMPLOYEE DATA</h2>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Count</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            DnC
+                                            <span class="tablelogo-container">
+                                                <img src="search_hands_free_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Table Logo" class="tablelogo"></td>
+                                            </span>
+                                        </td>
+                                        <td>1200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            TECHNICIANS
+                                            <span class="tablelogo-container">
+                                                <img src="handyman_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Table Logo" class="tablelogo">
+                                            </span>
+                                        </td>
+                                        <td>300</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            ADMIN OFFICERS
+                                            <span class="tablelogo-container">
+                                                <img src="server_person_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Table Logo" class="tablelogo">
+                                            </span>
+                                        </td>
+                                        <td>12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BRANCH MANAGERS
+                                            <span class="tablelogo-container">
+                                                <img src="badge_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Table Logo" class="tablelogo">
+                                            </span>
+                                        </td>
+                                        <td>21</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <section class="chart-section">
+                        <h2 class="section-title">ATTENDANCE OVERVIEW</h2>
+                        <div class="chart-container">
+                            <div class="pie-chart">
+                                <div class="slice" style="--p:89; --c:#1abc9c;"></div>
+                                <div class="slice" style="--p:8; --c:#e74c3c;"></div>
+                                <div class="slice" style="--p:3; --c:#f1c40f;"></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
