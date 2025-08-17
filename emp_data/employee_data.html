@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data - Attendance Monitoring System</title>
+    <link rel="icon" href="tn_logo.png">
+    <link rel="stylesheet" href="style_employee_data.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <main class="main-content">
+            <!-- The main header now contains the new search options. -->
+            <header class="main-header">
+                <div class="header-top-row">
+                    <div class="logo-container">
+                        <img src="setc_name.png" alt="SETC-LOGO" class="gallery-img">
+                    </div>
+                    <div class="header-title">
+                        <h1>Attendance Monitoring System</h1>
+                    </div>
+                    <div class="profile-box">
+                        <span class="user-name">User Name</span>
+                        <button class="logout-btn"><img src="logout_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="logout"></button>
+                    </div>
+                </div>
+                
+                <!-- New search UI with radio buttons and date pickers -->
+                <div class="advanced-search-container">
+                    <div class="search-options-selector">
+                        <input type="radio" id="searchById" name="search-option" value="id-wise" checked>
+                        <label for="searchById">Search by ID</label>
+                        <input type="radio" id="searchByDepot" name="search-option" value="depot-wise">
+                        <label for="searchByDepot">Search by Depot</label>
+                    </div>
+
+                    <!-- Search by ID form (visible by default) -->
+                    <div class="search-form id-wise">
+                        <input id="employeeIdInput" type="text" placeholder="Enter Employee ID">
+                        <div class="date-range-container">
+                            <label for="fromDate" class="date-label">From</label>
+                            <input type="date" id="fromDate" class="date-input">
+                            <label for="toDate" class="date-label">To</label>
+                            <input type="date" id="toDate" class="date-input">
+                        </div>
+                    </div>
+
+                    <!-- Search by Depot form (hidden by default) -->
+                    <div class="search-form depot-wise" style="display: none;">
+                        <select id="depotSelect" class="dropdown-select">
+                            <option value="">Select Depot</option>
+                            <option value="depotA">Depot A</option>
+                            <option value="depotB">Depot B</option>
+                            <option value="depotC">Depot C</option>
+                        </select>
+                        <select id="categorySelect" class="dropdown-select">
+                            <option value="all" selected>Select Category (All)</option>
+                            <option value="dnc">DnC</option>
+                            <option value="technicians">Technicians</option>
+                            <option value="admin-officers">Admin Officers</option>
+                            <option value="branch-managers">Branch Managers</option>
+                        </select>
+                        <div class="date-range-container">
+                            <label for="fromDateDepot" class="date-label">From</label>
+                            <input type="date" id="fromDateDepot" class="date-input">
+                            <label for="toDateDepot" class="date-label">To</label>
+                            <input type="date" id="toDateDepot" class="date-input">
+                        </div>
+                    </div>
+
+                    <button class="searchButton">
+                        <img src="search-icon.png" alt="search" class ="search-icon">
+                        <span class="search-word">Search</span>
+                    </button>
+                </div>
+            </header>
+            
+            <div class="content-body">
+                <section class="employee-data-section">
+                    <h2 class="section-title">ATTENDANCE DETAILS</h2>
+                    <div class="table-container bottom">
+                        <!-- js table -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="table.js"></script>
+    <!-- New script for handling UI toggles -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchByIdRadio = document.getElementById('searchById');
+            const searchByDepotRadio = document.getElementById('searchByDepot');
+            const idWiseForm = document.querySelector('.search-form.id-wise');
+            const depotWiseForm = document.querySelector('.search-form.depot-wise');
+
+            function toggleSearchForm() {
+                if (searchByIdRadio.checked) {
+                    idWiseForm.style.display = 'flex';
+                    depotWiseForm.style.display = 'none';
+                } else {
+                    idWiseForm.style.display = 'none';
+                    depotWiseForm.style.display = 'flex';
+                }
+            }
+
+            searchByIdRadio.addEventListener('change', toggleSearchForm);
+            searchByDepotRadio.addEventListener('change', toggleSearchForm);
+            
+            // Initial call to set the correct form on page load
+            toggleSearchForm();
+        });
+    </script>
+</body>
+</html>
