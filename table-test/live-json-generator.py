@@ -71,8 +71,8 @@ def main():
             data.append(emp)
         save_data(filename, data)
         #print(f"Added IN record: {emp['name']} at {emp['intime']}")
-        time.sleep(1.5)  # 3-second delay
-    time.sleep(5)
+        time.sleep(1)  # 3-second delay
+    time.sleep(2)
     for emp in employees:
         if(emp not in data):
             data.append(emp)
@@ -91,7 +91,6 @@ def main():
                 emp["hours"]=temp_hours_string
             save_data(filename, data)
             #print(f"Updated OUT record: {emp['name']} at {emp['outtime']}")
-            time.sleep(1.5)  # 3-second delay
 
 if __name__ == "__main__":
     main()
