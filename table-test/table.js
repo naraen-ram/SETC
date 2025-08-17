@@ -34,6 +34,7 @@ prevBtn.addEventListener('click', () => {
 const pageInfo = document.getElementById('pageInfo');
 let searchBar=document.getElementById("search");
 let searchButton = document.querySelector(".searchButton");
+let searchIdButton=document.getElementById("searchId");
 let toggle=document.getElementById("toggle");
 toggle.addEventListener('click',()=>
 {
@@ -70,10 +71,12 @@ function pageControl()
     createTable(data,currentPage);
 });*/
 searchBar.addEventListener('keyup',(val)=>{
+    searcherId();
     searcher();
 });
 searchButton.addEventListener("click", () => {
    searcher();
+   searcherId();
 });
 getdata();
 function datefilter(allData)
@@ -99,6 +102,39 @@ endDate.addEventListener('change',()=>{
     datefilter(data);
 })
    
+function searcherId()
+{  resetSortArray();
+     let query =
+    document.getElementById("searchId").value.trim().toLowerCase();
+    if (!query) {
+        data = allData;
+    } else {
+        // 1. "Starts with" search
+        let startsWithResults = allData.filter(element =>
+            //element.name.toLowerCase().startsWith(query) /*||
+            String(element.id).toLowerCase().startsWith(query) 
+           /* element.depot.toLowerCase().startsWith(query) ||
+            (element.intime && element.intime.toLowerCase().startsWith(query)) ||
+            (element.out_time && element.out_time.toLowerCase().startsWith(query))
+        */);
+        if (startsWithResults.length > 0) {
+            data = startsWithResults;
+        } else {
+            // 2. Substring search, but exclude "starts with" matches
+            data = allData.filter(element => {
+                // Check if any field contains the query, but does NOT start with it
+                return (
+                   // (element.name.toLowerCase().includes(query) && !element.name.toLowerCase().startsWith(query)) /*||
+                    (String(element.id).toLowerCase().includes(query) && !String(element.id).toLowerCase().startsWith(query)) /*||
+                    (element.depot.toLowerCase().includes(query) && !element.depot.toLowerCase().startsWith(query)) ||
+                    (element.intime && element.intime.toLowerCase().includes(query) && !element.intime.toLowerCase().startsWith(query)) ||
+                    (element.out_time && element.out_time.toLowerCase().includes(query) && !element.out_time.toLowerCase().startsWith(query))*/
+                );
+            });
+        }
+    }
+    datefilter(data);
+}
 function searcher()
 {  resetSortArray();
      let query =
@@ -132,7 +168,6 @@ function searcher()
     }
     datefilter(data);
 }
-
 function createTable(tableData,page)
 {
     if(showabsent===true)
