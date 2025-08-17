@@ -8,7 +8,7 @@ let lateArrivalTime = "09:00:00"; //Consider 9 am as the deadline for the entry
 
 
 async function getData() {
-    let jsonFile = await fetch("../../table-test/dummy.json");
+    let jsonFile = await fetch("../../emp_data/dummy.json");
     if (!jsonFile.ok) {
         throw new Error("can't pull data");
     }
