@@ -137,6 +137,7 @@ body {
 }
 
 .login-container {
+    position: relative;
     width: 300px;
     padding: 30px;
     background-color: #f8f9fa;
@@ -144,7 +145,7 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     border: 2px solid #ddd;
     transition: box-shadow 0.3s ease;
-    height: 240px;
+    height: 260px;
 }
 
 .login-container:hover {
@@ -188,6 +189,7 @@ body {
 }
 
 .login-button {
+    position: relative;
     width: 100%;
     padding: 15px;
     border: none;
