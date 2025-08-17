@@ -31,15 +31,15 @@ getData(); // called the getData() function
 function isPresent(val) {
     return val ? "Present" : "Absent";
 }
-function isLate(time){
-    if(time==="N/A")
+function isLate(time) {
+    if (time === "N/A")
         return "N/A";
-    return time > lateArrivalTime?"Late":"On Time";
+    return time > lateArrivalTime ? "Late" : "On Time";
 }
 empData = document.getElementById("empData");
 empData.innerHTML = "";
 
-let rowsPerPage = 50;
+let rowsPerPage = 10;
 let currentPage = 1;
 let pageInfo = document.getElementById("pageInfo");
 let totalPages = 0;
@@ -54,14 +54,14 @@ function createTable(data, page) {
 
     if (!pageData || pageData.length == 0) {
         empData.innerHTML = "<tr><td colspan='6'>No data available</td></tr>";
-        }
-        else {
-            pageData.forEach((item) => {
-                if(isPresent(item.present)==="Absent"){
-                    item.intime = "N/A";
-                    item.out_time = "N/A";
-                }
-                empData.innerHTML += `
+    }
+    else {
+        pageData.forEach((item) => {
+            if (isPresent(item.present) === "Absent") {
+                item.intime = "N/A";
+                item.out_time = "N/A";
+            }
+            empData.innerHTML += `
                 <tr>
                 <td>${currentTable + 1}</td>
                 <td>${item.date}</td>
@@ -83,15 +83,15 @@ nextButton.addEventListener("click", () => {
     if (currentPage < totalPages) {
         currentPage++;
         createTable(data, currentPage);
-        nextButton.disabled = currentPage === totalPages;
-        previousButton.disabled = currentPage === 1;
+        nextButton.disabled = currentPage === totalPages || totalPages === 0;
+        previousButton.disabled = currentPage === 1 || totalPages === 0;
     }
 });
 previousButton.addEventListener("click", () => {
     if (currentPage > 1) {
         currentPage--;
         createTable(data, currentPage);
-        nextButton.disabled = currentPage === totalPages;
-        previousButton.disabled = currentPage === 1;
+        nextButton.disabled = currentPage === totalPages || totalPages === 0;
+        previousButton.disabled = currentPage === 1 || totalPages === 0;
     }
 });
