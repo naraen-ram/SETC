@@ -39,10 +39,12 @@
                     <div class="search-form id-wise">
                         <input id="searchId" type="text" placeholder="Enter Employee ID">
                         <div class="date-range-container">
-                            <label for="fromDate" class="date-label">From</label>
-                            <input type="date" id="fromDate" class="date-input">
-                            <label for="toDate" class="date-label">To</label>
-                            <input type="date" id="toDate" class="date-input">
+                           <label for="fromDateDepot" class="date-label">From</label>
+                            <input type="date" id="startDate" class="date-input"
+                            min="2025-08-01" max="2025-08-31" name="start date" value="2025-08-01">
+                            <label for="toDateDepot" class="date-label">To</label>
+                            <input type="date"  class="date-input"
+                            id="endDate" value="2025-08-31" min="2025-08-01"max="2025-08-31">
                         </div>
                     </div>
 
