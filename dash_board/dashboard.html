@@ -7,6 +7,7 @@
     <link rel="icon" href="./images/tn_logo.png">
     <link rel="stylesheet" href="style_dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="dashboard-container">
@@ -97,11 +98,7 @@
                     <section class="chart-section">
                         <h2 class="section-title">ATTENDANCE OVERVIEW</h2>
                         <div class="chart-container">
-                            <div class="pie-chart">
-                                <div class="slice" style="--p:89; --c:#1abc9c;"></div>
-                                <div class="slice" style="--p:8; --c:#e74c3c;"></div>
-                                <div class="slice" style="--p:3; --c:#f1c40f;"></div>
-                            </div>
+                             <canvas id="myPieChart"></canvas>
                         </div>
                     </section>
                 </div>
