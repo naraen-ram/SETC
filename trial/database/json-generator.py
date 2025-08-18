@@ -70,5 +70,5 @@ def generate_bus_schedule(num_entries=50):
 
 bus_schedule_data=generate_bus_schedule(10)
 json_output = json.dumps(bus_schedule_data, indent=4)
-with open('database/dummy.json', 'w') as f:
+with open('trial/database/dummy.json', 'w') as f:
     f.write(json_output)

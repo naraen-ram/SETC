@@ -2,12 +2,15 @@ const parameters = new URLSearchParams(window.location.search);  //from the url 
 const loginUserName = parameters.get('loginName');
 console.log(loginUserName);
 document.querySelector(".user-name").textContent = loginUserName;
-
+const today=new Date();
 document.querySelector(".employee-details-btn").addEventListener("click", function () {
     window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
 });
-
-    let inCount=outCount=lateCount=activeCount=absentCount=0;
+let querydate=today.getFullYear() + '-' +
+        String(today.getMonth() + 1).padStart(2, '0') + '-' +
+        String(today.getDate()).padStart(2, '0');
+console.log(querydate);
+let inCount=outCount=lateCount=activeCount=absentCount=0;
 let menu=document.querySelector(".menu");
 let button=document.querySelector(".menu-button");
 function openmenu()
@@ -49,15 +52,23 @@ async function getdata() {
         throw new Error("can't pull data");
     }
     allData = await jsonFile.json();
-   
-    inCount=outCount=lateCount=activeCount=absentCount=0;
-    for(let i=0;i<allData.length;i++)
+   renderPage();
+    
+    
+}
+
+getdata();
+function renderPage()
+{
+  inCount=outCount=lateCount=activeCount=absentCount=0;
+    filteredData=allData.filter(element=>element.date===querydate);
+    for(let i=0;i<filteredData.length;i++)
     {  
-        if(allData[i].intime!=null)
+        if(filteredData[i].intime!=null)
         inCount++;
-        if(allData[i].out_time!=null)
+        if(filteredData[i].out_time!=null)
             outCount++;
-        let intime = new Date(`1970-01-01T${allData[i].intime}`);
+        let intime = new Date(`1970-01-01T${filteredData[i].intime}`);
         let cutoff = new Date(`1970-01-01T09:15:00`);
 
         if (intime > cutoff)
@@ -65,7 +76,7 @@ async function getdata() {
 
         activeCount = inCount - outCount;
     }
-    absentCount = allData.length - inCount;
+    absentCount = filteredData.length - inCount;
 
     document.querySelector("#in").innerHTML = inCount.toString();
     //    document.querySelector("#out").innerHTML=outCount.toString();
@@ -73,7 +84,21 @@ async function getdata() {
     document.querySelector("#absent").innerHTML = absentCount.toString();
     // document.querySelector("#active").innerHTML=activeCount.toString();
   updatechart();
-    
 }
-
-getdata();
+// Store today's date in the last circle button, and previous dates in others
+const buttons = document.querySelectorAll('.circle-btn');
+for (let i = 0; i < buttons.length; i++) {
+    let date = new Date(today);
+    date.setDate(today.getDate() - (buttons.length - 1 - i));
+    const formattedDate = date.getFullYear() + '-' +
+        String(date.getMonth() + 1).padStart(2, '0') + '-' +
+        String(date.getDate()).padStart(2, '0');
+    buttons[i].textContent = formattedDate[8]+formattedDate[9];
+    buttons[i].style.fontSize = "12px";
+    buttons[i].style.color = "#333";
+    buttons[i].addEventListener('click', ()=> {
+        querydate = formattedDate;
+        renderPage();
+        
+    });
+}
