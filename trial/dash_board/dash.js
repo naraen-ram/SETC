@@ -4,8 +4,10 @@ console.log(loginUserName);
 document.querySelector(".user-name").textContent = loginUserName;
 const today=new Date();
 document.querySelector(".employee-details-btn").addEventListener("click", function () {
-    window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
+  window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
 });
+const buttons = document.querySelectorAll('.circle-btn');
+buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; // Set the last button to blue
 let querydate=today.getFullYear() + '-' +
         String(today.getMonth() + 1).padStart(2, '0') + '-' +
         String(today.getDate()).padStart(2, '0');
@@ -86,7 +88,14 @@ function renderPage()
   updatechart();
 }
 // Store today's date in the last circle button, and previous dates in others
-const buttons = document.querySelectorAll('.circle-btn');
+function selectedButtonColor(event)
+{
+  for(let x=0;x<buttons.length;x++)
+  {
+    buttons[x].style.backgroundColor = "";
+  }
+  event.target.style.backgroundColor = "#36A2EB";
+}
 for (let i = 0; i < buttons.length; i++) {
     let date = new Date(today);
     date.setDate(today.getDate() - (buttons.length - 1 - i));
@@ -96,7 +105,8 @@ for (let i = 0; i < buttons.length; i++) {
     buttons[i].textContent = formattedDate[8]+formattedDate[9];
     buttons[i].style.fontSize = "12px";
     buttons[i].style.color = "#333";
-    buttons[i].addEventListener('click', ()=> {
+    buttons[i].addEventListener('click', (event)=> {
+        selectedButtonColor(event);
         querydate = formattedDate;
         renderPage();
         
