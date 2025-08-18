@@ -1,3 +1,8 @@
+const parameters = new URLSearchParams(window.location.search);  //from the url , username is retrieved
+const loginUserName = parameters.get('loginName');
+console.log(loginUserName);
+document.querySelector(".user-name").textContent = loginUserName;
+
 let data = [];
 let allData = [];
 let direction = ['', '', '', '', '', '', ''];

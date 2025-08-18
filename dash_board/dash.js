@@ -3,6 +3,10 @@ const loginUserName = parameters.get('loginName');
 console.log(loginUserName);
 document.querySelector(".user-name").textContent = loginUserName;
 
+document.querySelector(".employee-details-btn").addEventListener("click", function () {
+    window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
+});
+
 let menu = document.querySelector(".menu");
 let button = document.querySelector(".menu-button");
 function openmenu() {
