@@ -21,13 +21,9 @@ def generate_random_date():
 def generate_bus_schedule(num_entries=50):
     first_names = ["Anand", "Ravi", "Murugan", "Suresh", "raj", "Senthil", "Vignesh", "Mohan", "Ganesh", "Vijay"]
     last_names = ["kumar", "gopal", "gobi", "prasad", "priyan"]
-    depots = [
-        "Tambaram Depot", "Koyambedu Depot", "Mofussil Depot", "Ambattur Depot", "Vandalur Depot",
-        "Madurai Arappalayam Depot", "Coimbatore Gandhipuram Depot", "Salem New Bus Stand Depot",
-        "Tiruchirappalli Chathiram Depot", "Vellore New Bus Stand Depot", "Erode Depot",
-        "Thanjavur New Bus Stand Depot", "Nagercoil Vadasery Depot", "Hosur Depot",
-        "Tiruppur Depot", "Dindigul Depot", "Virudhunagar Depot", "Pudukkottai Depot"
-    ]
+    depots = ["Head Quarters","Chennai Depot - A, B, C & D","Coimbatore","Kanyakumari","Kumbakonam","Madurai","Marthandam","Nagercoil",
+              "Nagapattinam","Puducherry","Salem","Shencottah","Thanjavur","Tirunelveli - I","Tirunelveli - II","Trichirapalli",
+              "Thoothukudi","Thiruvananthapuram","Karaikudi","Dindigul","Hosur"]
     
     schedule = []
     for i in range(num_entries):
