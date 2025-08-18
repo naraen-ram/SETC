@@ -3,7 +3,7 @@ const empId = parameters.get('id');
 // console.log(empId); 
 
 let data;
-let lateArrivalTime = "09:00:00"; //Consider 9 am as the deadline for the entry
+let lateArrivalTime = "09:15:00"; //Consider 9 am as the deadline for the entry
 
 
 
