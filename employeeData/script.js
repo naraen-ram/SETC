@@ -26,6 +26,7 @@ async function getData() {
     // document.getElementById("empHeadDesignation").innerText += ` ${data[0].designation}`;
     document.getElementById("empHeadDesignation").innerText += ` DNC`;
     document.getElementById("empHeadDepot").innerText += ` ${data[0].depot}`;
+    updateButtonState();
 }
 getData(); // called the getData() function
 function isPresent(val) {
@@ -79,19 +80,21 @@ function createTable(data, page) {
 
 let nextButton = document.getElementById("nextBtn");
 let previousButton = document.getElementById("prevBtn");
+function updateButtonState() {
+    nextButton.disabled = currentPage === totalPages || totalPages === 0;
+    previousButton.disabled = currentPage === 1 || totalPages === 0;
+}
 nextButton.addEventListener("click", () => {
     if (currentPage < totalPages) {
         currentPage++;
         createTable(data, currentPage);
-        nextButton.disabled = currentPage === totalPages || totalPages === 0;
-        previousButton.disabled = currentPage === 1 || totalPages === 0;
+        updateButtonState();
     }
 });
 previousButton.addEventListener("click", () => {
     if (currentPage > 1) {
         currentPage--;
         createTable(data, currentPage);
-        nextButton.disabled = currentPage === totalPages || totalPages === 0;
-        previousButton.disabled = currentPage === 1 || totalPages === 0;
+        updateButtonState();
     }
 });
