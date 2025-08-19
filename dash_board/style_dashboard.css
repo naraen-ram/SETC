@@ -94,7 +94,9 @@ body {
 }
 
 .attendance-stats {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     justify-content: space-around;
     gap: 15px;
     margin-bottom: 15px;
@@ -145,7 +147,6 @@ body {
     padding: 10px;
     border-radius: 10px;
     color: #fff;
-    width: 140px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -165,10 +166,29 @@ body {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.stat-box.present { background: linear-gradient(45deg, #1abc9c, #16a085); }
-.stat-box.absent { background: linear-gradient(45deg, #e74c3c, #c0392b); }
-.stat-box.on-leave { background: linear-gradient(45deg, #f1c40f, #f39c12); }
+.stat-box.in {
+  background: linear-gradient(45deg, #1abc9c, #16a085);
+}
 
+.stat-box.out {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+}
+
+.stat-box.absent {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+}
+
+.stat-box.leave {
+  background: linear-gradient(45deg, #8e44ad, #7d3c98);
+}
+
+.stat-box.late {
+  background: linear-gradient(45deg, #f1c40f, #f39c12);
+}
+
+.stat-box.active {
+  background: linear-gradient(45deg, #2ecc71, #27ae60);
+}
 .stat-number {
     font-size: 1.8em; 
     font-weight: 700;
