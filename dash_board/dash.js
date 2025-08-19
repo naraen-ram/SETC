@@ -81,10 +81,10 @@ function renderPage()
     absentCount = filteredData.length - inCount;
 
     document.querySelector("#in").innerHTML = inCount.toString();
-    //    document.querySelector("#out").innerHTML=outCount.toString();
+    document.querySelector("#out").innerHTML=outCount.toString();
     document.querySelector("#late").innerHTML = lateCount.toString();
     document.querySelector("#absent").innerHTML = absentCount.toString();
-    // document.querySelector("#active").innerHTML=activeCount.toString();
+   document.querySelector("#active").innerHTML=activeCount.toString();
   updatechart();
 }
 // Store today's date in the last circle button, and previous dates in others

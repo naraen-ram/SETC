@@ -32,7 +32,7 @@ def generate_employees(num_entries=50):
         bus_name = f"{random.choice(first_names)} {random.choice(last_names)}"
         bus_depot = random.choice(depots)
         for j in range(0,1):
-            onlydate=datetime(2025,8,1+j).strftime("%Y-%m-%d")
+            onlydate=datetime(2025,8,19+j).strftime("%Y-%m-%d")
             schedule.append({
             "name": bus_name,
             "id": bus_id,
@@ -56,7 +56,7 @@ def simulate_in():
                 
     
 def main():
-    filename = "../database/dummy.json"
+    filename = "database/dummy.json"
     data = []  # Start fresh
     employees = generate_employees(10)
 
