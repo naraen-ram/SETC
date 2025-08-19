@@ -56,7 +56,7 @@ def simulate_in():
                 
     
 def main():
-    filename = "database/dummy.json"
+    filename = "../database/dummy.json"
     data = []  # Start fresh
     employees = generate_employees(10)
 
