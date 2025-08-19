@@ -68,7 +68,7 @@ function createTable(data, page) {
                 <td>${item.date}</td>
                 <td>${item.intime}</td>
                 <td>${item.out_time}</td>
-                <td style="background-color: ${isPresent(item.present) === "Present" ? "#ffffffff" : "#e36464"}">${isPresent(item.present)}</td>
+                <td style="background-color: ${isPresent(item.present) === "Present" ? '' : "#e36464"}">${isPresent(item.present)}</td>
                 <td style="background-color: ${isLate(item.intime) === "Late" ? "#e0fa5fff" : ""} ; ">${isLate(item.intime)}</td>
             </tr>
             `;
