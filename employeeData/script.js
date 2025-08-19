@@ -14,13 +14,13 @@ async function getData() {
     }
     allData = await jsonFile.json();
     data = allData;
-    console.log(data);
+  //  console.log(data);
     data = data.filter((item) => {
         console.log(item.id, empId);
         return item.id === empId;
     });
-    console.log(data);
-    createTable(data, 1);
+   // console.log(data);
+    datefilter(data);
     document.getElementById("empHeadName").innerText += ` ${data[0].name}`;
     document.getElementById("empHeadId").innerText += ` ${empId}`;
     // document.getElementById("empHeadDesignation").innerText += ` ${data[0].designation}`;
@@ -39,6 +39,27 @@ function isLate(time) {
 }
 empData = document.getElementById("empData");
 empData.innerHTML = "";
+function datefilter(allData) {
+    //resetSortArray();
+    let results = [];
+    let startDateVal = document.getElementById("startDate").value.toString();
+    let endDateVal = document.getElementById("endDate").value.toString();
+    results = allData.filter(element => (element.date >= startDateVal && element.date <= endDateVal));
+    filterdData = results;
+
+
+    currentPage = 1;
+    createTable(filterdData, currentPage);
+}
+let startDate = document.getElementById("startDate");
+let endDate = document.getElementById("endDate");
+startDate.addEventListener('change', () => {
+    endDate.min = startDate.value;
+    datefilter(data);
+});
+endDate.addEventListener('change', () => {
+    datefilter(data);
+})
 
 let rowsPerPage = 10;
 let currentPage = 1;
