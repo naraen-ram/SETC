@@ -282,6 +282,7 @@ tbody tr:hover {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .employee-details-btn {
@@ -302,28 +303,6 @@ tbody tr:hover {
 .employee-details-btn:hover {
     background-color: #003d7a;
     transform: scale(1.05);
-}
-
-.dashboard-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    margin: 24px 0;
-}
-
-.circle-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #e3e3e3;
-    border: none;
-    cursor: pointer;
-    transition: box-shadow 0.2s;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-}
-
-.circle-btn:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 @media (max-width: 992px) {
