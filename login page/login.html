@@ -43,10 +43,26 @@
                         <div class="input-group">
                             <input type="password" id="password" name="password" placeholder="password" required>
                         </div>
+
                         <div>
+                         <div id="remember-button">   
                             <input type="checkbox" id="rememberMe" name="rememberMe">
                             <label for="rememberMe">Remember me</label>
+                         </div>   
                             <p id="invalidEmailOrPass">Invalid user-id or password</p>
+                        
+                        <div id="forget-button">
+                            <button onclick="openPopup()">Forget Password</button>
+                            <div id="blur"></div>
+                            <div id="popup">
+                               <h2>Forget Password</h2>
+                               <p>Are you sure?</p>
+                               <button onclick="closePopup();">Close</button>
+                               <div id="yes-in-forget"><button onclick="closePopup();forgetpassword();">Yes</button></div>
+                            </div>
+                        </div>
+
+
                         </div>
                         <button type="submit" class="login-button">LOGIN</button>
                     </form>

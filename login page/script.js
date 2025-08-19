@@ -43,6 +43,10 @@ let rememberMe = document.getElementById("rememberMe");
 document.getElementById("loginForm").addEventListener("submit", function (event) {
     event.preventDefault()      // console.log("Form submission prevented")
 });
+localStorage.setItem(
+  "forget_remember", 
+  localStorage.getItem("forget_remember") || "1"
+);
 
 /* Function for the submit button */
 loginButton.addEventListener("click", async function () {
@@ -58,17 +62,15 @@ loginButton.addEventListener("click", async function () {
             loginButton.style.bottom = "0px";
             invalidEmailOrPass.style.display = "none"
             
-            if (rememberMe.checked) {       //sets remember password if login is successful
+            if (rememberMe.checked) 
+            {       //sets remember password if login is successful
                 localStorage.setItem("username", user);
                 localStorage.setItem("password", pass);
                 localStorage.setItem("remember", true);
-            } else {                        //clears saved credentials if remember me is not checked
-                username.value = ""
-                password.value = ""
-                localStorage.removeItem("username");
-                localStorage.removeItem("password");
-                localStorage.setItem("remember", false);
-            }
+                localStorage.setItem("forget_remember", 0);
+        
+            } 
+           
 
             window.location.href = `../dash_board/dashboard.html?loginName=${encodeURIComponent(user)}`;
             return
@@ -84,3 +86,43 @@ loginButton.addEventListener("click", async function () {
     password.value = ""
     username.focus()
 });
+
+
+function openPopup() {
+  document.getElementById('popup').style.display = 'block';
+  document.getElementById('blur').style.display = 'block';
+}
+
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+  document.getElementById('blur').style.display = 'none';
+}
+
+function forgetpassword()
+{
+  localStorage.setItem("forget_remember", 1);
+  button_check();
+  username.value = "";
+  password.value = "";
+  localStorage.removeItem("username");
+  localStorage.removeItem("password");
+  localStorage.setItem("remember", false);
+  document.getElementById("rememberMe").checked = false;
+  
+}
+
+function button_check()
+{
+ if(localStorage.getItem("forget_remember")==0)
+ {
+     document.getElementById('remember-button').style.display = 'none';
+     document.getElementById('forget-button').style.display = 'block';
+  }
+  else
+  {
+    document.getElementById('remember-button').style.display = 'block';
+    document.getElementById('forget-button').style.display = 'none';
+ }
+}
+
+button_check();
