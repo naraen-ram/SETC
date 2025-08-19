@@ -11,7 +11,7 @@ buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; // Set the last b
 let querydate=today.getFullYear() + '-' +
         String(today.getMonth() + 1).padStart(2, '0') + '-' +
         String(today.getDate()).padStart(2, '0');
-console.log(querydate);
+//console.log(querydate);
 let inCount=outCount=lateCount=activeCount=absentCount=0;
 let menu=document.querySelector(".menu");
 let button=document.querySelector(".menu-button");
@@ -111,4 +111,12 @@ for (let i = 0; i < buttons.length; i++) {
         renderPage();
         
     });
+}
+if(loginUserName==='admin')
+{
+  const adminAccess=document.getElementById("adminAccess");
+  const link="window.location.href='../adminPage/admin.html'";
+  adminAccess.innerHTML=`<button class="adminButton" onclick=${link} >ADMIN</button>`;
+  
+
 }
