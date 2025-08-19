@@ -44,7 +44,7 @@ body {
     padding: 20px;
     background-color: #f4f6f9;
     border-bottom: 1px solid #e0e6ed;
-    position: sticky;
+    position: static;
     top: 0;
     z-index: 100;
     gap: 15px;
