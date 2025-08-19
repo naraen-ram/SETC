@@ -1,6 +1,6 @@
 const parameters = new URLSearchParams(window.location.search);  //from the url , username is retrieved
 const loginUserName = parameters.get('loginName');
-console.log(loginUserName);
+//console.log(loginUserName);
 document.querySelector(".user-name").textContent = loginUserName;
 
 let data = [];
@@ -37,18 +37,26 @@ prevBtn.addEventListener('click', () => {
         createTable(data, currentPage);
     }
 });
+let date = new Date();
+const formattedDate = date.getFullYear() + '-' +
+        String(date.getMonth() + 1).padStart(2, '0') + '-' +
+        String(date.getDate()).padStart(2, '0');
 const pageInfo = document.getElementById('pageInfo');
 let searchBar = document.getElementById("search");
 let searchButton = document.querySelector(".searchButton");
 let searchIdButton=document.getElementById("searchId");
 let toggle=document.getElementById("toggle");
-let searchDepot = document.getElementById("searchDepot");
+const searchByIdRadio=document.getElementById("searchById");
+
+const searchDepot = document.getElementById("searchDepot");
+const searchByDepotRadio = document.getElementById('searchByDepot');
 document.addEventListener('DOMContentLoaded', () => {
             const searchByIdRadio = document.getElementById('searchById');
             const searchByDepotRadio = document.getElementById('searchByDepot');
             const idWiseForm = document.querySelector('.search-form.id-wise');
             const depotWiseForm = document.querySelector('.search-form.depot-wise');
-
+    startDate.value=formattedDate;
+    endDate.value=formattedDate;
             function toggleSearchForm() {
                 if (searchByIdRadio.checked) {
                     idWiseForm.style.display = 'flex';
@@ -92,7 +100,7 @@ function pageControl() {
 
 searchBar.addEventListener('keyup',(val)=>{
     searcher();
-    searchIdButton.value='';
+    //searchBar.value='';
 });
 searchButton.addEventListener("click", () => {
    searcher();
@@ -101,9 +109,19 @@ searchButton.addEventListener("click", () => {
 );
 searchIdButton.addEventListener('keyup',(val)=>{
     searcherId();
-    searchBar.value='';
+   // searchBar.value='';
 })
-
+searchByIdRadio.addEventListener('click',()=>
+{
+    searchBar.value='';
+    searchDepot.value='All depots';
+    datefilter(allData);
+});
+searchByDepotRadio.addEventListener('click',()=>
+{
+    searchIdButton.value='';
+    datefilter(allData);
+});
 getdata();
 /*function searcherDepot() {
     resetSortArray();
