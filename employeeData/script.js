@@ -15,14 +15,22 @@ let pageInfo = document.getElementById("pageInfo");
 let totalPages = 0;
 let nextButton = document.getElementById("nextBtn");
 let previousButton = document.getElementById("prevBtn");
-
+const date=new Date();
+const formattedDate = date.getFullYear() + '-' +
+        String(date.getMonth() + 1).padStart(2, '0') + '-' +
+        String(date.getDate()).padStart(2, '0');
 
 //actions
+startDate.value=formattedDate;
+endDate.value=formattedDate;
+endDate.min = startDate.value;
+startDate.max=endDate.value;
 startDate.addEventListener('change', () => {
     endDate.min = startDate.value;
     datefilter(data);
 });
 endDate.addEventListener('change', () => {
+    startDate.max=endDate.value;
     datefilter(data);
 });
 nextButton.addEventListener("click", () => {

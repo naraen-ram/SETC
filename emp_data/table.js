@@ -29,6 +29,10 @@ let endDate = document.getElementById("endDate");
 
 
 //actions
+startDate.value=formattedDate;
+endDate.value=formattedDate;
+endDate.min = startDate.value;
+startDate.max=endDate.value;
 document.querySelector(".user-name").textContent = loginUserName;
 nextBtn.addEventListener('click', () => {
     const totalPages = Math.ceil(data.length / rowsPerPage);
@@ -112,6 +116,7 @@ startDate.addEventListener('change', () => {
     datefilter(data);
 });
 endDate.addEventListener('change', () => {
+    startDate.max=endDate.value;
     searcher();
     datefilter(data);
 });
@@ -119,7 +124,6 @@ endDate.addEventListener('change', () => {
 
 
 //functions
-
 
 async function getdata() {
     let jsonFile = await fetch("../database/dummy.json");
