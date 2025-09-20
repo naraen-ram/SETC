@@ -125,11 +125,15 @@ endDate.addEventListener('change', () => {
 
 //functions
 function dateformater(date)
-{
+{   date=date.toString();
     return date.substring(6,10)+'-'+date.substring(3,5)+'-'+date.substring(0,2);
 }
+function hourformatter(hour)
+{
+    return (hour/60).toFixed(0)+':'+(hour%60);
+}
 async function getdata() {
-    let jsonFile = await fetch("../database/dummy.json");
+    let jsonFile = await fetch("../database/attendance.json");
     if (!jsonFile.ok) {
         throw new Error("can't pull data");
     }
@@ -183,9 +187,10 @@ getdata();
 function datefilter(allData) {
     resetSortArray();
     let results = [];
-    let startDateVal = document.getElementById("startDate").value.toString();
-    let endDateVal = document.getElementById("endDate").value.toString();
-    results = allData.filter(element => (element.date >= startDateVal && element.date <= endDateVal));
+    let startDateVal = startDate.value.toString();
+    let endDateVal = endDate.value.toString();
+    
+    results = allData.filter(element => (dateformater(element['In DateTime']) >= startDateVal && dateformater(element['In DateTime'] <= endDateVal)));
     data = results;
 
 
@@ -276,7 +281,7 @@ function createTable(tableData, page) {
     }
 }
 function filterpresent(data) {
-    filteredData = data.filter(element => element.present);
+    filteredData = data.filter(element => element.StatusCode==='P');
     return filteredData;
 }
 function filterDepot(data)
@@ -318,13 +323,13 @@ function renderTable(tableData, page) {
         html += `
         <tr>
         <td>${++currentTable}</td>
-        <td><a href="../employeeData/index.html?id=${element.id}">${element.name}</a></td>
-        <td>${element.id}</td>
-        <td>${element.depot}</td>
-        <td>${element.intime}</td>
-        <td>${element.out_time}</td>
-        <td>${element.date}</td>
-        <td>${element.hours}</td>
+        <td><a href="../employeeData/index.html?id=${element['Employee Code']}">${element['Employee Name']}</a></td>
+        <td>${element['Employee Code']}</td>
+        <td>${element['In Device Name']}</td>
+        <td>${element['InTime']}</td>
+        <td>${element['OutTime']}</td>
+        <td>${dateformater(element['In DateTime'])}</td>
+        <td>${hourformatter((element['Duration']+element['Overtime']))}</td>
         </tr>`;
 
     });
