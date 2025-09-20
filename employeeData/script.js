@@ -3,8 +3,8 @@
 const parameters = new URLSearchParams(window.location.search);  //from the url gets the parameters
 const empId = parameters.get('id');
 // console.log(empId); 
-let data;
-let lateArrivalTime = "09:15:00"; //Consider 9 am as the deadline for the entry
+let data=[];
+//let lateArrivalTime = "09:15:00"; //Consider 9 am as the deadline for the entry
 empData = document.getElementById("empData");
 empData.innerHTML = "";
 let startDate = document.getElementById("startDate");
@@ -27,11 +27,11 @@ endDate.min = startDate.value;
 startDate.max=endDate.value;
 startDate.addEventListener('change', () => {
     endDate.min = startDate.value;
-    datefilter(data);
+    datefilter(allData);
 });
 endDate.addEventListener('change', () => {
     startDate.max=endDate.value;
-    datefilter(data);
+    datefilter(allData);
 });
 nextButton.addEventListener("click", () => {
     if (currentPage < totalPages) {
@@ -50,49 +50,55 @@ previousButton.addEventListener("click", () => {
 
 //functions
 
-
+function dateformater(date)
+{   date=date.toString();
+    return date.substring(6,10)+'-'+date.substring(0,2)+'-'+date.substring(3,5);
+}
+function hourformatter(hour)
+{
+    return (hour/60).toFixed(0)+':'+(hour%60);
+}
 async function getData() {
-    let jsonFile = await fetch("../database/dummy.json");
+    let jsonFile = await fetch("../database/attendance.json");
     if (!jsonFile.ok) {
         throw new Error("can't pull data");
     }
     allData = await jsonFile.json();
     data = allData;
-  //  console.log(data);
-    data = data.filter((item) => {
-        // console.log(item.id, empId);
-        return item.id === empId;
-    });
-   // console.log(data);
+  //console.log(allData);
+  //console.log(empId);
+    data = data.filter(item => item['Employee Code'].toString() === empId);
+    allData=data;
+  //console.log(data);
+   
     datefilter(data);
-    document.getElementById("empHeadName").innerText += ` ${data[0].name}`;
+    document.getElementById("empHeadName").innerText += ` ${allData[0]['Employee Name']}`;
     document.getElementById("empHeadId").innerText += ` ${empId}`;
     // document.getElementById("empHeadDesignation").innerText += ` ${data[0].designation}`;
-    document.getElementById("empHeadDesignation").innerText += ` DNC`;
-    document.getElementById("empHeadDepot").innerText += ` ${data[0].depot}`;
+    document.getElementById("empHeadDesignation").innerText += allData[0]['Category'];
+    document.getElementById("empHeadDepot").innerText += ` ${allData[0]['In Device Name']}`;
     updateButtonState();
 }
 getData(); // called the getData() function
-function isPresent(val) {
-    return val ? "Present" : "Absent";
+/*function isPresent(val) {
+    return val.StatusCode==='P' ? "Present" : "Absent";
+}*/
+function isLate(val) {
+    /*if (val === "N/A")
+        return "N/A";*/
+    return val.LateBy!==0 ? "Late" : "On Time";
 }
-function isLate(time) {
-    if (time === "N/A")
-        return "N/A";
-    return time > lateArrivalTime ? "Late" : "On Time";
-}
+
 
 function datefilter(allData) {
     //resetSortArray();
-    let results = [];
-    let startDateVal = document.getElementById("startDate").value.toString();
-    let endDateVal = document.getElementById("endDate").value.toString();
-    results = allData.filter(element => (element.date >= startDateVal && element.date <= endDateVal));
-    filterdData = results;
-
-
+    //let results = [];
+    let startDateVal = startDate.value;
+    let endDateVal = endDate.value;
+    data = allData.filter(element => (dateformater(element['In DateTime']) >= startDateVal && dateformater(element['In DateTime'] <= endDateVal)));
+   //data = results;
     currentPage = 1;
-    createTable(filterdData, currentPage);
+    createTable(data,currentPage);
 }
 
 function createTable(data, page) {
@@ -109,18 +115,18 @@ function createTable(data, page) {
     }
     else {
         pageData.forEach((item) => {
-            if (isPresent(item.present) === "Absent") {
-                item.intime = "N/A";
+            /*if (item['StatusCode'] === 'A') {
+                item.ntime = "N/A";
                 item.out_time = "N/A";
-            }
+            }8*/
             empData.innerHTML += `
                 <tr>
                 <td>${currentTable + 1}</td>
-                <td>${item.date}</td>
-                <td>${item.intime}</td>
-                <td>${item.out_time}</td>
-                <td style="background-color: ${isPresent(item.present) === "Present" ? '' : "#e36464"}">${isPresent(item.present)}</td>
-                <td style="background-color: ${isLate(item.intime) === "Late" ? "#e0fa5fff" : ""} ; ">${isLate(item.intime)}</td>
+                <td>${dateformater(item['In DateTime'])}</td>
+                <td>${item.InTime}</td>
+                <td>${item.OutTime}</td>
+                <td style="background-color: ${item.StatusCode === "P" ? '' : "#e36464"}">${item.Status}</td>
+                <td style="background-color: ${item.LateBy!==0 ? "#e0fa5fff" : ""} ; ">${isLate(item)}</td>
             </tr>
             `;
             currentTable++;

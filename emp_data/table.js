@@ -126,7 +126,7 @@ endDate.addEventListener('change', () => {
 //functions
 function dateformater(date)
 {   date=date.toString();
-    return date.substring(6,10)+'-'+date.substring(3,5)+'-'+date.substring(0,2);
+    return date.substring(6,10)+'-'+date.substring(0,2)+'-'+date.substring(3,5);
 }
 function hourformatter(hour)
 {
@@ -186,12 +186,12 @@ getdata();
 }*/
 function datefilter(allData) {
     resetSortArray();
-    let results = [];
+   // let results = [];
     let startDateVal = startDate.value.toString();
     let endDateVal = endDate.value.toString();
-    
-    results = allData.filter(element => (dateformater(element['In DateTime']) >= startDateVal && dateformater(element['In DateTime'] <= endDateVal)));
-    data = results;
+   // console.log(endDateVal)
+    data = allData.filter(element => (dateformater(element['In DateTime']) >= startDateVal && dateformater(element['In DateTime'] <= endDateVal)));
+    //data = results;
 
 
     currentPage = 1;
@@ -412,7 +412,7 @@ function quicksortDepot(data) {
         return data;
     let left = [], right = [], pivot = data[data.length - 1];
     for (i = 0; i < data.length - 1; i++) {
-        if (data[i].Duration > pivot.Duration)
+        if (data[i].Overtime > pivot.Overtime)
             right.push(data[i]);
         else
             left.push(data[i]);
