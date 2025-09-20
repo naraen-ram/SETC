@@ -52,6 +52,8 @@ previousButton.addEventListener("click", () => {
 
 function dateformater(date)
 {   date=date.toString();
+    if(date.length<10)
+        return date;
     return date.substring(6,10)+'-'+date.substring(0,2)+'-'+date.substring(3,5);
 }
 function hourformatter(hour)
@@ -95,7 +97,10 @@ function datefilter(allData) {
     //let results = [];
     let startDateVal = startDate.value;
     let endDateVal = endDate.value;
-    data = allData.filter(element => (dateformater(element['In DateTime']) >= startDateVal && dateformater(element['In DateTime'] <= endDateVal)));
+    data = allData.filter(element => {
+        const elementDate = dateformater(element['In DateTime']);
+        return (elementDate >= startDateVal && elementDate <= endDateVal)||elementDate===' ';
+    }); 
    //data = results;
     currentPage = 1;
     createTable(data,currentPage);
@@ -119,10 +124,13 @@ function createTable(data, page) {
                 item.ntime = "N/A";
                 item.out_time = "N/A";
             }8*/
+            let elementDate=dateformater(item['In DateTime']);
+            if(elementDate===' ')
+                elementDate=item.AttendanceDate;
             empData.innerHTML += `
                 <tr>
                 <td>${currentTable + 1}</td>
-                <td>${dateformater(item['In DateTime'])}</td>
+                <td>${elementDate}</td>
                 <td>${item.InTime}</td>
                 <td>${item.OutTime}</td>
                 <td style="background-color: ${item.StatusCode === "P" ? '' : "#e36464"}">${item.Status}</td>

@@ -125,7 +125,10 @@ endDate.addEventListener('change', () => {
 
 //functions
 function dateformater(date)
-{   date=date.toString();
+{   
+    date=date.toString();
+    if(date.length<10)
+        return date;
     return date.substring(6,10)+'-'+date.substring(0,2)+'-'+date.substring(3,5);
 }
 function hourformatter(hour)
@@ -187,10 +190,14 @@ getdata();
 function datefilter(allData) {
     resetSortArray();
    // let results = [];
+  // console.log(showabsent);
     let startDateVal = startDate.value.toString();
     let endDateVal = endDate.value.toString();
    // console.log(endDateVal)
-    data = allData.filter(element => (dateformater(element['In DateTime']) >= startDateVal && dateformater(element['In DateTime'] <= endDateVal)));
+    data = allData.filter(element => {
+        const elementDate = dateformater(element['In DateTime']);
+        return (elementDate >= startDateVal && elementDate <= endDateVal)||elementDate===' ';
+    });
     //data = results;
 
 
@@ -270,7 +277,7 @@ function searcher() {
 
 
 function createTable(tableData, page) {
-    if (showabsent === true) {
+    if (showabsent) {
         renderTable(tableData, page);
 
     }
@@ -307,6 +314,7 @@ function renderTable(tableData, page) {
       <th onclick="sortTable(6)">Hours worked</th>
     </tr>
   </thead><tbody>`;
+
   tableData=filterDepot(tableData);
     if (!tableData || tableData.length == 0) {
         document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
@@ -319,6 +327,9 @@ function renderTable(tableData, page) {
     const pageData = tableData.slice(startIndex, endIndex);
     pageData.forEach(element => {
 
+        let elementDate=dateformater(element['In DateTime']);
+            if(elementDate===' ')
+                elementDate=element.AttendanceDate;
         html += `
         <tr>
         <td>${++currentTable}</td>
@@ -327,7 +338,7 @@ function renderTable(tableData, page) {
         <td>${element['In Device Name']}</td>
         <td>${element['InTime']}</td>
         <td>${element['OutTime']}</td>
-        <td>${dateformater(element['In DateTime'])}</td>
+        <td>${elementDate}</td>
         <td>${hourformatter((element['Duration']+element['Overtime']))}</td>
         </tr>`;
 
