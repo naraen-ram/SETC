@@ -124,7 +124,10 @@ endDate.addEventListener('change', () => {
 
 
 //functions
-
+function dateformater(date)
+{
+    return date.substring(6,10)+'-'+date.substring(3,5)+'-'+date.substring(0,2);
+}
 async function getdata() {
     let jsonFile = await fetch("../database/dummy.json");
     if (!jsonFile.ok) {
