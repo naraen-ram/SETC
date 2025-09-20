@@ -11,7 +11,6 @@
 <body>
     <div class="dashboard-container">
         <main class="main-content">
-            <!-- The main header now contains the new search options. -->
             <header class="main-header">
                 <div class="header-top-row">
                     <div class="logo-container">
@@ -26,8 +25,15 @@
                     </div>
                 </div>
                 
-                <!-- New search UI with radio buttons and date pickers -->
+                <!-- Common date range container, placed above the search options -->
                 <div class="advanced-search-container">
+                    <div class="date-range-container">
+                        <label for="startDate" class="date-label">From</label>
+                        <input type="date" id="startDate" class="date-input">
+                        <label for="endDate" class="date-label">To</label>
+                        <input type="date" id="endDate" class="date-input">
+                    </div>
+
                     <div class="search-options-selector">
                         <input type="radio" id="searchById" name="search-option" value="id-wise" checked>
                         <label for="searchById">Search by ID</label>
@@ -38,21 +44,13 @@
                     <!-- Search by ID form (visible by default) -->
                     <div class="search-form id-wise">
                         <input id="searchId" type="text" placeholder="Enter Employee ID">
-                        <div class="date-range-container">
-                           <label for="fromDateDepot" class="date-label">Date</label>
-                            <input type="date" id="startDate" class="date-input"
-                            >
-                            <label for="toDateDepot" class="date-label">To</label>
-                            <input type="date"  class="date-input"
-                            id="endDate" >
-                        </div>
                     </div>
 
                     <!-- Search by Depot form (hidden by default) -->
                     <div class="search-form depot-wise" style="display: none;">
                         <input id="search" type="text" placeholder="Search by name">
                         <select id="searchDepot" class="dropdown-select">
-                           <option value="All depots">All depots</option>
+                            <option value="All depots">All depots</option>
                             <option value="Head Quarters">Head Quarters</option>
                             <option value="Chennai Depot - A, B, C & D">Chennai Depot - A, B, C & D</option>
                             <option value="Coimbatore">Coimbatore</option>
@@ -74,8 +72,8 @@
                             <option value="Karaikudi">Karaikudi</option>
                             <option value="Dindigul">Dindigul</option>
                             <option value="Hosur">Hosur</option>
-                    </select>
-            
+                        </select>
+                    
                         <select id="categorySelect" class="dropdown-select">
                             <option value="all" selected>Select Category (All)</option>
                             <option value="dnc">DnC</option>
@@ -83,23 +81,14 @@
                             <option value="admin-officers">Admin Officers</option>
                             <option value="branch-managers">Branch Managers</option>
                         </select>
-                        <div class="date-range-container">
-                            <label for="fromDateDepot" class="date-label">From</label>
-                            <input type="date" id="startDate" class="date-input"
-                            name="start date" >
-                            <label for="toDateDepot" class="date-label">To</label>
-                            <input type="date"  class="date-input"
-                            id="endDate" >
-                            </div>
-                            <p>show absent</p>
-                            <label class="switch">
+                        <p>show absent</p>
+                        <label class="switch">
                             <input type="checkbox" id="toggle">
                             <span class="slider round"></span>
-                            </label>
-                            </div>
-
+                        </label>
+                    </div>
                     <button class="searchButton">
-                        <img src="./images/search-icon.png" alt="search" class ="search-icon">
+                        <img src="./images/search-icon.png" alt="search" class="search-icon">
                         <span class="search-word">Search</span>
                     </button>
                 </div>
@@ -112,10 +101,10 @@
                         <!-- js table -->
                     </div>
                     <div id="paginationControls">
-        <button id="prevBtn" disabled>Previous</button>
-        <span id="pageInfo">Page 1 of ?</span>
-        <button id="nextBtn">Next</button>
-    </div>
+                        <button id="prevBtn" disabled>Previous</button>
+                        <span id="pageInfo">Page 1 of ?</span>
+                        <button id="nextBtn">Next</button>
+                    </div>
                 </section>
             </div>
         </main>
