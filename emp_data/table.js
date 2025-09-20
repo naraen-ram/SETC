@@ -203,15 +203,14 @@ function datefilter(allData) {
    
 function searcherId()
 {  resetSortArray();
-     let query =
-    document.getElementById("searchId").value.trim().toLowerCase();
+     let query =searchIdButton.value.trim();
     if (!query) {
         data = allData;
     } else {
         // 1. "Starts with" search
         let startsWithResults = allData.filter(element =>
             //element.name.toLowerCase().startsWith(query) /*||
-            String(element.id).toLowerCase().startsWith(query) 
+            String(element['Employee Code']).startsWith(query) 
            /* element.depot.toLowerCase().startsWith(query) ||
             (element.intime && element.intime.toLowerCase().startsWith(query)) ||
             (element.out_time && element.out_time.toLowerCase().startsWith(query))
@@ -224,7 +223,7 @@ function searcherId()
                 // Check if any field contains the query, but does NOT start with it
                 return (
                    // (element.name.toLowerCase().includes(query) && !element.name.toLowerCase().startsWith(query)) /*||
-                    (String(element.id).toLowerCase().includes(query) && !String(element.id).toLowerCase().startsWith(query)) /*||
+                    (String(element['Employee Code']).includes(query) && !String(element['Employee Code']).startsWith(query)) /*||
                     (element.depot.toLowerCase().includes(query) && !element.depot.toLowerCase().startsWith(query)) ||
                     (element.intime && element.intime.toLowerCase().includes(query) && !element.intime.toLowerCase().startsWith(query)) ||
                     (element.out_time && element.out_time.toLowerCase().includes(query) && !element.out_time.toLowerCase().startsWith(query))*/
@@ -244,7 +243,7 @@ function searcher() {
     } else {
         // 1. "Starts with" search
         let startsWithResults = allData.filter(element =>
-            element.name.toLowerCase().startsWith(query) /*||
+            element['Employee Name'].toString().toLowerCase().startsWith(query) /*||
             String(element.id).toLowerCase().startsWith(query) ||
             element.depot.toLowerCase().startsWith(query) ||
             (element.intime && element.intime.toLowerCase().startsWith(query)) ||
@@ -256,13 +255,13 @@ function searcher() {
             // 2. Substring search, but exclude "starts with" matches
             data = allData.filter(element => {
                 // Check if any field contains the query, but does NOT start with it
-                return (
-                    (element.name.toLowerCase().includes(query) && !element.name.toLowerCase().startsWith(query)) /*||
+                
+                    (element['Employee Name'].toString().toLowerCase().includes(query) && !element['Employee Name'].toString().toLowerCase().startsWith(query)) /*||
                     (String(element.id).toLowerCase().includes(query) && !String(element.id).toLowerCase().startsWith(query)) ||
                     (element.depot.toLowerCase().includes(query) && !element.depot.toLowerCase().startsWith(query)) ||
                     (element.intime && element.intime.toLowerCase().includes(query) && !element.intime.toLowerCase().startsWith(query)) ||
                     (element.out_time && element.out_time.toLowerCase().includes(query) && !element.out_time.toLowerCase().startsWith(query))*/
-                );
+                
             });
         }
     }
@@ -288,7 +287,7 @@ function filterDepot(data)
 {   let currentDepot=searchDepot.value;
     let result;
     if(currentDepot!=='All depots')
-    result=data.filter(element=>element.depot===currentDepot);
+    result=data.filter(element=>element['In Device Name']===currentDepot);
     else
         result=data;
     return result;
@@ -345,7 +344,7 @@ function quicksortName(data) {
         return data;
     let left = [], right = [], pivot = data[data.length - 1];
     for (i = 0; i < data.length - 1; i++) {
-        if (data[i].name.toLowerCase() > pivot.name.toLowerCase())
+        if (data[i]['Employee Name'].toLowerCase() > pivot['Employee Name'].toLowerCase())
             right.push(data[i]);
         else
             left.push(data[i]);
@@ -357,7 +356,7 @@ function quicksortId(data) {
         return data;
     let left = [], right = [], pivot = data[data.length - 1];
     for (i = 0; i < data.length - 1; i++) {
-        if (data[i].id.toLowerCase() > pivot.id.toLowerCase())
+        if (data[i]['Employee Code'] > pivot['Employee Code'])
             right.push(data[i]);
         else
             left.push(data[i]);
@@ -369,7 +368,7 @@ function quicksortDepot(data) {
         return data;
     let left = [], right = [], pivot = data[data.length - 1];
     for (i = 0; i < data.length - 1; i++) {
-        if (data[i].depot.toLowerCase() > pivot.depot.toLowerCase())
+        if (data[i]['In Device Name'] > pivot['In Device Name'])
             right.push(data[i]);
         else
             left.push(data[i]);
@@ -380,7 +379,7 @@ function quicksortDepot(data) {
         return data;
     let left = [], right = [], pivot = data[data.length - 1];
     for (i = 0; i < data.length - 1; i++) {
-        if (data[i].intime > pivot.intime)
+        if (data[i].InTime > pivot.InTime)
             right.push(data[i]);
         else
             left.push(data[i]);
@@ -391,7 +390,7 @@ function quicksortDepot(data) {
         return data;
     let left = [], right = [], pivot = data[data.length - 1];
     for (i = 0; i < data.length - 1; i++) {
-        if (data[i].out_time > pivot.out_time)
+        if (data[i].OutTime > pivot.OutTime)
             right.push(data[i]);
         else
             left.push(data[i]);
@@ -402,7 +401,7 @@ function quicksortDepot(data) {
         return data;
     let left = [], right = [], pivot = data[data.length - 1];
     for (i = 0; i < data.length - 1; i++) {
-        if (data[i].date.toLowerCase() > pivot.date.toLowerCase())
+        if (data[i].AttendanceDate > pivot.AttendanceDate)
             right.push(data[i]);
         else
             left.push(data[i]);
@@ -413,7 +412,7 @@ function quicksortDepot(data) {
         return data;
     let left = [], right = [], pivot = data[data.length - 1];
     for (i = 0; i < data.length - 1; i++) {
-        if (data[i].hours > pivot.hours)
+        if (data[i].Duration > pivot.Duration)
             right.push(data[i]);
         else
             left.push(data[i]);
