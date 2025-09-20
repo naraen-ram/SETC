@@ -1,28 +1,35 @@
 const parameters = new URLSearchParams(window.location.search);  //from the url , username is retrieved
 const loginUserName = parameters.get('loginName');
-//console.log(loginUserName);
-document.querySelector(".user-name").textContent = loginUserName;
-
 let data = [];
 let allData = [];
 let direction = ['', '', '', '', '', '', ''];
 showabsent = false;
 currentTable = 0;
-async function getdata() {
-    let jsonFile = await fetch("../database/dummy.json");
-    if (!jsonFile.ok) {
-        throw new Error("can't pull data");
-    }
-    allData = await jsonFile.json();
-    data = allData;
-    resetSortArray();
-    datefilter(data);
-    //createTable(data,currentPage)
-}
 const rowsPerPage = 50;
 let currentPage = 1;
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
+let date = new Date();
+const formattedDate = date.getFullYear() + '-' +
+        String(date.getMonth() + 1).padStart(2, '0') + '-' +
+        String(date.getDate()).padStart(2, '0');
+const pageInfo = document.getElementById('pageInfo');
+let searchBar = document.getElementById("search");
+let searchButton = document.querySelector(".searchButton");
+let searchIdButton=document.getElementById("searchId");
+let toggle=document.getElementById("toggle");
+const searchByIdRadio=document.getElementById("searchById");
+const searchDepot = document.getElementById("searchDepot");
+const searchByDepotRadio = document.getElementById('searchByDepot');
+let startDate = document.getElementById("startDate");
+let endDate = document.getElementById("endDate");
+//console.log(loginUserName);
+
+
+
+
+//actions
+document.querySelector(".user-name").textContent = loginUserName;
 nextBtn.addEventListener('click', () => {
     const totalPages = Math.ceil(data.length / rowsPerPage);
     if (currentPage < totalPages) {
@@ -37,26 +44,14 @@ prevBtn.addEventListener('click', () => {
         createTable(data, currentPage);
     }
 });
-let date = new Date();
-const formattedDate = date.getFullYear() + '-' +
-        String(date.getMonth() + 1).padStart(2, '0') + '-' +
-        String(date.getDate()).padStart(2, '0');
-const pageInfo = document.getElementById('pageInfo');
-let searchBar = document.getElementById("search");
-let searchButton = document.querySelector(".searchButton");
-let searchIdButton=document.getElementById("searchId");
-let toggle=document.getElementById("toggle");
-const searchByIdRadio=document.getElementById("searchById");
 
-const searchDepot = document.getElementById("searchDepot");
-const searchByDepotRadio = document.getElementById('searchByDepot');
 document.addEventListener('DOMContentLoaded', () => {
             const searchByIdRadio = document.getElementById('searchById');
             const searchByDepotRadio = document.getElementById('searchByDepot');
             const idWiseForm = document.querySelector('.search-form.id-wise');
             const depotWiseForm = document.querySelector('.search-form.depot-wise');
-    startDate.value=formattedDate;
-    endDate.value=formattedDate;
+            startDate.value=formattedDate;
+            endDate.value=formattedDate;
             function toggleSearchForm() {
                 if (searchByIdRadio.checked) {
                     idWiseForm.style.display = 'flex';
@@ -78,26 +73,15 @@ searchDepot.addEventListener('change',()=>
     datefilter(data);
 });
 toggle.addEventListener('click',()=>
-{
-if(toggle.checked===true)
-    showabsent=true;
-else
-    showabsent=false;
-datefilter(data);
-currentPage=1;
-});
-function pageControl() {
-    let totalPages;
-
-    if (showabsent)
-        totalPages = Math.ceil(filterDepot(data).length / rowsPerPage);
+    {
+    if(toggle.checked===true)
+        showabsent=true;
     else
-        totalPages = Math.ceil(filterDepot(filterpresent(data)).length / rowsPerPage);
-    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-    prevBtn.disabled = currentPage === 1 || totalPages===0;
-    nextBtn.disabled = currentPage === totalPages || totalPages===0;
-}
-
+        showabsent=false;
+    datefilter(data);
+    currentPage=1;
+    }
+);
 searchBar.addEventListener('keyup',(val)=>{
     searcher();
     //searchBar.value='';
@@ -122,6 +106,45 @@ searchByDepotRadio.addEventListener('click',()=>
     searchIdButton.value='';
     datefilter(allData);
 });
+startDate.addEventListener('change', () => {
+    endDate.min = startDate.value;
+    searcher();
+    datefilter(data);
+});
+endDate.addEventListener('change', () => {
+    searcher();
+    datefilter(data);
+});
+
+
+
+//functions
+
+
+async function getdata() {
+    let jsonFile = await fetch("../database/dummy.json");
+    if (!jsonFile.ok) {
+        throw new Error("can't pull data");
+    }
+    allData = await jsonFile.json();
+    data = allData;
+    resetSortArray();
+    datefilter(data);
+    //createTable(data,currentPage)
+}
+
+function pageControl() {
+    let totalPages;
+
+    if (showabsent)
+        totalPages = Math.ceil(filterDepot(data).length / rowsPerPage);
+    else
+        totalPages = Math.ceil(filterDepot(filterpresent(data)).length / rowsPerPage);
+    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    prevBtn.disabled = currentPage === 1 || totalPages===0;
+    nextBtn.disabled = currentPage === totalPages || totalPages===0;
+}
+
 getdata();
 /*function searcherDepot() {
     resetSortArray();
@@ -162,17 +185,8 @@ function datefilter(allData) {
     currentPage = 1;
     createTable(data, currentPage);
 }
-let startDate = document.getElementById("startDate");
-let endDate = document.getElementById("endDate");
-startDate.addEventListener('change', () => {
-    endDate.min = startDate.value;
-    searcher();
-    datefilter(data);
-});
-endDate.addEventListener('change', () => {
-    searcher();
-    datefilter(data);
-})
+
+
 
    
 function searcherId()

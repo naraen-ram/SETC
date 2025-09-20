@@ -30,11 +30,11 @@ def generate_bus_schedule(num_entries=50):
         bus_id = f"E{random.randint(10, 99)}X{random.randint(1000, 9999)}"
         bus_name = f"{random.choice(first_names)} {random.choice(last_names)}"
         bus_depot = random.choice(depots)
-        for j in range(0,31):
+        for j in range(0,30):
             hours=None
             mins=None
             hours_string=None
-            onlydate=datetime(2025,8,1+j).strftime("%Y-%m-%d")
+            onlydate=datetime(2025,9,1+j).strftime("%Y-%m-%d")
             randomizer=random.randint(0,10)
             present=False
             if(randomizer>2):

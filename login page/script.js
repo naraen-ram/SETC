@@ -1,10 +1,23 @@
-// created a function sleep(ms) ... so whenever i call "await sleep(500)" the program stops for 500 milliseconds | efficient than setTimeout function in js
-function sleep(ms) {
-    return new Promise(resolve => {
-        setTimeout(resolve, ms)
-    })
-}
+//declarations
+let invalidEmailOrPass = document.getElementById("invalidEmailOrPass");
+let ids = [], passwords = [];
+let username = document.getElementById("username")
+let password = document.getElementById("password")
+let loginButton = document.querySelector(".login-button")
+let loginContainer = document.querySelector(".login-container")
+let rememberMe = document.getElementById("rememberMe");
 
+
+//actions
+
+
+document.getElementById("loginForm").addEventListener("submit", function (event) {
+    event.preventDefault()      // console.log("Form submission prevented")
+});
+localStorage.setItem(
+  "forget_remember", 
+  localStorage.getItem("forget_remember") || "1"
+);
 window.onload = function () {
     //console.log("Page loaded, checking for saved credentials...");
     if (localStorage.getItem("remember") === "true") {
@@ -14,41 +27,6 @@ window.onload = function () {
         document.getElementById("rememberMe").checked = true;
     }
 };
-
-var invalidEmailOrPass = document.getElementById("invalidEmailOrPass");
-
-let ids = [], passwords = [];
-async function getIdsAndPasswords() {
-    let jsonFIle = fetch("../database/userPasswords.json")
-    let response = await jsonFIle
-    if (!response.ok) {
-        throw new Error("Network response was not ok")
-    }
-    let datas = await response.json() /* converted respons to json  format */
-    let data = datas.userPasswords; /* accessing the userPasswords array from the JSON data */
-    ids = data.map(user => user.username)
-    passwords = data.map(user => user.password)
-    //console.log("IDs:", ids)
-    //console.log("Passwords:", passwords)
-}
-getIdsAndPasswords()  /* The function is called here */
-
-let username = document.getElementById("username")
-let password = document.getElementById("password")
-let loginButton = document.querySelector(".login-button")
-let loginContainer = document.querySelector(".login-container")
-let rememberMe = document.getElementById("rememberMe");
-//console.log("Remember me status:", rememberMe.checked)
-
-document.getElementById("loginForm").addEventListener("submit", function (event) {
-    event.preventDefault()      // console.log("Form submission prevented")
-});
-localStorage.setItem(
-  "forget_remember", 
-  localStorage.getItem("forget_remember") || "1"
-);
-
-/* Function for the submit button */
 loginButton.addEventListener("click", async function () {
     let user = username.value
     let pass = password.value
@@ -88,6 +66,30 @@ loginButton.addEventListener("click", async function () {
 });
 
 
+//functions
+
+// created a function sleep(ms) ... so whenever i call "await sleep(500)" the program stops for 500 milliseconds | efficient than setTimeout function in js
+function sleep(ms) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms)
+    })
+}
+async function getIdsAndPasswords() {
+    let jsonFIle = fetch("../database/userPasswords.json")
+    let response = await jsonFIle
+    if (!response.ok) {
+        throw new Error("Network response was not ok")
+    }
+    let datas = await response.json() /* converted respons to json  format */
+    let data = datas.userPasswords; /* accessing the userPasswords array from the JSON data */
+    ids = data.map(user => user.username)
+    passwords = data.map(user => user.password)
+    //console.log("IDs:", ids)
+    //console.log("Passwords:", passwords)
+}
+getIdsAndPasswords()  /* The function is called here */
+//console.log("Remember me status:", rememberMe.checked)
+/* Function for the submit button */
 function openPopup() {
   document.getElementById('popup').style.display = 'block';
   document.getElementById('blur').style.display = 'block';

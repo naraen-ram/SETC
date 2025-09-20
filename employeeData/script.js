@@ -1,10 +1,46 @@
+//declarations
+
 const parameters = new URLSearchParams(window.location.search);  //from the url gets the parameters
 const empId = parameters.get('id');
 // console.log(empId); 
-
 let data;
 let lateArrivalTime = "09:15:00"; //Consider 9 am as the deadline for the entry
+empData = document.getElementById("empData");
+empData.innerHTML = "";
+let startDate = document.getElementById("startDate");
+let endDate = document.getElementById("endDate");
+let rowsPerPage = 10;
+let currentPage = 1;
+let pageInfo = document.getElementById("pageInfo");
+let totalPages = 0;
+let nextButton = document.getElementById("nextBtn");
+let previousButton = document.getElementById("prevBtn");
 
+
+//actions
+startDate.addEventListener('change', () => {
+    endDate.min = startDate.value;
+    datefilter(data);
+});
+endDate.addEventListener('change', () => {
+    datefilter(data);
+});
+nextButton.addEventListener("click", () => {
+    if (currentPage < totalPages) {
+        currentPage++;
+        createTable(data, currentPage);
+        updateButtonState();
+    }
+});
+previousButton.addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        createTable(data, currentPage);
+        updateButtonState();
+    }
+});
+
+//functions
 
 
 async function getData() {
@@ -37,8 +73,7 @@ function isLate(time) {
         return "N/A";
     return time > lateArrivalTime ? "Late" : "On Time";
 }
-empData = document.getElementById("empData");
-empData.innerHTML = "";
+
 function datefilter(allData) {
     //resetSortArray();
     let results = [];
@@ -51,20 +86,7 @@ function datefilter(allData) {
     currentPage = 1;
     createTable(filterdData, currentPage);
 }
-let startDate = document.getElementById("startDate");
-let endDate = document.getElementById("endDate");
-startDate.addEventListener('change', () => {
-    endDate.min = startDate.value;
-    datefilter(data);
-});
-endDate.addEventListener('change', () => {
-    datefilter(data);
-})
 
-let rowsPerPage = 10;
-let currentPage = 1;
-let pageInfo = document.getElementById("pageInfo");
-let totalPages = 0;
 function createTable(data, page) {
     empData.innerHTML = "";
     totalPages = Math.ceil(data.length / rowsPerPage);
@@ -99,23 +121,7 @@ function createTable(data, page) {
     }
 }
 
-let nextButton = document.getElementById("nextBtn");
-let previousButton = document.getElementById("prevBtn");
 function updateButtonState() {
     nextButton.disabled = currentPage === totalPages || totalPages === 0;
     previousButton.disabled = currentPage === 1 || totalPages === 0;
 }
-nextButton.addEventListener("click", () => {
-    if (currentPage < totalPages) {
-        currentPage++;
-        createTable(data, currentPage);
-        updateButtonState();
-    }
-});
-previousButton.addEventListener("click", () => {
-    if (currentPage > 1) {
-        currentPage--;
-        createTable(data, currentPage);
-        updateButtonState();
-    }
-});

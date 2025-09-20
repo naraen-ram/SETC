@@ -1,13 +1,10 @@
+//declarations
+let allData = [];
 const parameters = new URLSearchParams(window.location.search);  //from the url , username is retrieved
 const loginUserName = parameters.get('loginName');
-console.log(loginUserName);
-document.querySelector(".user-name").textContent = loginUserName;
+//console.log(loginUserName);
 const today=new Date();
-document.querySelector(".employee-details-btn").addEventListener("click", function () {
-  window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
-});
 const buttons = document.querySelectorAll('.circle-btn');
-buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; // Set the last button to blue
 let querydate=today.getFullYear() + '-' +
         String(today.getMonth() + 1).padStart(2, '0') + '-' +
         String(today.getDate()).padStart(2, '0');
@@ -15,14 +12,7 @@ let querydate=today.getFullYear() + '-' +
 let inCount=outCount=lateCount=activeCount=absentCount=0;
 let menu=document.querySelector(".menu");
 let button=document.querySelector(".menu-button");
-function openmenu()
-{
-   menu.classList.toggle("menu-open");
-   button.classList.toggle("menu-button-open");
-
-}
 const ctx = document.getElementById('myPieChart').getContext('2d');
-
 const initialData = {
   labels: ['present', 'absent', 'late'],
   datasets: [{
@@ -30,7 +20,6 @@ const initialData = {
     backgroundColor: [ '#36A2EB','#FF6384', '#FFCE56']
   }]
 };
-
 let myPieChart = new Chart(ctx, {
   type: 'pie',
   data: initialData,
@@ -39,15 +28,32 @@ let myPieChart = new Chart(ctx, {
     maintainAspectRatio: false
   }
 });
+
+
+//actions
+
+
+buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; // Set the last button to blue
+document.querySelector(".user-name").textContent = loginUserName;
+document.querySelector(".employee-details-btn").addEventListener("click", function () {
+  window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
+});
+
+
+
+//functions
+/*function openmenu()
+{
+   menu.classList.toggle("menu-open");
+   button.classList.toggle("menu-button-open");
+
+}*/
 function updatechart()
 {
     let newData=[inCount-lateCount,absentCount,lateCount];
     myPieChart.data.datasets[0].data=newData;
     myPieChart.update();
 }
-
-
-let allData = [];
 async function getdata() {
     let jsonFile = await fetch("../database/dummy.json");
     if (!jsonFile.ok) {
