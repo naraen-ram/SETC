@@ -52,7 +52,7 @@ async function getData() {
     data = allData;
   //  console.log(data);
     data = data.filter((item) => {
-        console.log(item.id, empId);
+        // console.log(item.id, empId);
         return item.id === empId;
     });
    // console.log(data);
