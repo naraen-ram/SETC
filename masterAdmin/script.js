@@ -10,7 +10,8 @@ async function loadUsers() {
         let data = await response.json(); // convert to JS object
         // Loop through array and print
         data.userPasswords.forEach((user,index) => {
-            table+=
+            if(index!=0)
+            { table+=
             `<tr> 
                 <td >${user.username} </td>
                 <td id="sno-${index}">***</td>
@@ -24,6 +25,23 @@ async function loadUsers() {
                     <div id="del-${index}"><button onclick="confirm(${index})" >Delete</button></div>
                 </td>
             </tr>`;
+            }
+            else
+            {
+                  table+=
+            `<tr> 
+                <td >${user.username} </td>
+                <td id="sno-${index}">***</td>
+                <td>
+                    <button onclick="viewPassword(${index}, '${user.password}')">view</button>
+                </td>
+                 <td>
+                    <button onclick="editUser(${index}, '${user.username}','${user.password}')">Edit</button>
+                </td>
+                
+            </tr>`;
+            }
+
         });
         table+= `</table></br><button onclick="addUser()">Add</button>`;
         usersDiv.innerHTML=table;
