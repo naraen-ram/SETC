@@ -30,15 +30,23 @@ let myPieChart = new Chart(ctx, {
     maintainAspectRatio: false
   }
 });
-
+async function masterChecker()
+{
+const data = await fetch("../database/userPasswords.json").then(res => res.json());
+if (data.userPasswords[0].username === loginUserName) 
+    document.querySelector(".user-name").innerHTML = `<button id=master" onclick="window.location.href='../masterAdmin/index.html'">${loginUserName}<br>Edit User Accounts</button>`;
+else
+    document.querySelector(".user-name").innerHTML = loginUserName;
+}
 
 //actions
 
 
 buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; // Set the last button to blue
-document.querySelector(".user-name").textContent = loginUserName;
+
+
 document.querySelector(".employee-details-btn").addEventListener("click", function () {
-  window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
+window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
 });
 for (let i = 0; i < buttons.length; i++) {
     let date = new Date(today);
@@ -170,3 +178,5 @@ function selectedButtonColor(event)
   }
   event.target.style.backgroundColor = "#36A2EB";
 }
+
+masterChecker();
