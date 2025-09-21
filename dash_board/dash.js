@@ -9,7 +9,7 @@ let querydate=today.getFullYear() + '-' +
         String(today.getMonth() + 1).padStart(2, '0') + '-' +
         String(today.getDate()).padStart(2, '0');
 //console.log(querydate);
-let inCount=outCount=lateCount=activeCount=absentCount=0;
+let inCount=outCount=lateCount=activeCount=absentCount=leaveCount=0;
 let menu=document.querySelector(".menu");
 let button=document.querySelector(".menu-button");
 const ctx = document.getElementById('myPieChart').getContext('2d');
@@ -38,70 +38,6 @@ document.querySelector(".user-name").textContent = loginUserName;
 document.querySelector(".employee-details-btn").addEventListener("click", function () {
   window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
 });
-
-
-
-//functions
-/*function openmenu()
-{
-   menu.classList.toggle("menu-open");
-   button.classList.toggle("menu-button-open");
-
-}*/
-function updatechart()
-{
-    let newData=[inCount-lateCount,absentCount,lateCount];
-    myPieChart.data.datasets[0].data=newData;
-    myPieChart.update();
-}
-async function getdata() {
-    let jsonFile = await fetch("../database/dummy.json");
-    if (!jsonFile.ok) {
-        throw new Error("can't pull data");
-    }
-    allData = await jsonFile.json();
-   renderPage();
-    
-    
-}
-
-getdata();
-function renderPage()
-{
-  inCount=outCount=lateCount=activeCount=absentCount=0;
-    filteredData=allData.filter(element=>element.date===querydate);
-    for(let i=0;i<filteredData.length;i++)
-    {  
-        if(filteredData[i].intime!=null)
-        inCount++;
-        if(filteredData[i].out_time!=null)
-            outCount++;
-        let intime = new Date(`1970-01-01T${filteredData[i].intime}`);
-        let cutoff = new Date(`1970-01-01T09:15:00`);
-
-        if (intime > cutoff)
-            lateCount++;
-
-        activeCount = inCount - outCount;
-    }
-    absentCount = filteredData.length - inCount;
-
-    document.querySelector("#in").innerHTML = inCount.toString();
-    document.querySelector("#out").innerHTML=outCount.toString();
-    document.querySelector("#late").innerHTML = lateCount.toString();
-    document.querySelector("#absent").innerHTML = absentCount.toString();
-   document.querySelector("#active").innerHTML=activeCount.toString();
-  updatechart();
-}
-// Store today's date in the last circle button, and previous dates in others
-function selectedButtonColor(event)
-{
-  for(let x=0;x<buttons.length;x++)
-  {
-    buttons[x].style.backgroundColor = "";
-  }
-  event.target.style.backgroundColor = "#36A2EB";
-}
 for (let i = 0; i < buttons.length; i++) {
     let date = new Date(today);
     date.setDate(today.getDate() - (buttons.length - 1 - i));
@@ -125,4 +61,71 @@ if(loginUserName==='admin')
   adminAccess.innerHTML=`<button class="adminButton" onclick=${link} >ADMIN</button>`;
   
 
+}
+
+
+
+//functions
+
+
+function updatechart()
+{
+    let newData=[inCount-lateCount,absentCount,lateCount];
+    myPieChart.data.datasets[0].data=newData;
+    myPieChart.update();
+}
+async function getdata() {
+    let jsonFile = await fetch("../database/attendance.json");
+    if (!jsonFile.ok) {
+        throw new Error("can't pull data");
+    }
+    allData = await jsonFile.json();
+   renderPage();
+    
+    
+}
+
+getdata();
+function renderPage()
+{
+  inCount=outCount=lateCount=activeCount=absentCount=leaveCount=0;
+    filteredData=allData.filter(element=> element.AttendanceDate.substring(0,2) ===querydate.substring(8,10));
+    for(let i=0;i<filteredData.length;i++)
+    {  
+        if(filteredData[i].InTime!=='00:00')
+        {
+        inCount++;
+        if(filteredData[i].LateBy!==0 )
+          lateCount++;
+        }
+        if(filteredData[i].OutTime!=='00:00')
+            outCount++;
+          if(filteredData[i]['Is On Leave']!==0)
+            leaveCount++;
+        /*let intime = new Date(`1970-01-01T${filteredData[i].intime}`);
+        let cutoff = new Date(`1970-01-01T09:15:00`);
+
+        if (intime > cutoff)
+            lateCount++;
+        */
+        activeCount = inCount - outCount;
+    }
+    absentCount = filteredData.length - inCount;
+
+    document.querySelector("#in").innerHTML = inCount.toString();
+    document.querySelector("#leave").innerHTML = leaveCount.toString();
+    document.querySelector("#out").innerHTML=outCount.toString();
+    document.querySelector("#late").innerHTML = lateCount.toString();
+    document.querySelector("#absent").innerHTML = absentCount.toString();
+   document.querySelector("#active").innerHTML=activeCount.toString();
+  updatechart();
+}
+// Store today's date in the last circle button, and previous dates in others
+function selectedButtonColor(event)
+{
+  for(let x=0;x<buttons.length;x++)
+  {
+    buttons[x].style.backgroundColor = "";
+  }
+  event.target.style.backgroundColor = "#36A2EB";
 }
