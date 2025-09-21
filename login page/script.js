@@ -13,13 +13,17 @@ let rememberMe = document.getElementById("rememberMe");
 rememberMe.addEventListener('click',()=>{
     if(rememberMe.checked===false)
         if(localStorage.getItem("remember")==="true")
-        {
-             username.value = "";
-  password.value = "";
-  localStorage.removeItem("username");
-  localStorage.removeItem("password");
-  localStorage.setItem("remember", false);
+        {   let userChoice=confirm("Proceeding will delete save password");
+            if(userChoice) 
+            {username.value = "";
+             password.value = "";
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+            localStorage.setItem("remember", false);}
+            else
+            rememberMe.checked=true;
         }
+        
     
 });
 document.getElementById("loginForm").addEventListener("submit", function (event) {
