@@ -278,7 +278,7 @@ function searcher() {
 
 function createTable(tableData, page) {
     if (showabsent) {
-        renderTable(tableData, page);
+        renderAbsentTable(filterAbsent(tableData), page);
 
     }
     else {
@@ -290,6 +290,10 @@ function filterpresent(data) {
     filteredData = data.filter(element => element.StatusCode==='P');
     return filteredData;
 }
+function filterAbsent(data)
+{
+    return data.filter(element=>element.StatusCode==='A');
+}
 function filterDepot(data)
 {   let currentDepot=searchDepot.value;
     let result;
@@ -299,7 +303,47 @@ function filterDepot(data)
         result=data;
     return result;
 }
+function renderAbsentTable(tableData, page) {
+    let html = `<table id="tableJS">
+  <thead>
+    <tr>
+        <th>No</th>
+      <th onclick="sortTable(0)">Name</th>
+      <th onclick="sortTable(1)">ID</th>
+      <th onclick="sortTable(5)">Date</th>
+      <th>Shift</th>
+    </tr>
+  </thead><tbody>`;
 
+  tableData=filterDepot(tableData);
+    if (!tableData || tableData.length == 0) {
+        document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
+        return;
+    }
+    
+    currentTable = (page - 1) * rowsPerPage;
+    const startIndex = (page - 1) * rowsPerPage;
+    const endIndex = startIndex + rowsPerPage;
+    const pageData = tableData.slice(startIndex, endIndex);
+    pageData.forEach(element => {
+
+        let elementDate=dateformater(element['In DateTime']);
+            if(elementDate===' ')
+                elementDate=element.AttendanceDate;
+        html += `
+        <tr>
+        <td>${++currentTable}</td>
+        <td><a href="../employeeData/index.html?id=${element['Employee Code']}">${element['Employee Name']}</a></td>
+        <td>${element['Employee Code']}</td>
+        <td>${elementDate}</td>
+        <td>${element.ShiftName}</td>
+        </tr>`;
+
+    });
+    html += `</tbody></table>`;
+    document.querySelector(".bottom").innerHTML = html;
+    pageControl();
+}
 function renderTable(tableData, page) {
     let html = `<table id="tableJS">
   <thead>
@@ -312,6 +356,7 @@ function renderTable(tableData, page) {
       <th onclick="sortTable(4)">Out Time</th>
       <th onclick="sortTable(5)">Date</th>
       <th onclick="sortTable(6)">Hours worked</th>
+      <th>Shift</th>
     </tr>
   </thead><tbody>`;
 
@@ -340,6 +385,7 @@ function renderTable(tableData, page) {
         <td>${element['OutTime']}</td>
         <td>${elementDate}</td>
         <td>${hourformatter((element['Duration']+element['Overtime']))}</td>
+        <td>${element.ShiftName}</td>
         </tr>`;
 
     });
