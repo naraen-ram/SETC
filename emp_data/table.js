@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const depotWiseForm = document.querySelector('.search-form.depot-wise');
             startDate.value=formattedDate;
             endDate.value=formattedDate;
+            toggle.checked=false;
             function toggleSearchForm() {
                 if (searchByIdRadio.checked) {
                     idWiseForm.style.display = 'flex';
