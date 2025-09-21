@@ -124,12 +124,53 @@ endDate.addEventListener('change', () => {
 
 
 //functions
-function dateformater(date)
-{   
-    date=date.toString();
-    if(date.length<10)
-        return date;
-    return date.substring(6,10)+'-'+date.substring(0,2)+'-'+date.substring(3,5);
+
+function dateConverter(date)
+{
+    const onlyDate=date.substring(0,2);
+    const onlyYear='20'+date.substring(7,9);
+    let onlyMonth=' ';
+    switch(date.substring(3,6))
+    {
+        case 'Jan':
+            onlyMonth='-01-';
+            break;
+        case 'Feb':
+            onlyMonth='-02-';
+            break;
+        case 'Mar':
+            onlyMonth='-03-';
+            break;
+        case 'Apr':
+            onlyMonth='-04-';
+            break;
+        case 'May':
+            onlyMonth='-05-';
+            break;
+        case 'Jun':
+            onlyMonth='-06-';
+            break;
+        case 'Jul':
+            onlyMonth='-07-';
+            break;
+        case 'Aug':
+            onlyMonth='-08-';
+            break;
+        case 'Sep':
+            onlyMonth='-09-';
+            break;
+        case 'Oct':
+            onlyMonth='-10-';
+            break;
+        case 'Nov':
+            onlyMonth='-11-';
+            break;
+        case 'Dec':
+            onlyMonth='-12-';
+            break;
+
+    }
+    return onlyYear+onlyMonth+onlyDate;
 }
 function hourformatter(hour)
 {
@@ -195,7 +236,7 @@ function datefilter(allData) {
     let endDateVal = endDate.value.toString();
    // console.log(endDateVal)
     data = allData.filter(element => {
-        const elementDate = dateformater(element['In DateTime']);
+        const elementDate = dateConverter(element.AttendanceDate);
         return (elementDate >= startDateVal && elementDate <= endDateVal)||elementDate===' ';
     });
     //data = results;
@@ -327,7 +368,7 @@ function renderAbsentTable(tableData, page) {
     const pageData = tableData.slice(startIndex, endIndex);
     pageData.forEach(element => {
 
-        let elementDate=dateformater(element['In DateTime']);
+        let elementDate=dateConverter(element.AttendanceDate);
             if(elementDate===' ')
                 elementDate=element.AttendanceDate;
         html += `
@@ -372,7 +413,7 @@ function renderTable(tableData, page) {
     const pageData = tableData.slice(startIndex, endIndex);
     pageData.forEach(element => {
 
-        let elementDate=dateformater(element['In DateTime']);
+        let elementDate=dateConverter(element.AttendanceDate);
             if(elementDate===' ')
                 elementDate=element.AttendanceDate;
         html += `

@@ -50,15 +50,56 @@ previousButton.addEventListener("click", () => {
 
 //functions
 
-function dateformater(date)
-{   date=date.toString();
-    if(date.length<10)
-        return date;
-    return date.substring(6,10)+'-'+date.substring(0,2)+'-'+date.substring(3,5);
-}
 function hourformatter(hour)
 {
     return (hour/60).toFixed(0)+':'+(hour%60);
+}
+function dateConverter(date)
+{
+    const onlyDate=date.substring(0,2);
+    const onlyYear='20'+date.substring(7,9);
+    let onlyMonth=' ';
+    switch(date.substring(3,6))
+    {
+        case 'Jan':
+            onlyMonth='-01-';
+            break;
+        case 'Feb':
+            onlyMonth='-02-';
+            break;
+        case 'Mar':
+            onlyMonth='-03-';
+            break;
+        case 'Apr':
+            onlyMonth='-04-';
+            break;
+        case 'May':
+            onlyMonth='-05-';
+            break;
+        case 'Jun':
+            onlyMonth='-06-';
+            break;
+        case 'Jul':
+            onlyMonth='-07-';
+            break;
+        case 'Aug':
+            onlyMonth='-08-';
+            break;
+        case 'Sep':
+            onlyMonth='-09-';
+            break;
+        case 'Oct':
+            onlyMonth='-10-';
+            break;
+        case 'Nov':
+            onlyMonth='-11-';
+            break;
+        case 'Dec':
+            onlyMonth='-12-';
+            break;
+
+    }
+    return onlyYear+onlyMonth+onlyDate;
 }
 async function getData() {
     let jsonFile = await fetch("../database/attendance.json");
@@ -98,7 +139,7 @@ function datefilter(allData) {
     let startDateVal = startDate.value;
     let endDateVal = endDate.value;
     data = allData.filter(element => {
-        const elementDate = dateformater(element['In DateTime']);
+        const elementDate = dateConverter(element.AttendanceDate);
         return (elementDate >= startDateVal && elementDate <= endDateVal)||elementDate===' ';
     }); 
    //data = results;
@@ -124,9 +165,9 @@ function createTable(data, page) {
                 item.ntime = "N/A";
                 item.out_time = "N/A";
             }8*/
-            let elementDate=dateformater(item['In DateTime']);
-            if(elementDate===' ')
-                elementDate=item.AttendanceDate;
+            let elementDate=dateConverter(item.AttendanceDate);
+           /* if(elementDate===' ')
+                elementDate=item.AttendanceDate;*/
             empData.innerHTML += `
                 <tr>
                 <td>${currentTable + 1}</td>

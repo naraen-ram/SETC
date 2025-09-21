@@ -79,12 +79,58 @@ async function getdata() {
     
     
 }
+function dateConverter(date)
+{
+    const onlyDate=date.substring(0,2);
+    const onlyYear='20'+date.substring(7,9);
+    let onlyMonth=' ';
+    switch(date.substring(3,6))
+    {
+        case 'Jan':
+            onlyMonth='-01-';
+            break;
+        case 'Feb':
+            onlyMonth='-02-';
+            break;
+        case 'Mar':
+            onlyMonth='-03-';
+            break;
+        case 'Apr':
+            onlyMonth='-04-';
+            break;
+        case 'May':
+            onlyMonth='-05-';
+            break;
+        case 'Jun':
+            onlyMonth='-06-';
+            break;
+        case 'Jul':
+            onlyMonth='-07-';
+            break;
+        case 'Aug':
+            onlyMonth='-08-';
+            break;
+        case 'Sep':
+            onlyMonth='-09-';
+            break;
+        case 'Oct':
+            onlyMonth='-10-';
+            break;
+        case 'Nov':
+            onlyMonth='-11-';
+            break;
+        case 'Dec':
+            onlyMonth='-12-';
+            break;
 
+    }
+    return onlyYear+onlyMonth+onlyDate;
+}
 getdata();
 function renderPage()
 {
   inCount=outCount=lateCount=activeCount=absentCount=leaveCount=0;
-    filteredData=allData.filter(element=> element.AttendanceDate.substring(0,2) ===querydate.substring(8,10));
+    filteredData=allData.filter(element=> dateConverter(element.AttendanceDate) ===querydate);
     for(let i=0;i<filteredData.length;i++)
     {  
         if(filteredData[i].InTime!=='00:00')
