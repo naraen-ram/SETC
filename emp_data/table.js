@@ -401,7 +401,7 @@ function quicksortName(data) {
         return data;
     let left = [], right = [], pivot = data[data.length - 1];
     for (i = 0; i < data.length - 1; i++) {
-        if (data[i]['Employee Name'].toLowerCase() > pivot['Employee Name'].toLowerCase())
+        if (data[i]['Employee Name'] > pivot['Employee Name'])
             right.push(data[i]);
         else
             left.push(data[i]);
