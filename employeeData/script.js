@@ -51,8 +51,9 @@ previousButton.addEventListener("click", () => {
 //functions
 
 function hourformatter(hour)
-{
-    return (hour/60).toFixed(0)+':'+(hour%60);
+{   if(hour==0)
+    return'0:00';
+    return (hour/60-1).toFixed(0)+':'+(hour%60);
 }
 function dateConverter(date)
 {
@@ -176,6 +177,7 @@ function createTable(data, page) {
                 <td>${item.OutTime}</td>
                 <td style="background-color: ${item.StatusCode === "P" ? '' : "#e36464"}">${item.Status}</td>
                 <td style="background-color: ${item.LateBy!==0 ? "#e0fa5fff" : ""} ; ">${isLate(item)}</td>
+                <td>${hourformatter(item.Duration+item.Overtime)}</td>
             </tr>
             `;
             currentTable++;

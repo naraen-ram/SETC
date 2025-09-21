@@ -173,8 +173,9 @@ function dateConverter(date)
     return onlyYear+onlyMonth+onlyDate;
 }
 function hourformatter(hour)
-{
-    return (hour/60).toFixed(0)+':'+(hour%60);
+{   if(hour===0)
+    return '0:00';
+    return (hour/60-1).toFixed(0)+':'+(hour%60);
 }
 async function getdata() {
     let jsonFile = await fetch("../database/attendance.json");
