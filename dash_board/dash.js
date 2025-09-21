@@ -1,4 +1,6 @@
 //declarations
+
+
 let allData = [];
 const parameters = new URLSearchParams(window.location.search);  //from the url , username is retrieved
 const loginUserName = parameters.get('loginName');
@@ -54,14 +56,7 @@ for (let i = 0; i < buttons.length; i++) {
         
     });
 }
-if(loginUserName==='admin')
-{
-  const adminAccess=document.getElementById("adminAccess");
-  const link="window.location.href='../adminPage/admin.html'";
-  adminAccess.innerHTML=`<button class="adminButton" onclick=${link} >ADMIN</button>`;
-  
 
-}
 
 
 
