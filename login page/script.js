@@ -10,21 +10,29 @@ let rememberMe = document.getElementById("rememberMe");
 
 //actions
 
-
+rememberMe.addEventListener('click',()=>{
+    if(rememberMe.checked===false)
+        if(localStorage.getItem("remember")==="true")
+        {
+             username.value = "";
+  password.value = "";
+  localStorage.removeItem("username");
+  localStorage.removeItem("password");
+  localStorage.setItem("remember", false);
+        }
+    
+});
 document.getElementById("loginForm").addEventListener("submit", function (event) {
     event.preventDefault()      // console.log("Form submission prevented")
 });
-localStorage.setItem(
-  "forget_remember", 
-  localStorage.getItem("forget_remember") || "1"
-);
+
 window.onload = function () {
     //console.log("Page loaded, checking for saved credentials...");
     if (localStorage.getItem("remember") === "true") {
         //console.log("Remember me is checked, loading saved credentials.");
         document.getElementById("username").value = localStorage.getItem("username");
         document.getElementById("password").value = localStorage.getItem("password");
-        document.getElementById("rememberMe").checked = true;
+       rememberMe.checked = true;
     }
 };
 loginButton.addEventListener("click", async function () {
@@ -90,41 +98,6 @@ async function getIdsAndPasswords() {
 getIdsAndPasswords()  /* The function is called here */
 //console.log("Remember me status:", rememberMe.checked)
 /* Function for the submit button */
-function openPopup() {
-  document.getElementById('popup').style.display = 'block';
-  document.getElementById('blur').style.display = 'block';
-}
 
-function closePopup() {
-  document.getElementById('popup').style.display = 'none';
-  document.getElementById('blur').style.display = 'none';
-}
 
-function forgetpassword()
-{
-  localStorage.setItem("forget_remember", 1);
-  button_check();
-  username.value = "";
-  password.value = "";
-  localStorage.removeItem("username");
-  localStorage.removeItem("password");
-  localStorage.setItem("remember", false);
-  document.getElementById("rememberMe").checked = false;
-  
-}
 
-function button_check()
-{
- if(localStorage.getItem("forget_remember")==0)
- {
-     document.getElementById('remember-button').style.display = 'none';
-     document.getElementById('forget-button').style.display = 'block';
-  }
-  else
-  {
-    document.getElementById('remember-button').style.display = 'block';
-    document.getElementById('forget-button').style.display = 'none';
- }
-}
-
-button_check();
