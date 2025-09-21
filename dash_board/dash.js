@@ -30,14 +30,7 @@ let myPieChart = new Chart(ctx, {
     maintainAspectRatio: false
   }
 });
-async function masterChecker()
-{
-const data = await fetch("../database/userPasswords.json").then(res => res.json());
-if (data.userPasswords[0].username === loginUserName) 
-    document.querySelector(".user-name").innerHTML = `<button id=master" onclick="window.location.href='../masterAdmin/index.html'">${loginUserName}<br>Edit User Accounts</button>`;
-else
-    document.querySelector(".user-name").innerHTML = loginUserName;
-}
+
 
 //actions
 
@@ -71,6 +64,13 @@ for (let i = 0; i < buttons.length; i++) {
 //functions
 
 
+async function masterChecker()
+{
+const data = await fetch("../database/userPasswords.json").then(res => res.json());
+if (data.userPasswords[0].username === loginUserName) 
+    document.getElementById("adminAccess").innerHTML = `<button id="master" onclick="window.location.href='../masterAdmin/index.html'"><br>Edit User Accounts</button>`;
+    document.querySelector(".user-name").innerHTML = loginUserName;
+}
 function updatechart()
 {
     let newData=[inCount-lateCount,absentCount,lateCount];
