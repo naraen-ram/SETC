@@ -92,7 +92,7 @@ async function submitFormAdd() {
 
     try {
         // Fetch existing users
-        const usersResp = await fetch("http://127.0.0.1:5000/userPasswords");
+        const usersResp = await fetch("http://127.0.0.1:5500/userPasswords");
         if (!usersResp.ok) throw new Error("Failed to fetch users");
 
         const usersData = await usersResp.json();
@@ -105,7 +105,7 @@ async function submitFormAdd() {
         }
 
         // Proceed with adding user
-        const response = await fetch("http://127.0.0.1:5000/addUser", {
+        const response = await fetch("http://127.0.0.1:5500/addUser", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password })

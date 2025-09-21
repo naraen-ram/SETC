@@ -55,7 +55,7 @@ function confirm(index)
 {       
         let d=`del-${index}`;
         document.getElementById(d).innerHTML=`<button onclick="deleteUser(${index})" >Confirm</button>`;
-        setTimeout(()=>document.getElementById(d).innerHTML=`<button onclick="confirm(${index})" >Delete</button>`,5000);
+        setTimeout(()=>document.getElementById(d).innerHTML=`<button onclick="confirm(${index})" >Delete</button>`,5500);
 }
 function viewPassword(index, password)
 {
@@ -65,7 +65,7 @@ function viewPassword(index, password)
     // Hide after 10 seconds
     setTimeout(() => {
         cell.textContent = '***';
-    }, 5000); 
+    }, 5500); 
 }
 
 function editUser(index,username,password)
@@ -84,7 +84,7 @@ function addUser()
 async function deleteUser(index) {
     try {
         // First get the current users from the table or fetch
-        const usersResp = await fetch("http://127.0.0.1:5000/userPasswords");
+        const usersResp = await fetch("http://127.0.0.1:5500/userPasswords");
         if (!usersResp.ok) throw new Error("Failed to fetch users");
 
         const usersData = await usersResp.json();
@@ -95,7 +95,7 @@ async function deleteUser(index) {
         }
 
         // Send the username to the server
-        const response = await fetch("http://127.0.0.1:5000/deleteUser", {
+        const response = await fetch("http://127.0.0.1:5500/deleteUser", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username: user.username })
