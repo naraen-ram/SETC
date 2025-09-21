@@ -6,9 +6,22 @@ function add() {
     document.querySelector(".add").innerHTML = `
         <h2>Add User Account</h2>
         <form id="AddForm">
-            Username: <input type="text" id="Username" autocomplete="off" required><br>
-            Password: <input type="password" id="Password" autocomplete="new-password" required><br>
-            Confirm Password: <input type="password" id="confirmPassword" autocomplete="new-password" required><br>
+            Username: <input type="text" id="Username" autocomplete="off" required>
+            <br>
+            <div class="password-container">
+            Password: <input type="password" id="Password" autocomplete="new-password" required>
+            <span class="toggle-password" onclick="togglePasswordVisibility()">
+            <i class="fas fa-eye"></i> 
+            </span>
+            </div>
+            <br>
+            <div class="password-container">
+            Confirm Password: <input type="password" id="confirmPassword" autocomplete="new-password" required>
+            <span class="toggle-confirmPassword" onclick="toggleConfirmPasswordVisibility()">
+            <i class="fas fa-eye"></i> 
+            </span>
+            </div>
+            <br>
             <button type="button" id="subbtn2">Submit</button>
             <p id="message" style="color:red;"></p>
         </form>
@@ -30,6 +43,34 @@ function add() {
     });
 }
 
+function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('Password');
+    const toggleIcon = document.querySelector('.toggle-password i');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+    }
+}
+function toggleConfirmPasswordVisibility() {
+    const passwordInput = document.getElementById('confirmPassword');
+    const toggleIcon = document.querySelector('.toggle-confirmPassword i');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+    }
+}
 async function submitFormAdd() {
     const username = document.getElementById("Username").value.trim();
     const password = document.getElementById("Password").value;
