@@ -2,43 +2,43 @@
 <html lang="en">
 
 <head>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta charset="UTF-8">
-     <link rel="stylesheet" href="addUser.css">
+    <link rel="stylesheet" href="addUser.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Admin</title>
 </head>
 
 <body>
     <div class="add-user-form add">
-    <h2>Add User Account</h2>
-    <form id="AddForm">
-        <label for="Username">Username</label>
-        <input type="text" id="Username" autocomplete="off" required>
+        <h2>Add User Account</h2>
+        <form id="AddForm">
+            <label for="Username">Username</label>
+            <input type="text" id="Username" autocomplete="off" required>
 
-        <label for="Password">Password</label>
-        <div class="password-container">
-            <input type="password" id="Password" autocomplete="new-password" required>
-            <span class="toggle-password" onclick="togglePasswordVisibility()">
-                <i class="fas fa-eye"></i>
-            </span>
-        </div>
+            <label for="Password">Password</label>
+            <div class="password-container">
+                <input type="password" id="Password" autocomplete="new-password" required>
+                <span class="toggle-password" onclick="togglePasswordVisibility()">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
 
-        <label for="confirmPassword">Confirm Password</label>
-        <div class="password-container">
-            <input type="password" id="confirmPassword" autocomplete="new-password" required>
-            <span class="toggle-confirmPassword" onclick="toggleConfirmPasswordVisibility()">
-                <i class="fas fa-eye"></i>
-            </span>
-        </div>
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-container">
+                <input type="password" id="confirmPassword" autocomplete="new-password" required>
+                <span class="toggle-confirmPassword" onclick="toggleConfirmPasswordVisibility()">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
 
-        <button type="button" id="subbtn2">Submit</button>
-        <p id="message" style="color:red;"></p>
-    </form>
-</div>
+            <button type="button" id="subbtn2">Submit</button>
+            <p id="message" style="color:red;"></p>
+        </form>
+    </div>
     <div class="back"><button onclick="back()">back</button></div>
-    
+
     <script src="./addUser.js"></script>
 </body>
 
