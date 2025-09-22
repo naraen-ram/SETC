@@ -99,7 +99,10 @@ function checkPassword(password) {
     }
 
     if (msgStr != "")
+    {
+        msgStr = msgStr.slice(0,msgStr.length-1)+"."
         return "Password should contain " + msgStr
+    }
     else
         return "1"
 }
