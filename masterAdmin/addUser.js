@@ -83,6 +83,7 @@ function checkPassword(password) {
 
     if (password.length < 8) {
         msgStr += " minimum of 8 characters,"
+        return "Password should contain " + msgStr
     }
     if (!upperCase) {
         msgStr += " uppercase,"
