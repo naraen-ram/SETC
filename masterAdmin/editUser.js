@@ -72,6 +72,39 @@ function togglePasswordVisibility() {
         toggleIcon.classList.add('fa-eye');
     }
 }
+
+function checkPassword(password) {
+    minLength = 8;
+    upperCase = /[A-Z]/.test(password);
+    lowerCase = /[a-z]/.test(password);
+    numbers = /\d/.test(password);
+    specialChars = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    msgStr = ""
+
+    if (password.length < 8) {
+        msgStr += " minimum of 8 characters,"
+        return "Password should contain " + msgStr
+    }
+    if (!upperCase) {
+        msgStr += " uppercase,"
+    }
+    if (!lowerCase) {
+        msgStr += " lowercase,"
+    }
+    if (!numbers) {
+        msgStr += " number,"
+    }
+    if (!specialChars) {
+        msgStr += " special character,"
+    }
+
+    if (msgStr != "")
+        return "Password should contain " + msgStr
+    else
+        return "1"
+}
+
 async function submitForm() {
     const newUsername = document.getElementById("Username").value.trim();
     const newPassword = document.getElementById("Password").value;
@@ -88,6 +121,11 @@ async function submitForm() {
     if (newPassword !== confirmPassword) {
         msg.textContent = "Passwords do not match!";
         return;
+    }
+
+    if ((str = checkPassword(newPassword)) != "1") {
+        msg.textContent = str
+        return
     }
 
     try {
