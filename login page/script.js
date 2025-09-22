@@ -36,7 +36,7 @@ window.onload = function () {
         //console.log("Remember me is checked, loading saved credentials.");
         document.getElementById("username").value = localStorage.getItem("username");
         document.getElementById("password").value = localStorage.getItem("password");
-       rememberMe.checked = true;
+        rememberMe.checked = true;
     }
 };
 loginButton.addEventListener("click", async function () {
@@ -48,6 +48,10 @@ loginButton.addEventListener("click", async function () {
     for (let x = 0; x < ids.length; x++) {
         if (user === ids[x] && pass === passwords[x]) {
             console.log("Login successful for user:", user)
+            sessionStorage.setItem("loginUsername",user);
+            sessionStorage.setItem("loginPassword",pass);
+            sessionStorage.setItem("loginIndex",x);
+
             await sleep(100);
             loginButton.style.bottom = "0px";
             invalidEmailOrPass.style.display = "none"
