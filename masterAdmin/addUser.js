@@ -81,30 +81,25 @@ function checkPassword(password) {
 
     msgStr = ""
 
-    if(password.leng < 8 )
-    {
+    if (password.length < 8) {
         msgStr += " minimum of 8 characters,"
     }
-    if(!upperCase)
-    {
+    if (!upperCase) {
         msgStr += " uppercase,"
     }
-    if(!lowerCase)
-    {
+    if (!lowerCase) {
         msgStr += " lowercase,"
     }
-    if(!numbers)
-    {
+    if (!numbers) {
         msgStr += " number,"
     }
-    if(!specialChars)
-    {
+    if (!specialChars) {
         msgStr += " special character,"
     }
 
-    if(msgStr!="")
-        return "Password should contain "+msgStr
-    else 
+    if (msgStr != "")
+        return "Password should contain " + msgStr
+    else
         return "1"
 }
 
@@ -127,8 +122,7 @@ async function submitFormAdd() {
         return;
     }
 
-    if((str = checkPassword(password))!="1")
-    {
+    if ((str = checkPassword(password)) != "1") {
         msg.textContent = str
         return;
     }
