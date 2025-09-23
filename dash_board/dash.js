@@ -70,9 +70,9 @@ async function masterChecker()
 {
 const data = await fetch("../database/userPasswords.json").then(res => res.json());
 if (data.userPasswords[0].username === loginUserName) 
-    document.getElementById("adminAccess").innerHTML = `<button id="master" onclick="window.location.href='../masterAdmin/index.html'"><br>Edit User Accounts</button>`;
+    document.getElementById("adminAccess").innerHTML = `<button id="master" onclick="window.location.href='../masterAdmin/index.html'">Edit User<br> Accounts</button>`;
 else
-    document.getElementById("adminAccess").innerHTML = `<button id="master" onclick="window.location.href='editUser.html'"><br>Edit User Account</button>`;
+    document.getElementById("adminAccess").innerHTML = `<button id="master" onclick="window.location.href='editUser.html'">Edit User<br> Account</button>`;
     document.querySelector(".user-name").innerHTML = loginUserName;
 }
 function updatechart()
