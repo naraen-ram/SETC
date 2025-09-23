@@ -14,7 +14,7 @@ async function loadUsers() {
             { table+=
             `<tr> 
                 <td >${user.username} </td>
-                <td id="sno-${index}">***</td>
+                <td id="sno-${index}">********</td>
                 <td>
                     <button onclick="viewPassword(${index}, '${user.password}')">view</button>
                 </td>
@@ -31,7 +31,7 @@ async function loadUsers() {
                   table+=
             `<tr> 
                 <td >${user.username} </td>
-                <td id="sno-${index}">***</td>
+                <td id="sno-${index}">********</td>
                 <td>
                     <button onclick="viewPassword(${index}, '${user.password}')">view</button>
                 </td>
@@ -64,7 +64,7 @@ function viewPassword(index, password)
 
     // Hide after 10 seconds
     setTimeout(() => {
-        cell.textContent = '***';
+        cell.textContent = '********';
     }, 5500); 
 }
 
