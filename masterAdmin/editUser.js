@@ -137,13 +137,16 @@ async function submitForm() {
 
         const usersData = await usersResp.json();
         const users = usersData.userPasswords;
-
+        console.log(users);
+         const isMaster=(users[0].username===oldUsername);
+            console.log(isMaster +users[0].username +" "+oldUsername);
+            
         // Check if new username already exists (excluding current user)
         if (newUsername !== oldUsername && users.some(u => u.username === newUsername)) {
             msg.textContent = "Username already exists!";
             return;
         }
-
+       
         // Proceed with update
         const response = await fetch("http://127.0.0.1:5500/updateUser", {
             method: "POST",
@@ -156,7 +159,15 @@ async function submitForm() {
         if (result.status === "success") {
             msg.style.color = "green";
             msg.textContent = "User updated successfully!";
-            back();
+            
+            if(isMaster)
+            {
+                localStorage.setItem("username", newUsername);
+                localStorage.setItem("password", newPassword);
+                localStorage.setItem("remember", true);
+                window.location.href="./../login%20page/login.html";
+            }
+          else  back();
         } else {
             msg.textContent = result.message;
         }
