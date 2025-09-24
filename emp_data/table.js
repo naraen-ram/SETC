@@ -179,7 +179,7 @@ function hourformatter(hour)
     return (hour/60-1).toFixed(0)+':'+(hour%60);
 }
 async function getdata() {
-    let jsonFile = await fetch("../database/attendance.json");
+    let jsonFile = await fetch("../database/newdummy.json");
     if (!jsonFile.ok) {
         throw new Error("can't pull data");
     }

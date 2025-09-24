@@ -82,7 +82,7 @@ function updatechart()
     myPieChart.update();
 }
 async function getdata() {
-    let jsonFile = await fetch("../database/attendance.json");
+    let jsonFile = await fetch("../database/newdummy.json");
     if (!jsonFile.ok) {
         throw new Error("can't pull data");
     }
