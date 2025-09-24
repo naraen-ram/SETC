@@ -1,6 +1,5 @@
 //declarations
-
-
+let lineChartData;
 let allData = [];
 const parameters = new URLSearchParams(window.location.search);  //from the url , username is retrieved
 const loginUserName = parameters.get('loginName');
@@ -37,7 +36,10 @@ let myPieChart = new Chart(ctx, {
 
 buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; // Set the last button to blue
 
-
+document.addEventListener("DOMContentLoaded",()=>{
+    scheduleDailyTask();
+    console.log(localStorage.getItem('lastDailyRun'))
+});
 document.querySelector(".employee-details-btn").addEventListener("click", function () {
 window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
 });
@@ -59,6 +61,10 @@ for (let i = 0; i < buttons.length; i++) {
 }
 
 
+function createLineChart()
+{
+
+}
 
 let loginUsername=sessionStorage.getItem("loginusername");
 let loginPassword=sessionStorage.getItem("loginPassword");
@@ -88,8 +94,40 @@ async function getdata() {
     }
     allData = await jsonFile.json();
    renderPage();
+   //localStorage.removeItem('lineChartData')
+   lineChartData=localStorage.getItem('lineChartData');
+if(lineChartData)
+{
+createLineChart();
+}
+else
+{   lineChartData=[];
+     let pres=abs=late=0;
+    let targetdate=new Date();
     
-    
+    for(let i=31;i>=0;i--)
+    {    targetdate=new Date();
+        pres=abs=late=0;
+     targetdate.setDate(today.getDate()-i);
+        const target=targetdate.getFullYear() + '-' +String(targetdate.getMonth() + 1).padStart(2, '0') + '-' +String(targetdate.getDate()).padStart(2, '0');
+       // console.log(target)
+        const temp=allData.filter(element=>dateConverter(element.AttendanceDate)===target);
+        temp.forEach(element=>{
+            if(element.StatusCode==='P')
+                pres++;
+            else
+                abs++;
+            if(element.LateBy!==0)
+                late++;
+        
+});
+lineChartData.push([pres,abs,late]);
+//console.log(pres,abs,late+"  ")
+    }
+    localStorage.setItem('lineChartData',lineChartData);
+    createLineChart();
+}
+     //console.log(lineChartData)
 }
 function dateConverter(date)
 {
@@ -139,10 +177,55 @@ function dateConverter(date)
     return onlyYear+onlyMonth+onlyDate;
 }
 getdata();
+function getLineChartData(presentCount,absentCount,lateCount)
+{   let i;
+    for(i=1;i<31;i++)
+        lineChartData[i-1]=lineChartData[i];
+    lineChartData[30]=[presentCount,absentCount,lateCount];
+    console.log(lineChartData)
+    
+
+}
+
+function scheduleDailyTask() {
+            const lastRunDate = localStorage.getItem('lastDailyRun');
+            const today = new Date().toDateString();
+
+            // Check if the function has already run today
+            if (lastRunDate === today) {
+                
+                
+                // Calculate time until midnight to schedule the next check
+                const now = new Date();
+                const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() , 23, 0, 0);
+                const timeUntilMidnight = midnight.getTime() - now.getTime();
+                
+                // Use setTimeout to schedule the function to run at midnight
+                setTimeout(() => {
+                    scheduleDailyTask(); // Call the scheduler again
+                }, timeUntilMidnight);
+
+            } else {
+                // It's a new day, so run the task
+                getLineChartData(inCount, absentCount, lateCount)
+                // Store the current date to prevent running again today
+                localStorage.setItem('lastDailyRun', today);
+
+                // Schedule the next check for the following midnight
+                const now = new Date();
+                const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+                const timeUntilMidnight = midnight.getTime() - now.getTime();
+                
+                setTimeout(() => {
+                    scheduleDailyTask();
+                }, timeUntilMidnight);
+            }
+        }
 function renderPage()
 {
   inCount=outCount=lateCount=activeCount=absentCount=leaveCount=0;
     filteredData=allData.filter(element=> dateConverter(element.AttendanceDate) ===querydate);
+    console.log(lineChartData)
     for(let i=0;i<filteredData.length;i++)
     {  
         if(filteredData[i].InTime!=='00:00')
@@ -164,7 +247,6 @@ function renderPage()
         activeCount = inCount - outCount;
     }
     absentCount = filteredData.length - inCount;
-
     document.querySelector("#in").innerHTML = inCount.toString();
     document.querySelector("#leave").innerHTML = leaveCount.toString();
     document.querySelector("#out").innerHTML=outCount.toString();
