@@ -1,7 +1,7 @@
 import json
 import random
 from datetime import datetime, timedelta
-
+import re
 def generate_random_time(start_time_str,end_time_str):
     start_time = datetime.strptime(start_time_str, "%H:%M:%S")
     end_time = datetime.strptime(end_time_str, "%H:%M:%S")
@@ -72,12 +72,29 @@ def generate_bus_schedule():
             randomizer=random.randint(0,10)
             duration=0
             late_by=0
-            present=False
+            status="Absent"
+            statuscode="A"
+            ot=0
+            arrival_time="00:00"
+            out_time="00:00"
+            depot=" "
+            code_depot=attendance_records[name]
+            pattern=r"^\d+"
+            match=re.match(pattern,code_depot)
+            code=int(match.group(0))
+            end=match.end()
             if(randomizer>2):
-                present=True
-                arrival_time = generate_random_time("8:45:00","9:00:00")
+                arrival_time = generate_random_time("8:45:00","9:15:00")
                 out_time=generate_random_time("17:30:00","17:45:00")
                 duration, late_by = calculate_times(arrival_time, out_time)
+                status="Present"
+                statuscode="P"
+                ot=duration-466
+                duration=466
+                depot=code_depot[end:]
+                
+                
+                
                 """start_time = datetime.strptime(arrival_time, "%H:%M:%S")
                 //end_time = datetime.strptime(out_time, "%H:%M:%S")
                 hours=int((end_time-start_time).total_seconds()/3600)
@@ -87,22 +104,19 @@ def generate_bus_schedule():
                     hours_string=temp_hours_string[0:2]+'0'+temp_hours_string[2:]
                 else:
                     hours_string=temp_hours_string"""
-            else:
-                arrival_time="00:00"
-                out_time="00:00"
             schedule.append({
-        "Employee Code": attendance_records[name][0:1],
+        "Employee Code": code,
         "Employee Name": name,
         "AttendanceDate": onlydate,
         "InTime": arrival_time,
         "OutTime": out_time,
-        "Status":  "Present"if present else"Absent",
-        "StatusCode": "P" if present else "A",
+        "Status":  status,
+        "StatusCode": statuscode,
         "ShiftName": "GS"if randomizer<9 else "NS",
-        "Duration":466 if present else 0,
+        "Duration":duration,
         "LateBy":late_by,
-        "In Device Name":attendance_records[name][1:] if present else " ",
-        "Overtime": duration-466 if present else 0,
+        "In Device Name":depot,
+        "Overtime": ot,
     })
         
     return schedule
