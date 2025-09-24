@@ -21,8 +21,19 @@ const formattedDate = date.getFullYear() + '-' +
         String(date.getDate()).padStart(2, '0');
 
 //actions
-startDate.value=formattedDate;
-endDate.value=formattedDate;
+
+/* To set inital date */
+let now = new Date();
+// console.log(now)
+let startDt = new Date(now.getFullYear(), now.getMonth(), 2);
+let endDt = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+// console.log(now.getMonth()+1)
+startDate.value = startDt.toISOString().split("T")[0]
+endDate.value = endDt.toISOString().split("T")[0]
+// console.log(startDate.value)
+
+/* startDate.value="2025-09-01";
+endDate.value="2025-10-00"; */
 endDate.min = startDate.value;
 startDate.max=endDate.value;
 startDate.addEventListener('change', () => {
