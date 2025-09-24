@@ -146,6 +146,7 @@ function datefilter(allData) {
    //data = results;
     currentPage = 1;
     createTable(data,currentPage);
+    updateButtonState();
 }
 
 function createTable(data, page) {
