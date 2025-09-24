@@ -48,8 +48,8 @@ def calculate_times(in_time_str, out_time_str):
 
     return duration_minutes, late_by_minutes
 def generate_bus_schedule():
-    first_names = ["Anand", "Ravi", "Dev", "Suresh", "raj", "Senthil", "Vignesh", "Sathya", "Ganesh", "Vijay"]
-    last_names = ["kumar", "gopal", "gobi","Murugan"]
+    first_names = ["Anand", "Ravi", "Dev", "Suresh", "raj", "Senthil", "Vignesh", "Sathya", "Ganesh", "Vijay","Rahul","bala"]
+    last_names = ["kumar", "gopal", "gobi","Murugan","pandi","narayana","subramani","ram","Ashwin","krishna","vishnu"]
     depots = ["Head Quarters","Chennai Depot - A, B, C & D","Coimbatore","Kanyakumari","Kumbakonam","Madurai","Marthandam","Nagercoil",
               "Nagapattinam","Puducherry","Salem","Shencottah","Thanjavur","Tirunelveli - I","Tirunelveli - II","Trichirapalli",
               "Thoothukudi","Thiruvananthapuram","Karaikudi","Dindigul","Hosur"]
@@ -57,15 +57,13 @@ def generate_bus_schedule():
     schedule = []
     attendance_records = {}
     count=1
-    while(1):
-        name = f"{random.choice(first_names)} {random.choice(last_names)}"
-        bus_depot = f"{count}{random.choice(depots)}"
-        if name in attendance_records.values():
-            continue
-        attendance_records[name]=bus_depot
-        if(count==101):
-            break
-        count+=1 
+    for i in first_names:
+        for j in last_names:
+            name = f"{i} {j}"
+            bus_depot = f"{count}{random.choice(depots)}"
+            attendance_records[name]=bus_depot                
+            count+=1 
+    
     for j in range(0,30):
         onlydate=datetime(2025,9,1+j).strftime("%d-%b-%y")        
         for name in attendance_records:
@@ -84,7 +82,7 @@ def generate_bus_schedule():
             code=int(match.group(0))
             end=match.end()
             if(randomizer>2):
-                arrival_time = generate_random_time("8:45:00","9:15:00")
+                arrival_time = generate_random_time("8:15:00","9:15:00")
                 out_time=generate_random_time("17:30:00","17:45:00")
                 duration, late_by = calculate_times(arrival_time, out_time)
                 status="Present"
@@ -117,6 +115,7 @@ def generate_bus_schedule():
         "LateBy":late_by,
         "In Device Name":depot,
         "Overtime": ot,
+        "Is On Leave":0,
     })
         
     return schedule
