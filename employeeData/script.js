@@ -157,6 +157,7 @@ function createTable(data, page) {
     const endIndex = startIndex + rowsPerPage;
     const pageData = data.slice(startIndex, endIndex);
     // console.log(pageData);
+    // console.log(pageData);
 
     if (!pageData || pageData.length == 0) {
         empData.innerHTML = "<tr><td colspan='6'>No data available</td></tr>";
