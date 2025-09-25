@@ -38,7 +38,7 @@ buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; // Set the last b
 
 document.addEventListener("DOMContentLoaded",()=>{
     scheduleDailyTask();
-    console.log(localStorage.getItem('lastDailyRun'))
+    //console.log(localStorage.getItem('lastDailyRun'))
 });
 document.querySelector(".employee-details-btn").addEventListener("click", function () {
 window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
@@ -63,7 +63,80 @@ for (let i = 0; i < buttons.length; i++) {
 
 function createLineChart()
 {
-
+const ctx = document.getElementById('lineChart').getContext('2d');
+        let names=[];
+        let x=[],y=[],z=[];
+        let datename;
+        for(let i=0;i<lineChartData.length;i++)
+        {   datename=new Date;
+            datename.setDate(today.getDate()-31+i);
+            names.push(datename.toLocaleDateString('de-DE'));
+            x.push(lineChartData[i][0]);
+            //console.log(lineChartData[i][0])
+            y.push(lineChartData[i][1]);
+            z.push(lineChartData[i][2]);
+        }
+        // 4. Create the chart configuration
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                // Labels for the X-axis
+                labels: names,
+                
+                // The datasets array contains the data for each line
+                datasets: [
+                    {
+                        label: 'Present Count',
+                        data: x,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    },
+                    {
+                        label: 'Late Count',
+                        data: y,
+                        borderColor: 'rgb(255, 159, 64)',
+                        tension: 0.1
+                    },
+                    {
+                        label: 'Absent count',
+                        data: z,
+                        borderColor: 'rgb(255, 99, 132)',
+                        tension: 0.1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                //maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Total vs Rural vs Urban Population',
+                        font: {
+                            size: 18
+                        }
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'Population'
+                        }
+                    },
+                    x: {
+                         title: {
+                            display: true,
+                            text: 'States'
+                        }
+                    }
+                }
+            }
+        });
 }
 
 let loginUsername=sessionStorage.getItem("loginusername");
@@ -97,7 +170,8 @@ async function getdata() {
    //localStorage.removeItem('lineChartData')
    lineChartData=localStorage.getItem('lineChartData');
 if(lineChartData)
-{
+{   lineChartData=JSON.parse(lineChartData)
+   // console.log(lineChartData)
 createLineChart();
 }
 else
@@ -124,7 +198,7 @@ else
 lineChartData.push([pres,abs,late]);
 //console.log(pres,abs,late+"  ")
     }
-    localStorage.setItem('lineChartData',lineChartData);
+    localStorage.setItem('lineChartData',JSON.stringify(lineChartData));
     createLineChart();
 }
      //console.log(lineChartData)
