@@ -1,124 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  background: #f0f2f5;
+  font-family: 'Poppins', Arial, sans-serif;
+}
 
 .edit-user-form {
-    max-width: 350px;
-    margin: 40px auto;
-    padding: 30px 25px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  max-width: 350px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .edit-user-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .edit-user-form label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .edit-user-form input[type="text"],
 .edit-user-form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    padding-right: 40px; /* Make space for the icon */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    box-sizing: border-box;
-    outline: none;
-    transition: border 0.2s;
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px; /* space for eye icon */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border 0.2s;
 }
 
 .edit-user-form input:focus {
-    border: 1.5px solid #007bff;
+  border: 1.5px solid #007bff;
 }
 
+/* Password container */
 .password-container {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
+.password-container input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px; /* space for eye icon */
+  box-sizing: border-box;
+}
+
+/* Eye icon styling */
 .password-container .toggle-password,
 .password-container .toggle-confirmPassword {
     position: absolute;
     right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 8px;
+    top: auto;
+    transform: none;
     cursor: pointer;
     color: #888;
     font-size: 18px;
     transition: color 0.2s;
 }
 
+
+.password-container .toggle-password svg,
+.password-container .toggle-confirmPassword svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  pointer-events: none;
+}
+
 .password-container .toggle-password:hover,
 .password-container .toggle-confirmPassword:hover {
-    color: #007bff;
+  color: #007bff;
+}
+
+.password-container .toggle-password.show,
+.password-container .toggle-confirmPassword.show {
+  background: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23007bff" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="12" rx="8" ry="5"/><circle cx="12" cy="12" r="2.5"/></svg>') no-repeat center center;
+  background-size: 22px 22px;
 }
 
 #subbtn {
-    display: block;
-    margin: 18px auto 0 auto;
-    width: 60%;
-    padding: 12px;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.2s;
+  display: block;
+  margin: 18px auto 0 auto;
+  width: 60%;
+  padding: 12px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
 #subbtn:hover {
-    background: #0056b3;
+  background: #0056b3;
 }
 
 #message {
-    text-align: center;
-    min-height: 24px;
-    margin-top: 10px;
-}
-.password-container {
-    position: relative;
-    width: 300px;
+  text-align: center;
+  min-height: 24px;
+  margin-top: 10px;
 }
 
-.password-container input {
-    width: 100%;
-    padding: 10px;
-    padding-right: 40px; /* Make space for the icon */
-    box-sizing: border-box;
-}
-
-.password-container .toggle-password {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
 .back {
-    margin: 0 auto 20px auto;
-    text-align: center;
-    margin-top: 0;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  margin-top: 0;
 }
+
 .back button {
-    display: block;
-    margin: 0 auto;
-    background-color: #6c757d;
-    color: #fff;
-    border: none;
-    padding: 10px 28px;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.2s;
-    box-shadow: 0 2px 6px rgba(2, 2, 2, 0.666);
+  display: block;
+  margin: 0 auto;
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 6px rgba(2, 2, 2, 0.666);
 }
+
 .back button:hover {
-    background-color: #495057;
+  background-color: #495057;
 }

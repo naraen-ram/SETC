@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
 .password-container {
     position: relative;
     width: 300px;
@@ -63,8 +69,9 @@
 .password-container .toggle-confirmPassword {
     position: absolute;
     right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 8px;
+    top: auto;
+    transform: none;
     cursor: pointer;
     color: #888;
     font-size: 18px;
