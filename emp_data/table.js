@@ -467,6 +467,7 @@ function filterDepot(data)
     return result;
 }
 function renderAbsentTable(tableData, page) {
+    document.getElementById("ExcelDownload").style.display="inline-block";
     let html = `<table id="tableJS">
   <thead>
     <tr>
@@ -481,6 +482,7 @@ function renderAbsentTable(tableData, page) {
   tableData=filterDepot(tableData);
     if (!tableData || tableData.length == 0) {
         document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
+        document.getElementById("ExcelDownload").style.display="none";
         return;
     }
     
