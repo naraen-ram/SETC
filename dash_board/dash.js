@@ -73,8 +73,8 @@ const ctx = document.getElementById('lineChart').getContext('2d');
             names.push(datename.toLocaleDateString('de-DE'));
             x.push(lineChartData[i][0]);
             //console.log(lineChartData[i][0])
-            y.push(lineChartData[i][1]);
-            z.push(lineChartData[i][2]);
+            y.push(lineChartData[i][2]);
+            z.push(lineChartData[i][1]);
         }
         // 4. Create the chart configuration
         new Chart(ctx, {
