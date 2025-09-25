@@ -12,6 +12,58 @@ body {
     min-height: 100vh;
 }
 
+.header-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.logo-container {
+        margin-bottom: 10px;
+}
+.header-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    letter-spacing: 1px;
+    background: #ebedf0;
+    padding: 12px 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+    margin: 0 auto 8px auto;
+    text-align: center;
+    border-bottom: 2px solid #2279d0;
+    display: inline-block;
+    text-shadow: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.profile-box {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+.logout-btn {
+    padding: 8px 16px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+.gallery-img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(8, 128, 150, 0.594);
+    align-content: center;
+}
+
 .emp-data-header {
     color: #3f3f3f;
     font-weight: 600;
@@ -21,7 +73,7 @@ body {
 }
 
 .base-details {
-    background-color: #4e4b4b;
+    background-color: #0056b3;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -51,7 +103,7 @@ body {
 }
 
 .emp-table thead tr {
-    background-color: #34495e;
+    background-color: #0056b3;
     color: #ffffff;
     text-align: left;
 }
