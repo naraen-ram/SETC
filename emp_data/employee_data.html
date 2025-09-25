@@ -23,6 +23,7 @@
                         <span class="user-name">User Name</span>
                         <button class="logout-btn"><a href="../login page/login.html"><img src="./images/logout_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="logout"></a></button>
                     </div>
+
                 </div>
                 
                 <!-- Common date range container, placed above the search options -->
@@ -51,6 +52,7 @@
                     <div class="search-form id-wise">
                         <input id="searchId" type="text" placeholder="Enter Employee ID">
                     </div>
+                    <button id="ExcelDownload" onclick="exportToExcel()">Download</button>
 
                     <!-- Search by Depot form (hidden by default) -->
                     <div class="search-form depot-wise" style="display: none;">
@@ -108,5 +110,6 @@
     </div>
     
     <script src="table.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
 </body>
 </html>

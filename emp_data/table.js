@@ -164,7 +164,8 @@ function dateConverter(date)
     return onlyYear+onlyMonth+onlyDate;
 }
 function hourformatter(hour)
-{   if(hour===0)
+{   
+    if(hour===0)
     return '0:00';
     return (hour/60-1).toFixed(0)+':'+(hour%60);
 }
@@ -237,7 +238,129 @@ function datefilter(allData) {
     currentPage = 1;
     createTable(data, currentPage);
 }
+function getFilteredDataForExcel() {
+    let filteredData = [...data];
 
+    filteredData = filterDepot(filteredData);
+
+    if (!showabsent) {
+        filteredData = filterpresent(filteredData);
+    } else {
+        filteredData = filterAbsent(filteredData);
+    }
+
+    const startDateVal = startDate.value;
+    const endDateVal = endDate.value;
+
+    filteredData = filteredData.filter(element => {
+        const elementDate = dateConverter(element.AttendanceDate);
+        return (elementDate >= startDateVal && elementDate <= endDateVal) || elementDate === ' ';
+    });
+
+    return filteredData;
+}
+
+function ExcelGenerator() {
+    let ExcelData = [
+        [],
+        ["Date Range: " + startDate.value + " to " + endDate.value],
+        [],
+        ["No", "Name", "ID", "Depot", "In-Time", "Out-Time", "Date", "Hours-worked", "Shift"],
+        []
+    ];
+
+    let filteredData = getFilteredDataForExcel();
+
+    filteredData.forEach((element, index) => {
+        let elementDate = dateConverter(element.AttendanceDate);
+        if (elementDate === ' ') elementDate = element.AttendanceDate;
+
+        ExcelData.push([
+            index + 1,
+            element['Employee Name'],
+            element['Employee Code'],
+            element['In Device Name'],
+            element['InTime'],
+            element['OutTime'],
+            elementDate,
+            hourformatter(element['Duration'] + element['Overtime']),
+            element.ShiftName
+        ]);
+    });
+
+    return ExcelData;
+}
+
+function ExcelGeneratorAbsent() {
+    let ExcelData = [
+        [],
+        ["Date Range: " + startDate.value + " to " + endDate.value],
+        [],
+        ["No", "Name", "ID", "Date", "Shift"],
+        []
+    ];
+
+    let filteredData = getFilteredDataForExcel(); // filtered including showabsent
+
+    filteredData = filterAbsent(filteredData);
+
+    filteredData.forEach((element, index) => {
+        let elementDate = dateConverter(element.AttendanceDate);
+        if (elementDate === ' ') elementDate = element.AttendanceDate;
+
+        ExcelData.push([
+            index + 1,
+            element['Employee Name'],
+            element['Employee Code'],
+            elementDate,
+            element.ShiftName
+        ]);
+    });
+
+    return ExcelData;
+}
+
+function exportDataToExcel() {
+    const ExcelData = ExcelGenerator();
+    const ws = XLSX.utils.aoa_to_sheet(ExcelData);
+    ws['!cols'] = [
+        { wch: 5 },
+        { wch: 20 },
+        { wch: 10 },
+        { wch: 18 },
+        { wch: 12 },
+        { wch: 12 },
+        { wch: 15 },
+        { wch: 12 },
+        { wch: 12 }
+    ];
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "SETC_Attendance");
+    XLSX.writeFile(wb, "SETC_Attendance.xlsx");
+}
+
+function exportAbsentToExcel() {
+    const ExcelData = ExcelGeneratorAbsent();
+    const ws = XLSX.utils.aoa_to_sheet(ExcelData);
+    ws['!cols'] = [
+        { wch: 5 },
+        { wch: 20 },
+        { wch: 10 },
+        { wch: 15 },
+        { wch: 12 }
+    ];
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "SETC_Attendance");
+    XLSX.writeFile(wb, "SETC_Attendance.xlsx");
+}
+
+function exportToExcel() {
+    if (showabsent) {
+        exportAbsentToExcel();
+    } else {
+        exportDataToExcel();
+    }
+}
 
 
    
@@ -378,6 +501,7 @@ function renderAbsentTable(tableData, page) {
     pageControl();
 }
 function renderTable(tableData, page) {
+    document.getElementById("ExcelDownload").style.display="inline-block";
     let html = `<table id="tableJS">
   <thead>
     <tr>
@@ -396,6 +520,7 @@ function renderTable(tableData, page) {
   tableData=filterDepot(tableData);
     if (!tableData || tableData.length == 0) {
         document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
+        document.getElementById("ExcelDownload").style.display="none";
         return;
     }
     

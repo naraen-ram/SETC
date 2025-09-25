@@ -1,5 +1,6 @@
 //declarations
 
+
 const parameters = new URLSearchParams(window.location.search);  //from the url gets the parameters
 const empId = parameters.get('id');
 // console.log(empId); 
@@ -158,10 +159,13 @@ function datefilter(allData) {
     currentPage = 1;
     createTable(data,currentPage);
     updateButtonState();
+    
 }
 
-function createTable(data, page) {
+function createTable(data, page) 
+{
     empData.innerHTML = "";
+    
     totalPages = Math.ceil(data.length / rowsPerPage);
     let currentTable = (page - 1) * rowsPerPage;
     const startIndex = (page - 1) * rowsPerPage;
@@ -191,15 +195,66 @@ function createTable(data, page) {
                 <td style="background-color: ${item.StatusCode === "P" ? '' : "#e36464"}">${item.Status}</td>
                 <td style="background-color: ${item.LateBy!==0 ? "#e0fa5fff" : ""} ; ">${isLate(item)}</td>
                 <td>${hourformatter(item.Duration+item.Overtime)}</td>
+                
             </tr>
             `;
+             
             currentTable++;
         });
+        
         pageInfo.innerText = `Page ${page} of ${totalPages}`;
+        
+        
     }
 }
+function ExcelGenerator()
+{   
+    ExcelData=[  
+                 [], 
+                 ["Name:",allData[0]['Employee Name'],,,"Emp.ID:",empId],
+                 ["Category:",allData[0]['Category'],,,"Depot:",allData[0]['In Device Name']],
+                 [],
+                 ["S.No","Date","In-Time","Out-Time","Attendance","Arrival","Hours_worked"],
+                 [],
+
+            ];    
+    let startDateVal = startDate.value;
+    let endDateVal = endDate.value;
+    ex_data = allData.filter(element => {
+        const elementDate = dateConverter(element.AttendanceDate);
+        return (elementDate >= startDateVal && elementDate <= endDateVal)||elementDate===' ';
+    });
+        ex_data.forEach((item,index) => {
+          
+            let elementDate=dateConverter(item.AttendanceDate);
+            ExcelData.push([index + 1, elementDate, item.InTime, item.OutTime, item.Status, isLate(item), hourformatter(item.Duration+item.Overtime)]);
+            
+        });
+    return ExcelData;
+            
+}
+
 
 function updateButtonState() {
     nextButton.disabled = currentPage === totalPages || totalPages === 0;
     previousButton.disabled = currentPage === 1 || totalPages === 0;
+}
+
+function exportToExcel() 
+{
+            ExcelData=ExcelGenerator();
+            const ws = XLSX.utils.aoa_to_sheet(ExcelData);
+            ws['!cols'] = 
+            [
+              { wch: 5 },   
+              { wch: 12 },  
+              { wch: 10 },  
+              { wch: 10 },  
+              { wch: 12 },  
+              { wch: 12 },  
+              { wch: 15 }   
+            ];
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "SETC_Attendance");
+            XLSX.writeFile(wb, "SETC_Attendance.xlsx");
 }
