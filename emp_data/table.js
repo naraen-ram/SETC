@@ -14,8 +14,6 @@ const formattedDate = date.getFullYear() + '-' +
         String(date.getMonth() + 1).padStart(2, '0') + '-' +
         String(date.getDate()).padStart(2, '0');
 const pageInfo = document.getElementById('pageInfo');
-let searchBar = document.getElementById("search");
-let searchButton = document.querySelector(".searchButton");
 let searchIdButton=document.getElementById("searchId");
 let toggle=document.getElementById("toggle");
 const searchByIdRadio=document.getElementById("searchById");
@@ -87,15 +85,7 @@ toggle.addEventListener('click',()=>
     currentPage=1;
     }
 );
-searchBar.addEventListener('keyup',(val)=>{
-    searcher();
-    //searchBar.value='';
-});
-searchButton.addEventListener("click", () => {
-   searcher();
-   searcherId();
-}
-);
+
 searchIdButton.addEventListener('keyup',(val)=>{
     searcherId();
    // searchBar.value='';
