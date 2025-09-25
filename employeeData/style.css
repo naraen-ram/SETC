@@ -63,6 +63,32 @@ body {
     box-shadow: 0 4px 8px rgba(8, 128, 150, 0.594);
     align-content: center;
 }
+.gallery-img1 {
+    width: 20px;
+    height: auto;
+    color: white;
+    align-content: center;
+}
+.excel-download{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: white;
+    vertical-align: middle;
+    align-self: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.excel-download:hover {
+    background-color: #003d7a;
+    transform: scale(1.05);
+}
 
 .emp-data-header {
     color: #3f3f3f;
