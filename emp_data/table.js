@@ -167,7 +167,8 @@ function hourformatter(hour)
 {   
     if(hour===0)
     return '0:00';
-    return (hour/60-1).toFixed(0)+':'+(hour%60);
+    let minutes=hour%60>9?hour%60:String(hour%60).padStart(2,0);
+    return (hour/60-1).toFixed(0)+':'+minutes;
 }
 async function getdata() {
     let jsonFile = await fetch("../database/newdummy.json");
