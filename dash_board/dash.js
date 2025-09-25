@@ -65,17 +65,48 @@ function createLineChart()
 {
 const ctx = document.getElementById('lineChart').getContext('2d');
         let names=[];
-        let x=[],y=[],z=[];
+        let presentLine=[],lateLine=[],absentLine=[];
         let datename;
         for(let i=0;i<lineChartData.length;i++)
         {   datename=new Date;
             datename.setDate(today.getDate()-31+i);
             names.push(datename.toLocaleDateString('de-DE'));
-            x.push(lineChartData[i][0]);
+            presentLine.push(lineChartData[i][0]);
             //console.log(lineChartData[i][0])
-            y.push(lineChartData[i][2]);
-            z.push(lineChartData[i][1]);
+            lateLine.push(lineChartData[i][2]);
+            absentLine.push(lineChartData[i][1]);
         }
+        const totalDuration = 6000;
+        const delayBetweenPoints = totalDuration / presentLine.length;
+        const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
+        const animation = {
+        x: {
+        type: 'number',
+        easing: 'linear',
+        duration: delayBetweenPoints,
+        from: NaN, // the point is initially skipped
+        delay(ctx) {
+            if (ctx.type !== 'data' || ctx.xStarted) {
+            return 0;
+            }
+            ctx.xStarted = true;
+            return ctx.index * delayBetweenPoints;
+        }
+        },
+        y: {
+        type: 'number',
+        easing: 'linear',
+        duration: delayBetweenPoints,
+        from: previousY,
+        delay(ctx) {
+            if (ctx.type !== 'data' || ctx.yStarted) {
+            return 0;
+            }
+            ctx.yStarted = true;
+            return ctx.index * delayBetweenPoints;
+        }
+        }
+        };
         // 4. Create the chart configuration
         new Chart(ctx, {
             type: 'line',
@@ -87,31 +118,38 @@ const ctx = document.getElementById('lineChart').getContext('2d');
                 datasets: [
                     {
                         label: 'Present Count',
-                        data: x,
+                        data: presentLine,
                         borderColor: 'rgb(75, 192, 192)',
-                        tension: 0.1
+                        tension: 0.1,
+                        pointBackgroundColor: 'rgb(75, 192, 192)',
+                        pointBorderColor: 'rgb(255, 255, 255)'
                     },
                     {
                         label: 'Late Count',
-                        data: y,
+                        data: lateLine,
                         borderColor: 'rgb(255, 159, 64)',
-                        tension: 0.1
+                        tension: 0.1,
+                        pointBackgroundColor: 'rgb(255, 159, 64)',
+                        pointBorderColor: 'rgb(255, 255, 255)'
                     },
                     {
                         label: 'Absent count',
-                        data: z,
+                        data: absentLine,
                         borderColor: 'rgb(255, 99, 132)',
-                        tension: 0.1
+                        tension: 0.1,
+                        pointBackgroundColor: 'rgb(255, 99, 132)',
+                        pointBorderColor: 'rgb(255, 255, 255)'
                     }
                 ]
             },
             options: {
                 responsive: true,
                 //maintainAspectRatio: false,
+                animation,
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Total vs Rural vs Urban Population',
+                        text: 'Present vs Absent & Late Count',
                         font: {
                             size: 18
                         }
@@ -120,18 +158,28 @@ const ctx = document.getElementById('lineChart').getContext('2d');
                         position: 'bottom'
                     }
                 },
+                elements:{
+                    point:
+                    {
+                        radius:5,
+                        hoverradius:8
+                    }
+                },interaction: {
+                    intersect: false,
+                    mode: 'index',
+                    },
                 scales: {
                     y: {
                         beginAtZero: false,
                         title: {
                             display: true,
-                            text: 'Population'
+                            text: 'Number of Employees'
                         }
                     },
                     x: {
                          title: {
                             display: true,
-                            text: 'States'
+                            text: 'Date'
                         }
                     }
                 }
