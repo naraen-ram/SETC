@@ -452,7 +452,7 @@ border:0px;
     bottom: 0;
     background-color: #ccc;
     -webkit-transition: .4s;
-    transition: .4s;
+    transition: .1s;
     border-radius: 34px; /* Ensure roundness for all sliders */
 }
 
