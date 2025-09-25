@@ -18,7 +18,9 @@ const initialData = {
   labels: ['present', 'absent', 'late'],
   datasets: [{
     data: [300, 50, 100],
-    backgroundColor: [ '#36A2EB','#FF6384', '#FFCE56']
+    backgroundColor: [ '#36A2EB','#FF6384', '#FFCE56'],
+    hoverBackGroundColor:['#0099ffff','#ff4c73ff', '#ffb700ff'],
+    hoverOffset:10,
   }]
 };
 let myPieChart = new Chart(ctx, {
@@ -120,7 +122,7 @@ const ctx = document.getElementById('lineChart').getContext('2d');
                         label: 'Present Count',
                         data: presentLine,
                         borderColor: 'rgb(75, 192, 192)',
-                        tension: 0.1,
+                        tension: 0.3,
                         pointBackgroundColor: 'rgb(75, 192, 192)',
                         pointBorderColor: 'rgb(255, 255, 255)'
                     },
@@ -128,7 +130,7 @@ const ctx = document.getElementById('lineChart').getContext('2d');
                         label: 'Late Count',
                         data: lateLine,
                         borderColor: 'rgb(255, 159, 64)',
-                        tension: 0.1,
+                        tension: 0.2,
                         pointBackgroundColor: 'rgb(255, 159, 64)',
                         pointBorderColor: 'rgb(255, 255, 255)'
                     },
@@ -136,7 +138,7 @@ const ctx = document.getElementById('lineChart').getContext('2d');
                         label: 'Absent count',
                         data: absentLine,
                         borderColor: 'rgb(255, 99, 132)',
-                        tension: 0.1,
+                        tension: 0.2,
                         pointBackgroundColor: 'rgb(255, 99, 132)',
                         pointBorderColor: 'rgb(255, 255, 255)'
                     }
@@ -191,7 +193,7 @@ let loginUsername=sessionStorage.getItem("loginusername");
 let loginPassword=sessionStorage.getItem("loginPassword");
 let loginIndex=parseInt(sessionStorage.getItem("loginIndex"));
 
-console.log(loginUserName+loginPassword+loginIndex);
+//console.log(loginUserName+loginPassword+loginIndex);
 
 async function masterChecker()
 {

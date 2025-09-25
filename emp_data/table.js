@@ -14,6 +14,7 @@ const formattedDate = date.getFullYear() + '-' +
         String(date.getMonth() + 1).padStart(2, '0') + '-' +
         String(date.getDate()).padStart(2, '0');
 const pageInfo = document.getElementById('pageInfo');
+let searchBar = document.getElementById("search");
 let searchIdButton=document.getElementById("searchId");
 let toggle=document.getElementById("toggle");
 const searchByIdRadio=document.getElementById("searchById");
@@ -46,7 +47,10 @@ prevBtn.addEventListener('click', () => {
         createTable(data, currentPage);
     }
 });
-
+searchBar.addEventListener('keyup',(val)=>{
+    searcher();
+    //searchBar.value='';
+});
 document.addEventListener('DOMContentLoaded', () => {
             const searchByIdRadio = document.getElementById('searchById');
             const searchByDepotRadio = document.getElementById('searchByDepot');
@@ -104,11 +108,13 @@ searchByDepotRadio.addEventListener('click',()=>
 startDate.addEventListener('change', () => {
     endDate.min = startDate.value;
     searcher();
+    searcherId();
     datefilter(data);
 });
 endDate.addEventListener('change', () => {
     startDate.max=endDate.value;
     searcher();
+    searcherId();
     datefilter(data);
 });
 
