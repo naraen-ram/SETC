@@ -63,9 +63,13 @@ previousButton.addEventListener("click", () => {
 //functions
 
 function hourformatter(hour)
-{   if(hour==0)
-    return'-';
-    return (hour/60-1).toFixed(0)+':'+(hour%60);
+{   
+    if(hour==0)
+        return'-';
+    // console.log("hr is "+hour%60)
+    // console.log((Math.floor(hour/60)).toFixed(0)+':'+ ((hour%60)<10?("0"+(hour%60)):(hour%60)))
+    return (Math.floor(hour/60)).toFixed(0)+':'+ ((hour%60)<10?("0"+(hour%60)):(hour%60))
+    // return (hour/60-1).toFixed(0)+':'+(hour%60); //prev code
 }
 function dateConverter(date)
 {
