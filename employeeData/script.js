@@ -64,7 +64,7 @@ previousButton.addEventListener("click", () => {
 
 function hourformatter(hour)
 {   if(hour==0)
-    return'0:00';
+    return'-';
     return (hour/60-1).toFixed(0)+':'+(hour%60);
 }
 function dateConverter(date)
