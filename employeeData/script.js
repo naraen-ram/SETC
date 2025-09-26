@@ -146,6 +146,8 @@ getData(); // called the getData() function
 function isLate(val) {
     /*if (val === "N/A")
         return "N/A";*/
+    if (val.Status === "Absent")
+        return "-"  
     return val.LateBy!==0 ? "Late" : "On Time";
 }
 
@@ -190,6 +192,8 @@ function createTable(data, page)
             let elementDate=dateConverter(item.AttendanceDate);
            /* if(elementDate===' ')
                 elementDate=item.AttendanceDate;*/
+            item.InTime = item.InTime === "00:00"?"-":item.InTime
+            item.OutTime = item.OutTime === "00:00"?"-":item.OutTime
             empData.innerHTML += `
                 <tr>
                 <td>${currentTable + 1}</td>
