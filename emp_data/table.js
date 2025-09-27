@@ -171,10 +171,12 @@ function dateConverter(date)
 }
 function hourformatter(hour)
 {   
-    if(hour===0)
-    return '0:00';
-    let minutes=hour%60>9?hour%60:String(hour%60).padStart(2,0);
-    return (hour/60-1).toFixed(0)+':'+minutes;
+     if(hour==0)
+        return'-';
+    // console.log("hr is "+hour%60)
+    // console.log((Math.floor(hour/60)).toFixed(0)+':'+ ((hour%60)<10?("0"+(hour%60)):(hour%60)))
+    return (Math.floor(hour/60)).toFixed(0)+':'+ ((hour%60)<10?("0"+(hour%60)):(hour%60))
+    // return (hour/60-1).toFixed(0)+':'+(hour%60); //prev code
 }
 async function getdata() {
     let jsonFile = await fetch("../database/newdummy.json");
@@ -545,7 +547,7 @@ function renderTable(tableData, page) {
         html += `
         <tr>
         <td>${++currentTable}</td>
-        <td><a href="../employeeData/index.html?id=${element['Employee Code']}">${element['Employee Name']}</a></td>
+        <td><a href="../employeeData/index.html?id=${element['Employee Code']}&loginName=${loginUserName}">${element['Employee Name']}</a></td>
         <td>${element['Employee Code']}</td>
         <td>${element['In Device Name']}</td>
         <td>${element['InTime']}</td>

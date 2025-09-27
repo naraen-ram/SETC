@@ -2,6 +2,8 @@
 
 
 const parameters = new URLSearchParams(window.location.search);  //from the url gets the parameters
+// console.log(parameters)
+const loginUserName = parameters.get('loginName');
 const empId = parameters.get('id');
 // console.log(empId); 
 let data=[];
@@ -59,6 +61,7 @@ previousButton.addEventListener("click", () => {
         updateButtonState();
     }
 });
+document.querySelector(".user-name").textContent = loginUserName;
 
 //functions
 

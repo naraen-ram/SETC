@@ -69,7 +69,7 @@ const ctx = document.getElementById('lineChart').getContext('2d');
         let names=[];
         let presentLine=[],lateLine=[],absentLine=[];
         let datename;
-        for(let i=0;i<lineChartData.length;i++)
+        for(let i=0;i<lineChartData.length-1;i++)
         {   datename=new Date;
             datename.setDate(today.getDate()-31+i);
             names.push(datename.toLocaleDateString('de-DE'));
@@ -222,6 +222,7 @@ async function getdata() {
 if(lineChartData)
 {   lineChartData=JSON.parse(lineChartData)
    // console.log(lineChartData)
+    //getLineChartData(inCount, absentCount, lateCount)
 createLineChart();
 }
 else
@@ -229,7 +230,7 @@ else
      let pres=abs=late=0;
     let targetdate=new Date();
     
-    for(let i=31;i>=0;i--)
+    for(let i=31;i>=1;i--)
     {    targetdate=new Date();
         pres=abs=late=0;
      targetdate.setDate(today.getDate()-i);
@@ -314,7 +315,7 @@ function getLineChartData(presentCount,absentCount,lateCount)
 function scheduleDailyTask() {
             const lastRunDate = localStorage.getItem('lastDailyRun');
             const today = new Date().toDateString();
-
+    //console.log(lastRunDate === today)
             // Check if the function has already run today
             if (lastRunDate === today) {
                 
