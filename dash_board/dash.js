@@ -306,7 +306,7 @@ function getLineChartData(presentCount,absentCount,lateCount)
     for(i=1;i<31;i++)
         lineChartData[i-1]=lineChartData[i];
     lineChartData[30]=[presentCount,absentCount,lateCount];
-    console.log(lineChartData)
+    //console.log(lineChartData)
     
 
 }
@@ -349,7 +349,7 @@ function renderPage()
 {
   inCount=outCount=lateCount=activeCount=absentCount=leaveCount=0;
     filteredData=allData.filter(element=> dateConverter(element.AttendanceDate) ===querydate);
-    console.log(lineChartData)
+    //console.log(lineChartData)
     for(let i=0;i<filteredData.length;i++)
     {  
         if(filteredData[i].InTime!=='00:00')
