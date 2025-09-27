@@ -69,7 +69,7 @@ const ctx = document.getElementById('lineChart').getContext('2d');
         let names=[];
         let presentLine=[],lateLine=[],absentLine=[];
         let datename;
-        for(let i=0;i<lineChartData.length-1;i++)
+        for(let i=0;i<lineChartData.length;i++)
         {   datename=new Date;
             datename.setDate(today.getDate()-31+i);
             names.push(datename.toLocaleDateString('de-DE'));
