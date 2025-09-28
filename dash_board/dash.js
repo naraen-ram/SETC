@@ -9,6 +9,7 @@ const buttons = document.querySelectorAll('.circle-btn');
 let querydate=today.getFullYear() + '-' +
         String(today.getMonth() + 1).padStart(2, '0') + '-' +
         String(today.getDate()).padStart(2, '0');
+const searchDepot = document.getElementById("searchDepot");
 //console.log(querydate);
 let inCount=outCount=lateCount=activeCount=absentCount=leaveCount=0;
 let menu=document.querySelector(".menu");
@@ -44,6 +45,10 @@ buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; // Set the last b
 });*/
 document.querySelector(".employee-details-btn").addEventListener("click", function () {
 window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
+});
+searchDepot.addEventListener('change',()=>
+{
+    renderPage();
 });
 for (let i = 0; i < buttons.length; i++) {
     let date = new Date(today);
@@ -312,6 +317,15 @@ getdata();
 
 }
 */
+function filterDepot(data)
+{   let currentDepot=searchDepot.value;
+    let result;
+    if(currentDepot!=='All depots')
+    result=data.filter(element=>element['In Device Name']===currentDepot);
+    else
+        result=data;
+    return result;
+}
 function scheduleDailyTask() {
             const lastRunDate = localStorage.getItem('lastDailyRun');
             const today = new Date().toDateString();
@@ -350,6 +364,7 @@ function renderPage()
 {
   inCount=outCount=lateCount=activeCount=absentCount=leaveCount=0;
     filteredData=allData.filter(element=> dateConverter(element.AttendanceDate) ===querydate);
+    filteredData=filterDepot(filteredData);
     //console.log(lineChartData)
     for(let i=0;i<filteredData.length;i++)
     {  
