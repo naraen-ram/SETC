@@ -38,10 +38,10 @@ let myPieChart = new Chart(ctx, {
 
 buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; // Set the last button to blue
 
-document.addEventListener("DOMContentLoaded",()=>{
+/*document.addEventListener("DOMContentLoaded",()=>{
     scheduleDailyTask();
     //console.log(localStorage.getItem('lastDailyRun'))
-});
+});*/
 document.querySelector(".employee-details-btn").addEventListener("click", function () {
 window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
 });
@@ -217,7 +217,7 @@ async function getdata() {
     }
     allData = await jsonFile.json();
    renderPage();
-   //localStorage.removeItem('lineChartData')
+  /* //localStorage.removeItem('lineChartData')
    lineChartData=localStorage.getItem('lineChartData');
 if(lineChartData)
 {   lineChartData=JSON.parse(lineChartData)
@@ -226,7 +226,8 @@ if(lineChartData)
 createLineChart();
 }
 else
-{   lineChartData=[];
+{  */
+ lineChartData=[];
      let pres=abs=late=0;
     let targetdate=new Date();
     
@@ -249,11 +250,10 @@ else
 lineChartData.push([pres,abs,late]);
 //console.log(pres,abs,late+"  ")
     }
-    localStorage.setItem('lineChartData',JSON.stringify(lineChartData));
+    //localStorage.setItem('lineChartData',JSON.stringify(lineChartData));
     createLineChart();
 }
-     //console.log(lineChartData)
-}
+     //console.log(lineChartData)}
 function dateConverter(date)
 {
     const onlyDate=date.substring(0,2);
@@ -302,7 +302,7 @@ function dateConverter(date)
     return onlyYear+onlyMonth+onlyDate;
 }
 getdata();
-function getLineChartData(presentCount,absentCount,lateCount)
+/*function getLineChartData(presentCount,absentCount,lateCount)
 {   let i;
     for(i=1;i<31;i++)
         lineChartData[i-1]=lineChartData[i];
@@ -311,7 +311,7 @@ function getLineChartData(presentCount,absentCount,lateCount)
     
 
 }
-
+*/
 function scheduleDailyTask() {
             const lastRunDate = localStorage.getItem('lastDailyRun');
             const today = new Date().toDateString();
