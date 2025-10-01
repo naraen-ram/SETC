@@ -45,5 +45,3 @@ async function loadData() {
     console.log(records);
 }
 loadData()
-localStorage.setItem("idx",2)
-console.log(localStorage)
