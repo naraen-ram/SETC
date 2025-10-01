@@ -19,6 +19,7 @@ async function loadData() {
 
     const workbook = XLSX.read(arrayBuffer, { type: "array" });
     const sheetName = workbook.SheetNames[0];
+    console.log(sheetName);
     const worksheet = workbook.Sheets[sheetName];
     records = XLSX.utils.sheet_to_json(worksheet);
     records.forEach(element => {  // DOR - Date of Retirement

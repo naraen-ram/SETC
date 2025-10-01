@@ -1,11 +1,12 @@
 const express = require("express");
+const XLSX=require('xlsx');
 const fs = require("fs");
 const cors = require("cors");
 const app = express();
 const PORT = 5500;
 const { MongoClient } = require('mongodb');
 const client=new MongoClient("mongodb+srv://josh:josh123@test1.8ofqapk.mongodb.net");
-let allData;
+let allData=[];
 
 app.use(cors());
 app.use(express.json());
@@ -94,13 +95,23 @@ app.post('/deleteUser', (req, res) => {
 });
 
 async function getData() {
+    const workbook=XLSX.readFile("Records.xls");
+    //const sheetName = workbook.SheetNames[0];
+    const worksheet=workbook.Sheets["ALLMAS"];
+    //console.log(sheetName);
+    const records=XLSX.utils.sheet_to_json(worksheet);
+    let recordset={};
+    records.forEach(element=>{
+        recordset[element.EDPNO]=element.SECTION;
+    });
+    //console.log(records);
+    let fullData;
     try{
         await client.connect();
         console.log("connected with mongo");
         const database=client.db("essltest");
         const collection=database.collection("table");
-        allData=await collection.find({}).toArray();
-        console.log(allData[0])
+        fullData=await collection.find().toArray();
         
     }
     catch(e)
@@ -109,7 +120,14 @@ async function getData() {
     }
     finally{
         await client.close();
+        fullData.forEach(element => {
+        if(element["Employee Code"] in recordset)
+            allData.push(element);
+    });
         console.log("Mongo closed");
+       // console.log(allData)
     }
+    
+    
 }
 app.listen(PORT, () => console.log(`Server running on http://127.0.0.1:${PORT}`));

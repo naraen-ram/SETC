@@ -127,7 +127,7 @@ async function getData() {
         throw new Error("can't pull data");
     }
     allData = await jsonFile.json();
-    allData=allData.data;
+    allData=allData.allData;
     data = allData;
   //console.log(allData);
   //console.log(empId);

@@ -220,9 +220,11 @@ async function getdata() {
     if (!jsonFile.ok) {
        throw new Error("can't pull data");
     }
+    
     const response = await jsonFile.json();
-    allData=response.data;
+    allData=response.allData;
     //console.log(allData)
+    
    renderPage();
   /* //localStorage.removeItem('lineChartData')
    lineChartData=localStorage.getItem('lineChartData');
