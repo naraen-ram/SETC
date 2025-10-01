@@ -7,6 +7,7 @@ const PORT = 5500;
 const { MongoClient } = require('mongodb');
 const client=new MongoClient("mongodb+srv://josh:josh123@test1.8ofqapk.mongodb.net");
 let allData=[];
+let dataNotInExcel=[];
 
 app.use(cors());
 app.use(express.json());
@@ -27,6 +28,13 @@ app.get("/data",(req,res)=>{
         if(!allData)
             return res.status(500).json({status:"error",message: "No data"});
         res.json({allData});
+
+});
+
+app.get("/wasteData",(req,res)=>{
+        if(!allData)
+            return res.status(500).json({status:"error",message: "No data"});
+        res.json({dataNotInExcel});
 
 });
 // Add new user
@@ -123,6 +131,8 @@ async function getData() {
         fullData.forEach(element => {
         if(element["Employee Code"] in recordset)
             allData.push(element);
+        else
+            dataNotInExcel.push(element);
     });
         console.log("Mongo closed");
        // console.log(allData)
