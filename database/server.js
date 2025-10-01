@@ -103,8 +103,23 @@ app.post('/deleteUser', (req, res) => {
 });
 
 async function getData() {
-    const workbook=XLSX.readFile("Records.xls");
-    //const sheetName = workbook.SheetNames[0];
+    
+    const fs = require("fs");
+    let file_name = "" 
+    try 
+    {
+        if (fs.existsSync("Records.xls")) 
+            file_name = "Records.xls"
+        else
+            file_name = "database/Records.xls"
+    }
+    catch (err) 
+    {
+        console.error("No such file found => error :", err.message);
+    }
+
+    const workbook=XLSX.readFile(file_name);
+    // const sheetName = workbook.SheetNames[0];
     const worksheet=workbook.Sheets["ALLMAS"];
     //console.log(sheetName);
     const records=XLSX.utils.sheet_to_json(worksheet);
