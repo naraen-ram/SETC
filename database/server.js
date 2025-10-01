@@ -3,13 +3,16 @@ const fs = require("fs");
 const cors = require("cors");
 const app = express();
 const PORT = 5500;
+const { MongoClient } = require('mongodb');
+const client=new MongoClient("mongodb+srv://josh:josh123@test1.8ofqapk.mongodb.net");
+let allData;
 
 app.use(cors());
 app.use(express.json());
 
 const path = require('path');
 
-
+getData();
 app.use(express.json());
 // Route to get all users
 app.get("/userPasswords", (req, res) => {
@@ -18,7 +21,13 @@ app.get("/userPasswords", (req, res) => {
         res.json(JSON.parse(data));
     });
 });
+//returning allData
+app.get("/data",(req,res)=>{
+        if(!allData)
+            return res.status(500).json({status:"error",message: "No data"});
+        res.json({allData});
 
+});
 // Add new user
 app.post("/addUser", (req, res) => {
     const { username, password } = req.body;
@@ -84,4 +93,23 @@ app.post('/deleteUser', (req, res) => {
     });
 });
 
+async function getData() {
+    try{
+        await client.connect();
+        console.log("connected with mongo");
+        const database=client.db("essltest");
+        const collection=database.collection("table");
+        allData=await collection.find({}).toArray();
+        console.log(allData[0])
+        
+    }
+    catch(e)
+    {
+        console.error("Error while fetching data from mongo: ",e);
+    }
+    finally{
+        await client.close();
+        console.log("Mongo closed");
+    }
+}
 app.listen(PORT, () => console.log(`Server running on http://127.0.0.1:${PORT}`));

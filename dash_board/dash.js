@@ -216,11 +216,13 @@ function updatechart()
     myPieChart.update();
 }
 async function getdata() {
-    let jsonFile = await fetch("../database/newdummy.json");
+    let jsonFile = await fetch("http://127.0.0.1:5500/data");
     if (!jsonFile.ok) {
-        throw new Error("can't pull data");
+       throw new Error("can't pull data");
     }
-    allData = await jsonFile.json();
+    const response = await jsonFile.json();
+    allData=response.data;
+    //console.log(allData)
    renderPage();
   /* //localStorage.removeItem('lineChartData')
    lineChartData=localStorage.getItem('lineChartData');

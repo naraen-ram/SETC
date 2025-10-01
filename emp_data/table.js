@@ -179,11 +179,12 @@ function hourformatter(hour)
     // return (hour/60-1).toFixed(0)+':'+(hour%60); //prev code
 }
 async function getdata() {
-    let jsonFile = await fetch("../database/newdummy.json");
+    let jsonFile = await fetch("http://127.0.0.1:5500/data");
     if (!jsonFile.ok) {
         throw new Error("can't pull data");
     }
-    allData = await jsonFile.json();
+    const response = await jsonFile.json();
+    allData=response.data;
     data = allData;
     resetSortArray();
     datefilter(data);
