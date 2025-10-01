@@ -34,6 +34,10 @@ let myPieChart = new Chart(ctx, {
 });
 
 
+function back()
+{
+    window.location.href='./../login%20page/login.html';
+}
 //actions
 
 
