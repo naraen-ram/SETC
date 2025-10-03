@@ -200,9 +200,9 @@ function pageControl() {
     let totalPages;
 
     if (showabsent)
-        totalPages = Math.ceil(filterDepot(data).length / rowsPerPage);
+        totalPages = Math.ceil(filterCategory(filterDepot(filterAbsent(data))).length / rowsPerPage);
     else
-        totalPages = Math.ceil(filterDepot(filterpresent(data)).length / rowsPerPage);
+        totalPages = Math.ceil(filterCategory(filterDepot(filterpresent(data))).length / rowsPerPage);
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
     prevBtn.disabled = currentPage === 1 || totalPages===0;
     nextBtn.disabled = currentPage === totalPages || totalPages===0;

@@ -200,7 +200,7 @@ function pageControl() {
     let totalPages;
 
     if (showabsent)
-        totalPages = Math.ceil(filterCategory(filterDepot(data)).length / rowsPerPage);
+        totalPages = Math.ceil(filterCategory(filterDepot(filterAbsent(data))).length / rowsPerPage);
     else
         totalPages = Math.ceil(filterCategory(filterDepot(filterpresent(data))).length / rowsPerPage);
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
