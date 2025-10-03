@@ -28,7 +28,8 @@ const formattedDate = date.getFullYear() + '-' +
 /* To set inital date */
 let now = new Date();
 // console.log(now)
-let startDt = new Date(now.getFullYear(), now.getMonth(), 2);
+// let startDt = new Date(now.getFullYear(), now.getMonth(), 2);
+let startDt = new Date("2025-09-29");
 let endDt = new Date(now.getFullYear(), now.getMonth() + 1, 1);
 // console.log(now.getMonth()+1)
 startDate.value = startDt.toISOString().split("T")[0]
