@@ -47,6 +47,9 @@ buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; // Set the last b
 document.querySelector(".employee-details-btn").addEventListener("click", function () {
 window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
 });
+document.querySelector(".unmatched-details-btn").addEventListener("click", function () {
+window.location.href = `../unmatchedData/emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
+});
 searchDepot.addEventListener('change',()=>
 {
     renderPage();

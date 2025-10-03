@@ -122,12 +122,12 @@ function dateConverter(date)
     return onlyYear+onlyMonth+onlyDate;
 }
 async function getData() {
-    let jsonFile = await fetch("http://127.0.0.1:5500/data");
+    let jsonFile = await fetch("http://127.0.0.1:5500/unmatchedData");
     if (!jsonFile.ok) {
         throw new Error("can't pull data");
     }
     allData = await jsonFile.json();
-    allData=allData.allData;
+    allData=allData.dataNotInExcel;
     data = allData;
   //console.log(allData);
   //console.log(empId);
@@ -139,8 +139,8 @@ async function getData() {
     document.getElementById("empHeadName").innerText += ` ${allData[0]['Employee Name']}`;
     document.getElementById("empHeadId").innerText += ` ${empId}`;
     document.getElementById("empHeadDesignation").innerText += ` ${allData[0].DESIG}`;
-    document.getElementById("empHeadCat").innerText += allData[0]['CAT'];
-    document.getElementById("empHeadDepot").innerText += ` ${allData[0]['SECTION']}`;
+    document.getElementById("empHeadCat").innerText += allData[0]['Category'];
+    document.getElementById("empHeadDepot").innerText += ` ${allData[0]['In Device Name']}`;
     updateButtonState();
 }
 getData(); // called the getData() function
@@ -224,7 +224,7 @@ function ExcelGenerator()
     ExcelData=[  
                  [], 
                  ["Name:",allData[0]['Employee Name'],,,"Emp.ID:",empId],
-                 ["Category:",allData[0]['Category'],,,"Depot:",allData[0]['SECTION']],
+                 ["Category:",allData[0]['Category'],,,"Depot:",allData[0]['In Device Name']],
                  [],
                  ["S.No","Date","In-Time","Out-Time","Attendance","Arrival","Hours_worked"],
                  [],
