@@ -169,14 +169,19 @@ function dateConverter(date)
     }
     return onlyYear+onlyMonth+onlyDate;
 }
-function hourformatter(hour)
-{   
-     if(hour==0)
-        return'-';
-    // console.log("hr is "+hour%60)
-    // console.log((Math.floor(hour/60)).toFixed(0)+':'+ ((hour%60)<10?("0"+(hour%60)):(hour%60)))
-    return (Math.floor(hour/60)).toFixed(0)+':'+ ((hour%60)<10?("0"+(hour%60)):(hour%60))
-    // return (hour/60-1).toFixed(0)+':'+(hour%60); //prev code
+function hoursWorked(inTime,outTime) {
+    let [datePart, timePart] = inTime.split(" ");
+    let [day, month, year] = datePart.split("-").map(Number);
+    let [hour, minute] = timePart.split(":").map(Number);
+    let h1 = new Date(year, month - 1, day, hour, minute);
+    
+    [datePart, timePart] = outTime.split(" ");
+    [day, month, year] = datePart.split("-").map(Number);
+    [hour, minute] = timePart.split(":").map(Number);
+    let h2 = new Date(year, month - 1, day, hour, minute);
+    
+    let diff = h2-h1
+    return String(Math.floor((diff/(1000*3600))%3600)).padStart(2,'0')+":"+String(Math.floor((diff/(1000*60)))%60).padStart(2,"0")
 }
 async function getdata() {
     let jsonFile = await fetch("http://127.0.0.1:5500/data");
@@ -293,14 +298,13 @@ function ExcelGenerator() {
             element['InTime'],
             element['OutTime'],
             elementDate,
-            hourformatter(element['Duration'] + element['Overtime']),
+            hoursWorked(element['In DateTime'],element['Out DateTime']),
             element.ShiftName
         ]);
     });
 
     return ExcelData;
 }
-
 function ExcelGeneratorAbsent() {
     let ExcelData = [
         [],
@@ -573,7 +577,7 @@ function renderTable(tableData, page) {
         <td>${element['InTime']}</td>
         <td>${element['OutTime']}</td>
         <td>${elementDate}</td>
-        <td>${hourformatter((element['Duration']+element['Overtime']))}</td>
+        <td>${hoursWorked(element['In DateTime'],element['Out DateTime'])}</td>
         <td>${element.CAT}</td>
         <td>${element.ShiftName}</td>
         </tr>`;
