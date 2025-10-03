@@ -181,6 +181,7 @@ async function getData() {
    }
    );
         console.log("Mongo closed");
+       // console.log(dataNotInExcel.length)
        // console.log(allData)
     }
     

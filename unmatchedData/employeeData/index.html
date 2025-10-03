@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/tn_logo.png">
+    <title>Employee Data</title>
+    
+</head>
+
+<body>
+    <div class="header-top-row">
+        <div class="logo-container">
+            <img src="./images/setc_name.png" alt="SETC-LOGO" class="gallery-img">
+        </div>
+        <div class="header-title">
+            <h1>Smart Biometric Attendance Monitoring System</h1>
+        </div>
+        <div class="profile-box">
+            <span class="user-name">User Name</span>
+            <a href="../login page/login.html"><button class="logout-btn"><img src="./images/logout_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="logout"></button></a>
+        </div>
+    </div>
+    
+    <h1 class="emp-data-header" id="empDataHeader">Details of the Employee</h1>
+    <div class="base-details" id="baseDetails">
+        <p class="emp-head-name" id="empHeadName">Employer Name :</p>
+        <p class="emp-head-id" id="empHeadId">Employee ID : </p>
+        <p class="emp-head-cat" id="empHeadCat">Category : </p>
+        <p class="emp-head-designation" id="empHeadDesignation">Designation : </p>
+        <p class="emp-head-depot" id="empHeadDepot">Depot : </p>
+    </div>
+    <div class="date-range-container">
+                           <label for="fromDateDepot" class="date-label">From</label>
+                            <input type="date" id="startDate" class="date-input"
+                             name="start date" >
+                            <label for="toDateDepot" class="date-label">To</label>
+                            <input type="date"  class="date-input"
+                            id="endDate" >
+    </div>
+    <br>
+    <button id="ExcelDownload" onclick="exportToExcel()" class="excel-download"><img src="./images/download_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="download" class="gallery-img1">Download Sheet</button>
+    <table class="emp-table" id="empTable">
+        <thead>
+            <tr>
+                <th>S No</th>
+                <th>Date</th>
+                <th>In Time</th>
+                <th>Out Time</th>
+                <th>Attendance</th>
+                <th>Arrival</th>
+                <th>Hours worked</th>
+            </tr>
+        </thead>
+        <tbody class="emp-data" id="empData">
+
+        </tbody>
+
+    </table>
+    <div class="pagination-controls" id="paginationControls" style="display: flex; justify-content: center; margin-top: 20px;">
+        <button class="prev-btn" id="prevBtn" disabled>Previous</button>
+        <span class="page-info" id="pageInfo">Page 1</span>
+        <button class="next-btn" id="nextBtn">Next</button>
+    </div>
+</body>
+<script src="script.js">
+    
+</script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js">
+
+</script>
+
+</body>
+
+</html>

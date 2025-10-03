@@ -331,6 +331,19 @@ function filterDepot(data)
         result=data;
     return result;
 }
+const catrgorySelect=document.getElementById("categorySelect");
+catrgorySelect.addEventListener("change",()=>{
+    renderPage();
+});
+function filterCategory(data)
+{
+    let currentCat=catrgorySelect.value;
+    if(currentCat=="all")
+        return data;
+    let result=data.filter(element=>element.CAT===currentCat);
+    return result;
+    
+}
 function scheduleDailyTask() {
             const lastRunDate = localStorage.getItem('lastDailyRun');
             const today = new Date().toDateString();
@@ -370,6 +383,7 @@ function renderPage()
   inCount=outCount=lateCount=activeCount=absentCount=leaveCount=0;
     filteredData=allData.filter(element=> dateConverter(element.AttendanceDate) ===querydate);
     filteredData=filterDepot(filteredData);
+    filteredData=filterCategory(filteredData);
     //console.log(lineChartData)
     for(let i=0;i<filteredData.length;i++)
     {  
