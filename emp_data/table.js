@@ -26,10 +26,10 @@ let endDate = document.getElementById("endDate");
 
 
 
-
 //actions
 startDate.value=formattedDate;
 endDate.value=formattedDate;
+console.log(startDate.value,endDate.value)
 endDate.min = startDate.value;
 startDate.max=endDate.value;
 document.querySelector(".user-name").textContent = loginUserName;
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const searchByDepotRadio = document.getElementById('searchByDepot');
             const idWiseForm = document.querySelector('.search-form.id-wise');
             const depotWiseForm = document.querySelector('.search-form.depot-wise');
-            startDate.value=formattedDate;
+            startDate.value="2025-09-29";
             endDate.value=formattedDate;
             toggle.checked=false;
             function toggleSearchForm() {
@@ -240,6 +240,7 @@ function datefilter(allData) {
     resetSortArray();
    // let results = [];
   // console.log(showabsent);
+  console.log(startDate.value)
     let startDateVal = startDate.value.toString();
     let endDateVal = endDate.value.toString();
    // console.log(endDateVal)
