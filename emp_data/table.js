@@ -495,6 +495,7 @@ function renderAbsentTable(tableData, page) {
         <th>No</th>
       <th onclick="sortTable(0)">Name</th>
       <th onclick="sortTable(1)">ID</th>
+      <th onclick="sortTable(2)">Depot</th>
       <th onclick="sortTable(5)">Date</th>
       <th >Category</th>
       <th>Shift</th>
@@ -523,6 +524,7 @@ function renderAbsentTable(tableData, page) {
         <td>${++currentTable}</td>
         <td><a href="../employeeData/index.html?id=${element['Employee Code']}">${element['Employee Name']}</a></td>
         <td>${element['Employee Code']}</td>
+          <td>${element['SECTION']}</td>
         <td>${elementDate}</td>
         <td>${element.CAT}</td>
         <td>${element.ShiftName}</td>
