@@ -31,7 +31,7 @@ app.get("/data",(req,res)=>{
 
 });
 
-app.get("/wasteData",(req,res)=>{
+app.get("/unmatchedData",(req,res)=>{
         if(!allData)
             return res.status(500).json({status:"error",message: "No data"});
         res.json({dataNotInExcel});
@@ -143,12 +143,43 @@ async function getData() {
     }
     finally{
         await client.close();
-        fullData.forEach(element => {
+        const map1=new Map(records.map(item=>[item.EDPNO,item]));
+        allData=fullData.map(data=>{
+            const match=map1.get(data["Employee Code"]);
+            if(match)
+            {
+                return {
+                    ...match,
+                    ...data
+                };
+            }
+        });
+        allData=allData.filter(Boolean);
+      /*  fullData.forEach(element => {
+            
         if(element["Employee Code"] in recordset)
+        {   
+            element["SECTION"]
             allData.push(element);
+        }
         else
+        {
             dataNotInExcel.push(element);
+        }
     });
+    */
+   fullData.forEach(element=>
+   {
+    if(element["Employee Code"] in recordset)
+        {   
+
+        }
+        else
+        {
+            dataNotInExcel.push(element);
+        }
+   }
+   );
         console.log("Mongo closed");
        // console.log(allData)
     }

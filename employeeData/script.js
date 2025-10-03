@@ -138,9 +138,9 @@ async function getData() {
     datefilter(data);
     document.getElementById("empHeadName").innerText += ` ${allData[0]['Employee Name']}`;
     document.getElementById("empHeadId").innerText += ` ${empId}`;
-    // document.getElementById("empHeadDesignation").innerText += ` ${data[0].designation}`;
-    document.getElementById("empHeadDesignation").innerText += allData[0]['Category'];
-    document.getElementById("empHeadDepot").innerText += ` ${allData[0]['In Device Name']}`;
+    document.getElementById("empHeadDesignation").innerText += ` ${allData[0].DESIG}`;
+    document.getElementById("empHeadCat").innerText += allData[0]['CAT'];
+    document.getElementById("empHeadDepot").innerText += ` ${allData[0]['SECTION']}`;
     updateButtonState();
 }
 getData(); // called the getData() function
@@ -224,7 +224,7 @@ function ExcelGenerator()
     ExcelData=[  
                  [], 
                  ["Name:",allData[0]['Employee Name'],,,"Emp.ID:",empId],
-                 ["Category:",allData[0]['Category'],,,"Depot:",allData[0]['In Device Name']],
+                 ["Category:",allData[0]['Category'],,,"Depot:",allData[0]['SECTION']],
                  [],
                  ["S.No","Date","In-Time","Out-Time","Attendance","Arrival","Hours_worked"],
                  [],

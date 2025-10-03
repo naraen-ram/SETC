@@ -326,7 +326,7 @@ function filterDepot(data)
 {   let currentDepot=searchDepot.value;
     let result;
     if(currentDepot!=='All depots')
-    result=data.filter(element=>element['In Device Name']===currentDepot);
+    result=data.filter(element=>element['SECTION']===currentDepot);
     else
         result=data;
     return result;

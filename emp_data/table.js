@@ -289,7 +289,7 @@ function ExcelGenerator() {
             index + 1,
             element['Employee Name'],
             element['Employee Code'],
-            element['In Device Name'],
+            element['SECTION'],
             element['InTime'],
             element['OutTime'],
             elementDate,
@@ -464,7 +464,7 @@ function filterDepot(data)
 {   let currentDepot=searchDepot.value;
     let result;
     if(currentDepot!=='All depots')
-    result=data.filter(element=>element['In Device Name']===currentDepot);
+    result=data.filter(element=>element['SECTION']===currentDepot);
     else
         result=data;
     return result;
@@ -478,6 +478,7 @@ function renderAbsentTable(tableData, page) {
       <th onclick="sortTable(0)">Name</th>
       <th onclick="sortTable(1)">ID</th>
       <th onclick="sortTable(5)">Date</th>
+      <th >Category</th>
       <th>Shift</th>
     </tr>
   </thead><tbody>`;
@@ -504,7 +505,9 @@ function renderAbsentTable(tableData, page) {
         <td><a href="../employeeData/index.html?id=${element['Employee Code']}">${element['Employee Name']}</a></td>
         <td>${element['Employee Code']}</td>
         <td>${elementDate}</td>
+        <td>${element.CAT}</td>
         <td>${element.ShiftName}</td>
+        
         </tr>`;
 
     });
@@ -525,6 +528,7 @@ function renderTable(tableData, page) {
       <th onclick="sortTable(4)">Out Time</th>
       <th onclick="sortTable(5)">Date</th>
       <th onclick="sortTable(6)">Hours worked</th>
+      <th>Category</th>
       <th>Shift</th>
     </tr>
   </thead><tbody>`;
@@ -550,11 +554,12 @@ function renderTable(tableData, page) {
         <td>${++currentTable}</td>
         <td><a href="../employeeData/index.html?id=${element['Employee Code']}&loginName=${loginUserName}">${element['Employee Name']}</a></td>
         <td>${element['Employee Code']}</td>
-        <td>${element['In Device Name']}</td>
+        <td>${element['SECTION']}</td>
         <td>${element['InTime']}</td>
         <td>${element['OutTime']}</td>
         <td>${elementDate}</td>
         <td>${hourformatter((element['Duration']+element['Overtime']))}</td>
+        <td>${element.CAT}</td>
         <td>${element.ShiftName}</td>
         </tr>`;
 
@@ -595,7 +600,7 @@ function quicksortDepot(data) {
         return data;
     let left = [], right = [], pivot = data[data.length - 1];
     for (i = 0; i < data.length - 1; i++) {
-        if (data[i]['In Device Name'] > pivot['In Device Name'])
+        if (data[i]['SECTION'] > pivot['SECTION'])
             right.push(data[i]);
         else
             left.push(data[i]);
