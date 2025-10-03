@@ -64,15 +64,19 @@ previousButton.addEventListener("click", () => {
 document.querySelector(".user-name").textContent = loginUserName;
 
 //functions
-
-function hourformatter(hour)
-{   
-    if(hour==0)
-        return'-';
-    // console.log("hr is "+hour%60)
-    // console.log((Math.floor(hour/60)).toFixed(0)+':'+ ((hour%60)<10?("0"+(hour%60)):(hour%60)))
-    return (Math.floor(hour/60)).toFixed(0)+':'+ ((hour%60)<10?("0"+(hour%60)):(hour%60))
-    // return (hour/60-1).toFixed(0)+':'+(hour%60); //prev code
+function hoursWorked(inTime,outTime) {
+    let [datePart, timePart] = inTime.split(" ");
+    let [day, month, year] = datePart.split("-").map(Number);
+    let [hour, minute] = timePart.split(":").map(Number);
+    let h1 = new Date(year, month - 1, day, hour, minute);
+    
+    [datePart, timePart] = outTime.split(" ");
+    [day, month, year] = datePart.split("-").map(Number);
+    [hour, minute] = timePart.split(":").map(Number);
+    let h2 = new Date(year, month - 1, day, hour, minute);
+    
+    let diff = h2-h1
+    return String(Math.floor((diff/(1000*3600))%3600)).padStart(2,'0')+":"+String(Math.floor((diff/(1000*60)))%60).padStart(2,"0")
 }
 function dateConverter(date)
 {
@@ -206,7 +210,7 @@ function createTable(data, page)
                 <td>${item.OutTime}</td>
                 <td style="background-color: ${item.StatusCode === "P" ? '' : "#e36464"}">${item.Status}</td>
                 <td style="background-color: ${item.LateBy!==0 ? "#e0fa5fff" : ""} ; ">${isLate(item)}</td>
-                <td>${hourformatter(item.Duration+item.Overtime)}</td>
+                <td>${hoursWorked(item['In DateTime'],item['Out DateTime'])}</td>
                 
             </tr>
             `;
