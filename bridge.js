@@ -4,9 +4,10 @@ const fs = require('fs');
 const path = require('path');
 
 // --- CONFIGURATION ---
+// The IP you provided in the logs
 const GLOBAL_API_URL = 'http://13.205.0.74:5000/api/sync'; 
 const CURSOR_FILE = path.join(__dirname, 'cursor.json');
-const POLLING_INTERVAL_MS = 5000; 
+const POLLING_INTERVAL_MS = 5000; // Check every 5 seconds
 
 const MSSQL_CONFIG = {
     server: 'SERVER\\SQLEXPRESS',
@@ -17,17 +18,23 @@ const MSSQL_CONFIG = {
 
 // --- STATE MANAGEMENT ---
 function getLastSyncTime() {
+    // 1. If no cursor file, start from 1970 to get ALL history
     if (!fs.existsSync(CURSOR_FILE)) {
-        // Default: Start from today 00:00:00 if no file exists
-        const startOfDay = new Date();
-        startOfDay.setHours(0, 0, 0, 0);
-        return startOfDay;
+        return new Date('1970-01-01T00:00:00.000'); 
     }
+
     const data = JSON.parse(fs.readFileSync(CURSOR_FILE, 'utf8'));
-    return new Date(data.lastSync);
+    
+    // 2. CRITICAL TIMEZONE FIX: 
+    // We remove 'Z' so Node.js treats this string as LOCAL TIME.
+    // This aligns the cursor with your SQL Server's local clock.
+    let cleanString = data.lastSync.replace('Z', ''); 
+    return new Date(cleanString);
 }
 
 function updateLastSyncTime(newTimestamp) {
+    // We save the raw date object; JSON.stringify adds the 'Z' automatically,
+    // but our reader above handles removing it.
     fs.writeFileSync(CURSOR_FILE, JSON.stringify({ lastSync: newTimestamp }));
 }
 
@@ -40,11 +47,12 @@ async function sync() {
         // 1. Connect
         pool = await sql.connect(MSSQL_CONFIG);
         
-        // 2. Query (Simplified using LogDateTime)
+        // 2. Query (Using LogDateTime)
+        // This grabs everything newer than our local cursor time
         const query = `
             SELECT 
                 p.EmployeeCode,
-                p.LogDateTime, 
+                p.LogDateTime,
                 e.EmployeeName,
                 e.DeviceCode,
                 e.Department,
@@ -75,7 +83,7 @@ async function sync() {
             await axios.post(GLOBAL_API_URL, newRows);
             
             // 4. Update Cursor
-            // We use the LogDateTime of the TOP row (Newest)
+            // Since we sort DESC (Newest First), the latest time is at index 0
             const latestLog = newRows[0].LogDateTime; 
             updateLastSyncTime(latestLog);
             
@@ -83,10 +91,10 @@ async function sync() {
         }
 
     } catch (err) {
-        console.error("Error in sync loop:", err.message);
-        // Debugging help:
+        console.error(`[${new Date().toLocaleTimeString()}] ❌ Sync Error:`, err.message);
+        
         if (err.message.includes('ECONNREFUSED')) {
-            console.log("   -> HINT: Check if EC2 server is running and Port 5000 is open.");
+            console.log("   -> HINT: Check if EC2 server is running.");
         }
     } finally {
         if (pool) pool.close();
