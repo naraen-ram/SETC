@@ -4,10 +4,9 @@ const fs = require('fs');
 const path = require('path');
 
 // --- CONFIGURATION ---
-// The IP you provided in the logs
 const GLOBAL_API_URL = 'http://13.205.0.74:5000/api/sync'; 
 const CURSOR_FILE = path.join(__dirname, 'cursor.json');
-const POLLING_INTERVAL_MS = 5000; // Check every 5 seconds
+const POLLING_INTERVAL_MS = 5000; 
 
 const MSSQL_CONFIG = {
     server: 'SERVER\\SQLEXPRESS',
@@ -16,91 +15,105 @@ const MSSQL_CONFIG = {
     driver: 'msnodesqlv8'
 };
 
-// --- STATE MANAGEMENT ---
+// --- HELPER: Format Date to SQL String ---
+function toLocalSqlString(dateObj) {
+    const pad = (num) => (num < 10 ? '0' + num : num);
+    const yyyy = dateObj.getFullYear();
+    const mm = pad(dateObj.getMonth() + 1);
+    const dd = pad(dateObj.getDate());
+    const hh = pad(dateObj.getHours());
+    const mi = pad(dateObj.getMinutes());
+    const ss = pad(dateObj.getSeconds());
+    const ms = dateObj.getMilliseconds(); 
+    return `${yyyy}-${mm}-${dd} ${hh}:${mi}:${ss}.${ms}`;
+}
+
+// --- DEBUGGING: LOGGING THE CURSOR ---
 function getLastSyncTime() {
-    // 1. If no cursor file, start from 1970 to get ALL history
+    console.log(`\n📂 Looking for cursor file at: ${CURSOR_FILE}`);
+
     if (!fs.existsSync(CURSOR_FILE)) {
-        return new Date('1970-01-01T00:00:00.000'); 
+        console.log("⚠️ Cursor file NOT FOUND. Defaulting to 2025 (Backfill Mode).");
+        return new Date('2025-01-01T00:00:00'); 
     }
 
-    const data = JSON.parse(fs.readFileSync(CURSOR_FILE, 'utf8'));
-    
-    // 2. CRITICAL TIMEZONE FIX: 
-    // We remove 'Z' so Node.js treats this string as LOCAL TIME.
-    // This aligns the cursor with your SQL Server's local clock.
-    let cleanString = data.lastSync.replace('Z', ''); 
-    return new Date(cleanString);
+    try {
+        const fileContent = fs.readFileSync(CURSOR_FILE, 'utf8');
+        console.log(`📄 Raw File Content: ${fileContent}`);
+        
+        const data = JSON.parse(fileContent);
+        // Remove Z to treat as Local Time
+        let cleanString = data.lastSync.replace('Z', ''); 
+        let finalDate = new Date(cleanString);
+        
+        console.log(`✅ Read Success! Bridge will ask for data newer than: ${toLocalSqlString(finalDate)}`);
+        return finalDate;
+    } catch (err) {
+        console.log(`❌ Error reading file (Permissions or Typo): ${err.message}`);
+        console.log("⚠️ Defaulting to 2025 due to error.");
+        return new Date('2025-01-01T00:00:00');
+    }
 }
 
 function updateLastSyncTime(newTimestamp) {
-    // We save the raw date object; JSON.stringify adds the 'Z' automatically,
-    // but our reader above handles removing it.
-    fs.writeFileSync(CURSOR_FILE, JSON.stringify({ lastSync: newTimestamp }));
+    try {
+        fs.writeFileSync(CURSOR_FILE, JSON.stringify({ lastSync: newTimestamp }));
+        console.log("💾 Cursor Saved Successfully.");
+    } catch (err) {
+        console.error("❌ CRITICAL: Cannot save cursor! (Permission Denied)");
+    }
 }
 
-// --- MAIN SYNC FUNCTION ---
 async function sync() {
     let pool;
     try {
-        const lastSync = getLastSyncTime();
-        
-        // 1. Connect
+        const lastSyncDate = getLastSyncTime();
+        const lastSyncString = toLocalSqlString(lastSyncDate);
+
         pool = await sql.connect(MSSQL_CONFIG);
         
-        // 2. Query (Using LogDateTime)
-        // This grabs everything newer than our local cursor time
+        // Query: Get data strictly NEWER than our cursor
         const query = `
-            SELECT 
-                p.EmployeeCode,
+            SELECT TOP 500 
+                p.EmployeeCode, 
                 p.LogDateTime,
-                e.EmployeeName,
-                e.DeviceCode,
-                e.Department,
-                e.Designation,
-                e.Category,
-                e.[EmploymentType] AS EmploymentType,
-                e.Gender,
-                e.DOJ,
-                e.DOC,
-                e.Status,
-                e.DOR
+                e.EmployeeName
             FROM paraller p
             JOIN EmployeeList e ON p.EmployeeCode = e.EmployeeCode
-            WHERE p.LogDateTime > @lastSync
-            ORDER BY p.LogDateTime DESC
+            WHERE p.LogDateTime > CAST(@lastSyncStr AS DATETIME)
+            ORDER BY p.LogDateTime ASC 
         `;
         
         const result = await pool.request()
-            .input('lastSync', sql.DateTime, lastSync)
+            .input('lastSyncStr', sql.VarChar, lastSyncString)
             .query(query);
 
         const newRows = result.recordset;
 
         if (newRows.length > 0) {
             console.log(`[${new Date().toLocaleTimeString()}] Found ${newRows.length} new records.`);
+            console.log(`   -> First Record Time: ${newRows[0].LogDateTime}`);
+            console.log(`   -> Last Record Time:  ${newRows[newRows.length - 1].LogDateTime}`);
             
-            // 3. Push to AWS
+            // 1. Upload to AWS
             await axios.post(GLOBAL_API_URL, newRows);
             
-            // 4. Update Cursor
-            // Since we sort DESC (Newest First), the latest time is at index 0
-            const latestLog = newRows[0].LogDateTime; 
+            // 2. Update Cursor to the NEWEST record
+            const latestLog = newRows[newRows.length - 1].LogDateTime; 
             updateLastSyncTime(latestLog);
             
-            console.log(`   -> Uploaded! Cursor moved to: ${latestLog.toISOString()}`);
+            console.log(`   -> Uploaded! Cursor moved to: ${toLocalSqlString(latestLog)}`);
+        } else {
+            console.log(`[${new Date().toLocaleTimeString()}] No new records found.`);
         }
 
     } catch (err) {
-        console.error(`[${new Date().toLocaleTimeString()}] ❌ Sync Error:`, err.message);
-        
-        if (err.message.includes('ECONNREFUSED')) {
-            console.log("   -> HINT: Check if EC2 server is running.");
-        }
+        console.error(`❌ Sync Error:`, err.message);
     } finally {
         if (pool) pool.close();
     }
 }
 
-// --- RUN LOOP ---
-console.log("🚀 Biometric Bridge Started. Watching for new swipes...");
-setInterval(sync, POLLING_INTERVAL_MS);
+console.log("🚀 Debug Mode Started...");
+sync(); // Run once immediately
+// setInterval(sync, POLLING_INTERVAL_MS); // Commented out loop so you can read the log first
