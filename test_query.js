@@ -38,7 +38,7 @@ async function testSync() {
                 e.Department,
                 e.Designation,
                 e.Category,
-                e.[Employment Type] AS EmploymentType,
+                e.[EmploymentType] AS EmploymentType,
                 e.Gender,
                 e.DOJ,
                 e.DOC,
