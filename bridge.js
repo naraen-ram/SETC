@@ -4,9 +4,9 @@ const fs = require('fs');
 const path = require('path');
 
 // --- CONFIGURATION ---
-const GLOBAL_API_URL = 'http://13.205.0.74:5000/api/sync'; // Update IP
+const GLOBAL_API_URL = 'http://13.205.0.74:5000/api/sync'; 
 const CURSOR_FILE = path.join(__dirname, 'cursor.json');
-const POLLING_INTERVAL_MS = 5000; // Check every 5 seconds
+const POLLING_INTERVAL_MS = 5000; 
 
 const MSSQL_CONFIG = {
     server: 'SERVER\\SQLEXPRESS',
@@ -40,13 +40,11 @@ async function sync() {
         // 1. Connect
         pool = await sql.connect(MSSQL_CONFIG);
         
-        // 2. Query (JOIN paraller + EmployeeList)
-        // Includes all columns and Sorts by Newest First (DESC)
+        // 2. Query (Simplified using LogDateTime)
         const query = `
             SELECT 
                 p.EmployeeCode,
-                p.LogDate,
-                p.LogTime,
+                p.LogDateTime, 
                 e.EmployeeName,
                 e.DeviceCode,
                 e.Department,
@@ -60,8 +58,8 @@ async function sync() {
                 e.DOR
             FROM paraller p
             JOIN EmployeeList e ON p.EmployeeCode = e.EmployeeCode
-            WHERE p.LogDate > @lastSync
-            ORDER BY p.LogDate DESC, p.LogTime DESC
+            WHERE p.LogDateTime > @lastSync
+            ORDER BY p.LogDateTime DESC
         `;
         
         const result = await pool.request()
@@ -77,8 +75,8 @@ async function sync() {
             await axios.post(GLOBAL_API_URL, newRows);
             
             // 4. Update Cursor
-            // CRITICAL CHANGE: Since we are sorting DESC, the NEWEST item is now at Index 0.
-            const latestLog = newRows[0].LogDate; 
+            // We use the LogDateTime of the TOP row (Newest)
+            const latestLog = newRows[0].LogDateTime; 
             updateLastSyncTime(latestLog);
             
             console.log(`   -> Uploaded! Cursor moved to: ${latestLog.toISOString()}`);
@@ -86,6 +84,10 @@ async function sync() {
 
     } catch (err) {
         console.error("Error in sync loop:", err.message);
+        // Debugging help:
+        if (err.message.includes('ECONNREFUSED')) {
+            console.log("   -> HINT: Check if EC2 server is running and Port 5000 is open.");
+        }
     } finally {
         if (pool) pool.close();
     }
@@ -94,6 +96,3 @@ async function sync() {
 // --- RUN LOOP ---
 console.log("🚀 Biometric Bridge Started. Watching for new swipes...");
 setInterval(sync, POLLING_INTERVAL_MS);
-//{
-//  "lastSync": "2026-01-27T16:30:00.000Z"
-//}
