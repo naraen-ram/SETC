@@ -94,3 +94,6 @@ async function sync() {
 // --- RUN LOOP ---
 console.log("🚀 Biometric Bridge Started. Watching for new swipes...");
 setInterval(sync, POLLING_INTERVAL_MS);
+//{
+//  "lastSync": "2026-01-27T16:30:00.000Z"
+//}
