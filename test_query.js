@@ -41,7 +41,7 @@ async function testSync() {
                 e.Status,
                 e.DOR
             FROM paraller p
-            LEFT JOIN EmployeeList e ON p.EmployeeCode = e.EmployeeCode
+            JOIN EmployeeList e ON p.EmployeeCode = e.EmployeeCode
             WHERE p.LogDate >= @testTime 
             ORDER BY p.LogDate DESC, p.LogTime DESC
         `;
