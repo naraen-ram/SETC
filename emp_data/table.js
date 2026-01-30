@@ -29,7 +29,7 @@ let endDate = document.getElementById("endDate");
 //actions
 startDate.value=formattedDate;
 endDate.value=formattedDate;
-console.log(startDate.value,endDate.value)
+//console.log(startDate.value,endDate.value)
 endDate.min = startDate.value;
 startDate.max=endDate.value;
 document.querySelector(".user-name").textContent = loginUserName;
@@ -184,12 +184,14 @@ function hoursWorked(inTime,outTime) {
     return String(Math.floor((diff/(1000*3600))%3600)).padStart(2,'0')+":"+String(Math.floor((diff/(1000*60)))%60).padStart(2,"0")
 }
 async function getdata() {
-    let jsonFile = await fetch("http://127.0.0.1:5500/data");
+    let jsonFile = await fetch("http://127.0.0.1:5500/data?start=2026-01-28&end=2026-01-30");
     if (!jsonFile.ok) {
         throw new Error("can't pull data");
     }
     const response = await jsonFile.json();
-    allData=response.allData;
+   //console.log(response)
+    allData=response;
+
     data = allData;
     resetSortArray();
     datefilter(data);
@@ -240,17 +242,18 @@ function datefilter(allData) {
     resetSortArray();
    // let results = [];
   // console.log(showabsent);
-  console.log(startDate.value)
+ // console.log(startDate.value)
     let startDateVal = startDate.value.toString();
     let endDateVal = endDate.value.toString();
    // console.log(endDateVal)
     data = allData.filter(element => {
-        const elementDate = dateConverter(element.AttendanceDate);
+        const elementDate = element.date;
+        //dateConverter(element.AttendanceDate);
         return (elementDate >= startDateVal && elementDate <= endDateVal)||elementDate===' ';
     });
     //data = results;
 
-
+    //console.log(data[0].EmployeeCode)
     currentPage = 1;
     createTable(data, currentPage);
 }
@@ -269,7 +272,8 @@ function getFilteredDataForExcel() {
     const endDateVal = endDate.value;
 
     filteredData = filteredData.filter(element => {
-        const elementDate = dateConverter(element.AttendanceDate);
+        const elementDate = element.date;
+        //dateConverter(element.AttendanceDate);
         return (elementDate >= startDateVal && elementDate <= endDateVal) || elementDate === ' ';
     });
 
@@ -288,7 +292,8 @@ function ExcelGenerator() {
     let filteredData = getFilteredDataForExcel();
 
     filteredData.forEach((element, index) => {
-        let elementDate = dateConverter(element.AttendanceDate);
+        let elementDate = element.date;
+        //dateConverter(element.AttendanceDate);
         if (elementDate === ' ') elementDate = element.AttendanceDate;
 
         ExcelData.push([
@@ -320,7 +325,8 @@ function ExcelGeneratorAbsent() {
     filteredData = filterAbsent(filteredData);
 
     filteredData.forEach((element, index) => {
-        let elementDate = dateConverter(element.AttendanceDate);
+        let elementDate = element.date;
+        //dateConverter(element.AttendanceDate);
         if (elementDate === ' ') elementDate = element.AttendanceDate;
 
         ExcelData.push([
@@ -448,6 +454,7 @@ function searcher() {
 
 
 function createTable(tableData, page) {
+   // console.log(tableData)
     if (showabsent) {
         renderAbsentTable(filterAbsent(tableData), page);
 
@@ -458,8 +465,9 @@ function createTable(tableData, page) {
     }
 }
 function filterpresent(data) {
-    filteredData = data.filter(element => element.StatusCode==='P');
-    return filteredData;
+    //filteredData = data.filter(element => element.StatusCode==='P');
+    //return filteredData;
+    return data;
 }
 function filterAbsent(data)
 {
@@ -516,7 +524,8 @@ function renderAbsentTable(tableData, page) {
     const pageData = tableData.slice(startIndex, endIndex);
     pageData.forEach(element => {
 
-        let elementDate=dateConverter(element.AttendanceDate);
+        let elementDate=element.date;
+        //dateConverter(element.AttendanceDate);
             if(elementDate===' ')
                 elementDate=element.AttendanceDate;
         html += `
@@ -553,9 +562,9 @@ function renderTable(tableData, page) {
       <th>Shift</th>
     </tr>
   </thead><tbody>`;
-
-  tableData=filterDepot(tableData);
-  tableData=filterCategory(tableData);
+    //console.log(tableData)
+ // tableData=filterDepot(tableData);
+  //tableData=filterCategory(tableData);
     if (!tableData || tableData.length == 0) {
         document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
         document.getElementById("ExcelDownload").style.display="none";
@@ -568,23 +577,24 @@ function renderTable(tableData, page) {
     const pageData = tableData.slice(startIndex, endIndex);
     pageData.forEach(element => {
 
-        let elementDate=dateConverter(element.AttendanceDate);
-            if(elementDate===' ')
-                elementDate=element.AttendanceDate;
+        // let elementDate=dateConverter(element.AttendanceDate);
+        //     if(elementDate===' ')
+        //         elementDate=element.AttendanceDate;
+        const elementDate=element.date;
         html += `
         <tr>
         <td>${++currentTable}</td>
-        <td><a href="../employeeData/index.html?id=${element['Employee Code']}&loginName=${loginUserName}">${element['Employee Name']}</a></td>
-        <td>${element['Employee Code']}</td>
+        <td><a href="../employeeData/index.html?id=${element['EmployeeCode']}&loginName=${loginUserName}">${element['EmployeeName']}</a></td>
+        <td>${element['EmployeeCode']}</td>
         <td>${element['SECTION']}</td>
         <td>${element['InTime']}</td>
         <td>${element['OutTime']}</td>
         <td>${elementDate}</td>
-        <td>${hoursWorked(element['In DateTime'],element['Out DateTime'])}</td>
+        <td>${element.HoursWorked}</td>
         <td>${element.CAT}</td>
-        <td>${element.ShiftName}</td>
+        <td>${element.Department}</td>
         </tr>`;
-
+//<td>${hoursWorked(element['In DateTime'],element['Out DateTime'])}</td>
     });
     html += `</tbody></table>`;
     document.querySelector(".bottom").innerHTML = html;
