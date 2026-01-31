@@ -7,8 +7,9 @@ const PORT = 5500;
 const { MongoClient } = require('mongodb');
 const client=new MongoClient("mongodb+srv://josh:josh123@test1.8ofqapk.mongodb.net");
 let allData=[];
-let dataNotInExcel=[];
+//let dataNotInExcel=[];
 let attendanceDict = {}; // stores per-employee per-date InTime/OutTime/HoursWorked
+//let unmatchedAttendanceDict = {}; // same for dataNotInExcel
 
 app.use(cors());
 app.use(express.json());
@@ -107,6 +108,86 @@ function createAttendanceDictionary(records) {
 
     return dict;
 }
+
+/**
+ * Create attendance dictionary for unmatched data records.
+ * Records have shape like:
+ * { EmployeeCode: 'A1555', LogDateTime: '2026-01-31T04:43:57.000Z', EmployeeName: 'Name', DeviceCode: 'A1555', Department: 'KAN', Designation: 'SG.SR.COOK' }
+ */
+// function createUnmatchedAttendanceDictionary(records) {
+//     const dict = {};
+//     if (!Array.isArray(records)) return dict;
+
+//     function formatTimeOnly(dt) {
+//         const h = String(dt.getUTCHours()).padStart(2, '0');
+//         const m = String(dt.getUTCMinutes()).padStart(2, '0');
+//         const s = String(dt.getUTCSeconds()).padStart(2, '0');
+//         return `${h}:${m}:${s}`;
+//     }
+
+//     records.forEach(rec => {
+//         const emp = rec.EmployeeCode || rec.DeviceCode || rec['Employee Code'];
+//         if (!emp) return;
+
+//         const timeStr = rec.LogDateTime || rec['Log DateTime'] || rec['LogDateTime'];
+//         if (!timeStr) return;
+
+//         const dt = new Date(timeStr);
+//         if (isNaN(dt)) return;
+
+//         const dateKey = dt.toISOString().split('T')[0];
+//         const timeOnly = formatTimeOnly(dt);
+
+//         dict[emp] = dict[emp] || {};
+
+//         function addFields(target) {
+//             const excluded = ['_id', '__v', 'LogDateTime', 'Log DateTime', 'LogDate', 'Employee Code', 'DeviceCode'];
+//             for (const k in rec) {
+//                 if (!excluded.includes(k) && !(k in target)) {
+//                     target[k] = rec[k];
+//                 }
+//             }
+//         }
+
+//         const empObj = dict[emp];
+//         if (!empObj.date || empObj.date !== dateKey) {
+//             dict[emp] = {
+//                 EmployeeCode: emp,
+//                 date: dateKey,
+//                 InTime: timeOnly,
+//                 OutTime: null,
+//                 EmployeeName: rec.EmployeeName || rec['Employee Name'] || '',
+//                 DeviceCode: rec.DeviceCode || '',
+//                 Department: rec.Department || '',
+//                 Designation: rec.Designation || '',
+//                 HoursWorked: 0
+//             };
+//             addFields(dict[emp]);
+//         } else {
+//             const inTStr = dict[emp].InTime;
+//             const outTStr = dict[emp].OutTime;
+//             const inT = new Date(`${dateKey}T${inTStr}Z`);
+//             const outT = outTStr ? new Date(`${dateKey}T${outTStr}Z`) : null;
+
+//             const diffMinutes = (dt - inT) / (1000 * 60);
+//             if (diffMinutes >= 30) {
+//                 if (!outT || dt > outT) dict[emp].OutTime = timeOnly;
+//             }
+//             if (dt < inT) dict[emp].InTime = timeOnly;
+
+//             addFields(dict[emp]);
+
+//             const finalInT = new Date(`${dateKey}T${dict[emp].InTime}Z`);
+//             const finalOutT = dict[emp].OutTime ? new Date(`${dateKey}T${dict[emp].OutTime}Z`) : null;
+//             if (finalOutT && !isNaN(finalInT) && !isNaN(finalOutT)) {
+//                 const diffHours = (finalOutT - finalInT) / (1000 * 60 * 60);
+//                 dict[emp].HoursWorked = Number(Math.max(0, diffHours).toFixed(2));
+//             }
+//         }
+//     });
+
+//     return dict;
+// }
 
 getData();
 app.use(express.json());
@@ -213,12 +294,12 @@ app.get('/employee', async (req, res) => {
     }
 });
 
-app.get("/unmatchedData",(req,res)=>{
-        if(!allData)
-            return res.status(500).json({status:"error",message: "No data"});
-        res.json({dataNotInExcel});
+// app.get("/unmatchedData",(req,res)=>{
+//         if(!allData)
+//             return res.status(500).json({status:"error",message: "No data"});
+//         res.json({dataNotInExcel});
 
-});
+// });
 // Endpoint to fetch computed attendance dictionary
 app.get('/attendanceToday', (req, res) => {
     if (!attendanceDict || Object.keys(attendanceDict).length === 0) return res.status(500).json({ status: 'error', message: 'No attendance data' });
@@ -353,7 +434,7 @@ async function getData() {
                 $lte: endUTC.toISOString()
             }
         }).toArray();
-        
+       // console.log(fullData[0])
     }
     catch(e)
     {
@@ -361,11 +442,11 @@ async function getData() {
     }
     finally{
         await client.close();
-        const map1=new Map(records.map(item=>[item.EDPNO,item]));
+        const map1=new Map(records.map(item=>[String(item.EDPNO),item]));
        // console.log(fullData)
         
         allData=fullData.map(data=>{
-            const match=map1.get(data["EmployeeCode"]);
+            const match=map1.get(data["EmployeeCode"].toUpperCase());
             if(match)
             {
                 return {
@@ -373,8 +454,13 @@ async function getData() {
                     ...data
                 };
             }
+            else
+                return data;
         });
-        allData=allData.filter(Boolean);
+        // console.log(map1.size+ " "+records.length)
+        // console.log(allData.length)
+        // allData=allData.filter(Boolean);
+        // console.log(allData.length)
         // build attendance dictionary from raw mongo records
         attendanceDict = createAttendanceDictionary(allData);
       /*  fullData.forEach(element => {
@@ -390,22 +476,25 @@ async function getData() {
         }
     });
     */
-   fullData.forEach(element=>
-   {
-    if(element["Employee Code"] in recordset)
-        {   
+//    fullData.forEach(element=>
+//    {
+//     if(element["EmployeeCode"] in recordset)
+//         {   
 
-        }
-        else
-        {
-            dataNotInExcel.push(element);
-        }
-   }
-   );
+//         }
+//         else
+//         {
+//             dataNotInExcel.push(element);
+//         }
+//    }
+  // );
+       // build unmatched attendance dict from the raw elements not in excel
+     //  unmatchedAttendanceDict = createUnmatchedAttendanceDictionary(dataNotInExcel);
+       //console.log(unmatchedAttendanceDict)
         console.log("Mongo closed");
         //console.log(attendanceDict);
-        //console.log(await uploadAttendanceDictToMongo());
-       // console.log(dataNotInExcel.length)
+       // console.log(await uploadAttendanceDictToMongo());
+        //console.log(dataNotInExcel.length)
       // console.log(allData)
     }
     

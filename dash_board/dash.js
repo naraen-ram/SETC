@@ -1,4 +1,5 @@
 //declarations
+const excelCount=4753;
 let lineChartData;
 let allData = [];
 const parameters = new URLSearchParams(window.location.search);  //from the url , username is retrieved
@@ -47,9 +48,9 @@ buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; // Set the last b
 document.querySelector(".employee-details-btn").addEventListener("click", function () {
 window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
 });
-document.querySelector(".unmatched-details-btn").addEventListener("click", function () {
-window.location.href = `../unmatchedData/emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
-});
+// document.querySelector(".unmatched-details-btn").addEventListener("click", function () {
+// window.location.href = `../unmatchedData/emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
+// });
 searchDepot.addEventListener('change',()=>
 {
     renderPage();
@@ -215,18 +216,18 @@ else
 }
 function updatechart()
 {
-    let newData=[inCount-lateCount,absentCount,lateCount];
+    let newData=[inCount,excelCount-inCount,lateCount];
     myPieChart.data.datasets[0].data=newData;
     myPieChart.update();
 }
 async function getdata() {
-    let jsonFile = await fetch("http://127.0.0.1:5500/data");
+    let jsonFile = await fetch("http://127.0.0.1:5500/data?start=2026-01-28&end=2026-01-31");
     if (!jsonFile.ok) {
        throw new Error("can't pull data");
     }
     
     const response = await jsonFile.json();
-    allData=response.allData;
+    allData=response;
     //console.log(allData)
     
    renderPage();
@@ -250,15 +251,12 @@ else
      targetdate.setDate(today.getDate()-i);
         const target=targetdate.getFullYear() + '-' +String(targetdate.getMonth() + 1).padStart(2, '0') + '-' +String(targetdate.getDate()).padStart(2, '0');
        // console.log(target)
-        const temp=allData.filter(element=>dateConverter(element.AttendanceDate)===target);
+        const temp=allData.filter(element=>element.date===target);
+        pres=temp.length;
+        abs=excelCount-pres;
         temp.forEach(element=>{
-            if(element.StatusCode==='P')
-                pres++;
-            else
-                abs++;
-            if(element.LateBy!==0)
-                late++;
-        
+            if(element.InTime>'09:00:00')
+                late++;     
 });
 lineChartData.push([pres,abs,late]);
 //console.log(pres,abs,late+"  ")
@@ -267,53 +265,53 @@ lineChartData.push([pres,abs,late]);
     createLineChart();
 }
      //console.log(lineChartData)}
-function dateConverter(date)
-{
-    const onlyDate=date.substring(0,2);
-    const onlyYear='20'+date.substring(7,9);
-    let onlyMonth=' ';
-    switch(date.substring(3,6))
-    {
-        case 'Jan':
-            onlyMonth='-01-';
-            break;
-        case 'Feb':
-            onlyMonth='-02-';
-            break;
-        case 'Mar':
-            onlyMonth='-03-';
-            break;
-        case 'Apr':
-            onlyMonth='-04-';
-            break;
-        case 'May':
-            onlyMonth='-05-';
-            break;
-        case 'Jun':
-            onlyMonth='-06-';
-            break;
-        case 'Jul':
-            onlyMonth='-07-';
-            break;
-        case 'Aug':
-            onlyMonth='-08-';
-            break;
-        case 'Sep':
-            onlyMonth='-09-';
-            break;
-        case 'Oct':
-            onlyMonth='-10-';
-            break;
-        case 'Nov':
-            onlyMonth='-11-';
-            break;
-        case 'Dec':
-            onlyMonth='-12-';
-            break;
+// function dateConverter(date)
+// {
+//     const onlyDate=date.substring(0,2);
+//     const onlyYear='20'+date.substring(7,9);
+//     let onlyMonth=' ';
+//     switch(date.substring(3,6))
+//     {
+//         case 'Jan':
+//             onlyMonth='-01-';
+//             break;
+//         case 'Feb':
+//             onlyMonth='-02-';
+//             break;
+//         case 'Mar':
+//             onlyMonth='-03-';
+//             break;
+//         case 'Apr':
+//             onlyMonth='-04-';
+//             break;
+//         case 'May':
+//             onlyMonth='-05-';
+//             break;
+//         case 'Jun':
+//             onlyMonth='-06-';
+//             break;
+//         case 'Jul':
+//             onlyMonth='-07-';
+//             break;
+//         case 'Aug':
+//             onlyMonth='-08-';
+//             break;
+//         case 'Sep':
+//             onlyMonth='-09-';
+//             break;
+//         case 'Oct':
+//             onlyMonth='-10-';
+//             break;
+//         case 'Nov':
+//             onlyMonth='-11-';
+//             break;
+//         case 'Dec':
+//             onlyMonth='-12-';
+//             break;
 
-    }
-    return onlyYear+onlyMonth+onlyDate;
-}
+//     }
+//     return onlyYear+onlyMonth+onlyDate;
+// }
 getdata();
 /*function getLineChartData(presentCount,absentCount,lateCount)
 {   let i;
@@ -384,22 +382,22 @@ function scheduleDailyTask() {
 function renderPage()
 {
   inCount=outCount=lateCount=activeCount=absentCount=leaveCount=0;
-    filteredData=allData.filter(element=> dateConverter(element.AttendanceDate) ===querydate);
+    filteredData=allData.filter(element=> element.date ===querydate);
     filteredData=filterDepot(filteredData);
     filteredData=filterCategory(filteredData);
     //console.log(lineChartData)
+    inCount=filteredData.length;
     for(let i=0;i<filteredData.length;i++)
     {  
-        if(filteredData[i].InTime!=='00:00')
-        {
-        inCount++;
-        if(filteredData[i].LateBy!==0 )
+        
+        
+        if(filteredData[i].InTime>"10:00:00" )
           lateCount++;
-        }
-        if(filteredData[i].OutTime!=='00:00')
+        
+        if(filteredData[i].OutTime!==null)
             outCount++;
-          if(filteredData[i]['Is On Leave']!==0)
-            leaveCount++;
+        //   if(filteredData[i]['Is On Leave']!==0)
+        //     leaveCount++;
         /*let intime = new Date(`1970-01-01T${filteredData[i].intime}`);
         let cutoff = new Date(`1970-01-01T09:15:00`);
 
@@ -408,7 +406,7 @@ function renderPage()
         */
         activeCount = inCount - outCount;
     }
-    absentCount = filteredData.length - inCount;
+    absentCount = excelCount - inCount;
     document.querySelector("#in").innerHTML = inCount.toString();
     document.querySelector("#leave").innerHTML = leaveCount.toString();
     document.querySelector("#out").innerHTML=outCount.toString();

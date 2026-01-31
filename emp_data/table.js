@@ -456,7 +456,7 @@ function searcher() {
 function createTable(tableData, page) {
    // console.log(tableData)
     if (showabsent) {
-        renderAbsentTable(filterAbsent(tableData), page);
+        renderTable(filterAbsent(tableData), page);
 
     }
     else {
@@ -467,11 +467,11 @@ function createTable(tableData, page) {
 function filterpresent(data) {
     //filteredData = data.filter(element => element.StatusCode==='P');
     //return filteredData;
-    return data;
+    return data.filter(element=>element.SECTION!=='');
 }
 function filterAbsent(data)
 {
-    return data.filter(element=>element.StatusCode==='A');
+    return data.filter(element=>element.SECTION==='');
 }
 function filterDepot(data)
 {   let currentDepot=searchDepot.value;
