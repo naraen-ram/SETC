@@ -122,69 +122,69 @@ endDate.addEventListener('change', () => {
 
 //functions
 
-function dateConverter(date)
-{
-    const onlyDate=date.substring(0,2);
-    const onlyYear='20'+date.substring(7,9);
-    let onlyMonth=' ';
-    switch(date.substring(3,6))
-    {
-        case 'Jan':
-            onlyMonth='-01-';
-            break;
-        case 'Feb':
-            onlyMonth='-02-';
-            break;
-        case 'Mar':
-            onlyMonth='-03-';
-            break;
-        case 'Apr':
-            onlyMonth='-04-';
-            break;
-        case 'May':
-            onlyMonth='-05-';
-            break;
-        case 'Jun':
-            onlyMonth='-06-';
-            break;
-        case 'Jul':
-            onlyMonth='-07-';
-            break;
-        case 'Aug':
-            onlyMonth='-08-';
-            break;
-        case 'Sep':
-            onlyMonth='-09-';
-            break;
-        case 'Oct':
-            onlyMonth='-10-';
-            break;
-        case 'Nov':
-            onlyMonth='-11-';
-            break;
-        case 'Dec':
-            onlyMonth='-12-';
-            break;
+// function dateConverter(date)
+// {
+//     const onlyDate=date.substring(0,2);
+//     const onlyYear='20'+date.substring(7,9);
+//     let onlyMonth=' ';
+//     switch(date.substring(3,6))
+//     {
+//         case 'Jan':
+//             onlyMonth='-01-';
+//             break;
+//         case 'Feb':
+//             onlyMonth='-02-';
+//             break;
+//         case 'Mar':
+//             onlyMonth='-03-';
+//             break;
+//         case 'Apr':
+//             onlyMonth='-04-';
+//             break;
+//         case 'May':
+//             onlyMonth='-05-';
+//             break;
+//         case 'Jun':
+//             onlyMonth='-06-';
+//             break;
+//         case 'Jul':
+//             onlyMonth='-07-';
+//             break;
+//         case 'Aug':
+//             onlyMonth='-08-';
+//             break;
+//         case 'Sep':
+//             onlyMonth='-09-';
+//             break;
+//         case 'Oct':
+//             onlyMonth='-10-';
+//             break;
+//         case 'Nov':
+//             onlyMonth='-11-';
+//             break;
+//         case 'Dec':
+//             onlyMonth='-12-';
+//             break;
 
-    }
-    return onlyYear+onlyMonth+onlyDate;
-}
-function hoursWorked(inTime,outTime) {
-    let [datePart, timePart] = inTime.split(" ");
-    let [day, month, year] = datePart.split("-").map(Number);
-    let [hour, minute] = timePart.split(":").map(Number);
-    let h1 = new Date(year, month - 1, day, hour, minute);
+//     }
+//     return onlyYear+onlyMonth+onlyDate;
+// }
+// function hoursWorked(inTime,outTime) {
+//     let [datePart, timePart] = inTime.split(" ");
+//     let [day, month, year] = datePart.split("-").map(Number);
+//     let [hour, minute] = timePart.split(":").map(Number);
+//     let h1 = new Date(year, month - 1, day, hour, minute);
     
-    [datePart, timePart] = outTime.split(" ");
-    [day, month, year] = datePart.split("-").map(Number);
-    [hour, minute] = timePart.split(":").map(Number);
-    let h2 = new Date(year, month - 1, day, hour, minute);
+//     [datePart, timePart] = outTime.split(" ");
+//     [day, month, year] = datePart.split("-").map(Number);
+//     [hour, minute] = timePart.split(":").map(Number);
+//     let h2 = new Date(year, month - 1, day, hour, minute);
     
-    let diff = h2-h1
-    return String(Math.floor((diff/(1000*3600))%3600)).padStart(2,'0')+":"+String(Math.floor((diff/(1000*60)))%60).padStart(2,"0")
-}
+//     let diff = h2-h1
+//     return String(Math.floor((diff/(1000*3600))%3600)).padStart(2,'0')+":"+String(Math.floor((diff/(1000*60)))%60).padStart(2,"0")
+// }
 async function getdata() {
-    let jsonFile = await fetch("http://127.0.0.1:5500/data?start=2026-01-28&end=2026-01-30");
+    let jsonFile = await fetch("http://127.0.0.1:5500/data?start=2026-01-28&end=2026-01-31");
     if (!jsonFile.ok) {
         throw new Error("can't pull data");
     }
@@ -248,7 +248,7 @@ function datefilter(allData) {
    // console.log(endDateVal)
     data = allData.filter(element => {
         const elementDate = element.date;
-        //dateConverter(element.AttendanceDate);
+        //dateConverter(element.date);
         return (elementDate >= startDateVal && elementDate <= endDateVal)||elementDate===' ';
     });
     //data = results;
@@ -273,7 +273,7 @@ function getFilteredDataForExcel() {
 
     filteredData = filteredData.filter(element => {
         const elementDate = element.date;
-        //dateConverter(element.AttendanceDate);
+        //dateConverter(element.date);
         return (elementDate >= startDateVal && elementDate <= endDateVal) || elementDate === ' ';
     });
 
@@ -293,18 +293,18 @@ function ExcelGenerator() {
 
     filteredData.forEach((element, index) => {
         let elementDate = element.date;
-        //dateConverter(element.AttendanceDate);
-        if (elementDate === ' ') elementDate = element.AttendanceDate;
+        //dateConverter(element.date);
+        if (elementDate === ' ') elementDate = element.date;
 
         ExcelData.push([
             index + 1,
-            element['Employee Name'],
-            element['Employee Code'],
+            element['EmployeeName'],
+            element['EmployeeCode'],
             element['SECTION'],
             element['InTime'],
             element['OutTime'],
             elementDate,
-            hoursWorked(element['In DateTime'],element['Out DateTime']),
+            element.HoursWorked,
             element.ShiftName
         ]);
     });
@@ -326,13 +326,13 @@ function ExcelGeneratorAbsent() {
 
     filteredData.forEach((element, index) => {
         let elementDate = element.date;
-        //dateConverter(element.AttendanceDate);
-        if (elementDate === ' ') elementDate = element.AttendanceDate;
+        //dateConverter(element.date);
+        if (elementDate === ' ') elementDate = element.date;
 
         ExcelData.push([
             index + 1,
-            element['Employee Name'],
-            element['Employee Code'],
+            element['EmployeeName'],
+            element['EmployeeCode'],
             elementDate,
             element.ShiftName
         ]);
@@ -394,7 +394,7 @@ function searcherId()
         // 1. "Starts with" search
         let startsWithResults = allData.filter(element =>
             //element.name.toLowerCase().startsWith(query) /*||
-            String(element['Employee Code']).startsWith(query) 
+            String(element['EmployeeCode']).startsWith(query) 
            /* element.depot.toLowerCase().startsWith(query) ||
             (element.intime && element.intime.toLowerCase().startsWith(query)) ||
             (element.out_time && element.out_time.toLowerCase().startsWith(query))
@@ -407,7 +407,7 @@ function searcherId()
                 // Check if any field contains the query, but does NOT start with it
                 return (
                    // (element.name.toLowerCase().includes(query) && !element.name.toLowerCase().startsWith(query)) /*||
-                    (String(element['Employee Code']).includes(query) && !String(element['Employee Code']).startsWith(query)) /*||
+                    (String(element['EmployeeCode']).includes(query) && !String(element['EmployeeCode']).startsWith(query)) /*||
                     (element.depot.toLowerCase().includes(query) && !element.depot.toLowerCase().startsWith(query)) ||
                     (element.intime && element.intime.toLowerCase().includes(query) && !element.intime.toLowerCase().startsWith(query)) ||
                     (element.out_time && element.out_time.toLowerCase().includes(query) && !element.out_time.toLowerCase().startsWith(query))*/
@@ -427,7 +427,7 @@ function searcher() {
     } else {
         // 1. "Starts with" search
         let startsWithResults = allData.filter(element =>
-            element['Employee Name'].toString().toLowerCase().startsWith(query) /*||
+            element['EmployeeName'].toString().toLowerCase().startsWith(query) /*||
             String(element.id).toLowerCase().startsWith(query) ||
             element.depot.toLowerCase().startsWith(query) ||
             (element.intime && element.intime.toLowerCase().startsWith(query)) ||
@@ -440,7 +440,7 @@ function searcher() {
             data = allData.filter(element => {
                 // Check if any field contains the query, but does NOT start with it
                 
-                    (element['Employee Name'].toString().toLowerCase().includes(query) && !element['Employee Name'].toString().toLowerCase().startsWith(query)) /*||
+                    (element['EmployeeName'].toString().toLowerCase().includes(query) && !element['EmployeeName'].toString().toLowerCase().startsWith(query)) /*||
                     (String(element.id).toLowerCase().includes(query) && !String(element.id).toLowerCase().startsWith(query)) ||
                     (element.depot.toLowerCase().includes(query) && !element.depot.toLowerCase().startsWith(query)) ||
                     (element.intime && element.intime.toLowerCase().includes(query) && !element.intime.toLowerCase().startsWith(query)) ||
@@ -525,14 +525,14 @@ function renderAbsentTable(tableData, page) {
     pageData.forEach(element => {
 
         let elementDate=element.date;
-        //dateConverter(element.AttendanceDate);
+        //dateConverter(element.date);
             if(elementDate===' ')
-                elementDate=element.AttendanceDate;
+                elementDate=element.date;
         html += `
         <tr>
         <td>${++currentTable}</td>
-        <td><a href="../employeeData/index.html?id=${element['Employee Code']}">${element['Employee Name']}</a></td>
-        <td>${element['Employee Code']}</td>
+        <td><a href="../employeeData/index.html?id=${element['EmployeeCode']}">${element['EmployeeName']}</a></td>
+        <td>${element['EmployeeCode']}</td>
           <td>${element['SECTION']}</td>
         <td>${elementDate}</td>
         <td>${element.CAT}</td>
@@ -559,12 +559,12 @@ function renderTable(tableData, page) {
       <th onclick="sortTable(5)">Date</th>
       <th onclick="sortTable(6)">Hours worked</th>
       <th>Category</th>
-      <th>Shift</th>
+      <th>Department</th>
     </tr>
   </thead><tbody>`;
     //console.log(tableData)
- // tableData=filterDepot(tableData);
-  //tableData=filterCategory(tableData);
+  tableData=filterDepot(tableData);
+  tableData=filterCategory(tableData);
     if (!tableData || tableData.length == 0) {
         document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
         document.getElementById("ExcelDownload").style.display="none";
@@ -577,9 +577,9 @@ function renderTable(tableData, page) {
     const pageData = tableData.slice(startIndex, endIndex);
     pageData.forEach(element => {
 
-        // let elementDate=dateConverter(element.AttendanceDate);
+        // let elementDate=dateConverter(element.date);
         //     if(elementDate===' ')
-        //         elementDate=element.AttendanceDate;
+        //         elementDate=element.date;
         const elementDate=element.date;
         html += `
         <tr>
@@ -604,84 +604,61 @@ function resetSortArray() {
     direction = ['', '', '', '', '', '', ''];
 }
 function quicksortName(data) {
-    if (data.length < 2)
-        return data;
-    let left = [], right = [], pivot = data[data.length - 1];
-    for (i = 0; i < data.length - 1; i++) {
-        if (data[i]['Employee Name'] > pivot['Employee Name'])
-            right.push(data[i]);
-        else
-            left.push(data[i]);
-    }
-    return [...quicksortName(left), pivot, ...quicksortName(right)];
+    return data.slice().sort((a, b) => {
+        const A = (a['EmployeeName'] || '').toString();
+        const B = (b['EmployeeName'] || '').toString();
+        return A.localeCompare(B);
+    });
 }
+
 function quicksortId(data) {
-    if (data.length < 2)
-        return data;
-    let left = [], right = [], pivot = data[data.length - 1];
-    for (i = 0; i < data.length - 1; i++) {
-        if (data[i]['Employee Code'] > pivot['Employee Code'])
-            right.push(data[i]);
-        else
-            left.push(data[i]);
-    }
-    return [...quicksortId(left), pivot, ...quicksortId(right)];
+    return data.slice().sort((a, b) => {
+        const na = a['EmployeeCode'];
+        const nb = b['EmployeeCode'];
+        if (!isNaN(na) && !isNaN(nb)) return na - nb;
+        return String(a['EmployeeCode'] || '').localeCompare(String(b['EmployeeCode'] || ''));
+    });
 }
+
 function quicksortDepot(data) {
-    if (data.length < 2)
-        return data;
-    let left = [], right = [], pivot = data[data.length - 1];
-    for (i = 0; i < data.length - 1; i++) {
-        if (data[i]['SECTION'] > pivot['SECTION'])
-            right.push(data[i]);
-        else
-            left.push(data[i]);
-    }
-    return [...quicksortDepot(left), pivot, ...quicksortDepot(right)];
-} function quicksortInTime(data) {
-    if (data.length < 2)
-        return data;
-    let left = [], right = [], pivot = data[data.length - 1];
-    for (i = 0; i < data.length - 1; i++) {
-        if (data[i].InTime > pivot.InTime)
-            right.push(data[i]);
-        else
-            left.push(data[i]);
-    }
-    return [...quicksortInTime(left), pivot, ...quicksortInTime(right)];
-} function quicksortout_time(data) {
-    if (data.length < 2)
-        return data;
-    let left = [], right = [], pivot = data[data.length - 1];
-    for (i = 0; i < data.length - 1; i++) {
-        if (data[i].OutTime > pivot.OutTime)
-            right.push(data[i]);
-        else
-            left.push(data[i]);
-    }
-    return [...quicksortout_time(left), pivot, ...quicksortout_time(right)];
-} function quicksortdate(data) {
-    if (data.length < 2)
-        return data;
-    let left = [], right = [], pivot = data[data.length - 1];
-    for (i = 0; i < data.length - 1; i++) {
-        if (data[i].AttendanceDate > pivot.AttendanceDate)
-            right.push(data[i]);
-        else
-            left.push(data[i]);
-    }
-    return [...quicksortdate(left), pivot, ...quicksortdate(right)];
-} function quicksortHours(data) {
-    if (data.length < 2)
-        return data;
-    let left = [], right = [], pivot = data[data.length - 1];
-    for (i = 0; i < data.length - 1; i++) {
-        if (data[i].Overtime > pivot.Overtime)
-            right.push(data[i]);
-        else
-            left.push(data[i]);
-    }
-    return [...quicksortHours(left), pivot, ...quicksortHours(right)];
+    return data.slice().sort((a, b) => {
+        const A = (a['SECTION'] || '').toString();
+        const B = (b['SECTION'] || '').toString();
+        return A.localeCompare(B);
+    });
+}
+
+function quicksortInTime(data) {
+    return data.slice().sort((a, b) => {
+        const A = (a.InTime || '').toString();
+        const B = (b.InTime || '').toString();
+        return A.localeCompare(B);
+    });
+}
+
+function quicksortout_time(data) {
+    return data.slice().sort((a, b) => {
+        const A = (a.OutTime || '').toString();
+        const B = (b.OutTime || '').toString();
+        return A.localeCompare(B);
+    });
+}
+
+function quicksortdate(data) {
+    return data.slice().sort((a, b) => {
+        const A = (a.date || '').toString();
+        const B = (b.date || '').toString();
+        return A.localeCompare(B);
+    });
+}
+
+function quicksortHours(data) {
+    return data.slice().sort((a, b) => {
+        const na = parseFloat(a.HoursWorked);
+        const nb = parseFloat(b.HoursWorked);
+        if (!isNaN(na) && !isNaN(nb)) return na - nb;
+        return String(a.Overtime || '').localeCompare(String(b.Overtime || ''));
+    });
 }
 
 function sortTable(n) {

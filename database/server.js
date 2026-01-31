@@ -185,6 +185,34 @@ async function getOldData(start, end) {
     }
 }
 
+
+async function getDataByEmployeeCode(empCode) {
+    const code = String(empCode);
+    const mclient = new MongoClient("mongodb+srv://josh:josh123@test1.8ofqapk.mongodb.net");
+    try {
+        await mclient.connect();
+        const db = mclient.db('attendance');
+        const col = db.collection('data');
+        const docs = await col.find({ EmployeeCode: code }).toArray();
+        //console.log(docs)
+        return docs;
+    } finally {
+        await mclient.close();
+    }
+}
+
+// Route: fetch attendance records for a given employee code passed as URL parameter
+app.get('/employee', async (req, res) => {
+    const id = req.query.id;
+    if (!id) return res.status(400).json({ status: 'error', message: 'Missing id parameter' });
+    try {
+        const docs = await getDataByEmployeeCode(id);
+        res.json(docs);
+    } catch (err) {
+        res.status(500).json({ status: 'error', message: err.message });
+    }
+});
+
 app.get("/unmatchedData",(req,res)=>{
         if(!allData)
             return res.status(500).json({status:"error",message: "No data"});
@@ -376,7 +404,7 @@ async function getData() {
    );
         console.log("Mongo closed");
         //console.log(attendanceDict);
-       // console.log(await uploadAttendanceDictToMongo());
+        //console.log(await uploadAttendanceDictToMongo());
        // console.log(dataNotInExcel.length)
       // console.log(allData)
     }

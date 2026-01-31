@@ -29,12 +29,12 @@ const formattedDate = date.getFullYear() + '-' +
 let now = new Date();
 // console.log(now)
 // let startDt = new Date(now.getFullYear(), now.getMonth(), 2);
-let startDt = new Date("2025-09-29");
+let startDt = new Date("2026-01-01");
 let endDt = new Date(now.getFullYear(), now.getMonth() + 1, 1);
 // console.log(now.getMonth()+1)
 startDate.value = startDt.toISOString().split("T")[0]
 endDate.value = endDt.toISOString().split("T")[0]
-// console.log(startDate.value)
+//console.log(startDate.value)
 
 /* startDate.value="2025-09-01";
 endDate.value="2025-10-00"; */
@@ -127,21 +127,22 @@ function dateConverter(date)
     return onlyYear+onlyMonth+onlyDate;
 }
 async function getData() {
-    let jsonFile = await fetch("http://127.0.0.1:5500/data");
+    let jsonFile = await fetch(`http://127.0.0.1:5500/employee?id=${empId}`);
+    //console.log(jsonFile)
     if (!jsonFile.ok) {
         throw new Error("can't pull data");
     }
     allData = await jsonFile.json();
-    allData=allData.allData;
+   // allData=allData.allData;
     data = allData;
   //console.log(allData);
   //console.log(empId);
-    data = data.filter(item => item['Employee Code'].toString() === empId);
-    allData=data;
+   // data = data.filter(item => item['EmployeeCode'].toString() === empId);
+   // allData=data;
   //console.log(data);
    
     datefilter(data);
-    document.getElementById("empHeadName").innerText += ` ${allData[0]['Employee Name']}`;
+    document.getElementById("empHeadName").innerText += ` ${allData[0]['EmployeeName']}`;
     document.getElementById("empHeadId").innerText += ` ${empId}`;
     document.getElementById("empHeadDesignation").innerText += ` ${allData[0].DESIG}`;
     document.getElementById("empHeadCat").innerText += allData[0]['CAT'];
@@ -155,9 +156,9 @@ getData(); // called the getData() function
 function isLate(val) {
     /*if (val === "N/A")
         return "N/A";*/
-    if (val.Status === "Absent")
+    if (val.InTime === "null")
         return "-"  
-    return val.LateBy!==0 ? "Late" : "On Time";
+    return val.InTime>"09:00:00" ? "Late" : "On Time";
 }
 
 
@@ -167,9 +168,10 @@ function datefilter(allData) {
     let startDateVal = startDate.value;
     let endDateVal = endDate.value;
     data = allData.filter(element => {
-        const elementDate = dateConverter(element.AttendanceDate);
+        const elementDate = element.date;
         return (elementDate >= startDateVal && elementDate <= endDateVal)||elementDate===' ';
     }); 
+   // console.log(allData)
    //data = results;
     currentPage = 1;
     createTable(data,currentPage);
@@ -186,7 +188,7 @@ function createTable(data, page)
     const startIndex = (page - 1) * rowsPerPage;
     const endIndex = startIndex + rowsPerPage;
     const pageData = data.slice(startIndex, endIndex);
-    // console.log(pageData);
+  //   console.log(data);
     // console.log(pageData);
 
     if (!pageData || pageData.length == 0) {
@@ -198,9 +200,9 @@ function createTable(data, page)
                 item.ntime = "N/A";
                 item.out_time = "N/A";
             }8*/
-            let elementDate=dateConverter(item.AttendanceDate);
+            let elementDate=item.date;
            /* if(elementDate===' ')
-                elementDate=item.AttendanceDate;*/
+                elementDate=item.date;*/
             item.InTime = item.InTime === "00:00"?"-":item.InTime
             item.OutTime = item.OutTime === "00:00"?"-":item.OutTime
             empData.innerHTML += `
@@ -209,13 +211,13 @@ function createTable(data, page)
                 <td>${elementDate}</td>
                 <td>${item.InTime}</td>
                 <td>${item.OutTime}</td>
-                <td style="background-color: ${item.StatusCode === "P" ? '' : "#e36464"}">${item.Status}</td>
-                <td style="background-color: ${item.LateBy!==0 ? "#e0fa5fff" : ""} ; ">${isLate(item)}</td>
-                <td>${hoursWorked(item['In DateTime'],item['Out DateTime'])}</td>
+                <td style="background-color: ${item.InTime === null ? '#e36464' : ""}">${item.InTime === "" ? 'Absent' : "Present"}</td>
+                <td style="background-color: ${item.InTime>"09:00:00" ? "#e0fa5fff" : ""} ; ">${isLate(item)}</td>
+                <td>${item.HoursWorked}</td>
                 
             </tr>
             `;
-             
+            
             currentTable++;
         });
         
@@ -239,13 +241,13 @@ function ExcelGenerator()
     let startDateVal = startDate.value;
     let endDateVal = endDate.value;
     ex_data = allData.filter(element => {
-        const elementDate = dateConverter(element.AttendanceDate);
+        const elementDate = element.date;
         return (elementDate >= startDateVal && elementDate <= endDateVal)||elementDate===' ';
     });
         ex_data.forEach((item,index) => {
           
-            let elementDate=dateConverter(item.AttendanceDate);
-            ExcelData.push([index + 1, elementDate, item.InTime, item.OutTime, item.Status, isLate(item), hoursWorked(item['In DateTime'],item['Out DateTime'])]);
+            let elementDate=item.date;
+            ExcelData.push([index + 1, elementDate, item.InTime, item.OutTime, item.HoursWorked]);
             
         });
     return ExcelData;
