@@ -26,13 +26,11 @@ rememberMe.addEventListener('click',()=>{
     
 });
 document.getElementById("loginForm").addEventListener("submit", function (event) {
-    event.preventDefault()      // console.log("Form submission prevented")
+    event.preventDefault()     
 });
 
 window.onload = function () {
-    //console.log("Page loaded, checking for saved credentials...");
     if (localStorage.getItem("remember") === "true") {
-        //console.log("Remember me is checked, loading saved credentials.");
         document.getElementById("username").value = localStorage.getItem("username");
         document.getElementById("password").value = localStorage.getItem("password");
         rememberMe.checked = true;
@@ -44,7 +42,6 @@ loginButton.addEventListener("click", async function () {
     if (user === "" || pass === "") {
         return
     }
-    // POST credentials to server for verification
     try {
         const resp = await fetch('http://127.0.0.1:5500/login', {
             method: 'POST',
@@ -82,15 +79,11 @@ loginButton.addEventListener("click", async function () {
 
 //functions
 
-// created a function sleep(ms) ... so whenever i call "await sleep(500)" the program stops for 500 milliseconds | efficient than setTimeout function in js
 function sleep(ms) {
     return new Promise(resolve => {
         setTimeout(resolve, ms)
     })
 }
-// client now posts credentials to server; no need to fetch userPasswords.json
-//console.log("Remember me status:", rememberMe.checked)
-/* Function for the submit button */
 
 
 

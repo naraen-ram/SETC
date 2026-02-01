@@ -31,7 +31,6 @@ function add() {
 
     btn.addEventListener("click", submitFormAdd);
 
-    // Press Enter to submit
     const inputs = document.querySelectorAll("#Username, #Password, #confirmPassword");
     inputs.forEach(input => {
         input.addEventListener("keydown", (event) => {
@@ -115,7 +114,6 @@ async function submitFormAdd() {
     msg.style.color = "red";
     msg.textContent = "";
 
-    // Validate fields
     if (!username || !password || !confirmPassword) {
         msg.textContent = "Please fill all fields!";
         return;
@@ -132,14 +130,12 @@ async function submitFormAdd() {
     }
 
     try {
-        // Fetch existing users
         const usersResp = await fetch("http://127.0.0.1:5500/userPasswords");
         if (!usersResp.ok) throw new Error("Failed to fetch users");
 
         const usersData = await usersResp.json();
         const users = usersData.userPasswords;
 
-        // Check if username already exists
         if (users.some(u => u.username === username)) {
             msg.textContent = "Username already exists!";
             return;
@@ -157,7 +153,7 @@ async function submitFormAdd() {
         if (result.status === "success") {
             msg.style.color = "green";
             msg.textContent = "User added successfully!";
-            back(); // Redirect to index
+            back(); 
         } else {
             msg.textContent = result.message;
         }
@@ -166,5 +162,4 @@ async function submitFormAdd() {
     }
 }
 
-// Initial render
 add();

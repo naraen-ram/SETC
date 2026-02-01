@@ -1,13 +1,10 @@
 //declarations
 
 
-const parameters = new URLSearchParams(window.location.search);  //from the url gets the parameters
-// console.log(parameters)
+const parameters = new URLSearchParams(window.location.search); 
 const loginUserName = parameters.get('loginName');
 const empId = parameters.get('id');
-// console.log(empId); 
 let data=[];
-//let lateArrivalTime = "09:15:00"; //Consider 9 am as the deadline for the entry
 empData = document.getElementById("empData");
 empData.innerHTML = "";
 let startDate = document.getElementById("startDate");
@@ -25,19 +22,11 @@ const formattedDate = date.getFullYear() + '-' +
 
 //actions
 
-/* To set inital date */
 let now = new Date();
-// console.log(now)
-// let startDt = new Date(now.getFullYear(), now.getMonth(), 2);
 let startDt = new Date("2026-01-01");
 let endDt = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-// console.log(now.getMonth()+1)
 startDate.value = startDt.toISOString().split("T")[0]
 endDate.value = endDt.toISOString().split("T")[0]
-//console.log(startDate.value)
-
-/* startDate.value="2025-09-01";
-endDate.value="2025-10-00"; */
 endDate.min = startDate.value;
 startDate.max=endDate.value;
 startDate.addEventListener('change', () => {
@@ -65,82 +54,14 @@ previousButton.addEventListener("click", () => {
 document.querySelector(".user-name").textContent = loginUserName;
 
 //functions
-function hoursWorked(inTime,outTime) {
-    let [datePart, timePart] = inTime.split(" ");
-    let [day, month, year] = datePart.split("-").map(Number);
-    let [hour, minute] = timePart.split(":").map(Number);
-    let h1 = new Date(year, month - 1, day, hour, minute);
-    
-    [datePart, timePart] = outTime.split(" ");
-    [day, month, year] = datePart.split("-").map(Number);
-    [hour, minute] = timePart.split(":").map(Number);
-    let h2 = new Date(year, month - 1, day, hour, minute);
-    
-    let diff = h2-h1
-    return String(Math.floor((diff/(1000*3600))%3600)).padStart(2,'0')+":"+String(Math.floor((diff/(1000*60)))%60).padStart(2,"0")
-}
-function dateConverter(date)
-{
-    const onlyDate=date.substring(0,2);
-    const onlyYear='20'+date.substring(7,9);
-    let onlyMonth=' ';
-    switch(date.substring(3,6))
-    {
-        case 'Jan':
-            onlyMonth='-01-';
-            break;
-        case 'Feb':
-            onlyMonth='-02-';
-            break;
-        case 'Mar':
-            onlyMonth='-03-';
-            break;
-        case 'Apr':
-            onlyMonth='-04-';
-            break;
-        case 'May':
-            onlyMonth='-05-';
-            break;
-        case 'Jun':
-            onlyMonth='-06-';
-            break;
-        case 'Jul':
-            onlyMonth='-07-';
-            break;
-        case 'Aug':
-            onlyMonth='-08-';
-            break;
-        case 'Sep':
-            onlyMonth='-09-';
-            break;
-        case 'Oct':
-            onlyMonth='-10-';
-            break;
-        case 'Nov':
-            onlyMonth='-11-';
-            break;
-        case 'Dec':
-            onlyMonth='-12-';
-            break;
 
-    }
-    return onlyYear+onlyMonth+onlyDate;
-}
 async function getData() {
     let jsonFile = await fetch(`http://127.0.0.1:5500/employee?id=${empId}`);
-    //console.log(jsonFile)
     if (!jsonFile.ok) {
         throw new Error("can't pull data");
     }
     allData = await jsonFile.json();
-   // allData=allData.allData;
     data = allData;
-  //console.log(allData);
-  //console.log(empId);
-   // data = data.filter(item => item['EmployeeCode'].toString() === empId);
-   // allData=data;
-  //console.log(data);
-   
     datefilter(data);
     document.getElementById("empHeadName").innerText += ` ${allData[0]['EmployeeName']}`;
     document.getElementById("empHeadId").innerText += ` ${empId}`;
@@ -149,13 +70,9 @@ async function getData() {
     document.getElementById("empHeadDepot").innerText += ` ${allData[0]['SECTION']}`;
     updateButtonState();
 }
-getData(); // called the getData() function
-/*function isPresent(val) {
-    return val.StatusCode==='P' ? "Present" : "Absent";
-}*/
+getData(); 
 function isLate(val) {
-    /*if (val === "N/A")
-        return "N/A";*/
+
     if (val.InTime === "null")
         return "-"  
     return val.InTime>"09:00:00" ? "Late" : "On Time";
@@ -163,16 +80,13 @@ function isLate(val) {
 
 
 function datefilter(allData) {
-    //resetSortArray();
-    //let results = [];
+
     let startDateVal = startDate.value;
     let endDateVal = endDate.value;
     data = allData.filter(element => {
         const elementDate = element.date;
         return (elementDate >= startDateVal && elementDate <= endDateVal)||elementDate===' ';
     }); 
-   // console.log(allData)
-   //data = results;
     currentPage = 1;
     createTable(data,currentPage);
     updateButtonState();
@@ -188,21 +102,14 @@ function createTable(data, page)
     const startIndex = (page - 1) * rowsPerPage;
     const endIndex = startIndex + rowsPerPage;
     const pageData = data.slice(startIndex, endIndex);
-  //   console.log(data);
-    // console.log(pageData);
 
     if (!pageData || pageData.length == 0) {
         empData.innerHTML = "<tr><td colspan='6'>No data available</td></tr>";
     }
     else {
         pageData.forEach((item) => {
-            /*if (item['StatusCode'] === 'A') {
-                item.ntime = "N/A";
-                item.out_time = "N/A";
-            }8*/
+         
             let elementDate=item.date;
-           /* if(elementDate===' ')
-                elementDate=item.date;*/
             item.InTime = item.InTime === "00:00"?"-":item.InTime
             item.OutTime = item.OutTime === "00:00"?"-":item.OutTime
             empData.innerHTML += `
@@ -226,7 +133,6 @@ function createTable(data, page)
         
     }
 }
-/* <td>${hourformatter(item.Duration+item.Overtime)}</td> */
 function ExcelGenerator()
 {   
     ExcelData=[  

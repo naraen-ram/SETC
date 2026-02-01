@@ -131,23 +131,18 @@ async function submitForm() {
     }
 
     try {
-        // Fetch all users first
         const usersResp = await fetch("http://127.0.0.1:5500/userPasswords");
         if (!usersResp.ok) throw new Error("Failed to fetch users");
 
         const usersData = await usersResp.json();
         const users = usersData.userPasswords;
-        console.log(users);
          const isMaster=(users[0].username===oldUsername);
-            console.log(isMaster +users[0].username +" "+oldUsername);
             
-        // Check if new username already exists (excluding current user)
         if (newUsername !== oldUsername && users.some(u => u.username === newUsername)) {
             msg.textContent = "Username already exists!";
             return;
         }
        
-        // Proceed with update
         const response = await fetch("http://127.0.0.1:5500/updateUser", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -176,5 +171,4 @@ async function submitForm() {
         msg.textContent = "Error: " + err.message;
     }
 }
-// Initial render
 edit();

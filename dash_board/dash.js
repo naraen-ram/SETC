@@ -2,16 +2,14 @@
 const excelCount=4753;
 let lineChartData;
 let allData = [];
-const parameters = new URLSearchParams(window.location.search);  //from the url , username is retrieved
+const parameters = new URLSearchParams(window.location.search);
 const loginUserName = parameters.get('loginName');
-//console.log(loginUserName);
 const today=new Date();
 const buttons = document.querySelectorAll('.circle-btn');
 let querydate=today.getFullYear() + '-' +
         String(today.getMonth() + 1).padStart(2, '0') + '-' +
         String(today.getDate()).padStart(2, '0');
 const searchDepot = document.getElementById("searchDepot");
-//console.log(querydate);
 let inCount=outCount=lateCount=activeCount=absentCount=leaveCount=0;
 let menu=document.querySelector(".menu");
 let button=document.querySelector(".menu-button");
@@ -39,18 +37,10 @@ let myPieChart = new Chart(ctx, {
 //actions
 
 
-buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; // Set the last button to blue
-
-/*document.addEventListener("DOMContentLoaded",()=>{
-    scheduleDailyTask();
-    //console.log(localStorage.getItem('lastDailyRun'))
-});*/
+buttons[buttons.length - 1].style.backgroundColor = "#36A2EB"; 
 document.querySelector(".employee-details-btn").addEventListener("click", function () {
 window.location.href = `../emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
 });
-// document.querySelector(".unmatched-details-btn").addEventListener("click", function () {
-// window.location.href = `../unmatchedData/emp_data/employee_data.html?loginName=${encodeURIComponent(loginUserName)}`;
-// });
 searchDepot.addEventListener('change',()=>
 {
     renderPage();
@@ -83,8 +73,7 @@ const ctx = document.getElementById('lineChart').getContext('2d');
         {   datename=new Date;
             datename.setDate(today.getDate()-31+i);
             names.push(datename.toLocaleDateString('de-DE'));
-            presentLine.push(lineChartData[i][0]);
-            //console.log(lineChartData[i][0])
+            presentLine.push(lineChartData[i][0])
             lateLine.push(lineChartData[i][2]);
             absentLine.push(lineChartData[i][1]);
         }
@@ -96,7 +85,7 @@ const ctx = document.getElementById('lineChart').getContext('2d');
         type: 'number',
         easing: 'linear',
         duration: delayBetweenPoints,
-        from: NaN, // the point is initially skipped
+        from: NaN, 
         delay(ctx) {
             if (ctx.type !== 'data' || ctx.xStarted) {
             return 0;
@@ -119,14 +108,11 @@ const ctx = document.getElementById('lineChart').getContext('2d');
         }
         }
         };
-        // 4. Create the chart configuration
         new Chart(ctx, {
             type: 'line',
             data: {
-                // Labels for the X-axis
+        
                 labels: names,
-                
-                // The datasets array contains the data for each line
                 datasets: [
                     {
                         label: 'Present Count',
@@ -156,7 +142,6 @@ const ctx = document.getElementById('lineChart').getContext('2d');
             },
             options: {
                 responsive: true,
-                //maintainAspectRatio: false,
                 animation,
                 plugins: {
                     title: {
@@ -203,12 +188,9 @@ let loginUsername=sessionStorage.getItem("loginusername");
 let loginPassword=sessionStorage.getItem("loginPassword");
 let loginIndex=parseInt(sessionStorage.getItem("loginIndex"));
 
-//console.log(loginUserName+loginPassword+loginIndex);
-
 async function masterChecker()
 {
-const data = await fetch("../database/userPasswords.json").then(res => res.json());
-if (data.userPasswords[0].username === loginUserName) 
+if ('master' === loginUserName) 
     document.getElementById("adminAccess").innerHTML = `<button id="master" onclick="window.location.href='../masterAdmin/index.html'">Edit User<br> Accounts</button>`;
 else
     document.getElementById("adminAccess").innerHTML = `<button id="master" onclick="window.location.href='editUser.html'">Edit User<br> Account</button>`;
@@ -227,20 +209,8 @@ async function getdata() {
     }
     
     const response = await jsonFile.json();
-    allData=response;
-    //console.log(allData)
-    
+    allData=response;    
    renderPage();
-  /* //localStorage.removeItem('lineChartData')
-   lineChartData=localStorage.getItem('lineChartData');
-if(lineChartData)
-{   lineChartData=JSON.parse(lineChartData)
-   // console.log(lineChartData)
-    //getLineChartData(inCount, absentCount, lateCount)
-createLineChart();
-}
-else
-{  */
  lineChartData=[];
      let pres=abs=late=0;
     let targetdate=new Date();
@@ -250,7 +220,6 @@ else
         pres=abs=late=0;
      targetdate.setDate(today.getDate()-i);
         const target=targetdate.getFullYear() + '-' +String(targetdate.getMonth() + 1).padStart(2, '0') + '-' +String(targetdate.getDate()).padStart(2, '0');
-       // console.log(target)
         const temp=allData.filter(element=>element.date===target);
         pres=temp.length;
         abs=excelCount-pres;
@@ -259,70 +228,12 @@ else
                 late++;     
 });
 lineChartData.push([pres,abs,late]);
-//console.log(pres,abs,late+"  ")
     }
-    //localStorage.setItem('lineChartData',JSON.stringify(lineChartData));
     createLineChart();
 }
-     //console.log(lineChartData)}
-// function dateConverter(date)
-// {
-//     const onlyDate=date.substring(0,2);
-//     const onlyYear='20'+date.substring(7,9);
-//     let onlyMonth=' ';
-//     switch(date.substring(3,6))
-//     {
-//         case 'Jan':
-//             onlyMonth='-01-';
-//             break;
-//         case 'Feb':
-//             onlyMonth='-02-';
-//             break;
-//         case 'Mar':
-//             onlyMonth='-03-';
-//             break;
-//         case 'Apr':
-//             onlyMonth='-04-';
-//             break;
-//         case 'May':
-//             onlyMonth='-05-';
-//             break;
-//         case 'Jun':
-//             onlyMonth='-06-';
-//             break;
-//         case 'Jul':
-//             onlyMonth='-07-';
-//             break;
-//         case 'Aug':
-//             onlyMonth='-08-';
-//             break;
-//         case 'Sep':
-//             onlyMonth='-09-';
-//             break;
-//         case 'Oct':
-//             onlyMonth='-10-';
-//             break;
-//         case 'Nov':
-//             onlyMonth='-11-';
-//             break;
-//         case 'Dec':
-//             onlyMonth='-12-';
-//             break;
-
-//     }
-//     return onlyYear+onlyMonth+onlyDate;
-// }
+   
 getdata();
-/*function getLineChartData(presentCount,absentCount,lateCount)
-{   let i;
-    for(i=1;i<31;i++)
-        lineChartData[i-1]=lineChartData[i];
-    lineChartData[30]=[presentCount,absentCount,lateCount];
-    //console.log(lineChartData)
-    
 
-}
-*/
 function filterDepot(data)
 {   let currentDepot=searchDepot.value;
     let result;
@@ -345,47 +256,13 @@ function filterCategory(data)
     return result;
     
 }
-function scheduleDailyTask() {
-            const lastRunDate = localStorage.getItem('lastDailyRun');
-            const today = new Date().toDateString();
-    //console.log(lastRunDate === today)
-            // Check if the function has already run today
-            if (lastRunDate === today) {
-                
-                
-                // Calculate time until midnight to schedule the next check
-                const now = new Date();
-                const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() , 23, 0, 0);
-                const timeUntilMidnight = midnight.getTime() - now.getTime();
-                
-                // Use setTimeout to schedule the function to run at midnight
-                setTimeout(() => {
-                    scheduleDailyTask(); // Call the scheduler again
-                }, timeUntilMidnight);
 
-            } else {
-                // It's a new day, so run the task
-                getLineChartData(inCount, absentCount, lateCount)
-                // Store the current date to prevent running again today
-                localStorage.setItem('lastDailyRun', today);
-
-                // Schedule the next check for the following midnight
-                const now = new Date();
-                const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
-                const timeUntilMidnight = midnight.getTime() - now.getTime();
-                
-                setTimeout(() => {
-                    scheduleDailyTask();
-                }, timeUntilMidnight);
-            }
-        }
 function renderPage()
 {
   inCount=outCount=lateCount=activeCount=absentCount=leaveCount=0;
     filteredData=allData.filter(element=> element.date ===querydate);
     filteredData=filterDepot(filteredData);
     filteredData=filterCategory(filteredData);
-    //console.log(lineChartData)
     inCount=filteredData.length;
     for(let i=0;i<filteredData.length;i++)
     {  
@@ -396,14 +273,6 @@ function renderPage()
         
         if(filteredData[i].OutTime!==null)
             outCount++;
-        //   if(filteredData[i]['Is On Leave']!==0)
-        //     leaveCount++;
-        /*let intime = new Date(`1970-01-01T${filteredData[i].intime}`);
-        let cutoff = new Date(`1970-01-01T09:15:00`);
-
-        if (intime > cutoff)
-            lateCount++;
-        */
         activeCount = inCount - outCount;
     }
     absentCount = excelCount - inCount;
@@ -415,7 +284,6 @@ function renderPage()
    document.querySelector("#active").innerHTML=activeCount.toString();
   updatechart();
 }
-// Store today's date in the last circle button, and previous dates in others
 function selectedButtonColor(event)
 {
   for(let x=0;x<buttons.length;x++)

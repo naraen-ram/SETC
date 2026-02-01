@@ -1,4 +1,4 @@
-const parameters = new URLSearchParams(window.location.search);  //from the url , username is retrieved
+const parameters = new URLSearchParams(window.location.search);  
 const loginUserName = parameters.get('loginName');
 let data = [];
 let allData = [];
@@ -22,14 +22,12 @@ const searchDepot = document.getElementById("searchDepot");
 const searchByDepotRadio = document.getElementById('searchByDepot');
 let startDate = document.getElementById("startDate");
 let endDate = document.getElementById("endDate");
-//console.log(loginUserName);
 
 
 
 //actions
 startDate.value=formattedDate;
 endDate.value=formattedDate;
-//console.log(startDate.value,endDate.value)
 endDate.min = startDate.value;
 startDate.max=endDate.value;
 document.querySelector(".user-name").textContent = loginUserName;
@@ -49,7 +47,6 @@ prevBtn.addEventListener('click', () => {
 });
 searchBar.addEventListener('keyup',(val)=>{
     searcher();
-    //searchBar.value='';
 });
 document.addEventListener('DOMContentLoaded', () => {
             const searchByIdRadio = document.getElementById('searchById');
@@ -72,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
             searchByIdRadio.addEventListener('change', toggleSearchForm);
             searchByDepotRadio.addEventListener('change', toggleSearchForm);
             
-            // Initial call to set the correct form on page load
             toggleSearchForm();
         });
 searchDepot.addEventListener('change',()=>
@@ -92,7 +88,6 @@ toggle.addEventListener('click',()=>
 
 searchIdButton.addEventListener('keyup',(val)=>{
     searcherId();
-   // searchBar.value='';
 })
 searchByIdRadio.addEventListener('click',()=>
 {
@@ -122,80 +117,17 @@ endDate.addEventListener('change', () => {
 
 //functions
 
-// function dateConverter(date)
-// {
-//     const onlyDate=date.substring(0,2);
-//     const onlyYear='20'+date.substring(7,9);
-//     let onlyMonth=' ';
-//     switch(date.substring(3,6))
-//     {
-//         case 'Jan':
-//             onlyMonth='-01-';
-//             break;
-//         case 'Feb':
-//             onlyMonth='-02-';
-//             break;
-//         case 'Mar':
-//             onlyMonth='-03-';
-//             break;
-//         case 'Apr':
-//             onlyMonth='-04-';
-//             break;
-//         case 'May':
-//             onlyMonth='-05-';
-//             break;
-//         case 'Jun':
-//             onlyMonth='-06-';
-//             break;
-//         case 'Jul':
-//             onlyMonth='-07-';
-//             break;
-//         case 'Aug':
-//             onlyMonth='-08-';
-//             break;
-//         case 'Sep':
-//             onlyMonth='-09-';
-//             break;
-//         case 'Oct':
-//             onlyMonth='-10-';
-//             break;
-//         case 'Nov':
-//             onlyMonth='-11-';
-//             break;
-//         case 'Dec':
-//             onlyMonth='-12-';
-//             break;
-
-//     }
-//     return onlyYear+onlyMonth+onlyDate;
-// }
-// function hoursWorked(inTime,outTime) {
-//     let [datePart, timePart] = inTime.split(" ");
-//     let [day, month, year] = datePart.split("-").map(Number);
-//     let [hour, minute] = timePart.split(":").map(Number);
-//     let h1 = new Date(year, month - 1, day, hour, minute);
-    
-//     [datePart, timePart] = outTime.split(" ");
-//     [day, month, year] = datePart.split("-").map(Number);
-//     [hour, minute] = timePart.split(":").map(Number);
-//     let h2 = new Date(year, month - 1, day, hour, minute);
-    
-//     let diff = h2-h1
-//     return String(Math.floor((diff/(1000*3600))%3600)).padStart(2,'0')+":"+String(Math.floor((diff/(1000*60)))%60).padStart(2,"0")
-// }
 async function getdata() {
     let jsonFile = await fetch("http://127.0.0.1:5500/data?start=2026-01-28&end=2026-01-31");
     if (!jsonFile.ok) {
         throw new Error("can't pull data");
     }
     const response = await jsonFile.json();
-   //console.log(response)
     allData=response;
 
     data = allData;
     resetSortArray();
     datefilter(data);
-    //createTable(data,currentPage)
 }
 
 function pageControl() {
@@ -211,49 +143,16 @@ function pageControl() {
 }
 
 getdata();
-/*function searcherDepot() {
-    resetSortArray();
-    let query = searchDepot.value.trim().toLowerCase();
-    if (!query) {
-        return;
-        //data = allData;  
-    } else {
-        // 1. "Starts with" search
-        // let startsWithResults = allData.filter(element =>
-        //     element.depot.toLowerCase().startsWith(query)
-        // );
-        let startsWithResults = data.filter(element =>
-            element.depot.toLowerCase().startsWith(query)
-        );
-        if (startsWithResults.length > 0) {
-            data = startsWithResults;
-        } 
-        else {
-            // 2. Substring search, but exclude "starts with" matches
-            data = allData.filter(element =>
-                element.depot.toLowerCase().includes(query) &&
-                !element.depot.toLowerCase().startsWith(query)
-            );
-        }
-    }
-    datefilter(data);
-}*/
+
 function datefilter(allData) {
     resetSortArray();
-   // let results = [];
-  // console.log(showabsent);
- // console.log(startDate.value)
     let startDateVal = startDate.value.toString();
     let endDateVal = endDate.value.toString();
-   // console.log(endDateVal)
     data = allData.filter(element => {
         const elementDate = element.date;
-        //dateConverter(element.date);
         return (elementDate >= startDateVal && elementDate <= endDateVal)||elementDate===' ';
     });
-    //data = results;
 
-    //console.log(data[0].EmployeeCode)
     currentPage = 1;
     createTable(data, currentPage);
 }
@@ -273,7 +172,6 @@ function getFilteredDataForExcel() {
 
     filteredData = filteredData.filter(element => {
         const elementDate = element.date;
-        //dateConverter(element.date);
         return (elementDate >= startDateVal && elementDate <= endDateVal) || elementDate === ' ';
     });
 
@@ -293,7 +191,6 @@ function ExcelGenerator() {
 
     filteredData.forEach((element, index) => {
         let elementDate = element.date;
-        //dateConverter(element.date);
         if (elementDate === ' ') elementDate = element.date;
 
         ExcelData.push([
@@ -320,13 +217,12 @@ function ExcelGeneratorAbsent() {
         []
     ];
 
-    let filteredData = getFilteredDataForExcel(); // filtered including showabsent
+    let filteredData = getFilteredDataForExcel(); 
 
     filteredData = filterAbsent(filteredData);
 
     filteredData.forEach((element, index) => {
         let elementDate = element.date;
-        //dateConverter(element.date);
         if (elementDate === ' ') elementDate = element.date;
 
         ExcelData.push([
@@ -391,26 +287,16 @@ function searcherId()
     if (!query) {
         data = allData;
     } else {
-        // 1. "Starts with" search
         let startsWithResults = allData.filter(element =>
-            //element.name.toLowerCase().startsWith(query) /*||
             String(element['EmployeeCode']).startsWith(query) 
-           /* element.depot.toLowerCase().startsWith(query) ||
-            (element.intime && element.intime.toLowerCase().startsWith(query)) ||
-            (element.out_time && element.out_time.toLowerCase().startsWith(query))
-        */);
+            );
         if (startsWithResults.length > 0) {
             data = startsWithResults;
         } else {
-            // 2. Substring search, but exclude "starts with" matches
             data = allData.filter(element => {
-                // Check if any field contains the query, but does NOT start with it
+               
                 return (
-                   // (element.name.toLowerCase().includes(query) && !element.name.toLowerCase().startsWith(query)) /*||
-                    (String(element['EmployeeCode']).includes(query) && !String(element['EmployeeCode']).startsWith(query)) /*||
-                    (element.depot.toLowerCase().includes(query) && !element.depot.toLowerCase().startsWith(query)) ||
-                    (element.intime && element.intime.toLowerCase().includes(query) && !element.intime.toLowerCase().startsWith(query)) ||
-                    (element.out_time && element.out_time.toLowerCase().includes(query) && !element.out_time.toLowerCase().startsWith(query))*/
+                    (String(element['EmployeeCode']).includes(query) && !String(element['EmployeeCode']).startsWith(query)) 
                 );
             });
         }
@@ -425,27 +311,14 @@ function searcher() {
     if (!query) {
         data = allData;
     } else {
-        // 1. "Starts with" search
         let startsWithResults = allData.filter(element =>
-            element['EmployeeName'].toString().toLowerCase().startsWith(query) /*||
-            String(element.id).toLowerCase().startsWith(query) ||
-            element.depot.toLowerCase().startsWith(query) ||
-            (element.intime && element.intime.toLowerCase().startsWith(query)) ||
-            (element.out_time && element.out_time.toLowerCase().startsWith(query))
-        */);
+            element['EmployeeName'].toString().toLowerCase().startsWith(query) );
         if (startsWithResults.length > 0) {
             data = startsWithResults;
         } else {
-            // 2. Substring search, but exclude "starts with" matches
             data = allData.filter(element => {
-                // Check if any field contains the query, but does NOT start with it
                 
-                    (element['EmployeeName'].toString().toLowerCase().includes(query) && !element['EmployeeName'].toString().toLowerCase().startsWith(query)) /*||
-                    (String(element.id).toLowerCase().includes(query) && !String(element.id).toLowerCase().startsWith(query)) ||
-                    (element.depot.toLowerCase().includes(query) && !element.depot.toLowerCase().startsWith(query)) ||
-                    (element.intime && element.intime.toLowerCase().includes(query) && !element.intime.toLowerCase().startsWith(query)) ||
-                    (element.out_time && element.out_time.toLowerCase().includes(query) && !element.out_time.toLowerCase().startsWith(query))*/
-                
+                    (element['EmployeeName'].toString().toLowerCase().includes(query) && !element['EmployeeName'].toString().toLowerCase().startsWith(query)) 
             });
         }
     }
@@ -454,7 +327,6 @@ function searcher() {
 
 
 function createTable(tableData, page) {
-   // console.log(tableData)
     if (showabsent) {
         renderTable(filterAbsent(tableData), page);
 
@@ -465,8 +337,7 @@ function createTable(tableData, page) {
     }
 }
 function filterpresent(data) {
-    //filteredData = data.filter(element => element.StatusCode==='P');
-    //return filteredData;
+ 
     return data.filter(element=>element.SECTION!=='');
 }
 function filterAbsent(data)
@@ -495,56 +366,7 @@ function filterCategory(data)
     return result;
     
 }
-function renderAbsentTable(tableData, page) {
-    document.getElementById("ExcelDownload").style.display="inline-block";
-    let html = `<table id="tableJS">
-  <thead>
-    <tr>
-        <th>No</th>
-      <th onclick="sortTable(0)">Name</th>
-      <th onclick="sortTable(1)">ID</th>
-      <th onclick="sortTable(2)">Depot</th>
-      <th onclick="sortTable(5)">Date</th>
-      <th >Category</th>
-      <th>Shift</th>
-    </tr>
-  </thead><tbody>`;
 
-  tableData=filterDepot(tableData);
-  tableData=filterCategory(tableData);
-    if (!tableData || tableData.length == 0) {
-        document.querySelector(".bottom").innerHTML = "NO CONTENT TO DISPLAY!!";
-        document.getElementById("ExcelDownload").style.display="none";
-        return;
-    }
-    
-    currentTable = (page - 1) * rowsPerPage;
-    const startIndex = (page - 1) * rowsPerPage;
-    const endIndex = startIndex + rowsPerPage;
-    const pageData = tableData.slice(startIndex, endIndex);
-    pageData.forEach(element => {
-
-        let elementDate=element.date;
-        //dateConverter(element.date);
-            if(elementDate===' ')
-                elementDate=element.date;
-        html += `
-        <tr>
-        <td>${++currentTable}</td>
-        <td><a href="../employeeData/index.html?id=${element['EmployeeCode']}">${element['EmployeeName']}</a></td>
-        <td>${element['EmployeeCode']}</td>
-          <td>${element['SECTION']}</td>
-        <td>${elementDate}</td>
-        <td>${element.CAT}</td>
-        <td>${element.ShiftName}</td>
-        
-        </tr>`;
-
-    });
-    html += `</tbody></table>`;
-    document.querySelector(".bottom").innerHTML = html;
-    pageControl();
-}
 function renderTable(tableData, page) {
     document.getElementById("ExcelDownload").style.display="inline-block";
     let html = `<table id="tableJS">
@@ -562,7 +384,6 @@ function renderTable(tableData, page) {
       <th>Department</th>
     </tr>
   </thead><tbody>`;
-    //console.log(tableData)
   tableData=filterDepot(tableData);
   tableData=filterCategory(tableData);
     if (!tableData || tableData.length == 0) {
@@ -577,9 +398,6 @@ function renderTable(tableData, page) {
     const pageData = tableData.slice(startIndex, endIndex);
     pageData.forEach(element => {
 
-        // let elementDate=dateConverter(element.date);
-        //     if(elementDate===' ')
-        //         elementDate=element.date;
         const elementDate=element.date;
         html += `
         <tr>
@@ -594,7 +412,7 @@ function renderTable(tableData, page) {
         <td>${element.CAT}</td>
         <td>${element.Department}</td>
         </tr>`;
-//<td>${hoursWorked(element['In DateTime'],element['Out DateTime'])}</td>
+
     });
     html += `</tbody></table>`;
     document.querySelector(".bottom").innerHTML = html;
@@ -688,5 +506,4 @@ function sortTable(n) {
     }
 }
 
-// Make sortTable globally accessible
 window.sortTable = sortTable;
