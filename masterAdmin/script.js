@@ -4,7 +4,7 @@ async function loadUsers() {
 
     try {
         // Fetch JSON from database folder
-        let response = await fetch("../database/userPasswords.json"); 
+        let response = await fetch("http://127.0.0.1:5500/userPasswords"); 
         if (!response.ok) throw new Error("JSON file not found");
 
         let data = await response.json(); // convert to JS object

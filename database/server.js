@@ -1,7 +1,9 @@
 const express = require("express");
 const XLSX=require('xlsx');
-const fs = require("fs");
+//const fs = require("fs");
 const cors = require("cors");
+//const bcrypt = require('bcrypt');
+//const User = require('./user');
 const app = express();
 const PORT = 5500;
 const { MongoClient } = require('mongodb');
@@ -14,7 +16,7 @@ let attendanceDict = {}; // stores per-employee per-date InTime/OutTime/HoursWor
 app.use(cors());
 app.use(express.json());
 
-const path = require('path');
+//const path = require('path');
 
 /**
  * Create an attendance dictionary from raw Mongo records.
@@ -229,12 +231,20 @@ async function uploadAttendanceDictToMongo() {
     }
 }
 
-// Route to get all users
-app.get("/userPasswords", (req, res) => {
-    fs.readFile("./userPasswords.json", "utf8", (err, data) => {
-        if (err) return res.status(500).json({ status: "error", message: "Cannot read file" });
-        res.json(JSON.parse(data));
-    });
+// Route to get all users (from MongoDB userData.users)
+app.get("/userPasswords", async (req, res) => {
+    const mclient = new MongoClient("mongodb+srv://josh:josh123@test1.8ofqapk.mongodb.net");
+    try {
+        await mclient.connect();
+        const col = mclient.db('userData').collection('users');
+        const docs = await col.find({}).toArray();
+        // Return similar shape as previous file: { userPasswords: [...] }
+        res.json({ userPasswords: docs });
+    } catch (err) {
+        res.status(500).json({ status: "error", message: err.message });
+    } finally {
+        await mclient.close();
+    }
 });
 //returning allData
 app.get("/data",(req,res)=>{
@@ -327,68 +337,100 @@ app.get('/attendanceToday', (req, res) => {
     res.json(docs);
 });
 // Add new user
-app.post("/addUser", (req, res) => {
+app.post("/addUser", async (req, res) => {
     const { username, password } = req.body;
     if (!username || !password) return res.status(400).json({ status: "error", message: "Missing fields" });
 
-    fs.readFile("./userPasswords.json", "utf8", (err, data) => {
-        if (err) return res.status(500).json({ status: "error", message: "Cannot read file" });
-        let users = JSON.parse(data);
-        users.userPasswords.push({ username, password });
-
-        fs.writeFile("./userPasswords.json", JSON.stringify(users, null, 2), err => {
-            if (err) return res.status(500).json({ status: "error", message: "Cannot write file" });
-            res.json({ status: "success" });
-        });
-    });
+    const mclient = new MongoClient("mongodb+srv://josh:josh123@test1.8ofqapk.mongodb.net");
+    try {
+        await mclient.connect();
+        const col = mclient.db('userData').collection('users');
+        // hash password before storing
+        // const hashed = await bcrypt.hash(password, 10);
+        await col.insertOne({ username, password });
+        res.json({ status: "success" });
+    } catch (err) {
+        res.status(500).json({ status: "error", message: err.message });
+    } finally {
+        await mclient.close();
+    }
 });
 
 // Edit user
-app.post("/updateUser", (req, res) => {
+app.post("/updateUser", async (req, res) => {
     const { oldUsername, username, password } = req.body;
     if (!oldUsername || !username || !password) return res.status(400).json({ status: "error", message: "Missing fields" });
 
-    fs.readFile("./userPasswords.json", "utf8", (err, data) => {
-        if (err) return res.status(500).json({ status: "error", message: "Cannot read file" });
-        let users = JSON.parse(data);
-
-        const index = users.userPasswords.findIndex(u => u.username === oldUsername);
-        if (index === -1) return res.status(400).json({ status: "error", message: "User not found" });
-
-        users.userPasswords[index] = { username, password };
-
-        fs.writeFile("./userPasswords.json", JSON.stringify(users, null, 2), err => {
-            if (err) return res.status(500).json({ status: "error", message: "Cannot write file" });
-            res.json({ status: "success" });
-        });
-    });
+    const mclient = new MongoClient("mongodb+srv://josh:josh123@test1.8ofqapk.mongodb.net");
+    try {
+        await mclient.connect();
+        const col = mclient.db('userData').collection('users');
+        // hash new password before update
+        // const hashed = await bcrypt.hash(password, 10);
+        const result = await col.updateOne({ username: oldUsername }, { $set: { username, password } });
+        if (result.matchedCount === 0) return res.status(400).json({ status: "error", message: "User not found" });
+        res.json({ status: "success" });
+    } catch (err) {
+        res.status(500).json({ status: "error", message: err.message });
+    } finally {
+        await mclient.close();
+    }
 });
-const DATA_FILE = path.join(__dirname, 'userPasswords.json');
-
-app.post('/deleteUser', (req, res) => {
+app.post('/deleteUser', async (req, res) => {
     const { username } = req.body;
     if (!username) return res.status(400).json({ status: 'error', message: 'Missing username' });
 
-    fs.readFile(DATA_FILE, 'utf8', (err, data) => {
-        if (err) return res.status(500).json({ status: 'error', message: 'Failed to read file' });
+    const mclient = new MongoClient("mongodb+srv://josh:josh123@test1.8ofqapk.mongodb.net");
+    try {
+        await mclient.connect();
+        const col = mclient.db('userData').collection('users');
+        const result = await col.deleteOne({ username });
+        if (result.deletedCount === 0) return res.status(404).json({ status: 'error', message: 'User not found' });
+        res.json({ status: 'success' });
+    } catch (err) {
+        res.status(500).json({ status: 'error', message: err.message });
+    } finally {
+        await mclient.close();
+    }
+});
 
-        let usersData;
-        try {
-            usersData = JSON.parse(data);
-        } catch {
-            return res.status(500).json({ status: 'error', message: 'Invalid JSON format' });
-        }
+// Login route: verify username/password against MongoDB userData.users
+app.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+    if (!username || !password) return res.status(400).json({ status: 'error', message: 'Missing fields' });
 
-        const index = usersData.userPasswords.findIndex(u => u.username === username);
-        if (index === -1) return res.status(404).json({ status: 'error', message: 'User not found' });
+    const mclient = new MongoClient("mongodb+srv://josh:josh123@test1.8ofqapk.mongodb.net");
+    try {
+        await mclient.connect();
+        const col = mclient.db('userData').collection('users');
+        const user = await col.findOne({ username });
+        if (!user) return res.status(401).json({ status: 'error', message: 'Invalid username or password' });
 
-        usersData.userPasswords.splice(index, 1); // remove user
+        let match = false;
+        // if (typeof user.password === 'string' && user.password.startsWith('$2')) {
+        //     // bcrypt hash
+        //     match = await bcrypt.compare(password, user.password);
+        // } else {
+        //     // legacy plain-text fallback; if matches, migrate to hashed password
+            if (user.password === password) {
+                match = true;
+                // try {
+                //     const newHash = await bcrypt.hash(password, 10);
+                //     await col.updateOne({ username }, { $set: { password: newHash } });
+                // } catch (e) {
+                //     console.warn('Password migration failed for', username, e.message);
+                // }
+            }
+        
 
-        fs.writeFile(DATA_FILE, JSON.stringify(usersData, null, 2), (err) => {
-            if (err) return res.status(500).json({ status: 'error', message: 'Failed to write file' });
-            res.json({ status: 'success' });
-        });
-    });
+        if (!match) return res.status(401).json({ status: 'error', message: 'Invalid username or password' });
+
+        res.json({ status: 'success', username: user.username });
+    } catch (err) {
+        res.status(500).json({ status: 'error', message: err.message });
+    } finally {
+        await mclient.close();
+    }
 });
 
 async function getData() {
