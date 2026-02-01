@@ -42,6 +42,10 @@ loginButton.addEventListener("click", async function () {
     if (user === "" || pass === "") {
         return
     }
+
+    loginButton.classList.add('loading');
+    loginButton.disabled = true;
+
     try {
         const resp = await fetch('http://127.0.0.1:5500/login', {
             method: 'POST',
@@ -73,6 +77,9 @@ loginButton.addEventListener("click", async function () {
     } catch (e) {
         console.error('Login request failed', e);
         invalidEmailOrPass.style.display = "block";
+    } finally {
+        loginButton.classList.remove('loading');
+        loginButton.disabled = false;
     }
 });
 

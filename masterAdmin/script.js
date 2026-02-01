@@ -1,4 +1,7 @@
 async function loadUsers() {
+    const loadingOverlay = document.getElementById('loading-overlay');
+    if (loadingOverlay) loadingOverlay.style.display = 'flex';
+
     let usersDiv = document.querySelector(".users");
     let table= "<table><tr><th>Username</th><th>Password</th></tr>";
 
@@ -47,6 +50,8 @@ async function loadUsers() {
     } catch (err) {
         usersDiv.innerHTML+= "Error loading JSON: " + err.message;
         console.error(err);
+    } finally {
+        if (loadingOverlay) loadingOverlay.style.display = 'none';
     }
 }
 function confirm(index)
@@ -79,6 +84,8 @@ function addUser()
 
 
 async function deleteUser(index) {
+    const loadingOverlay = document.getElementById('loading-overlay');
+    if (loadingOverlay) loadingOverlay.style.display = 'flex';
     try {
       
         const usersResp = await fetch("http://127.0.0.1:5500/userPasswords");
@@ -101,12 +108,14 @@ async function deleteUser(index) {
 
         if (result.status === "success") {
             
-            loadUsers(); 
+            await loadUsers(); 
         } else {
             console.error("Error: " + result.message);
         }
     } catch (err) {
         console.error(err);
+    } finally {
+        if (loadingOverlay) loadingOverlay.style.display = 'none';
     }
 }
 

@@ -118,16 +118,24 @@ endDate.addEventListener('change', () => {
 //functions
 
 async function getdata() {
-    let jsonFile = await fetch("http://127.0.0.1:5500/data?start=2026-01-28&end=2026-01-31");
-    if (!jsonFile.ok) {
-        throw new Error("can't pull data");
-    }
-    const response = await jsonFile.json();
-    allData=response;
+    const loadingOverlay = document.getElementById('loading-overlay');
+    loadingOverlay.style.display = 'flex';
+    try {
+        let jsonFile = await fetch("http://127.0.0.1:5500/data?start=2026-01-28&end=2026-01-31");
+        if (!jsonFile.ok) {
+            throw new Error("can't pull data");
+        }
+        const response = await jsonFile.json();
+        allData=response;
 
-    data = allData;
-    resetSortArray();
-    datefilter(data);
+        data = allData;
+        resetSortArray();
+        datefilter(data);
+    } catch (error) {
+        console.error("Failed to get data:", error);
+    } finally {
+        loadingOverlay.style.display = 'none';
+    }
 }
 
 function pageControl() {

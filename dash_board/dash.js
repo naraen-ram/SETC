@@ -203,33 +203,39 @@ function updatechart()
     myPieChart.update();
 }
 async function getdata() {
-    let jsonFile = await fetch("http://127.0.0.1:5500/data?start=2026-01-28&end=2026-01-31");
-    if (!jsonFile.ok) {
-       throw new Error("can't pull data");
+    const loadingOverlay = document.getElementById('loading-overlay');
+    loadingOverlay.style.display = 'flex';
+    try {
+        let jsonFile = await fetch("http://127.0.0.1:5500/data?start=2026-01-28&end=2026-01-31");
+        if (!jsonFile.ok) {
+           throw new Error("can't pull data");
+        }
+        
+        const response = await jsonFile.json();
+        allData=response;    
+       renderPage();
+     lineChartData=[];
+         let pres=abs=late=0;
+        let targetdate=new Date();
+        
+        for(let i=31;i>=1;i--)
+        {    targetdate=new Date();
+            pres=abs=late=0;
+         targetdate.setDate(today.getDate()-i);
+            const target=targetdate.getFullYear() + '-' +String(targetdate.getMonth() + 1).padStart(2, '0') + '-' +String(targetdate.getDate()).padStart(2, '0');
+            const temp=allData.filter(element=>element.date===target);
+            pres=temp.length;
+            abs=excelCount-pres;
+            temp.forEach(element=>{
+                if(element.InTime>'09:00:00')
+                    late++;     
+    });
+    lineChartData.push([pres,abs,late]);
+        }
+        createLineChart();
+    } finally {
+        loadingOverlay.style.display = 'none';
     }
-    
-    const response = await jsonFile.json();
-    allData=response;    
-   renderPage();
- lineChartData=[];
-     let pres=abs=late=0;
-    let targetdate=new Date();
-    
-    for(let i=31;i>=1;i--)
-    {    targetdate=new Date();
-        pres=abs=late=0;
-     targetdate.setDate(today.getDate()-i);
-        const target=targetdate.getFullYear() + '-' +String(targetdate.getMonth() + 1).padStart(2, '0') + '-' +String(targetdate.getDate()).padStart(2, '0');
-        const temp=allData.filter(element=>element.date===target);
-        pres=temp.length;
-        abs=excelCount-pres;
-        temp.forEach(element=>{
-            if(element.InTime>'09:00:00')
-                late++;     
-});
-lineChartData.push([pres,abs,late]);
-    }
-    createLineChart();
 }
    
 getdata();

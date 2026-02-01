@@ -108,6 +108,7 @@ function checkPassword(password) {
 }
 
 async function submitForm() {
+    const btn = document.getElementById("subbtn");
     const newUsername = document.getElementById("Username").value.trim();
     const newPassword = document.getElementById("Password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
@@ -129,6 +130,11 @@ async function submitForm() {
         msg.textContent = str
         return
     }
+
+    const originalText = btn.innerText;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    btn.disabled = true;
+    let success = false;
 
     try {
         const usersResp = await fetch("http://127.0.0.1:5500/userPasswords");
@@ -152,6 +158,7 @@ async function submitForm() {
         const result = await response.json();
 
         if (result.status === "success") {
+            success = true;
             msg.style.color = "green";
             msg.textContent = "User updated successfully!";
             
@@ -169,6 +176,11 @@ async function submitForm() {
 
     } catch (err) {
         msg.textContent = "Error: " + err.message;
+    } finally {
+        if (!success) {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }
     }
 }
 edit();

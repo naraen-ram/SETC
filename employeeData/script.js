@@ -56,19 +56,27 @@ document.querySelector(".user-name").textContent = loginUserName;
 //functions
 
 async function getData() {
-    let jsonFile = await fetch(`http://127.0.0.1:5500/employee?id=${empId}`);
-    if (!jsonFile.ok) {
-        throw new Error("can't pull data");
+    const loadingOverlay = document.getElementById('loading-overlay');
+    loadingOverlay.style.display = 'flex';
+    try {
+        let jsonFile = await fetch(`http://127.0.0.1:5500/employee?id=${empId}`);
+        if (!jsonFile.ok) {
+            throw new Error("can't pull data");
+        }
+        allData = await jsonFile.json();
+        data = allData;
+        datefilter(data);
+        document.getElementById("empHeadName").innerText += ` ${allData[0]['EmployeeName']}`;
+        document.getElementById("empHeadId").innerText += ` ${empId}`;
+        document.getElementById("empHeadDesignation").innerText += ` ${allData[0].DESIG}`;
+        document.getElementById("empHeadCat").innerText += allData[0]['CAT'];
+        document.getElementById("empHeadDepot").innerText += ` ${allData[0]['SECTION']}`;
+        updateButtonState();
+    } catch (error) {
+        console.error("Failed to fetch data:", error);
+    } finally {
+        loadingOverlay.style.display = 'none';
     }
-    allData = await jsonFile.json();
-    data = allData;
-    datefilter(data);
-    document.getElementById("empHeadName").innerText += ` ${allData[0]['EmployeeName']}`;
-    document.getElementById("empHeadId").innerText += ` ${empId}`;
-    document.getElementById("empHeadDesignation").innerText += ` ${allData[0].DESIG}`;
-    document.getElementById("empHeadCat").innerText += allData[0]['CAT'];
-    document.getElementById("empHeadDepot").innerText += ` ${allData[0]['SECTION']}`;
-    updateButtonState();
 }
 getData(); 
 function isLate(val) {
