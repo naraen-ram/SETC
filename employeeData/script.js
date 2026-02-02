@@ -1,5 +1,5 @@
 //declarations
-
+const PORT = 5501
 
 const parameters = new URLSearchParams(window.location.search); 
 const loginUserName = parameters.get('loginName');
@@ -59,7 +59,7 @@ async function getData() {
     const loadingOverlay = document.getElementById('loading-overlay');
     loadingOverlay.style.display = 'flex';
     try {
-        let jsonFile = await fetch(`http://127.0.0.1:5500/employee?id=${empId}`);
+        let jsonFile = await fetch(`http://127.0.0.1:${PORT}/employee?id=${empId}`);
         if (!jsonFile.ok) {
             throw new Error("can't pull data");
         }

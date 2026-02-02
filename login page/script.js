@@ -5,6 +5,7 @@ let password = document.getElementById("password")
 let loginButton = document.querySelector(".login-button")
 let loginContainer = document.querySelector(".login-container")
 let rememberMe = document.getElementById("rememberMe");
+const PORT = 5501;
 
 
 //actions
@@ -47,7 +48,7 @@ loginButton.addEventListener("click", async function () {
     loginButton.disabled = true;
 
     try {
-        const resp = await fetch('http://127.0.0.1:5500/login', {
+        const resp = await fetch(`http://127.0.0.1:${PORT}/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username: user, password: pass })

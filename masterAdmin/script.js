@@ -1,3 +1,4 @@
+const PORT = 5501;
 async function loadUsers() {
     const loadingOverlay = document.getElementById('loading-overlay');
     if (loadingOverlay) loadingOverlay.style.display = 'flex';
@@ -6,7 +7,7 @@ async function loadUsers() {
     let table= "<table><tr><th>Username</th><th>Password</th></tr>";
 
     try {
-        let response = await fetch("http://127.0.0.1:5500/userPasswords"); 
+        let response = await fetch(`http://127.0.0.1:${PORT}/userPasswords`); 
         if (!response.ok) throw new Error("JSON file not found");
 
         let data = await response.json(); 
@@ -88,7 +89,7 @@ async function deleteUser(index) {
     if (loadingOverlay) loadingOverlay.style.display = 'flex';
     try {
       
-        const usersResp = await fetch("http://127.0.0.1:5500/userPasswords");
+        const usersResp = await fetch(`http://127.0.0.1:${PORT}/userPasswords`);
         if (!usersResp.ok) throw new Error("Failed to fetch users");
 
         const usersData = await usersResp.json();
@@ -98,7 +99,7 @@ async function deleteUser(index) {
             return;
         }
 
-        const response = await fetch("http://127.0.0.1:5500/deleteUser", {
+        const response = await fetch(`http://127.0.0.1:${PORT}/deleteUser`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username: user.username })

@@ -1,3 +1,4 @@
+const PORT = 5501;
 const oldUsername = sessionStorage.getItem("loginUsername");
 const oldPassword = sessionStorage.getItem("loginPassword");
 
@@ -136,7 +137,7 @@ async function submitForm() {
     }
 
     try {
-        const usersResp = await fetch("http://127.0.0.1:5500/userPasswords");
+        const usersResp = await fetch(`http://127.0.0.1:${PORT}/userPasswords`);
         if (!usersResp.ok) throw new Error("Failed to fetch users");
 
         const usersData = await usersResp.json();
@@ -146,7 +147,7 @@ async function submitForm() {
             return;
         }
 
-        const response = await fetch("http://127.0.0.1:5500/updateUser", {
+        const response = await fetch(`http://127.0.0.1:${PORT}/updateUser`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ oldUsername, username: newUsername, password: newPassword })
