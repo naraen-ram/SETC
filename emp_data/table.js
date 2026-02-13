@@ -122,7 +122,7 @@ async function getdata() {
     const loadingOverlay = document.getElementById('loading-overlay');
     loadingOverlay.style.display = 'flex';
     try {
-        let jsonFile = await fetch(`http://127.0.0.1:${PORT}/data?start=2026-01-28&end=2026-01-31`);
+        let jsonFile = await fetch(`http://127.0.0.1:${PORT}/data?start=2026-01-28&end=${formattedDate}`);
         if (!jsonFile.ok) {
             throw new Error("can't pull data");
         }

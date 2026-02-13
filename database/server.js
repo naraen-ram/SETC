@@ -36,7 +36,7 @@ function createAttendanceDictionary(records) {
 
         const dateKey = dt.toISOString().split('T')[0];
         const timeOnly = formatTimeOnly(dt);
-        dict[emp] = dict[emp] || {};
+        dict[dateKey] = dict[dateKey] || {};
 
         function addEmployeeFields(empObj) {
             const excluded = ['Employee Code', 'EmployeeCode', 'LogDateTime', 'Log Date Time', 'DeviceCode', '_id', '__v','NAME','SEX','DOR','EDPNO'];
@@ -47,11 +47,11 @@ function createAttendanceDictionary(records) {
             }
         }
 
-        const empObj = dict[emp];
-        // If empObj has a different date or no date, create/replace it for this date
-        if (!empObj.date || empObj.date !== dateKey) {
+        const empObj = dict[dateKey][emp];
+        // If empObj doesn't exist, create it for this employee on this date
+        if (!empObj) {
             // initialize employee object for this date
-            dict[emp] = {
+            dict[dateKey][emp] = {
                 EmployeeCode: emp,
                 date: dateKey,
                 InTime: timeOnly,
@@ -60,11 +60,11 @@ function createAttendanceDictionary(records) {
                 HoursWorked: 0
             };
             // add other non-repeating fields at employee level
-            addEmployeeFields(dict[emp]);
+            addEmployeeFields(dict[dateKey][emp]);
         } else {
             // existing object for same employee & date
-            const inTStr = dict[emp].InTime;
-            const outTStr = dict[emp].OutTime;
+            const inTStr = dict[dateKey][emp].InTime;
+            const outTStr = dict[dateKey][emp].OutTime;
 
             // Parse stored times back to Date for comparison (add Z for UTC)
             const inT = new Date(`${dateKey}T${inTStr}Z`);
@@ -72,26 +72,26 @@ function createAttendanceDictionary(records) {
 
             // Only set OutTime if time difference is >= 30 minutes
             const diffMinutes = (dt - inT) / (1000 * 60);
-            if (diffMinutes >= 30) {
+            if (diffMinutes >= 10) {
                 if (!outT || dt > outT) {
-                    dict[emp].OutTime = timeOnly;
+                    dict[dateKey][emp].OutTime = timeOnly;
                 }
             }
 
             // Ensure InTime is the earliest punch
             if (dt < inT) {
-                dict[emp].InTime = timeOnly;
+                dict[dateKey][emp].InTime = timeOnly;
             }
 
             // Add any new non-repeating fields from this record to employee object
-            addEmployeeFields(dict[emp]);
+            addEmployeeFields(dict[dateKey][emp]);
 
             // Recalculate HoursWorked with updated times
-            const finalInT = new Date(`${dateKey}T${dict[emp].InTime}Z`);
-            const finalOutT = dict[emp].OutTime ? new Date(`${dateKey}T${dict[emp].OutTime}Z`) : null;
+            const finalInT = new Date(`${dateKey}T${dict[dateKey][emp].InTime}Z`);
+            const finalOutT = dict[dateKey][emp].OutTime ? new Date(`${dateKey}T${dict[dateKey][emp].OutTime}Z`) : null;
             if (finalOutT && !isNaN(finalInT) && !isNaN(finalOutT)) {
                 const diffHours = (finalOutT - finalInT) / (1000 * 60 * 60);
-                dict[emp].HoursWorked = Number(Math.max(0, diffHours).toFixed(2));
+                dict[dateKey][emp].HoursWorked = Number(Math.max(0, diffHours).toFixed(2));
             }
         }
     });
@@ -99,28 +99,37 @@ function createAttendanceDictionary(records) {
     return dict;
 }
 
-getData();
+//getData();
 async function uploadAttendanceDictToMongo() {
     const docs = [];
-    for (const emp in attendanceDict) {
-        if (!Object.prototype.hasOwnProperty.call(attendanceDict, emp)) continue;
-        const entry = attendanceDict[emp] || {};
+    const today = new Date().toISOString().split('T')[0];
+    
+    for (const dateKey in attendanceDict) {
+       // if (!Object.prototype.hasOwnProperty.call(attendanceDict, dateKey)) continue;
+        if (dateKey === today) continue; // Skip today's data
+        
+        const dateData = attendanceDict[dateKey] || {};
 
-        const doc = {
-            EmployeeCode: entry.EmployeeCode || emp,
-            date: entry.date || '',
-            InTime: entry.InTime || null,
-            OutTime: entry.OutTime || null,
-            EmployeeName: entry.EmployeeName || entry['Employee Name'] || '',
-            HoursWorked: typeof entry.HoursWorked === 'number' ? entry.HoursWorked : (entry.HoursWorked ? Number(entry.HoursWorked) : 0),
-            SECTION: entry.SECTION || entry.SECT || '',
-            CAT: entry.CAT || '',
-            DESIG: entry.DESIG || entry.DESIGNATION || entry.Designation || '',
-            Department: entry.Department || '',
-            Designation: entry.Designation || ''
-        };
+        for (const emp in dateData) {
+            if (!Object.prototype.hasOwnProperty.call(dateData, emp)) continue;
+            const entry = dateData[emp] || {};
 
-        docs.push(doc);
+            const doc = {
+                EmployeeCode: entry.EmployeeCode || emp,
+                date: entry.date || dateKey,
+                InTime: entry.InTime || null,
+                OutTime: entry.OutTime || null,
+                EmployeeName: entry.EmployeeName || entry['Employee Name'] || '',
+                HoursWorked: typeof entry.HoursWorked === 'number' ? entry.HoursWorked : (entry.HoursWorked ? Number(entry.HoursWorked) : 0),
+                SECTION: entry.SECTION || entry.SECT || '',
+                CAT: entry.CAT || '',
+                DESIG: entry.DESIG || entry.DESIGNATION || entry.Designation || '',
+                Department: entry.Department || '',
+                Designation: entry.Designation || ''
+            };
+
+            docs.push(doc);
+        }
     }
 
     if (docs.length === 0) return { inserted: 0 };
@@ -207,15 +216,20 @@ app.get('/employee', async (req, res) => {
 
 
 app.get('/attendanceToday', (req, res) => {
-    if (!attendanceDict || Object.keys(attendanceDict).length === 0) return res.status(500).json({ status: 'error', message: 'No attendance data' });
+    const today = new Date().toISOString().split('T')[0];
+    
+    if (!attendanceDict ) return res.status(500).json({ status: 'error', message: 'No attendance data for today' });
+    
     const docs = [];
+    
+    
     for (const emp in attendanceDict) {
-        if (!Object.prototype.hasOwnProperty.call(attendanceDict, emp)) continue;
-        const entry = attendanceDict[emp] || {};
+        if (!Object.prototype.hasOwnProperty.call(dateData, emp)) continue;
+        const entry = dateData[emp] || {};
 
         const doc = {
             EmployeeCode: entry.EmployeeCode || emp,
-            date: entry.date || '',
+            date: entry.date || today,
             InTime: entry.InTime || null,
             OutTime: entry.OutTime || null,
             EmployeeName: entry.EmployeeName || entry['Employee Name'] || '',
@@ -340,15 +354,7 @@ async function getData() {
         console.log("connected with mongo");
         const database=client.db("test");
         const collection=database.collection("biometriclogs");
-        const now = new Date();
-        const startUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0, 0));
-        const endUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 23, 59, 59, 999));
-        fullData=await collection.find({
-            LogDateTime: {
-                $gte: startUTC.toISOString(),
-                $lte: endUTC.toISOString()
-            }
-        }).toArray();
+        fullData=await collection.find().toArray();
     }
     catch(e)
     {
@@ -357,7 +363,6 @@ async function getData() {
     finally{
         await client.close();
         const map1=new Map(records.map(item=>[String(item.EDPNO),item]));
-        
         allData=fullData.map(data=>{
             const match=map1.get(data["EmployeeCode"].toUpperCase());
             if(match)
@@ -373,7 +378,7 @@ async function getData() {
         attendanceDict = createAttendanceDictionary(allData);
      
         console.log("Mongo closed");
-       // console.log(await uploadAttendanceDictToMongo());
+      // console.log(await uploadAttendanceDictToMongo());
     }
     
     
@@ -381,31 +386,52 @@ async function getData() {
 app.listen(PORT, () => console.log(`Server running on http://127.0.0.1:${PORT}`));
 
 
-function scheduleDailyUpload() {
-    const now = new Date();
-    let next = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 30, 0, 0);
-    if (next <= now) next.setDate(next.getDate() + 1);
-    const delay = next - now;
-    setTimeout(async function runOnce() {
-        try {
-            console.log('Daily task starting: refreshing data and uploading attendance');
+async function deleteBiometricLogs() {
+    const mclient = new MongoClient("mongodb+srv://josh:josh123@test1.8ofqapk.mongodb.net");
+    try {
+        await mclient.connect();
+        const db = mclient.db('test');
+        const col = db.collection('biometriclogs');
+        
+        // Get today's date range in ISO format
+        const today = new Date();
+        const startOfToday = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate(), 0, 0, 0, 0)).toISOString();
+        const startOfTomorrow = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate() + 1, 0, 0, 0, 0)).toISOString();
+        
+        // Delete all records except today's
+        const result = await col.deleteMany({
+            $or: [
+                { LogDateTime: { $lt: startOfToday } },
+                { LogDateTime: { $gte: startOfTomorrow } }
+            ]
+        });
+        console.log(`Deleted ${result.deletedCount} documents from biometriclogs `);
+    } finally {
+        await mclient.close();
+    }
+}
+
+async function runUploadTask() {
+    
+    try {
+        
+        const sixHours = 6 * 60 * 60 * 1000;
+
+        
             await getData();
             const r = await uploadAttendanceDictToMongo();
             console.log('Daily upload finished, inserted:', r.inserted);
-        } catch (e) {
-            console.error('Daily upload error:', e);
-        }
-        setInterval(async () => {
-            try {
-                console.log('Daily task starting: refreshing data and uploading attendance');
-                await getData();
-                const r = await uploadAttendanceDictToMongo();
-                console.log('Daily upload finished, inserted:', r.inserted);
-            } catch (e) {
-                console.error('Daily upload error:', e);
-            }
-        }, 24 * 60 * 60 * 1000);
-    }, delay);
+            await deleteBiometricLogs();
+
+           
+            setTimeout(runUploadTask, sixHours);
+     
+    } catch (e) {
+        console.error('Daily upload error:', e);
+        setTimeout(runUploadTask, 60 * 60 * 1000);
+    } 
 }
 
-//scheduleDailyUpload();
+
+setTimeout(getData,60*60*1000);
+runUploadTask();
