@@ -1,0 +1,5332 @@
+[
+  {
+    "_id": "698da813a251b248c21f31ef",
+    "EmployeeCode": "35793",
+    "LogDateTime": "2026-02-12T15:44:27.000Z",
+    "EmployeeName": "UMAPATHI",
+    "DeviceCode": "35793",
+    "Department": "CNB",
+    "Designation": "SR. D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da7d2a251b248c21f31ed",
+    "EmployeeCode": "31833",
+    "LogDateTime": "2026-02-12T15:43:15.000Z",
+    "EmployeeName": "ANEESHKUMAR A",
+    "DeviceCode": "31833",
+    "Department": "SLM",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da7b9a251b248c21f31eb",
+    "EmployeeCode": "35263",
+    "LogDateTime": "2026-02-12T15:42:57.000Z",
+    "EmployeeName": "Ramesh",
+    "DeviceCode": "35263",
+    "Department": "TV1",
+    "Designation": "SR. D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da773a251b248c21f31e9",
+    "EmployeeCode": "30157",
+    "LogDateTime": "2026-02-12T15:41:44.000Z",
+    "EmployeeName": "Panneerselvam",
+    "DeviceCode": "30157",
+    "Department": "CNB",
+    "Designation": "SG.SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da737a251b248c21f31e7",
+    "EmployeeCode": "38929",
+    "LogDateTime": "2026-02-12T15:40:46.000Z",
+    "EmployeeName": "Marirasu",
+    "DeviceCode": "38929",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698da723a251b248c21f31e5",
+    "EmployeeCode": "33366",
+    "LogDateTime": "2026-02-12T15:40:19.000Z",
+    "EmployeeName": "Kasi",
+    "DeviceCode": "33366",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698da70aa251b248c21f31e3",
+    "EmployeeCode": "A30259",
+    "LogDateTime": "2026-02-12T15:39:59.000Z",
+    "EmployeeName": "D.Suganya",
+    "DeviceCode": "A30259",
+    "Department": "TRY",
+    "Designation": "ASSISTANT",
+    "__v": 0
+  },
+  {
+    "_id": "698da664a251b248c21f31e1",
+    "EmployeeCode": "223",
+    "LogDateTime": "2026-02-12T15:37:15.000Z",
+    "EmployeeName": "CHANDRAKUMARAN  K",
+    "DeviceCode": "223",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698da65fa251b248c21f31df",
+    "EmployeeCode": "223",
+    "LogDateTime": "2026-02-12T15:37:12.000Z",
+    "EmployeeName": "CHANDRAKUMARAN  K",
+    "DeviceCode": "223",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698da619a251b248c21f31dd",
+    "EmployeeCode": "35011",
+    "LogDateTime": "2026-02-12T15:36:07.000Z",
+    "EmployeeName": "JEYAPAUL B",
+    "DeviceCode": "35011",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da579a251b248c21f31db",
+    "EmployeeCode": "34013",
+    "LogDateTime": "2026-02-12T15:33:20.000Z",
+    "EmployeeName": "S.Muthalraj",
+    "DeviceCode": "34013",
+    "Department": "SHN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da51aa251b248c21f31d9",
+    "EmployeeCode": "38931",
+    "LogDateTime": "2026-02-12T15:31:45.000Z",
+    "EmployeeName": "Murugan",
+    "DeviceCode": "38931",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698da498a251b248c21f31d7",
+    "EmployeeCode": "40267",
+    "LogDateTime": "2026-02-12T15:29:32.000Z",
+    "EmployeeName": "Ponalexandar",
+    "DeviceCode": "40267",
+    "Department": "TV2",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da475a251b248c21f31d5",
+    "EmployeeCode": "34617",
+    "LogDateTime": "2026-02-12T15:29:02.000Z",
+    "EmployeeName": "VEMPADIMUTHU A",
+    "DeviceCode": "34617",
+    "Department": "TCN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da466a251b248c21f31d3",
+    "EmployeeCode": "33133",
+    "LogDateTime": "2026-02-12T15:28:47.000Z",
+    "EmployeeName": "SASIKUMAR P",
+    "DeviceCode": "33133",
+    "Department": "TCN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da401a251b248c21f31d1",
+    "EmployeeCode": "33537",
+    "LogDateTime": "2026-02-12T15:27:02.000Z",
+    "EmployeeName": "Periasamy",
+    "DeviceCode": "33537",
+    "Department": "TRY",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da3f7a251b248c21f31cf",
+    "EmployeeCode": "36039",
+    "LogDateTime": "2026-02-12T15:26:58.000Z",
+    "EmployeeName": "DHANASEKARAN S",
+    "DeviceCode": "36039",
+    "Department": "CNC",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da3caa251b248c21f31cd",
+    "EmployeeCode": "42001",
+    "LogDateTime": "2026-02-12T15:26:10.000Z",
+    "EmployeeName": "S.Bharathiraj",
+    "DeviceCode": "42001",
+    "Department": "MDU",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da3c5a251b248c21f31cb",
+    "EmployeeCode": "41981",
+    "LogDateTime": "2026-02-12T15:26:02.000Z",
+    "EmployeeName": "P.Vellurselvam",
+    "DeviceCode": "41981",
+    "Department": "MDU",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da38ea251b248c21f31c9",
+    "EmployeeCode": "40607",
+    "LogDateTime": "2026-02-12T15:25:12.000Z",
+    "EmployeeName": "Puviyarsan",
+    "DeviceCode": "40607",
+    "Department": "DGL",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da2d0a251b248c21f31c7",
+    "EmployeeCode": "31431",
+    "LogDateTime": "2026-02-12T15:21:56.000Z",
+    "EmployeeName": "JAYAKUMAR J",
+    "DeviceCode": "31431",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da2b7a251b248c21f31c5",
+    "EmployeeCode": "37783",
+    "LogDateTime": "2026-02-12T15:21:33.000Z",
+    "EmployeeName": "SIVAPRAKASANARAYANAN U",
+    "DeviceCode": "37783",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da2b2a251b248c21f31c3",
+    "EmployeeCode": "37783",
+    "LogDateTime": "2026-02-12T15:21:29.000Z",
+    "EmployeeName": "SIVAPRAKASANARAYANAN U",
+    "DeviceCode": "37783",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da26ca251b248c21f31c1",
+    "EmployeeCode": "38877",
+    "LogDateTime": "2026-02-12T15:20:13.000Z",
+    "EmployeeName": "Muthusamy",
+    "DeviceCode": "38877",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698da267a251b248c21f31bf",
+    "EmployeeCode": "42069",
+    "LogDateTime": "2026-02-12T15:20:11.000Z",
+    "EmployeeName": "Murugesan",
+    "DeviceCode": "42069",
+    "Department": "DGL",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da23fa251b248c21f31ba",
+    "EmployeeCode": "35277",
+    "LogDateTime": "2026-02-12T15:19:34.000Z",
+    "EmployeeName": "Kingsley",
+    "DeviceCode": "35277",
+    "Department": "TV1",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da1c1a251b248c21f31b8",
+    "EmployeeCode": "35151",
+    "LogDateTime": "2026-02-12T15:17:26.000Z",
+    "EmployeeName": "G.Saravanan",
+    "DeviceCode": "35151",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da199a251b248c21f31b6",
+    "EmployeeCode": "31947",
+    "LogDateTime": "2026-02-12T15:16:43.000Z",
+    "EmployeeName": "SELVAKUMAR",
+    "DeviceCode": "31947",
+    "Department": "CNB",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da18fa251b248c21f31b4",
+    "EmployeeCode": "37061",
+    "LogDateTime": "2026-02-12T15:16:29.000Z",
+    "EmployeeName": "PRABAKARAN M",
+    "DeviceCode": "37061",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da180a251b248c21f31b2",
+    "EmployeeCode": "37061",
+    "LogDateTime": "2026-02-12T15:16:27.000Z",
+    "EmployeeName": "PRABAKARAN M",
+    "DeviceCode": "37061",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da16ca251b248c21f31b0",
+    "EmployeeCode": "33309",
+    "LogDateTime": "2026-02-12T15:16:00.000Z",
+    "EmployeeName": "Chandran",
+    "DeviceCode": "33309",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698da162a251b248c21f31ae",
+    "EmployeeCode": "33309",
+    "LogDateTime": "2026-02-12T15:15:57.000Z",
+    "EmployeeName": "Chandran",
+    "DeviceCode": "33309",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698da158a251b248c21f31ac",
+    "EmployeeCode": "39197",
+    "LogDateTime": "2026-02-12T15:15:43.000Z",
+    "EmployeeName": "S.Balakrishnan",
+    "DeviceCode": "39197",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da112a251b248c21f31aa",
+    "EmployeeCode": "31741",
+    "LogDateTime": "2026-02-12T15:14:39.000Z",
+    "EmployeeName": "KUMARAGURUBARAN S",
+    "DeviceCode": "31741",
+    "Department": "TCN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da108a251b248c21f31a8",
+    "EmployeeCode": "36189",
+    "LogDateTime": "2026-02-12T15:14:30.000Z",
+    "EmployeeName": "SANKARRAJA T",
+    "DeviceCode": "36189",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da0dba251b248c21f31a6",
+    "EmployeeCode": "38763",
+    "LogDateTime": "2026-02-12T15:13:38.000Z",
+    "EmployeeName": "K.Muthukumar",
+    "DeviceCode": "38763",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da0d6a251b248c21f31a4",
+    "EmployeeCode": "38763",
+    "LogDateTime": "2026-02-12T15:13:33.000Z",
+    "EmployeeName": "K.Muthukumar",
+    "DeviceCode": "38763",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da090a251b248c21f31a2",
+    "EmployeeCode": "31843",
+    "LogDateTime": "2026-02-12T15:12:24.000Z",
+    "EmployeeName": "MURUGESAN A",
+    "DeviceCode": "31843",
+    "Department": "SLM",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da08ba251b248c21f31a0",
+    "EmployeeCode": "31843",
+    "LogDateTime": "2026-02-12T15:12:15.000Z",
+    "EmployeeName": "MURUGESAN A",
+    "DeviceCode": "31843",
+    "Department": "SLM",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da036a251b248c21f319e",
+    "EmployeeCode": "D230351",
+    "LogDateTime": "2026-02-12T15:10:57.000Z",
+    "EmployeeName": "DANASEKARAN P",
+    "DeviceCode": "D230351",
+    "Department": "CNC",
+    "Designation": "SG.SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698da031a251b248c21f319c",
+    "EmployeeCode": "D230351",
+    "LogDateTime": "2026-02-12T15:10:54.000Z",
+    "EmployeeName": "DANASEKARAN P",
+    "DeviceCode": "D230351",
+    "Department": "CNC",
+    "Designation": "SG.SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9fcda251b248c21f319a",
+    "EmployeeCode": "41197",
+    "LogDateTime": "2026-02-12T15:09:06.000Z",
+    "EmployeeName": "Sivaramachandran",
+    "DeviceCode": "41197",
+    "Department": "TV1",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9fb4a251b248c21f3198",
+    "EmployeeCode": "38419",
+    "LogDateTime": "2026-02-12T15:08:44.000Z",
+    "EmployeeName": "Ravi",
+    "DeviceCode": "38419",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9fafa251b248c21f3196",
+    "EmployeeCode": "39459",
+    "LogDateTime": "2026-02-12T15:08:36.000Z",
+    "EmployeeName": "S.Thirumalaimuthukumar",
+    "DeviceCode": "39459",
+    "Department": "SHN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9f22a251b248c21f3194",
+    "EmployeeCode": "32761",
+    "LogDateTime": "2026-02-12T15:06:15.000Z",
+    "EmployeeName": "M.SUBBIAH",
+    "DeviceCode": "32761",
+    "Department": "TV2",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9f13a251b248c21f3192",
+    "EmployeeCode": "38393",
+    "LogDateTime": "2026-02-12T15:05:59.000Z",
+    "EmployeeName": "Subrmanian",
+    "DeviceCode": "38393",
+    "Department": "TV1",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9f04a251b248c21f3190",
+    "EmployeeCode": "152",
+    "LogDateTime": "2026-02-12T15:05:46.000Z",
+    "EmployeeName": "NELSON C P",
+    "DeviceCode": "152",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d9efaa251b248c21f318e",
+    "EmployeeCode": "115",
+    "LogDateTime": "2026-02-12T15:05:39.000Z",
+    "EmployeeName": "Nallendra",
+    "DeviceCode": "115",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d9ec3a251b248c21f318c",
+    "EmployeeCode": "30281",
+    "LogDateTime": "2026-02-12T15:04:45.000Z",
+    "EmployeeName": "Christopher",
+    "DeviceCode": "30281",
+    "Department": "PDY",
+    "Designation": "SG.SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9e78a251b248c21f3187",
+    "EmployeeCode": "129",
+    "LogDateTime": "2026-02-12T15:03:27.000Z",
+    "EmployeeName": "EDWARD JOHN R",
+    "DeviceCode": "129",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d9e73a251b248c21f3185",
+    "EmployeeCode": "36249",
+    "LogDateTime": "2026-02-12T15:03:22.000Z",
+    "EmployeeName": "M.Vijayakumar",
+    "DeviceCode": "36249",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9de7a251b248c21f3183",
+    "EmployeeCode": "41583",
+    "LogDateTime": "2026-02-12T15:01:04.000Z",
+    "EmployeeName": "Irulandi",
+    "DeviceCode": "41583",
+    "Department": "TV1",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9ddda251b248c21f3181",
+    "EmployeeCode": "30387",
+    "LogDateTime": "2026-02-12T15:00:51.000Z",
+    "EmployeeName": "30387",
+    "DeviceCode": "30387",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d9dbfa251b248c21f317f",
+    "EmployeeCode": "34487",
+    "LogDateTime": "2026-02-12T15:00:21.000Z",
+    "EmployeeName": "Benzikhar",
+    "DeviceCode": "34487",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d9d7ea251b248c21f317d",
+    "EmployeeCode": "34207",
+    "LogDateTime": "2026-02-12T14:59:23.000Z",
+    "EmployeeName": "Rajini",
+    "DeviceCode": "34207",
+    "Department": "KKM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9d65a251b248c21f317b",
+    "EmployeeCode": "32029",
+    "LogDateTime": "2026-02-12T14:58:51.000Z",
+    "EmployeeName": "Chinnadurai",
+    "DeviceCode": "32029",
+    "Department": "TV1",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9cf6a251b248c21f3179",
+    "EmployeeCode": "HD00050",
+    "LogDateTime": "2026-02-12T14:57:05.000Z",
+    "EmployeeName": "Natarajan.T",
+    "DeviceCode": "HD00050",
+    "Department": "KAN",
+    "Designation": "HELPER-NON ITI",
+    "__v": 0
+  },
+  {
+    "_id": "698d9ce2a251b248c21f3177",
+    "EmployeeCode": "35711",
+    "LogDateTime": "2026-02-12T14:56:42.000Z",
+    "EmployeeName": "RAJA R",
+    "DeviceCode": "35711",
+    "Department": "CNC",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9ccea251b248c21f3175",
+    "EmployeeCode": "32999",
+    "LogDateTime": "2026-02-12T14:56:15.000Z",
+    "EmployeeName": "S.Balasubramanian",
+    "DeviceCode": "32999",
+    "Department": "SHN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9cb0a251b248c21f3173",
+    "EmployeeCode": "31335",
+    "LogDateTime": "2026-02-12T14:55:50.000Z",
+    "EmployeeName": "T.Veerapandian",
+    "DeviceCode": "31335",
+    "Department": "TRY",
+    "Designation": "NON-ITI HELPER",
+    "__v": 0
+  },
+  {
+    "_id": "698d9c74a251b248c21f316e",
+    "EmployeeCode": "35271",
+    "LogDateTime": "2026-02-12T14:54:58.000Z",
+    "EmployeeName": "Gandhi",
+    "DeviceCode": "35271",
+    "Department": "KKM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9c2ea251b248c21f316c",
+    "EmployeeCode": "40137",
+    "LogDateTime": "2026-02-12T14:53:39.000Z",
+    "EmployeeName": "Sureshbabu",
+    "DeviceCode": "40137",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d9b93a251b248c21f316a",
+    "EmployeeCode": "HD00075",
+    "LogDateTime": "2026-02-12T14:51:05.000Z",
+    "EmployeeName": "DHANAPAL P",
+    "DeviceCode": "HD00075",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d9ae9a251b248c21f3168",
+    "EmployeeCode": "9770",
+    "LogDateTime": "2026-02-12T14:48:14.000Z",
+    "EmployeeName": "Kolappan",
+    "DeviceCode": "9770",
+    "Department": "TV1",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d9a84a251b248c21f3166",
+    "EmployeeCode": "32929",
+    "LogDateTime": "2026-02-12T14:46:32.000Z",
+    "EmployeeName": "M.Duraimurugan",
+    "DeviceCode": "32929",
+    "Department": "SHN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9a5ca251b248c21f3161",
+    "EmployeeCode": "39669",
+    "LogDateTime": "2026-02-12T14:45:54.000Z",
+    "EmployeeName": "PERIYASAMY",
+    "DeviceCode": "39669",
+    "Department": "CNB",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9a4da251b248c21f315f",
+    "EmployeeCode": "39669",
+    "LogDateTime": "2026-02-12T14:45:39.000Z",
+    "EmployeeName": "PERIYASAMY",
+    "DeviceCode": "39669",
+    "Department": "CNB",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9a48a251b248c21f315d",
+    "EmployeeCode": "39669",
+    "LogDateTime": "2026-02-12T14:45:37.000Z",
+    "EmployeeName": "PERIYASAMY",
+    "DeviceCode": "39669",
+    "Department": "CNB",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9a34a251b248c21f315b",
+    "EmployeeCode": "35773",
+    "LogDateTime": "2026-02-12T14:45:12.000Z",
+    "EmployeeName": "M.Georgebabu",
+    "DeviceCode": "35773",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9a20a251b248c21f3159",
+    "EmployeeCode": "D231051",
+    "LogDateTime": "2026-02-12T14:44:49.000Z",
+    "EmployeeName": "SANKAR",
+    "DeviceCode": "D231051",
+    "Department": "CNB",
+    "Designation": "SG.SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9a02a251b248c21f3157",
+    "EmployeeCode": "35869",
+    "LogDateTime": "2026-02-12T14:44:21.000Z",
+    "EmployeeName": "Saravanan",
+    "DeviceCode": "35869",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d99cba251b248c21f3155",
+    "EmployeeCode": "39123",
+    "LogDateTime": "2026-02-12T14:43:23.000Z",
+    "EmployeeName": "MANIKANDAN G",
+    "DeviceCode": "39123",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d99bca251b248c21f3150",
+    "EmployeeCode": "39123",
+    "LogDateTime": "2026-02-12T14:43:12.000Z",
+    "EmployeeName": "MANIKANDAN G",
+    "DeviceCode": "39123",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9985a251b248c21f314e",
+    "EmployeeCode": "41827",
+    "LogDateTime": "2026-02-12T14:42:29.000Z",
+    "EmployeeName": "Ramamurthi",
+    "DeviceCode": "C",
+    "Department": "SETC",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d997ba251b248c21f314c",
+    "EmployeeCode": "39883",
+    "LogDateTime": "2026-02-12T14:42:10.000Z",
+    "EmployeeName": "SELVAKUMAR S",
+    "DeviceCode": "39883",
+    "Department": "PDY",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d996ca251b248c21f314a",
+    "EmployeeCode": "36879",
+    "LogDateTime": "2026-02-12T14:41:51.000Z",
+    "EmployeeName": "V.Esak",
+    "DeviceCode": "36879",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9967a251b248c21f3148",
+    "EmployeeCode": "39883",
+    "LogDateTime": "2026-02-12T14:41:49.000Z",
+    "EmployeeName": "SELVAKUMAR S",
+    "DeviceCode": "39883",
+    "Department": "PDY",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d98aea251b248c21f3146",
+    "EmployeeCode": "33499",
+    "LogDateTime": "2026-02-12T14:38:51.000Z",
+    "EmployeeName": "Rajini.Vj",
+    "DeviceCode": "33499",
+    "Department": "HSR",
+    "Designation": "SR DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d982ba251b248c21f3144",
+    "EmployeeCode": "40613",
+    "LogDateTime": "2026-02-12T14:36:33.000Z",
+    "EmployeeName": "V.Srimurugan",
+    "DeviceCode": "40613",
+    "Department": "MDU",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d981ca251b248c21f3142",
+    "EmployeeCode": "42059",
+    "LogDateTime": "2026-02-12T14:36:18.000Z",
+    "EmployeeName": "L.Bharathi",
+    "DeviceCode": "42059",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d97eaa251b248c21f3140",
+    "EmployeeCode": "35401",
+    "LogDateTime": "2026-02-12T14:35:25.000Z",
+    "EmployeeName": "S.Prabukumar",
+    "DeviceCode": "35401",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d97b8a251b248c21f313e",
+    "EmployeeCode": "40869",
+    "LogDateTime": "2026-02-12T14:34:36.000Z",
+    "EmployeeName": "Sathish",
+    "DeviceCode": "40869",
+    "Department": "TRY",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9790a251b248c21f313c",
+    "EmployeeCode": "36307",
+    "LogDateTime": "2026-02-12T14:34:03.000Z",
+    "EmployeeName": "CHELLA PANDI T",
+    "DeviceCode": "36307",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9727a251b248c21f313a",
+    "EmployeeCode": "38269",
+    "LogDateTime": "2026-02-12T14:32:06.000Z",
+    "EmployeeName": "Karthigaiselvan",
+    "DeviceCode": "38269",
+    "Department": "TRY",
+    "Designation": "SR. D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d96b9a251b248c21f3138",
+    "EmployeeCode": "39831",
+    "LogDateTime": "2026-02-12T14:30:27.000Z",
+    "EmployeeName": "S.Kannan",
+    "DeviceCode": "39831",
+    "Department": "MDU",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9687a251b248c21f3136",
+    "EmployeeCode": "41103",
+    "LogDateTime": "2026-02-12T14:29:32.000Z",
+    "EmployeeName": "P.Maruthamuthu",
+    "DeviceCode": "41103",
+    "Department": "MDU",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9678a251b248c21f3134",
+    "EmployeeCode": "38853",
+    "LogDateTime": "2026-02-12T14:29:24.000Z",
+    "EmployeeName": "MUTHURAJ M",
+    "DeviceCode": "38853",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d963ba251b248c21f3132",
+    "EmployeeCode": "A30329",
+    "LogDateTime": "2026-02-12T14:28:28.000Z",
+    "EmployeeName": "Arivazhagan",
+    "DeviceCode": "A30329",
+    "Department": "AUD II",
+    "Designation": "JR.ASSISTANT",
+    "__v": 0
+  },
+  {
+    "_id": "698d9636a251b248c21f3130",
+    "EmployeeCode": "38427",
+    "LogDateTime": "2026-02-12T14:28:13.000Z",
+    "EmployeeName": "M.MURUGESAN",
+    "DeviceCode": "38427",
+    "Department": "DGL",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d962ca251b248c21f312e",
+    "EmployeeCode": "39073",
+    "LogDateTime": "2026-02-12T14:28:12.000Z",
+    "EmployeeName": "CHARLES P",
+    "DeviceCode": "39073",
+    "Department": "HSR",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9609a251b248c21f312c",
+    "EmployeeCode": "36717",
+    "LogDateTime": "2026-02-12T14:27:31.000Z",
+    "EmployeeName": "DURAISAMY A",
+    "DeviceCode": "36717",
+    "Department": "CNC",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d95eba251b248c21f3127",
+    "EmployeeCode": "88",
+    "LogDateTime": "2026-02-12T14:26:52.000Z",
+    "EmployeeName": "MADHIVANAN P",
+    "DeviceCode": "88",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d95cda251b248c21f3125",
+    "EmployeeCode": "34",
+    "LogDateTime": "2026-02-12T14:26:26.000Z",
+    "EmployeeName": "Selvan C",
+    "DeviceCode": "34",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d95b9a251b248c21f311f",
+    "EmployeeCode": "35783",
+    "LogDateTime": "2026-02-12T14:25:59.000Z",
+    "EmployeeName": "V.Karthikeyan",
+    "DeviceCode": "35783",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9564a251b248c21f311d",
+    "EmployeeCode": "10860",
+    "LogDateTime": "2026-02-12T14:24:46.000Z",
+    "EmployeeName": "Anandan",
+    "DeviceCode": "10860",
+    "Department": "WIRELESS",
+    "Designation": "SG.SR.T M - ELE",
+    "__v": 0
+  },
+  {
+    "_id": "698d9555a251b248c21f311b",
+    "EmployeeCode": "10860",
+    "LogDateTime": "2026-02-12T14:24:33.000Z",
+    "EmployeeName": "Anandan",
+    "DeviceCode": "10860",
+    "Department": "WIRELESS",
+    "Designation": "SG.SR.T M - ELE",
+    "__v": 0
+  },
+  {
+    "_id": "698d9550a251b248c21f3119",
+    "EmployeeCode": "7450",
+    "LogDateTime": "2026-02-12T14:24:19.000Z",
+    "EmployeeName": "A.Sekar",
+    "DeviceCode": "7450",
+    "Department": "SHN",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d9546a251b248c21f3117",
+    "EmployeeCode": "7450",
+    "LogDateTime": "2026-02-12T14:24:11.000Z",
+    "EmployeeName": "A.Sekar",
+    "DeviceCode": "7450",
+    "Department": "SHN",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d9537a251b248c21f3115",
+    "EmployeeCode": "11200",
+    "LogDateTime": "2026-02-12T14:23:51.000Z",
+    "EmployeeName": "A.Subramaniyan",
+    "DeviceCode": "11200",
+    "Department": "TRY",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d9500a251b248c21f3113",
+    "EmployeeCode": "39281",
+    "LogDateTime": "2026-02-12T14:23:04.000Z",
+    "EmployeeName": "Thangdurai",
+    "DeviceCode": "39281",
+    "Department": "TV1",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d94cea251b248c21f3111",
+    "EmployeeCode": "160",
+    "LogDateTime": "2026-02-12T14:22:16.000Z",
+    "EmployeeName": "WILSON P",
+    "DeviceCode": "160",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d9456a251b248c21f310f",
+    "EmployeeCode": "40339",
+    "LogDateTime": "2026-02-12T14:20:07.000Z",
+    "EmployeeName": "VIJAYAKANDEEPAN A",
+    "DeviceCode": "40339",
+    "Department": "PDY",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9405a251b248c21f3107",
+    "EmployeeCode": "33703",
+    "LogDateTime": "2026-02-12T14:18:53.000Z",
+    "EmployeeName": "M.KUTTIRAJA",
+    "DeviceCode": "33703",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d93eca251b248c21f3105",
+    "EmployeeCode": "41253",
+    "LogDateTime": "2026-02-12T14:18:29.000Z",
+    "EmployeeName": "RANJITH S",
+    "DeviceCode": "41253",
+    "Department": "SLM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d93c9a251b248c21f3100",
+    "EmployeeCode": "37539",
+    "LogDateTime": "2026-02-12T14:17:53.000Z",
+    "EmployeeName": "BARATHIRAJA A",
+    "DeviceCode": "37539",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9383a251b248c21f30fe",
+    "EmployeeCode": "37",
+    "LogDateTime": "2026-02-12T14:16:38.000Z",
+    "EmployeeName": "Tamilselvan T",
+    "DeviceCode": "37",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d936fa251b248c21f30fc",
+    "EmployeeCode": "31749",
+    "LogDateTime": "2026-02-12T14:16:22.000Z",
+    "EmployeeName": "VENKATACHALAM A",
+    "DeviceCode": "31749",
+    "Department": "SLM",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d936aa251b248c21f30fa",
+    "EmployeeCode": "91Th027",
+    "LogDateTime": "2026-02-12T14:16:10.000Z",
+    "EmployeeName": "L.Balamurali",
+    "DeviceCode": "91Th027",
+    "Department": "SHN",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d935ba251b248c21f30f8",
+    "EmployeeCode": "91Th027",
+    "LogDateTime": "2026-02-12T14:16:03.000Z",
+    "EmployeeName": "L.Balamurali",
+    "DeviceCode": "91Th027",
+    "Department": "SHN",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d9333a251b248c21f30f3",
+    "EmployeeCode": "30840",
+    "LogDateTime": "2026-02-12T14:15:26.000Z",
+    "EmployeeName": "SRIDHAR C",
+    "DeviceCode": "30840",
+    "Department": "CNC",
+    "Designation": "HELPER",
+    "__v": 0
+  },
+  {
+    "_id": "698d9310a251b248c21f30f1",
+    "EmployeeCode": "37353",
+    "LogDateTime": "2026-02-12T14:14:42.000Z",
+    "EmployeeName": "SIVAKUMARAN K",
+    "DeviceCode": "37353",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d92fca251b248c21f30ef",
+    "EmployeeCode": "41087",
+    "LogDateTime": "2026-02-12T14:14:36.000Z",
+    "EmployeeName": "Ramesh",
+    "DeviceCode": "D",
+    "Department": "SETC",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d92eda251b248c21f30ed",
+    "EmployeeCode": "8420",
+    "LogDateTime": "2026-02-12T14:14:10.000Z",
+    "EmployeeName": "K.S.Gandhi",
+    "DeviceCode": "8420",
+    "Department": "TRY",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d92c5a251b248c21f30eb",
+    "EmployeeCode": "39187",
+    "LogDateTime": "2026-02-12T14:13:35.000Z",
+    "EmployeeName": "MURUGAN A P",
+    "DeviceCode": "39187",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d92b1a251b248c21f30e9",
+    "EmployeeCode": "31477",
+    "LogDateTime": "2026-02-12T14:13:17.000Z",
+    "EmployeeName": "Sadasivam",
+    "DeviceCode": "31477",
+    "Department": "WIRELESS",
+    "Designation": "SG.DRIVER",
+    "__v": 0
+  },
+  {
+    "_id": "698d9298a251b248c21f30e7",
+    "EmployeeCode": "10990",
+    "LogDateTime": "2026-02-12T14:12:45.000Z",
+    "EmployeeName": "R.STEPHEN",
+    "DeviceCode": "10990",
+    "Department": "KKM",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d9252a251b248c21f30e5",
+    "EmployeeCode": "112",
+    "LogDateTime": "2026-02-12T14:11:36.000Z",
+    "EmployeeName": "Suki",
+    "DeviceCode": "112",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d9243a251b248c21f30e3",
+    "EmployeeCode": "167",
+    "LogDateTime": "2026-02-12T14:11:20.000Z",
+    "EmployeeName": "LAKSHMANAPERUMAL  S",
+    "DeviceCode": "167",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d9207a251b248c21f30de",
+    "EmployeeCode": "19",
+    "LogDateTime": "2026-02-12T14:10:16.000Z",
+    "EmployeeName": "Murugan K",
+    "DeviceCode": "19",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d91f8a251b248c21f30dc",
+    "EmployeeCode": "8600",
+    "LogDateTime": "2026-02-12T14:10:03.000Z",
+    "EmployeeName": "M.CHELLADURAI",
+    "DeviceCode": "8600",
+    "Department": "MDU",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d91e4a251b248c21f30da",
+    "EmployeeCode": "37739",
+    "LogDateTime": "2026-02-12T14:09:41.000Z",
+    "EmployeeName": "Sitaramakrishan",
+    "DeviceCode": "37739",
+    "Department": "TV1",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d91d9a251b248c21f30d8",
+    "EmployeeCode": "11070",
+    "LogDateTime": "2026-02-12T14:09:32.000Z",
+    "EmployeeName": "SRINIVASAN A",
+    "DeviceCode": "11070",
+    "Department": "SLM",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d91cfa251b248c21f30d6",
+    "EmployeeCode": "11070",
+    "LogDateTime": "2026-02-12T14:09:25.000Z",
+    "EmployeeName": "SRINIVASAN A",
+    "DeviceCode": "11070",
+    "Department": "SLM",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d9198a251b248c21f30d4",
+    "EmployeeCode": "32167",
+    "LogDateTime": "2026-02-12T14:08:31.000Z",
+    "EmployeeName": "G.Senthilkumar",
+    "DeviceCode": "32167",
+    "Department": "TRY",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9170a251b248c21f30d2",
+    "EmployeeCode": "11315",
+    "LogDateTime": "2026-02-12T14:08:01.000Z",
+    "EmployeeName": "KALAIVELAN.N",
+    "DeviceCode": "11315",
+    "Department": "DGL",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d916ba251b248c21f30d0",
+    "EmployeeCode": "4383",
+    "LogDateTime": "2026-02-12T14:07:45.000Z",
+    "EmployeeName": "LillypushpamJ",
+    "DeviceCode": "4383",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d915ca251b248c21f30ca",
+    "EmployeeCode": "92TH018",
+    "LogDateTime": "2026-02-12T14:07:40.000Z",
+    "EmployeeName": "Rajendran.PS",
+    "DeviceCode": "92TH018",
+    "Department": "HSR",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d9152a251b248c21f30c8",
+    "EmployeeCode": "A30177",
+    "LogDateTime": "2026-02-12T14:07:29.000Z",
+    "EmployeeName": "Kumaresan.R",
+    "DeviceCode": "A30177",
+    "Department": "MDU",
+    "Designation": "JR.ASSISTANT",
+    "__v": 0
+  },
+  {
+    "_id": "698d912aa251b248c21f30c6",
+    "EmployeeCode": "35349",
+    "LogDateTime": "2026-02-12T14:06:46.000Z",
+    "EmployeeName": "ARUNACHALAM P",
+    "DeviceCode": "35349",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9111a251b248c21f30c4",
+    "EmployeeCode": "31069",
+    "LogDateTime": "2026-02-12T14:06:14.000Z",
+    "EmployeeName": "MANUNEETHI CHOZHAN S",
+    "DeviceCode": "31069",
+    "Department": "PDY",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d910ca251b248c21f30c2",
+    "EmployeeCode": "9980",
+    "LogDateTime": "2026-02-12T14:06:11.000Z",
+    "EmployeeName": "DURAI P",
+    "DeviceCode": "9980",
+    "Department": "SLM",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d90fda251b248c21f30c0",
+    "EmployeeCode": "38661",
+    "LogDateTime": "2026-02-12T14:05:57.000Z",
+    "EmployeeName": "Durairaj",
+    "DeviceCode": "38661",
+    "Department": "CNC",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d90a8a251b248c21f30be",
+    "EmployeeCode": "38351",
+    "LogDateTime": "2026-02-12T14:04:29.000Z",
+    "EmployeeName": "Karthikraja",
+    "DeviceCode": "38351",
+    "Department": "DGL",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d9058a251b248c21f30b6",
+    "EmployeeCode": "A30299",
+    "LogDateTime": "2026-02-12T14:03:10.000Z",
+    "EmployeeName": "DHILIPKUMAR",
+    "DeviceCode": "G",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d9053a251b248c21f30b4",
+    "EmployeeCode": "AT4344",
+    "LogDateTime": "2026-02-12T14:03:02.000Z",
+    "EmployeeName": "SIVANANTHAN",
+    "DeviceCode": "AT4344",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d904ea251b248c21f30b2",
+    "EmployeeCode": "D230395",
+    "LogDateTime": "2026-02-12T14:03:01.000Z",
+    "EmployeeName": "BALAJI R",
+    "DeviceCode": "D230395",
+    "Department": "CNC",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d9049a251b248c21f30b0",
+    "EmployeeCode": "AT4403",
+    "LogDateTime": "2026-02-12T14:02:53.000Z",
+    "EmployeeName": "M.GOKUI",
+    "DeviceCode": "AT4403",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d9030a251b248c21f30ab",
+    "EmployeeCode": "9650",
+    "LogDateTime": "2026-02-12T14:02:28.000Z",
+    "EmployeeName": "K.Radhakrishnan",
+    "DeviceCode": "9650",
+    "Department": "SHN",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d9003a251b248c21f30a9",
+    "EmployeeCode": "4348",
+    "LogDateTime": "2026-02-12T14:01:45.000Z",
+    "EmployeeName": "Rengasamy",
+    "DeviceCode": "4348",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8fc7a251b248c21f30a7",
+    "EmployeeCode": "36659",
+    "LogDateTime": "2026-02-12T14:00:47.000Z",
+    "EmployeeName": "Saravanan",
+    "DeviceCode": "36659",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8fbda251b248c21f30a5",
+    "EmployeeCode": "44",
+    "LogDateTime": "2026-02-12T14:00:33.000Z",
+    "EmployeeName": "Jothi",
+    "DeviceCode": "44",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8fa8a251b248c21f30a3",
+    "EmployeeCode": "88th002",
+    "LogDateTime": "2026-02-12T14:00:17.000Z",
+    "EmployeeName": "PANDIARAJAN",
+    "DeviceCode": "88th002",
+    "Department": "MDU",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d8f5da251b248c21f30a1",
+    "EmployeeCode": "39163",
+    "LogDateTime": "2026-02-12T13:58:56.000Z",
+    "EmployeeName": "GOPINATH M",
+    "DeviceCode": "39163",
+    "Department": "SLM",
+    "Designation": "SR.DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d8f3aa251b248c21f309f",
+    "EmployeeCode": "31370",
+    "LogDateTime": "2026-02-12T13:58:27.000Z",
+    "EmployeeName": "31370",
+    "DeviceCode": "31370",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8f21a251b248c21f3099",
+    "EmployeeCode": "32427",
+    "LogDateTime": "2026-02-12T13:58:04.000Z",
+    "EmployeeName": "Gopukumar",
+    "DeviceCode": "32427",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8eeaa251b248c21f3097",
+    "EmployeeCode": "40069",
+    "LogDateTime": "2026-02-12T13:57:14.000Z",
+    "EmployeeName": "MURUGAN S",
+    "DeviceCode": "40069",
+    "Department": "TCN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8ee0a251b248c21f3095",
+    "EmployeeCode": "31681",
+    "LogDateTime": "2026-02-12T13:56:56.000Z",
+    "EmployeeName": "T.Thanarajan",
+    "DeviceCode": "31681",
+    "Department": "KAN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8e86a251b248c21f308f",
+    "EmployeeCode": "8915",
+    "LogDateTime": "2026-02-12T13:55:23.000Z",
+    "EmployeeName": "T.Jothiramalingam",
+    "DeviceCode": "8915",
+    "Department": "MDU",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d8e5ea251b248c21f308d",
+    "EmployeeCode": "36779",
+    "LogDateTime": "2026-02-12T13:54:44.000Z",
+    "EmployeeName": "Ramar",
+    "DeviceCode": "36779",
+    "Department": "TV1",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8df5a251b248c21f3087",
+    "EmployeeCode": "32801",
+    "LogDateTime": "2026-02-12T13:53:00.000Z",
+    "EmployeeName": "Kumar",
+    "DeviceCode": "32801",
+    "Department": "TV1",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8de6a251b248c21f3082",
+    "EmployeeCode": "33411",
+    "LogDateTime": "2026-02-12T13:52:41.000Z",
+    "EmployeeName": "Mories",
+    "DeviceCode": "33411",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8d8ba251b248c21f307a",
+    "EmployeeCode": "38831",
+    "LogDateTime": "2026-02-12T13:51:11.000Z",
+    "EmployeeName": "MUTHALAGAN",
+    "DeviceCode": "38831",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8d5ea251b248c21f3078",
+    "EmployeeCode": "32831",
+    "LogDateTime": "2026-02-12T13:50:28.000Z",
+    "EmployeeName": "KUMAR K",
+    "DeviceCode": "32831",
+    "Department": "SLM",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8d22a251b248c21f306f",
+    "EmployeeCode": "33351",
+    "LogDateTime": "2026-02-12T13:49:28.000Z",
+    "EmployeeName": "Thangasamy",
+    "DeviceCode": "33351",
+    "Department": "TV2",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8d1da251b248c21f306d",
+    "EmployeeCode": "41289",
+    "LogDateTime": "2026-02-12T13:49:20.000Z",
+    "EmployeeName": "KAMALAKKANNAN R",
+    "DeviceCode": "41289",
+    "Department": "SLM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8d18a251b248c21f306b",
+    "EmployeeCode": "41289",
+    "LogDateTime": "2026-02-12T13:49:18.000Z",
+    "EmployeeName": "KAMALAKKANNAN R",
+    "DeviceCode": "41289",
+    "Department": "SLM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8cfaa251b248c21f3069",
+    "EmployeeCode": "36779",
+    "LogDateTime": "2026-02-12T13:48:47.000Z",
+    "EmployeeName": "Ramar",
+    "DeviceCode": "36779",
+    "Department": "TV1",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8cf5a251b248c21f3067",
+    "EmployeeCode": "40983",
+    "LogDateTime": "2026-02-12T13:48:43.000Z",
+    "EmployeeName": "Sobanlatheesh",
+    "DeviceCode": "40983",
+    "Department": "DGL",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8cd2a251b248c21f3065",
+    "EmployeeCode": "91TH013",
+    "LogDateTime": "2026-02-12T13:48:08.000Z",
+    "EmployeeName": "SUNDARAM P",
+    "DeviceCode": "91TH013",
+    "Department": "SLM",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d8cbea251b248c21f3063",
+    "EmployeeCode": "40877",
+    "LogDateTime": "2026-02-12T13:47:57.000Z",
+    "EmployeeName": "VETRIVEL.M",
+    "DeviceCode": "40877",
+    "Department": "SLM",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8ca0a251b248c21f3061",
+    "EmployeeCode": "37121",
+    "LogDateTime": "2026-02-12T13:47:25.000Z",
+    "EmployeeName": "Dhandapani",
+    "DeviceCode": "37121",
+    "Department": "DGL",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8c78a251b248c21f305f",
+    "EmployeeCode": "36027",
+    "LogDateTime": "2026-02-12T13:46:36.000Z",
+    "EmployeeName": "S.Thangavel",
+    "DeviceCode": "36027",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8c73a251b248c21f305d",
+    "EmployeeCode": "40777",
+    "LogDateTime": "2026-02-12T13:46:26.000Z",
+    "EmployeeName": "G.VIGNESH",
+    "DeviceCode": "40777",
+    "Department": "MDU",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8c5fa251b248c21f305b",
+    "EmployeeCode": "30640",
+    "LogDateTime": "2026-02-12T13:46:16.000Z",
+    "EmployeeName": "MURUGAN",
+    "DeviceCode": "30640",
+    "Department": "CNB",
+    "Designation": "HELPER",
+    "__v": 0
+  },
+  {
+    "_id": "698d8c5aa251b248c21f3059",
+    "EmployeeCode": "38309",
+    "LogDateTime": "2026-02-12T13:46:09.000Z",
+    "EmployeeName": "A.ESWARAN",
+    "DeviceCode": "38309",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8c46a251b248c21f3057",
+    "EmployeeCode": "34157",
+    "LogDateTime": "2026-02-12T13:45:51.000Z",
+    "EmployeeName": "34157",
+    "DeviceCode": "34157",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8c1ea251b248c21f3055",
+    "EmployeeCode": "32979",
+    "LogDateTime": "2026-02-12T13:45:15.000Z",
+    "EmployeeName": "MANTHIRA MOORTHY M",
+    "DeviceCode": "32979",
+    "Department": "TCN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8c14a251b248c21f3053",
+    "EmployeeCode": "37559",
+    "LogDateTime": "2026-02-12T13:45:00.000Z",
+    "EmployeeName": "James",
+    "DeviceCode": "37559",
+    "Department": "DGL",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8c0aa251b248c21f3051",
+    "EmployeeCode": "A30207",
+    "LogDateTime": "2026-02-12T13:44:56.000Z",
+    "EmployeeName": "Rajan",
+    "DeviceCode": "A30207",
+    "Department": "PB",
+    "Designation": "SR.R C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8bf6a251b248c21f304f",
+    "EmployeeCode": "41199",
+    "LogDateTime": "2026-02-12T13:44:29.000Z",
+    "EmployeeName": "Balakrishnan",
+    "DeviceCode": "41199",
+    "Department": "DGL",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8bbfa251b248c21f304d",
+    "EmployeeCode": "35661",
+    "LogDateTime": "2026-02-12T13:43:38.000Z",
+    "EmployeeName": "Udhayasankar",
+    "DeviceCode": "35661",
+    "Department": "HSR",
+    "Designation": "SR DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d8b7ea251b248c21f304b",
+    "EmployeeCode": "39129",
+    "LogDateTime": "2026-02-12T13:42:23.000Z",
+    "EmployeeName": "M.Veluchamy",
+    "DeviceCode": "39129",
+    "Department": "SHN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8b6aa251b248c21f3049",
+    "EmployeeCode": "36223",
+    "LogDateTime": "2026-02-12T13:42:06.000Z",
+    "EmployeeName": "KARUPPUSAMY K",
+    "DeviceCode": "36223",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8b5aa251b248c21f3047",
+    "EmployeeCode": "38883",
+    "LogDateTime": "2026-02-12T13:41:48.000Z",
+    "EmployeeName": "Ayyappan",
+    "DeviceCode": "38883",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8b32a251b248c21f3045",
+    "EmployeeCode": "36291",
+    "LogDateTime": "2026-02-12T13:41:07.000Z",
+    "EmployeeName": "Palraj",
+    "DeviceCode": "36291",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8b05a251b248c21f3043",
+    "EmployeeCode": "36323",
+    "LogDateTime": "2026-02-12T13:40:24.000Z",
+    "EmployeeName": "Muthumariappan",
+    "DeviceCode": "36323",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8aeca251b248c21f3041",
+    "EmployeeCode": "30601",
+    "LogDateTime": "2026-02-12T13:39:58.000Z",
+    "EmployeeName": "Ganersan",
+    "DeviceCode": "30601",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8abaa251b248c21f303c",
+    "EmployeeCode": "35303",
+    "LogDateTime": "2026-02-12T13:39:12.000Z",
+    "EmployeeName": "RAJA S",
+    "DeviceCode": "35303",
+    "Department": "SLM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8aaba251b248c21f303a",
+    "EmployeeCode": "300",
+    "LogDateTime": "2026-02-12T13:38:58.000Z",
+    "EmployeeName": "Premkumar",
+    "DeviceCode": "300",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8a7ea251b248c21f3038",
+    "EmployeeCode": "37861",
+    "LogDateTime": "2026-02-12T13:38:08.000Z",
+    "EmployeeName": "MANIVASAGAN L",
+    "DeviceCode": "37861",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8a51a251b248c21f3036",
+    "EmployeeCode": "40983",
+    "LogDateTime": "2026-02-12T13:37:28.000Z",
+    "EmployeeName": "Sobanlatheesh",
+    "DeviceCode": "40983",
+    "Department": "DGL",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8a38a251b248c21f3034",
+    "EmployeeCode": "58",
+    "LogDateTime": "2026-02-12T13:37:07.000Z",
+    "EmployeeName": "WIillam Xavier T",
+    "DeviceCode": "58",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8a2ea251b248c21f3032",
+    "EmployeeCode": "35469",
+    "LogDateTime": "2026-02-12T13:37:01.000Z",
+    "EmployeeName": "VELUCHAMY P",
+    "DeviceCode": "35469",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8a10a251b248c21f3030",
+    "EmployeeCode": "9105",
+    "LogDateTime": "2026-02-12T13:36:23.000Z",
+    "EmployeeName": "A.Kottaisamy",
+    "DeviceCode": "9105",
+    "Department": "MDU",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d8a06a251b248c21f302e",
+    "EmployeeCode": "9415",
+    "LogDateTime": "2026-02-12T13:36:12.000Z",
+    "EmployeeName": "Mariappan",
+    "DeviceCode": "9415",
+    "Department": "TV1",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d8998a251b248c21f3029",
+    "EmployeeCode": "30273",
+    "LogDateTime": "2026-02-12T13:34:23.000Z",
+    "EmployeeName": "SINTHIYADEVI S",
+    "DeviceCode": "30273",
+    "Department": "PB",
+    "Designation": "RECORD CLERK",
+    "__v": 0
+  },
+  {
+    "_id": "698d893ea251b248c21f3027",
+    "EmployeeCode": "8695",
+    "LogDateTime": "2026-02-12T13:32:53.000Z",
+    "EmployeeName": "OMPRAKASH",
+    "DeviceCode": "8695",
+    "Department": "CNB",
+    "Designation": "SG.SR.T M - DEO",
+    "__v": 0
+  },
+  {
+    "_id": "698d88e8a251b248c21f301f",
+    "EmployeeCode": "36883",
+    "LogDateTime": "2026-02-12T13:31:31.000Z",
+    "EmployeeName": "ILAYARAJA K",
+    "DeviceCode": "36883",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d88c0a251b248c21f301d",
+    "EmployeeCode": "34147",
+    "LogDateTime": "2026-02-12T13:30:52.000Z",
+    "EmployeeName": "Senthil",
+    "DeviceCode": "34147",
+    "Department": "KKM",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d88a7a251b248c21f301b",
+    "EmployeeCode": "41729",
+    "LogDateTime": "2026-02-12T13:30:29.000Z",
+    "EmployeeName": "41729",
+    "DeviceCode": "41729",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8884a251b248c21f3019",
+    "EmployeeCode": "220",
+    "LogDateTime": "2026-02-12T13:29:48.000Z",
+    "EmployeeName": "JEGAN  C",
+    "DeviceCode": "220",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8708a251b248c21f3011",
+    "EmployeeCode": "AT4409",
+    "LogDateTime": "2026-02-12T13:23:26.000Z",
+    "EmployeeName": "M.NATARAJAN",
+    "DeviceCode": "AT4409",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d86f9a251b248c21f300f",
+    "EmployeeCode": "HD00073",
+    "LogDateTime": "2026-02-12T13:23:10.000Z",
+    "EmployeeName": "Arumugam",
+    "DeviceCode": "HD00073",
+    "Department": "TRY",
+    "Designation": "HELPER-NON ITI",
+    "__v": 0
+  },
+  {
+    "_id": "698d86eaa251b248c21f300d",
+    "EmployeeCode": "41303",
+    "LogDateTime": "2026-02-12T13:22:56.000Z",
+    "EmployeeName": "Arisankar",
+    "DeviceCode": "41303",
+    "Department": "CNB",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d86c2a251b248c21f300b",
+    "EmployeeCode": "41653",
+    "LogDateTime": "2026-02-12T13:22:19.000Z",
+    "EmployeeName": "G.PRABHU",
+    "DeviceCode": "41653",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d86b8a251b248c21f3009",
+    "EmployeeCode": "33621",
+    "LogDateTime": "2026-02-12T13:22:01.000Z",
+    "EmployeeName": "Ganesh",
+    "DeviceCode": "33621",
+    "Department": "TV2",
+    "Designation": "SG DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d85f9a251b248c21f3004",
+    "EmployeeCode": "38317",
+    "LogDateTime": "2026-02-12T13:18:55.000Z",
+    "EmployeeName": "A.Satheeshkumar",
+    "DeviceCode": "38317",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d859aa251b248c21f3002",
+    "EmployeeCode": "35553",
+    "LogDateTime": "2026-02-12T13:17:15.000Z",
+    "EmployeeName": "K.Chellappapandian",
+    "DeviceCode": "35553",
+    "Department": "SHN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8581a251b248c21f3000",
+    "EmployeeCode": "42067",
+    "LogDateTime": "2026-02-12T13:16:54.000Z",
+    "EmployeeName": "Dineshkumar",
+    "DeviceCode": "42067",
+    "Department": "DGL",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8568a251b248c21f2ffe",
+    "EmployeeCode": "33677",
+    "LogDateTime": "2026-02-12T13:16:28.000Z",
+    "EmployeeName": "Selvam",
+    "DeviceCode": "33677",
+    "Department": "TRY",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8536a251b248c21f2ff9",
+    "EmployeeCode": "HD00061",
+    "LogDateTime": "2026-02-12T13:15:37.000Z",
+    "EmployeeName": "C.Stepheankasper",
+    "DeviceCode": "HD00061",
+    "Department": "TRY",
+    "Designation": "HELPER-NON ITI",
+    "__v": 0
+  },
+  {
+    "_id": "698d8522a251b248c21f2ff7",
+    "EmployeeCode": "32559",
+    "LogDateTime": "2026-02-12T13:15:16.000Z",
+    "EmployeeName": "N.edwinsekar",
+    "DeviceCode": "32559",
+    "Department": "KAN",
+    "Designation": "SG.DRIVER",
+    "__v": 0
+  },
+  {
+    "_id": "698d850ea251b248c21f2ff5",
+    "EmployeeCode": "35451",
+    "LogDateTime": "2026-02-12T13:14:59.000Z",
+    "EmployeeName": "Sundararajan",
+    "DeviceCode": "35451",
+    "Department": "KAN",
+    "Designation": "SR DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d84d2a251b248c21f2ff3",
+    "EmployeeCode": "42091",
+    "LogDateTime": "2026-02-12T13:14:09.000Z",
+    "EmployeeName": "ELANGO R",
+    "DeviceCode": "42091",
+    "Department": "CNC",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8473a251b248c21f2ff1",
+    "EmployeeCode": "38187",
+    "LogDateTime": "2026-02-12T13:12:37.000Z",
+    "EmployeeName": "Saravanan",
+    "DeviceCode": "38187",
+    "Department": "HSR",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8469a251b248c21f2fef",
+    "EmployeeCode": "35079",
+    "LogDateTime": "2026-02-12T13:12:23.000Z",
+    "EmployeeName": "Saravanan",
+    "DeviceCode": "35079",
+    "Department": "HSR",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d83d7a251b248c21f2fed",
+    "EmployeeCode": "40093",
+    "LogDateTime": "2026-02-12T13:09:54.000Z",
+    "EmployeeName": "Karthikmuthupandi",
+    "DeviceCode": "40093",
+    "Department": "DGL",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d83c3a251b248c21f2fe8",
+    "EmployeeCode": "34457",
+    "LogDateTime": "2026-02-12T13:09:32.000Z",
+    "EmployeeName": "Prabakaran",
+    "DeviceCode": "34457",
+    "Department": "TRY",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8288a251b248c21f2fe0",
+    "EmployeeCode": "36513",
+    "LogDateTime": "2026-02-12T13:04:18.000Z",
+    "EmployeeName": "EDWIN A",
+    "DeviceCode": "36513",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d826fa251b248c21f2fde",
+    "EmployeeCode": "41859",
+    "LogDateTime": "2026-02-12T13:03:58.000Z",
+    "EmployeeName": "Maikandanathan",
+    "DeviceCode": "41859",
+    "Department": "NGL",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8251a251b248c21f2fdc",
+    "EmployeeCode": "37989",
+    "LogDateTime": "2026-02-12T13:03:27.000Z",
+    "EmployeeName": "GANAPATHI MURUGAN R",
+    "DeviceCode": "37989",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8233a251b248c21f2fda",
+    "EmployeeCode": "37454",
+    "LogDateTime": "2026-02-12T13:02:51.000Z",
+    "EmployeeName": "37454",
+    "DeviceCode": "37454",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d8224a251b248c21f2fd8",
+    "EmployeeCode": "37221",
+    "LogDateTime": "2026-02-12T13:02:31.000Z",
+    "EmployeeName": "R.Balan",
+    "DeviceCode": "37221",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d81e8a251b248c21f2fd6",
+    "EmployeeCode": "40293",
+    "LogDateTime": "2026-02-12T13:01:33.000Z",
+    "EmployeeName": "R.Rajeshkumar",
+    "DeviceCode": "40293",
+    "Department": "MDU",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8183a251b248c21f2fd1",
+    "EmployeeCode": "31889",
+    "LogDateTime": "2026-02-12T12:59:55.000Z",
+    "EmployeeName": "SINGARAVADIVELAN V",
+    "DeviceCode": "31889",
+    "Department": "TCN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8165a251b248c21f2fcf",
+    "EmployeeCode": "36759",
+    "LogDateTime": "2026-02-12T12:59:20.000Z",
+    "EmployeeName": "MAYAVEL R",
+    "DeviceCode": "36759",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d814ca251b248c21f2fcd",
+    "EmployeeCode": "32607",
+    "LogDateTime": "2026-02-12T12:58:53.000Z",
+    "EmployeeName": "M.PeeterSanthosam",
+    "DeviceCode": "32607",
+    "Department": "SHN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d8110a251b248c21f2fcb",
+    "EmployeeCode": "40751",
+    "LogDateTime": "2026-02-12T12:57:59.000Z",
+    "EmployeeName": "Yuvaraj",
+    "DeviceCode": "40751",
+    "Department": "TRY",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d80c5a251b248c21f2fc9",
+    "EmployeeCode": "8970",
+    "LogDateTime": "2026-02-12T12:56:41.000Z",
+    "EmployeeName": "M.Vaigundamoorthy",
+    "DeviceCode": "8970",
+    "Department": "SHN",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d7fb2a251b248c21f2fc4",
+    "EmployeeCode": "35741",
+    "LogDateTime": "2026-02-12T12:52:07.000Z",
+    "EmployeeName": "S.Ramesh",
+    "DeviceCode": "35741",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7f99a251b248c21f2fc2",
+    "EmployeeCode": "35051",
+    "LogDateTime": "2026-02-12T12:51:40.000Z",
+    "EmployeeName": "X.Sahayarajarathinam",
+    "DeviceCode": "35051",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7f8aa251b248c21f2fc0",
+    "EmployeeCode": "39639",
+    "LogDateTime": "2026-02-12T12:51:30.000Z",
+    "EmployeeName": "M.Albertantony",
+    "DeviceCode": "39639",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7f67a251b248c21f2fbe",
+    "EmployeeCode": "34323",
+    "LogDateTime": "2026-02-12T12:50:54.000Z",
+    "EmployeeName": "Kamaraj",
+    "DeviceCode": "34323",
+    "Department": "TRY",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7f3fa251b248c21f2fb5",
+    "EmployeeCode": "35733",
+    "LogDateTime": "2026-02-12T12:50:06.000Z",
+    "EmployeeName": "Ramakrishnan",
+    "DeviceCode": "35733",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d7f2fa251b248c21f2fb3",
+    "EmployeeCode": "34973",
+    "LogDateTime": "2026-02-12T12:49:59.000Z",
+    "EmployeeName": "PERUMAL M",
+    "DeviceCode": "34973",
+    "Department": "TRY",
+    "Designation": "SR DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d7ee9a251b248c21f2fb1",
+    "EmployeeCode": "33731",
+    "LogDateTime": "2026-02-12T12:48:47.000Z",
+    "EmployeeName": "S.Malairajan",
+    "DeviceCode": "33731",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7ed6a251b248c21f2faf",
+    "EmployeeCode": "41577",
+    "LogDateTime": "2026-02-12T12:48:28.000Z",
+    "EmployeeName": "S.Rakeshsharma",
+    "DeviceCode": "41577",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d7ec1a251b248c21f2fad",
+    "EmployeeCode": "36127",
+    "LogDateTime": "2026-02-12T12:48:12.000Z",
+    "EmployeeName": "GURUSAMY P",
+    "DeviceCode": "36127",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7e3fa251b248c21f2fab",
+    "EmployeeCode": "40247",
+    "LogDateTime": "2026-02-12T12:45:54.000Z",
+    "EmployeeName": "G.Jegovajenicks",
+    "DeviceCode": "40247",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d7e2ba251b248c21f2fa9",
+    "EmployeeCode": "31607",
+    "LogDateTime": "2026-02-12T12:45:36.000Z",
+    "EmployeeName": "Iyyappan",
+    "DeviceCode": "31607",
+    "Department": "TV2",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7de5a251b248c21f2fa7",
+    "EmployeeCode": "4349",
+    "LogDateTime": "2026-02-12T12:44:28.000Z",
+    "EmployeeName": "Kumaresan",
+    "DeviceCode": "4349",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d7d9fa251b248c21f2fa5",
+    "EmployeeCode": "36989",
+    "LogDateTime": "2026-02-12T12:43:11.000Z",
+    "EmployeeName": "SELVAKUMAR M",
+    "DeviceCode": "36989",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7d9aa251b248c21f2fa3",
+    "EmployeeCode": "36989",
+    "LogDateTime": "2026-02-12T12:43:09.000Z",
+    "EmployeeName": "SELVAKUMAR M",
+    "DeviceCode": "36989",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7d4aa251b248c21f2fa1",
+    "EmployeeCode": "35859",
+    "LogDateTime": "2026-02-12T12:41:50.000Z",
+    "EmployeeName": "SENTHILKUMAR K",
+    "DeviceCode": "35859",
+    "Department": "SLM",
+    "Designation": "SR DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d7d22a251b248c21f2f9b",
+    "EmployeeCode": "A30237",
+    "LogDateTime": "2026-02-12T12:41:15.000Z",
+    "EmployeeName": "Pm.JEEVA",
+    "DeviceCode": "A30237",
+    "Department": "MDU",
+    "Designation": "SR.R C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7d18a251b248c21f2f99",
+    "EmployeeCode": "41117",
+    "LogDateTime": "2026-02-12T12:41:03.000Z",
+    "EmployeeName": "SABARIESH",
+    "DeviceCode": "41117",
+    "Department": "CNB",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7d04a251b248c21f2f97",
+    "EmployeeCode": "35073",
+    "LogDateTime": "2026-02-12T12:40:47.000Z",
+    "EmployeeName": "Logaraj",
+    "DeviceCode": "35073",
+    "Department": "TV1",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7cafa251b248c21f2f92",
+    "EmployeeCode": "32669",
+    "LogDateTime": "2026-02-12T12:39:19.000Z",
+    "EmployeeName": "PavulK",
+    "DeviceCode": "32669",
+    "Department": "TRY",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7c22a251b248c21f2f90",
+    "EmployeeCode": "35227",
+    "LogDateTime": "2026-02-12T12:36:52.000Z",
+    "EmployeeName": "MANIGANDAN R",
+    "DeviceCode": "35227",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7c18a251b248c21f2f8e",
+    "EmployeeCode": "35227",
+    "LogDateTime": "2026-02-12T12:36:50.000Z",
+    "EmployeeName": "MANIGANDAN R",
+    "DeviceCode": "35227",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7c0ea251b248c21f2f8c",
+    "EmployeeCode": "37101",
+    "LogDateTime": "2026-02-12T12:36:48.000Z",
+    "EmployeeName": "Thillaiarasan",
+    "DeviceCode": "37101",
+    "Department": "KKM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7c09a251b248c21f2f8a",
+    "EmployeeCode": "41391",
+    "LogDateTime": "2026-02-12T12:36:33.000Z",
+    "EmployeeName": "Alagar",
+    "DeviceCode": "41391",
+    "Department": "TV1",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7ba5a251b248c21f2f88",
+    "EmployeeCode": "41581",
+    "LogDateTime": "2026-02-12T12:34:46.000Z",
+    "EmployeeName": "RAJASURYA S",
+    "DeviceCode": "41581",
+    "Department": "SLM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7b91a251b248c21f2f86",
+    "EmployeeCode": "41227",
+    "LogDateTime": "2026-02-12T12:34:33.000Z",
+    "EmployeeName": "RAGU.T",
+    "DeviceCode": "41227",
+    "Department": "SLM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7ab5a251b248c21f2f84",
+    "EmployeeCode": "35769",
+    "LogDateTime": "2026-02-12T12:30:45.000Z",
+    "EmployeeName": "RAGUPATHI G",
+    "DeviceCode": "35769",
+    "Department": "SLM",
+    "Designation": "SR. D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7aaba251b248c21f2f82",
+    "EmployeeCode": "35769",
+    "LogDateTime": "2026-02-12T12:30:44.000Z",
+    "EmployeeName": "RAGUPATHI G",
+    "DeviceCode": "35769",
+    "Department": "SLM",
+    "Designation": "SR. D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7a6ea251b248c21f2f7d",
+    "EmployeeCode": "39681",
+    "LogDateTime": "2026-02-12T12:29:38.000Z",
+    "EmployeeName": "M.Jayasankaranarayanan",
+    "DeviceCode": "39681",
+    "Department": "SHN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7a00a251b248c21f2f7b",
+    "EmployeeCode": "35583",
+    "LogDateTime": "2026-02-12T12:27:49.000Z",
+    "EmployeeName": "V.Pandian",
+    "DeviceCode": "35583",
+    "Department": "MDU",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d79e7a251b248c21f2f79",
+    "EmployeeCode": "35199",
+    "LogDateTime": "2026-02-12T12:27:24.000Z",
+    "EmployeeName": "PARANTHAMAN C",
+    "DeviceCode": "35199",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d79e2a251b248c21f2f77",
+    "EmployeeCode": "35199",
+    "LogDateTime": "2026-02-12T12:27:22.000Z",
+    "EmployeeName": "PARANTHAMAN C",
+    "DeviceCode": "35199",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d79b0a251b248c21f2f75",
+    "EmployeeCode": "42047",
+    "LogDateTime": "2026-02-12T12:26:31.000Z",
+    "EmployeeName": "S.Balamurugan",
+    "DeviceCode": "42047",
+    "Department": "MDU",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d79aba251b248c21f2f73",
+    "EmployeeCode": "32063",
+    "LogDateTime": "2026-02-12T12:26:26.000Z",
+    "EmployeeName": "Ramalingam",
+    "DeviceCode": "32063",
+    "Department": "PDY",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d79a6a251b248c21f2f71",
+    "EmployeeCode": "42103",
+    "LogDateTime": "2026-02-12T12:26:18.000Z",
+    "EmployeeName": "Madhubalan",
+    "DeviceCode": "42103",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d797ea251b248c21f2f6f",
+    "EmployeeCode": "39961",
+    "LogDateTime": "2026-02-12T12:25:38.000Z",
+    "EmployeeName": "BALASUBRAMANIAN M",
+    "DeviceCode": "39961",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d796fa251b248c21f2f6d",
+    "EmployeeCode": "32339",
+    "LogDateTime": "2026-02-12T12:25:27.000Z",
+    "EmployeeName": "Sudheer",
+    "DeviceCode": "32339",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d7942a251b248c21f2f62",
+    "EmployeeCode": "39267",
+    "LogDateTime": "2026-02-12T12:24:37.000Z",
+    "EmployeeName": "D.Esakkimuthu",
+    "DeviceCode": "39267",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7938a251b248c21f2f60",
+    "EmployeeCode": "40523",
+    "LogDateTime": "2026-02-12T12:24:29.000Z",
+    "EmployeeName": "S.Udayakumar",
+    "DeviceCode": "40523",
+    "Department": "SHN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d792ea251b248c21f2f5e",
+    "EmployeeCode": "41153",
+    "LogDateTime": "2026-02-12T12:24:15.000Z",
+    "EmployeeName": "A.Kalimuthu",
+    "DeviceCode": "41153",
+    "Department": "SHN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7924a251b248c21f2f59",
+    "EmployeeCode": "39313",
+    "LogDateTime": "2026-02-12T12:24:09.000Z",
+    "EmployeeName": "Ayyappan",
+    "DeviceCode": "39313",
+    "Department": "TRY",
+    "Designation": "SR. D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d78bba251b248c21f2f57",
+    "EmployeeCode": "41073",
+    "LogDateTime": "2026-02-12T12:22:26.000Z",
+    "EmployeeName": "E.Esakkiraj",
+    "DeviceCode": "41073",
+    "Department": "SHN",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7893a251b248c21f2f55",
+    "EmployeeCode": "39173",
+    "LogDateTime": "2026-02-12T12:21:49.000Z",
+    "EmployeeName": "SHAIK MOHAMED A",
+    "DeviceCode": "39173",
+    "Department": "TCN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d77c5a251b248c21f2f53",
+    "EmployeeCode": "41397",
+    "LogDateTime": "2026-02-12T12:18:25.000Z",
+    "EmployeeName": "SIVA K",
+    "DeviceCode": "41397",
+    "Department": "SLM",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7798a251b248c21f2f51",
+    "EmployeeCode": "41389",
+    "LogDateTime": "2026-02-12T12:17:36.000Z",
+    "EmployeeName": "Sampathkumar",
+    "DeviceCode": "41389",
+    "Department": "DGL",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7635a251b248c21f2f4c",
+    "EmployeeCode": "207",
+    "LogDateTime": "2026-02-12T12:11:41.000Z",
+    "EmployeeName": "ANILKUMAR  K",
+    "DeviceCode": "207",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d7612a251b248c21f2f4a",
+    "EmployeeCode": "35837",
+    "LogDateTime": "2026-02-12T12:11:11.000Z",
+    "EmployeeName": "Balu.R",
+    "DeviceCode": "35837",
+    "Department": "HSR",
+    "Designation": "SR DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d75dba251b248c21f2f48",
+    "EmployeeCode": "40331",
+    "LogDateTime": "2026-02-12T12:10:06.000Z",
+    "EmployeeName": "BOOPATHY R",
+    "DeviceCode": "40331",
+    "Department": "PDY",
+    "Designation": "DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d75aea251b248c21f2f46",
+    "EmployeeCode": "36009",
+    "LogDateTime": "2026-02-12T12:09:21.000Z",
+    "EmployeeName": "Chinnachamy",
+    "DeviceCode": "36009",
+    "Department": "DGL",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d758fa251b248c21f2f41",
+    "EmployeeCode": "39933",
+    "LogDateTime": "2026-02-12T12:08:53.000Z",
+    "EmployeeName": "POOMALAI S",
+    "DeviceCode": "39933",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7576a251b248c21f2f3c",
+    "EmployeeCode": "9191",
+    "LogDateTime": "2026-02-12T12:08:29.000Z",
+    "EmployeeName": "Murugan",
+    "DeviceCode": "9191",
+    "Department": "TV1",
+    "Designation": "SG.SR.DRIVER",
+    "__v": 0
+  },
+  {
+    "_id": "698d7535a251b248c21f2f37",
+    "EmployeeCode": "38647",
+    "LogDateTime": "2026-02-12T12:07:28.000Z",
+    "EmployeeName": "Prakash",
+    "DeviceCode": "N",
+    "Department": "SETC",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d74e0a251b248c21f2f35",
+    "EmployeeCode": "38981",
+    "LogDateTime": "2026-02-12T12:06:02.000Z",
+    "EmployeeName": "S.Antonyselvam",
+    "DeviceCode": "38981",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d74dba251b248c21f2f33",
+    "EmployeeCode": "36033",
+    "LogDateTime": "2026-02-12T12:05:54.000Z",
+    "EmployeeName": "Vijayakumar",
+    "DeviceCode": "36033",
+    "Department": "TRY",
+    "Designation": "SR. D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d74c2a251b248c21f2f2e",
+    "EmployeeCode": "32769",
+    "LogDateTime": "2026-02-12T12:05:32.000Z",
+    "EmployeeName": "MONIKANDAN S",
+    "DeviceCode": "32769",
+    "Department": "MAR",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d749fa251b248c21f2f29",
+    "EmployeeCode": "37521",
+    "LogDateTime": "2026-02-12T12:04:54.000Z",
+    "EmployeeName": "Selvakumar",
+    "DeviceCode": "37521",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7418a251b248c21f2f27",
+    "EmployeeCode": "32709",
+    "LogDateTime": "2026-02-12T12:02:37.000Z",
+    "EmployeeName": "Vijayan",
+    "DeviceCode": "32709",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d73eba251b248c21f2f22",
+    "EmployeeCode": "41761",
+    "LogDateTime": "2026-02-12T12:01:55.000Z",
+    "EmployeeName": "LUURDHURAJA R",
+    "DeviceCode": "41761",
+    "Department": "SLM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d73c8a251b248c21f2f20",
+    "EmployeeCode": "41863",
+    "LogDateTime": "2026-02-12T12:01:21.000Z",
+    "EmployeeName": "SATHISH",
+    "DeviceCode": "41863",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d73afa251b248c21f2f1e",
+    "EmployeeCode": "9805",
+    "LogDateTime": "2026-02-12T12:00:58.000Z",
+    "EmployeeName": "Selvan.C",
+    "DeviceCode": "9805",
+    "Department": "NGL",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d7355a251b248c21f2f1c",
+    "EmployeeCode": "D230041",
+    "LogDateTime": "2026-02-12T11:59:27.000Z",
+    "EmployeeName": "D230041",
+    "DeviceCode": "D230041",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d734ba251b248c21f2f1a",
+    "EmployeeCode": "36083",
+    "LogDateTime": "2026-02-12T11:59:15.000Z",
+    "EmployeeName": "Chendrayan",
+    "DeviceCode": "36083",
+    "Department": "DGL",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7337a251b248c21f2f14",
+    "EmployeeCode": "33471",
+    "LogDateTime": "2026-02-12T11:58:57.000Z",
+    "EmployeeName": "Parameswaran",
+    "DeviceCode": "P",
+    "Department": "SETC",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d730ea251b248c21f2f12",
+    "EmployeeCode": "39913",
+    "LogDateTime": "2026-02-12T11:58:19.000Z",
+    "EmployeeName": "SELVAKUMAR R",
+    "DeviceCode": "39913",
+    "Department": "HSR",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d72faa251b248c21f2f10",
+    "EmployeeCode": "31929",
+    "LogDateTime": "2026-02-12T11:57:53.000Z",
+    "EmployeeName": "Chinnathambi",
+    "DeviceCode": "31929",
+    "Department": "DGL",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d725fa251b248c21f2f0e",
+    "EmployeeCode": "37039",
+    "LogDateTime": "2026-02-12T11:55:18.000Z",
+    "EmployeeName": "Kannadasan",
+    "DeviceCode": "37039",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d7219a251b248c21f2f0c",
+    "EmployeeCode": "35239",
+    "LogDateTime": "2026-02-12T11:54:15.000Z",
+    "EmployeeName": "SANKARESWARAN S",
+    "DeviceCode": "35239",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d71eca251b248c21f2f0a",
+    "EmployeeCode": "132",
+    "LogDateTime": "2026-02-12T11:53:20.000Z",
+    "EmployeeName": "KANNAN S",
+    "DeviceCode": "132",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d719ca251b248c21f2f05",
+    "EmployeeCode": "41251",
+    "LogDateTime": "2026-02-12T11:52:06.000Z",
+    "EmployeeName": "KAVIYARASAN G",
+    "DeviceCode": "41251",
+    "Department": "SLM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d712ea251b248c21f2f00",
+    "EmployeeCode": "34367",
+    "LogDateTime": "2026-02-12T11:50:14.000Z",
+    "EmployeeName": "ARULDHAS",
+    "DeviceCode": "34367",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d711fa251b248c21f2efe",
+    "EmployeeCode": "34367",
+    "LogDateTime": "2026-02-12T11:49:57.000Z",
+    "EmployeeName": "ARULDHAS",
+    "DeviceCode": "34367",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d70fca251b248c21f2efc",
+    "EmployeeCode": "34377",
+    "LogDateTime": "2026-02-12T11:49:21.000Z",
+    "EmployeeName": "PALANI C",
+    "DeviceCode": "34377",
+    "Department": "SLM",
+    "Designation": "SR DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d70c5a251b248c21f2efa",
+    "EmployeeCode": "41007",
+    "LogDateTime": "2026-02-12T11:48:24.000Z",
+    "EmployeeName": "Karuppasamypandian",
+    "DeviceCode": "41007",
+    "Department": "TRY",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d70b6a251b248c21f2ef8",
+    "EmployeeCode": "36301",
+    "LogDateTime": "2026-02-12T11:48:13.000Z",
+    "EmployeeName": "PALANIMUTHU P",
+    "DeviceCode": "36301",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d70aca251b248c21f2ef6",
+    "EmployeeCode": "39711",
+    "LogDateTime": "2026-02-12T11:48:07.000Z",
+    "EmployeeName": "Palaniselvam",
+    "DeviceCode": "39711",
+    "Department": "KKM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d706ba251b248c21f2ef4",
+    "EmployeeCode": "36831",
+    "LogDateTime": "2026-02-12T11:46:49.000Z",
+    "EmployeeName": "Babu",
+    "DeviceCode": "36831",
+    "Department": "TV2",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d704ca251b248c21f2ef2",
+    "EmployeeCode": "41739",
+    "LogDateTime": "2026-02-12T11:46:29.000Z",
+    "EmployeeName": "MUNIRAJ C",
+    "DeviceCode": "41739",
+    "Department": "SLM",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6fd4a251b248c21f2ef0",
+    "EmployeeCode": "41237",
+    "LogDateTime": "2026-02-12T11:44:28.000Z",
+    "EmployeeName": "Arivalazhagan",
+    "DeviceCode": "41237",
+    "Department": "TRY",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6f89a251b248c21f2eee",
+    "EmployeeCode": "39699",
+    "LogDateTime": "2026-02-12T11:43:11.000Z",
+    "EmployeeName": "Ponarul",
+    "DeviceCode": "39699",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6f7aa251b248c21f2eec",
+    "EmployeeCode": "36511",
+    "LogDateTime": "2026-02-12T11:43:00.000Z",
+    "EmployeeName": "SELVARAJU P",
+    "DeviceCode": "36511",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6f61a251b248c21f2eea",
+    "EmployeeCode": "40551",
+    "LogDateTime": "2026-02-12T11:42:40.000Z",
+    "EmployeeName": "KANAKARAJ R",
+    "DeviceCode": "40551",
+    "Department": "TCN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6f16a251b248c21f2ee8",
+    "EmployeeCode": "37641",
+    "LogDateTime": "2026-02-12T11:41:18.000Z",
+    "EmployeeName": "SIVAKUMAR K",
+    "DeviceCode": "37641",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6e4ea251b248c21f2ee6",
+    "EmployeeCode": "A1649",
+    "LogDateTime": "2026-02-12T11:38:01.000Z",
+    "EmployeeName": "Umasankar",
+    "DeviceCode": "A1649",
+    "Department": "TAPAL",
+    "Designation": "TELE.OPERATOR",
+    "__v": 0
+  },
+  {
+    "_id": "698d6e49a251b248c21f2ee4",
+    "EmployeeCode": "A1649",
+    "LogDateTime": "2026-02-12T11:37:58.000Z",
+    "EmployeeName": "Umasankar",
+    "DeviceCode": "A1649",
+    "Department": "TAPAL",
+    "Designation": "TELE.OPERATOR",
+    "__v": 0
+  },
+  {
+    "_id": "698d6dffa251b248c21f2ee2",
+    "EmployeeCode": "36011",
+    "LogDateTime": "2026-02-12T11:36:36.000Z",
+    "EmployeeName": "CHELLAPERUMAL A",
+    "DeviceCode": "36011",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6d4aa251b248c21f2ee0",
+    "EmployeeCode": "34413",
+    "LogDateTime": "2026-02-12T11:33:38.000Z",
+    "EmployeeName": "S.KRISHNAKUMAR",
+    "DeviceCode": "34413",
+    "Department": "KAN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6cb3a251b248c21f2ede",
+    "EmployeeCode": "32849",
+    "LogDateTime": "2026-02-12T11:31:09.000Z",
+    "EmployeeName": "VANNIYAPERUMAL P",
+    "DeviceCode": "32849",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6c9aa251b248c21f2edc",
+    "EmployeeCode": "32267",
+    "LogDateTime": "2026-02-12T11:30:50.000Z",
+    "EmployeeName": "GOVINDARAJ M",
+    "DeviceCode": "32267",
+    "Department": "TCN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6c78a251b248c21f2eda",
+    "EmployeeCode": "36327",
+    "LogDateTime": "2026-02-12T11:30:09.000Z",
+    "EmployeeName": "Shanmugam",
+    "DeviceCode": "36327",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6c59a251b248c21f2ed8",
+    "EmployeeCode": "35327",
+    "LogDateTime": "2026-02-12T11:29:34.000Z",
+    "EmployeeName": "SATHISHKUMAR",
+    "DeviceCode": "35327",
+    "Department": "CNB",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6c54a251b248c21f2ed6",
+    "EmployeeCode": "35327",
+    "LogDateTime": "2026-02-12T11:29:32.000Z",
+    "EmployeeName": "SATHISHKUMAR",
+    "DeviceCode": "35327",
+    "Department": "CNB",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6b69a251b248c21f2ed4",
+    "EmployeeCode": "33449",
+    "LogDateTime": "2026-02-12T11:25:35.000Z",
+    "EmployeeName": "Chadrasekar",
+    "DeviceCode": "33449",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6b59a251b248c21f2ed2",
+    "EmployeeCode": "41451",
+    "LogDateTime": "2026-02-12T11:25:17.000Z",
+    "EmployeeName": "SIDDHAR S",
+    "DeviceCode": "41451",
+    "Department": "SLM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6b3ba251b248c21f2ed0",
+    "EmployeeCode": "131",
+    "LogDateTime": "2026-02-12T11:24:49.000Z",
+    "EmployeeName": "THANGASWAMY C",
+    "DeviceCode": "131",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d6b0ea251b248c21f2ece",
+    "EmployeeCode": "38461",
+    "LogDateTime": "2026-02-12T11:24:04.000Z",
+    "EmployeeName": "Muthuraj",
+    "DeviceCode": "38461",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6af0a251b248c21f2ecc",
+    "EmployeeCode": "90CR013",
+    "LogDateTime": "2026-02-12T11:23:37.000Z",
+    "EmployeeName": "Vijayakumar",
+    "DeviceCode": "90CR013",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d6aeba251b248c21f2eca",
+    "EmployeeCode": "90CR013",
+    "LogDateTime": "2026-02-12T11:23:34.000Z",
+    "EmployeeName": "Vijayakumar",
+    "DeviceCode": "90CR013",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d6aa5a251b248c21f2ec8",
+    "EmployeeCode": "33591",
+    "LogDateTime": "2026-02-12T11:22:28.000Z",
+    "EmployeeName": "Lakshminariyanan",
+    "DeviceCode": "33591",
+    "Department": "HSR",
+    "Designation": "SG DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d6a91a251b248c21f2ec6",
+    "EmployeeCode": "39993",
+    "LogDateTime": "2026-02-12T11:22:05.000Z",
+    "EmployeeName": "VIJAYAKUMAR S",
+    "DeviceCode": "39993",
+    "Department": "CNC",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6a6ea251b248c21f2ec4",
+    "EmployeeCode": "37267",
+    "LogDateTime": "2026-02-12T11:21:21.000Z",
+    "EmployeeName": "ILAVARASAN D",
+    "DeviceCode": "37267",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6a5aa251b248c21f2ec2",
+    "EmployeeCode": "41947",
+    "LogDateTime": "2026-02-12T11:21:06.000Z",
+    "EmployeeName": "Sellapillai",
+    "DeviceCode": "41947",
+    "Department": "TRY",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6a37a251b248c21f2ec0",
+    "EmployeeCode": "208",
+    "LogDateTime": "2026-02-12T11:20:31.000Z",
+    "EmployeeName": "RAVI SANKAR  P",
+    "DeviceCode": "208",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d6a32a251b248c21f2ebe",
+    "EmployeeCode": "208",
+    "LogDateTime": "2026-02-12T11:20:29.000Z",
+    "EmployeeName": "RAVI SANKAR  P",
+    "DeviceCode": "208",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d69f6a251b248c21f2ebc",
+    "EmployeeCode": "89",
+    "LogDateTime": "2026-02-12T11:19:27.000Z",
+    "EmployeeName": "Sathyamoorthy",
+    "DeviceCode": "89",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d69a1a251b248c21f2eba",
+    "EmployeeCode": "35829",
+    "LogDateTime": "2026-02-12T11:18:04.000Z",
+    "EmployeeName": "SUDALAI MANI P",
+    "DeviceCode": "35829",
+    "Department": "TCN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6951a251b248c21f2eb8",
+    "EmployeeCode": "41183",
+    "LogDateTime": "2026-02-12T11:16:36.000Z",
+    "EmployeeName": "MATHIVANAN R",
+    "DeviceCode": "41183",
+    "Department": "SLM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d693da251b248c21f2eb6",
+    "EmployeeCode": "30058",
+    "LogDateTime": "2026-02-12T11:16:27.000Z",
+    "EmployeeName": "Kosalaram",
+    "DeviceCode": "30058",
+    "Department": "HSR",
+    "Designation": "SG.CONDUCTOR",
+    "__v": 0
+  },
+  {
+    "_id": "698d6932a251b248c21f2eb4",
+    "EmployeeCode": "35989",
+    "LogDateTime": "2026-02-12T11:16:04.000Z",
+    "EmployeeName": "Jayabal",
+    "DeviceCode": "35989",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6928a251b248c21f2eb2",
+    "EmployeeCode": "35989",
+    "LogDateTime": "2026-02-12T11:16:02.000Z",
+    "EmployeeName": "Jayabal",
+    "DeviceCode": "35989",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6923a251b248c21f2eb0",
+    "EmployeeCode": "36753",
+    "LogDateTime": "2026-02-12T11:15:50.000Z",
+    "EmployeeName": "RAMALINGAM S",
+    "DeviceCode": "36753",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d691ea251b248c21f2eae",
+    "EmployeeCode": "36753",
+    "LogDateTime": "2026-02-12T11:15:48.000Z",
+    "EmployeeName": "RAMALINGAM S",
+    "DeviceCode": "36753",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6919a251b248c21f2eac",
+    "EmployeeCode": "39419",
+    "LogDateTime": "2026-02-12T11:15:34.000Z",
+    "EmployeeName": "P",
+    "DeviceCode": "Chelladurai",
+    "Department": "SETC",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d6905a251b248c21f2eaa",
+    "EmployeeCode": "40553",
+    "LogDateTime": "2026-02-12T11:15:28.000Z",
+    "EmployeeName": "Tamilvanan",
+    "DeviceCode": "40553",
+    "Department": "KKM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d68eca251b248c21f2ea8",
+    "EmployeeCode": "36471",
+    "LogDateTime": "2026-02-12T11:15:01.000Z",
+    "EmployeeName": "Vijayan",
+    "DeviceCode": "36471",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6888a251b248c21f2ea6",
+    "EmployeeCode": "10425",
+    "LogDateTime": "2026-02-12T11:13:28.000Z",
+    "EmployeeName": "Bagavathikannupillai.S",
+    "DeviceCode": "10425",
+    "Department": "KAN",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698d6879a251b248c21f2ea4",
+    "EmployeeCode": "35779",
+    "LogDateTime": "2026-02-12T11:13:06.000Z",
+    "EmployeeName": "SIVAKUMAR R",
+    "DeviceCode": "35779",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6856a251b248c21f2ea2",
+    "EmployeeCode": "35807",
+    "LogDateTime": "2026-02-12T11:12:26.000Z",
+    "EmployeeName": "N.Mathiyalagan",
+    "DeviceCode": "35807",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d683da251b248c21f2ea0",
+    "EmployeeCode": "35993",
+    "LogDateTime": "2026-02-12T11:12:04.000Z",
+    "EmployeeName": "VEERAMANI R",
+    "DeviceCode": "35993",
+    "Department": "SLM",
+    "Designation": "SR DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d681aa251b248c21f2e9e",
+    "EmployeeCode": "39213",
+    "LogDateTime": "2026-02-12T11:11:30.000Z",
+    "EmployeeName": "KARUPPASAMY S",
+    "DeviceCode": "39213",
+    "Department": "CNC",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d67e8a251b248c21f2e9c",
+    "EmployeeCode": "40531",
+    "LogDateTime": "2026-02-12T11:10:38.000Z",
+    "EmployeeName": "R.Mohankumar",
+    "DeviceCode": "40531",
+    "Department": "MDU",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d67d4a251b248c21f2e9a",
+    "EmployeeCode": "36823",
+    "LogDateTime": "2026-02-12T11:10:18.000Z",
+    "EmployeeName": "K.Shunmugam@Balamurugan",
+    "DeviceCode": "36823",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d67caa251b248c21f2e98",
+    "EmployeeCode": "36823",
+    "LogDateTime": "2026-02-12T11:10:09.000Z",
+    "EmployeeName": "K.Shunmugam@Balamurugan",
+    "DeviceCode": "36823",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d67a2a251b248c21f2e96",
+    "EmployeeCode": "32007",
+    "LogDateTime": "2026-02-12T11:09:34.000Z",
+    "EmployeeName": "NARAYANAMOORTHY M",
+    "DeviceCode": "32007",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d674da251b248c21f2e94",
+    "EmployeeCode": "36661",
+    "LogDateTime": "2026-02-12T11:08:08.000Z",
+    "EmployeeName": "Mullaiarasu",
+    "DeviceCode": "36661",
+    "Department": "HSR",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6743a251b248c21f2e92",
+    "EmployeeCode": "36661",
+    "LogDateTime": "2026-02-12T11:07:58.000Z",
+    "EmployeeName": "Mullaiarasu",
+    "DeviceCode": "36661",
+    "Department": "HSR",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d670ca251b248c21f2e90",
+    "EmployeeCode": "38651",
+    "LogDateTime": "2026-02-12T11:06:56.000Z",
+    "EmployeeName": "Selladurai",
+    "DeviceCode": "38651",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6707a251b248c21f2e8e",
+    "EmployeeCode": "33277",
+    "LogDateTime": "2026-02-12T11:06:49.000Z",
+    "EmployeeName": "SAKTHIVEL",
+    "DeviceCode": "33277",
+    "Department": "SLM",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d66daa251b248c21f2e8c",
+    "EmployeeCode": "39549",
+    "LogDateTime": "2026-02-12T11:06:08.000Z",
+    "EmployeeName": "Sivakumar",
+    "DeviceCode": "39549",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6684a251b248c21f2e8a",
+    "EmployeeCode": "34107",
+    "LogDateTime": "2026-02-12T11:04:39.000Z",
+    "EmployeeName": "G.Arulselvan",
+    "DeviceCode": "34107",
+    "Department": "SHN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6666a251b248c21f2e88",
+    "EmployeeCode": "36873",
+    "LogDateTime": "2026-02-12T11:04:17.000Z",
+    "EmployeeName": "NATARAJAN K",
+    "DeviceCode": "36873",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6639a251b248c21f2e86",
+    "EmployeeCode": "36061",
+    "LogDateTime": "2026-02-12T11:03:22.000Z",
+    "EmployeeName": "KUMARASAMY S",
+    "DeviceCode": "36061",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6634a251b248c21f2e84",
+    "EmployeeCode": "36061",
+    "LogDateTime": "2026-02-12T11:03:20.000Z",
+    "EmployeeName": "KUMARASAMY S",
+    "DeviceCode": "36061",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d651ca251b248c21f2e7e",
+    "EmployeeCode": "37187",
+    "LogDateTime": "2026-02-12T10:58:48.000Z",
+    "EmployeeName": "Muniyappan",
+    "DeviceCode": "37187",
+    "Department": "HSR",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6477a251b248c21f2e7c",
+    "EmployeeCode": "38677",
+    "LogDateTime": "2026-02-12T10:55:56.000Z",
+    "EmployeeName": "Suresh",
+    "DeviceCode": "38677",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6449a251b248c21f2e7a",
+    "EmployeeCode": "33821",
+    "LogDateTime": "2026-02-12T10:55:04.000Z",
+    "EmployeeName": "Seenivasan",
+    "DeviceCode": "33821",
+    "Department": "TV2",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d63b8a251b248c21f2e78",
+    "EmployeeCode": "32019",
+    "LogDateTime": "2026-02-12T10:52:42.000Z",
+    "EmployeeName": "Kumarasamy",
+    "DeviceCode": "32019",
+    "Department": "TRY",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6345a251b248c21f2e73",
+    "EmployeeCode": "34703",
+    "LogDateTime": "2026-02-12T10:50:54.000Z",
+    "EmployeeName": "SARAVANAN S",
+    "DeviceCode": "34703",
+    "Department": "SLM",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6318a251b248c21f2e71",
+    "EmployeeCode": "HD00051",
+    "LogDateTime": "2026-02-12T10:50:14.000Z",
+    "EmployeeName": "T.Muthu",
+    "DeviceCode": "HD00051",
+    "Department": "KKM",
+    "Designation": "HELPER-NON ITI",
+    "__v": 0
+  },
+  {
+    "_id": "698d62d7a251b248c21f2e6f",
+    "EmployeeCode": "37043",
+    "LogDateTime": "2026-02-12T10:49:01.000Z",
+    "EmployeeName": "THANGAVEL R",
+    "DeviceCode": "37043",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d62cda251b248c21f2e6d",
+    "EmployeeCode": "41451",
+    "LogDateTime": "2026-02-12T10:48:56.000Z",
+    "EmployeeName": "SIDDHAR S",
+    "DeviceCode": "41451",
+    "Department": "SLM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d62c8a251b248c21f2e6b",
+    "EmployeeCode": "41787",
+    "LogDateTime": "2026-02-12T10:48:51.000Z",
+    "EmployeeName": "VINOTH KUMAR K",
+    "DeviceCode": "41787",
+    "Department": "SLM",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d62bea251b248c21f2e65",
+    "EmployeeCode": "41643",
+    "LogDateTime": "2026-02-12T10:48:34.000Z",
+    "EmployeeName": "SYED ASHIK S",
+    "DeviceCode": "41643",
+    "Department": "SLM",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d62b4a251b248c21f2e63",
+    "EmployeeCode": "A30353",
+    "LogDateTime": "2026-02-12T10:48:28.000Z",
+    "EmployeeName": "Jenil",
+    "DeviceCode": "A30353",
+    "Department": "TECH",
+    "Designation": "RECORD CLERK",
+    "__v": 0
+  },
+  {
+    "_id": "698d6278a251b248c21f2e61",
+    "EmployeeCode": "32733",
+    "LogDateTime": "2026-02-12T10:47:25.000Z",
+    "EmployeeName": "Selvaraj",
+    "DeviceCode": "32733",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d6269a251b248c21f2e5f",
+    "EmployeeCode": "32733",
+    "LogDateTime": "2026-02-12T10:47:11.000Z",
+    "EmployeeName": "Selvaraj",
+    "DeviceCode": "32733",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698d6213a251b248c21f2e5a",
+    "EmployeeCode": "39057",
+    "LogDateTime": "2026-02-12T10:45:47.000Z",
+    "EmployeeName": "KUPPAN N",
+    "DeviceCode": "39057",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698d6204a251b248c21f2e58",
+    "EmployeeCode": "33669",
+    "LogDateTime": "2026-02-12T10:45:36.000Z",
+    "EmployeeName": "Loganathan",
+    "DeviceCode": "33669",
+    "Department": "HSR",
+    "Designation": "SG DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698d6196a251b248c21f2e4f",
+    "EmployeeCode": "38983",
+    "LogDateTime": "2026-02-12T10:43:41.000Z",
+    "EmployeeName": "Rajikumar",
+    "DeviceCode": "38983",
+    "Department": "TV2",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b21faa251b248c21f2c94",
+    "EmployeeCode": "33699",
+    "LogDateTime": "2026-02-10T17:47:47.000Z",
+    "EmployeeName": "Balu",
+    "DeviceCode": "33699",
+    "Department": "KKM",
+    "Designation": "SG DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698b21f0a251b248c21f2c8f",
+    "EmployeeCode": "1903",
+    "LogDateTime": "2026-02-10T17:47:28.000Z",
+    "EmployeeName": "Elizabethrani",
+    "DeviceCode": "1903",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b21b4a251b248c21f2c8a",
+    "EmployeeCode": "35867",
+    "LogDateTime": "2026-02-10T17:46:35.000Z",
+    "EmployeeName": "A.Panneerdas",
+    "DeviceCode": "35867",
+    "Department": "KAN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b21afa251b248c21f2c88",
+    "EmployeeCode": "37533",
+    "LogDateTime": "2026-02-10T17:46:29.000Z",
+    "EmployeeName": "Shanmugasundram",
+    "DeviceCode": "37533",
+    "Department": "TNJ",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b2196a251b248c21f2c86",
+    "EmployeeCode": "A30381",
+    "LogDateTime": "2026-02-10T17:46:11.000Z",
+    "EmployeeName": "Karthigaivasan",
+    "DeviceCode": "A30381",
+    "Department": "TNJ",
+    "Designation": "RECORD CLERK",
+    "__v": 0
+  },
+  {
+    "_id": "698b2182a251b248c21f2c84",
+    "EmployeeCode": "8340",
+    "LogDateTime": "2026-02-10T17:45:47.000Z",
+    "EmployeeName": "J.Tamilselvan",
+    "DeviceCode": "8340",
+    "Department": "TRY",
+    "Designation": "SG.SR.T M",
+    "__v": 0
+  },
+  {
+    "_id": "698b2155a251b248c21f2c7e",
+    "EmployeeCode": "10650",
+    "LogDateTime": "2026-02-10T17:45:06.000Z",
+    "EmployeeName": "G.Tamilmani",
+    "DeviceCode": "10650",
+    "Department": "KKM",
+    "Designation": "SG.SR.T M - W/L",
+    "__v": 0
+  },
+  {
+    "_id": "698b20f5a251b248c21f2c7c",
+    "EmployeeCode": "97CS013",
+    "LogDateTime": "2026-02-10T17:43:19.000Z",
+    "EmployeeName": "S.semmalar",
+    "DeviceCode": "97CS013",
+    "Department": "MDU",
+    "Designation": "SG.SR.R C",
+    "__v": 0
+  },
+  {
+    "_id": "698b20b9a251b248c21f2c77",
+    "EmployeeCode": "38661",
+    "LogDateTime": "2026-02-10T17:42:26.000Z",
+    "EmployeeName": "Durairaj",
+    "DeviceCode": "38661",
+    "Department": "CNC",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b20aaa251b248c21f2c75",
+    "EmployeeCode": "32169",
+    "LogDateTime": "2026-02-10T17:42:07.000Z",
+    "EmployeeName": "RENGASAMV",
+    "DeviceCode": "32169",
+    "Department": "TRY",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b209ba251b248c21f2c73",
+    "EmployeeCode": "A30502",
+    "LogDateTime": "2026-02-10T17:41:54.000Z",
+    "EmployeeName": "VANNIYAPERUMAL",
+    "DeviceCode": "A30502",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b2082a251b248c21f2c71",
+    "EmployeeCode": "30752",
+    "LogDateTime": "2026-02-10T17:41:27.000Z",
+    "EmployeeName": "Jayasankar",
+    "DeviceCode": "30752",
+    "Department": "PDY",
+    "Designation": "FOREMAN",
+    "__v": 0
+  },
+  {
+    "_id": "698b204ba251b248c21f2c6f",
+    "EmployeeCode": "37041",
+    "LogDateTime": "2026-02-10T17:40:29.000Z",
+    "EmployeeName": "A.Murugan",
+    "DeviceCode": "37041",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b2037a251b248c21f2c6d",
+    "EmployeeCode": "31400",
+    "LogDateTime": "2026-02-10T17:40:16.000Z",
+    "EmployeeName": "LATHA P",
+    "DeviceCode": "31400",
+    "Department": "SLM",
+    "Designation": "NON-ITI HELPER",
+    "__v": 0
+  },
+  {
+    "_id": "698b2028a251b248c21f2c6b",
+    "EmployeeCode": "40767",
+    "LogDateTime": "2026-02-10T17:39:57.000Z",
+    "EmployeeName": "Paulcharles",
+    "DeviceCode": "40767",
+    "Department": "TV2",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b2023a251b248c21f2c69",
+    "EmployeeCode": "40343",
+    "LogDateTime": "2026-02-10T17:39:55.000Z",
+    "EmployeeName": "Ayyanar",
+    "DeviceCode": "40343",
+    "Department": "CNC",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1ffba251b248c21f2c67",
+    "EmployeeCode": "33821",
+    "LogDateTime": "2026-02-10T17:39:11.000Z",
+    "EmployeeName": "Seenivasan",
+    "DeviceCode": "33821",
+    "Department": "TV2",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1fd8a251b248c21f2c62",
+    "EmployeeCode": "19",
+    "LogDateTime": "2026-02-10T17:38:37.000Z",
+    "EmployeeName": "Murugan K",
+    "DeviceCode": "19",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1fd3a251b248c21f2c60",
+    "EmployeeCode": "88TH004",
+    "LogDateTime": "2026-02-10T17:38:31.000Z",
+    "EmployeeName": "T.Balasubramanian",
+    "DeviceCode": "88TH004",
+    "Department": "HSR",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b1fc9a251b248c21f2c5e",
+    "EmployeeCode": "301",
+    "LogDateTime": "2026-02-10T17:38:20.000Z",
+    "EmployeeName": "301",
+    "DeviceCode": "301",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1fbaa251b248c21f2c5c",
+    "EmployeeCode": "19",
+    "LogDateTime": "2026-02-10T17:38:06.000Z",
+    "EmployeeName": "Murugan K",
+    "DeviceCode": "19",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1fb5a251b248c21f2c5a",
+    "EmployeeCode": "19",
+    "LogDateTime": "2026-02-10T17:38:04.000Z",
+    "EmployeeName": "Murugan K",
+    "DeviceCode": "19",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1fb0a251b248c21f2c58",
+    "EmployeeCode": "AT4367",
+    "LogDateTime": "2026-02-10T17:37:56.000Z",
+    "EmployeeName": "MUKILVENTHAN",
+    "DeviceCode": "AT4367",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1f6aa251b248c21f2c56",
+    "EmployeeCode": "4417",
+    "LogDateTime": "2026-02-10T17:36:39.000Z",
+    "EmployeeName": "AkashM",
+    "DeviceCode": "4417",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1f47a251b248c21f2c54",
+    "EmployeeCode": "39953",
+    "LogDateTime": "2026-02-10T17:36:10.000Z",
+    "EmployeeName": "Subbiah",
+    "DeviceCode": "39953",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1f0ba251b248c21f2c4f",
+    "EmployeeCode": "34253",
+    "LogDateTime": "2026-02-10T17:35:13.000Z",
+    "EmployeeName": "Josephdhas",
+    "DeviceCode": "34253",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1ef7a251b248c21f2c4d",
+    "EmployeeCode": "4385",
+    "LogDateTime": "2026-02-10T17:34:54.000Z",
+    "EmployeeName": "ManikandanS",
+    "DeviceCode": "4385",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1ed4a251b248c21f2c48",
+    "EmployeeCode": "9830",
+    "LogDateTime": "2026-02-10T17:34:17.000Z",
+    "EmployeeName": "Saravanasamy",
+    "DeviceCode": "9830",
+    "Department": "TV2",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b1ec5a251b248c21f2c46",
+    "EmployeeCode": "AT4464",
+    "LogDateTime": "2026-02-10T17:34:06.000Z",
+    "EmployeeName": "S.SABARINATHAN",
+    "DeviceCode": "AT4464",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1ea6a251b248c21f2c44",
+    "EmployeeCode": "30457",
+    "LogDateTime": "2026-02-10T17:33:32.000Z",
+    "EmployeeName": "30457",
+    "DeviceCode": "30457",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1ea1a251b248c21f2c42",
+    "EmployeeCode": "4338",
+    "LogDateTime": "2026-02-10T17:33:27.000Z",
+    "EmployeeName": "V.Sriram",
+    "DeviceCode": "4338",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1e60a251b248c21f2c3d",
+    "EmployeeCode": "37629",
+    "LogDateTime": "2026-02-10T17:32:22.000Z",
+    "EmployeeName": "Annamalai",
+    "DeviceCode": "37629",
+    "Department": "KAR",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1e4ca251b248c21f2c37",
+    "EmployeeCode": "36017",
+    "LogDateTime": "2026-02-10T17:32:07.000Z",
+    "EmployeeName": "Jaffferali",
+    "DeviceCode": "36017",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1e47a251b248c21f2c35",
+    "EmployeeCode": "37629",
+    "LogDateTime": "2026-02-10T17:31:56.000Z",
+    "EmployeeName": "Annamalai",
+    "DeviceCode": "37629",
+    "Department": "KAR",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1e10a251b248c21f2c33",
+    "EmployeeCode": "A30181",
+    "LogDateTime": "2026-02-10T17:31:05.000Z",
+    "EmployeeName": "B.Uthayasangeetha",
+    "DeviceCode": "A30181",
+    "Department": "MDU",
+    "Designation": "JR.ASSISTANT",
+    "__v": 0
+  },
+  {
+    "_id": "698b1df2a251b248c21f2c31",
+    "EmployeeCode": "2127",
+    "LogDateTime": "2026-02-10T17:30:32.000Z",
+    "EmployeeName": "Abdul",
+    "DeviceCode": "2127",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1dc5a251b248c21f2c2b",
+    "EmployeeCode": "33991",
+    "LogDateTime": "2026-02-10T17:29:48.000Z",
+    "EmployeeName": "Sureshchandrababu",
+    "DeviceCode": "33991",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1d9da251b248c21f2c29",
+    "EmployeeCode": "8900",
+    "LogDateTime": "2026-02-10T17:29:04.000Z",
+    "EmployeeName": "C.SUBRAMONIAN",
+    "DeviceCode": "8900",
+    "Department": "MAR",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b1d89a251b248c21f2c24",
+    "EmployeeCode": "A30093",
+    "LogDateTime": "2026-02-10T17:28:52.000Z",
+    "EmployeeName": "Sridharbabu",
+    "DeviceCode": "A30093",
+    "Department": "HR",
+    "Designation": "SR.O A",
+    "__v": 0
+  },
+  {
+    "_id": "698b1d84a251b248c21f2c22",
+    "EmployeeCode": "34531",
+    "LogDateTime": "2026-02-10T17:28:39.000Z",
+    "EmployeeName": "A.NELSON",
+    "DeviceCode": "34531",
+    "Department": "KAN",
+    "Designation": "SG DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698b1d39a251b248c21f2c1d",
+    "EmployeeCode": "35831",
+    "LogDateTime": "2026-02-10T17:27:29.000Z",
+    "EmployeeName": "CHANDIRAN",
+    "DeviceCode": "35831",
+    "Department": "CNB",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1d25a251b248c21f2c15",
+    "EmployeeCode": "D40439",
+    "LogDateTime": "2026-02-10T17:27:00.000Z",
+    "EmployeeName": "Renjithezhilarasan",
+    "DeviceCode": "D40439",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1d11a251b248c21f2c13",
+    "EmployeeCode": "38421",
+    "LogDateTime": "2026-02-10T17:26:48.000Z",
+    "EmployeeName": "KASIRAJAN",
+    "DeviceCode": "38421",
+    "Department": "CNB",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1cd5a251b248c21f2c0b",
+    "EmployeeCode": "20",
+    "LogDateTime": "2026-02-10T17:25:52.000Z",
+    "EmployeeName": "Nagarajan S",
+    "DeviceCode": "20",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1cd0a251b248c21f2c09",
+    "EmployeeCode": "20",
+    "LogDateTime": "2026-02-10T17:25:49.000Z",
+    "EmployeeName": "Nagarajan S",
+    "DeviceCode": "20",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1c99a251b248c21f2c07",
+    "EmployeeCode": "33521",
+    "LogDateTime": "2026-02-10T17:24:49.000Z",
+    "EmployeeName": "Sarathbabu",
+    "DeviceCode": "33521",
+    "Department": "CNB",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1c75a251b248c21f2c05",
+    "EmployeeCode": "24",
+    "LogDateTime": "2026-02-10T17:24:12.000Z",
+    "EmployeeName": "24",
+    "DeviceCode": "24",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1c48a251b248c21f2c00",
+    "EmployeeCode": "41129",
+    "LogDateTime": "2026-02-10T17:23:23.000Z",
+    "EmployeeName": "Ganesan.M",
+    "DeviceCode": "41129",
+    "Department": "KAR",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1c2fa251b248c21f2bfb",
+    "EmployeeCode": "HD00075",
+    "LogDateTime": "2026-02-10T17:22:58.000Z",
+    "EmployeeName": "DHANAPAL P",
+    "DeviceCode": "HD00075",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1c2aa251b248c21f2bf9",
+    "EmployeeCode": "HD00075",
+    "LogDateTime": "2026-02-10T17:22:56.000Z",
+    "EmployeeName": "DHANAPAL P",
+    "DeviceCode": "HD00075",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1c16a251b248c21f2bf1",
+    "EmployeeCode": "31841",
+    "LogDateTime": "2026-02-10T17:22:34.000Z",
+    "EmployeeName": "SIVAKUMAR A",
+    "DeviceCode": "31841",
+    "Department": "SLM",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1bf8a251b248c21f2bef",
+    "EmployeeCode": "4356",
+    "LogDateTime": "2026-02-10T17:22:09.000Z",
+    "EmployeeName": "Surya",
+    "DeviceCode": "4356",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1bb2a251b248c21f2bed",
+    "EmployeeCode": "31435",
+    "LogDateTime": "2026-02-10T17:20:54.000Z",
+    "EmployeeName": "NARAYANAN",
+    "DeviceCode": "31435",
+    "Department": "CNB",
+    "Designation": "NON-ITI HELPER",
+    "__v": 0
+  },
+  {
+    "_id": "698b1b62a251b248c21f2beb",
+    "EmployeeCode": "91Th028",
+    "LogDateTime": "2026-02-10T17:19:32.000Z",
+    "EmployeeName": "C.THIRUSELVAN",
+    "DeviceCode": "91Th028",
+    "Department": "SHN",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b1b3fa251b248c21f2be9",
+    "EmployeeCode": "97TH041",
+    "LogDateTime": "2026-02-10T17:19:04.000Z",
+    "EmployeeName": "Suresh",
+    "DeviceCode": "97TH041",
+    "Department": "CNB",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b1b3aa251b248c21f2be7",
+    "EmployeeCode": "92TH016",
+    "LogDateTime": "2026-02-10T17:18:53.000Z",
+    "EmployeeName": "YOGESWARAN",
+    "DeviceCode": "92TH016",
+    "Department": "CNB",
+    "Designation": "SG.SR.T M",
+    "__v": 0
+  },
+  {
+    "_id": "698b1b30a251b248c21f2be5",
+    "EmployeeCode": "92TH016",
+    "LogDateTime": "2026-02-10T17:18:50.000Z",
+    "EmployeeName": "YOGESWARAN",
+    "DeviceCode": "92TH016",
+    "Department": "CNB",
+    "Designation": "SG.SR.T M",
+    "__v": 0
+  },
+  {
+    "_id": "698b1b2ba251b248c21f2be3",
+    "EmployeeCode": "4358",
+    "LogDateTime": "2026-02-10T17:18:42.000Z",
+    "EmployeeName": "Jeyaanand",
+    "DeviceCode": "4358",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1ad1a251b248c21f2bde",
+    "EmployeeCode": "36783",
+    "LogDateTime": "2026-02-10T17:17:11.000Z",
+    "EmployeeName": "GANESHAN J",
+    "DeviceCode": "36783",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1ab3a251b248c21f2bdc",
+    "EmployeeCode": "36227",
+    "LogDateTime": "2026-02-10T17:16:40.000Z",
+    "EmployeeName": "RAVIKUMAR",
+    "DeviceCode": "36227",
+    "Department": "CNB",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1aaea251b248c21f2bda",
+    "EmployeeCode": "37053",
+    "LogDateTime": "2026-02-10T17:16:34.000Z",
+    "EmployeeName": "PRABHAKARAN",
+    "DeviceCode": "37053",
+    "Department": "CNB",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1a9fa251b248c21f2bd8",
+    "EmployeeCode": "100",
+    "LogDateTime": "2026-02-10T17:16:21.000Z",
+    "EmployeeName": "SURYAKUMAR B",
+    "DeviceCode": "100",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1a90a251b248c21f2bd6",
+    "EmployeeCode": "33599",
+    "LogDateTime": "2026-02-10T17:16:06.000Z",
+    "EmployeeName": "P.Sundarraj",
+    "DeviceCode": "33599",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1a86a251b248c21f2bd1",
+    "EmployeeCode": "96TH006",
+    "LogDateTime": "2026-02-10T17:15:54.000Z",
+    "EmployeeName": "MariaArputhastephen",
+    "DeviceCode": "96TH006",
+    "Department": "MAR",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b1a81a251b248c21f2bcf",
+    "EmployeeCode": "35467",
+    "LogDateTime": "2026-02-10T17:15:44.000Z",
+    "EmployeeName": "Augustinjose",
+    "DeviceCode": "35467",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1a45a251b248c21f2bca",
+    "EmployeeCode": "34239",
+    "LogDateTime": "2026-02-10T17:14:53.000Z",
+    "EmployeeName": "Mathikumar",
+    "DeviceCode": "34239",
+    "Department": "KAN",
+    "Designation": "SG DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698b1a31a251b248c21f2bc8",
+    "EmployeeCode": "10100",
+    "LogDateTime": "2026-02-10T17:14:35.000Z",
+    "EmployeeName": "Prakash",
+    "DeviceCode": "10100",
+    "Department": "TV2",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b1a04a251b248c21f2bc6",
+    "EmployeeCode": "30635",
+    "LogDateTime": "2026-02-10T17:13:48.000Z",
+    "EmployeeName": "Karthikeyan",
+    "DeviceCode": "30635",
+    "Department": "CNC",
+    "Designation": "HELPER",
+    "__v": 0
+  },
+  {
+    "_id": "698b19efa251b248c21f2bc4",
+    "EmployeeCode": "92TH018",
+    "LogDateTime": "2026-02-10T17:13:34.000Z",
+    "EmployeeName": "Rajendran.PS",
+    "DeviceCode": "92TH018",
+    "Department": "HSR",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b19d1a251b248c21f2bbf",
+    "EmployeeCode": "34381",
+    "LogDateTime": "2026-02-10T17:13:01.000Z",
+    "EmployeeName": "M.Josephmellus",
+    "DeviceCode": "34381",
+    "Department": "KAN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b19cca251b248c21f2bbd",
+    "EmployeeCode": "34381",
+    "LogDateTime": "2026-02-10T17:12:56.000Z",
+    "EmployeeName": "M.Josephmellus",
+    "DeviceCode": "34381",
+    "Department": "KAN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1959a251b248c21f2bbb",
+    "EmployeeCode": "30680",
+    "LogDateTime": "2026-02-10T17:10:53.000Z",
+    "EmployeeName": "LIYAGATHALI M",
+    "DeviceCode": "30680",
+    "Department": "SLM",
+    "Designation": "HELPER",
+    "__v": 0
+  },
+  {
+    "_id": "698b1954a251b248c21f2bb9",
+    "EmployeeCode": "11115",
+    "LogDateTime": "2026-02-10T17:10:51.000Z",
+    "EmployeeName": "SANKAR",
+    "DeviceCode": "11115",
+    "Department": "CNB",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b194fa251b248c21f2bb7",
+    "EmployeeCode": "11115",
+    "LogDateTime": "2026-02-10T17:10:48.000Z",
+    "EmployeeName": "SANKAR",
+    "DeviceCode": "11115",
+    "Department": "CNB",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b194aa251b248c21f2bb5",
+    "EmployeeCode": "11115",
+    "LogDateTime": "2026-02-10T17:10:42.000Z",
+    "EmployeeName": "SANKAR",
+    "DeviceCode": "11115",
+    "Department": "CNB",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b1940a251b248c21f2bb3",
+    "EmployeeCode": "35819",
+    "LogDateTime": "2026-02-10T17:10:34.000Z",
+    "EmployeeName": "MANIGANDAN P",
+    "DeviceCode": "35819",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1904a251b248c21f2bad",
+    "EmployeeCode": "9890",
+    "LogDateTime": "2026-02-10T17:09:30.000Z",
+    "EmployeeName": "SURESH",
+    "DeviceCode": "9890",
+    "Department": "CNB",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b18ffa251b248c21f2bab",
+    "EmployeeCode": "31285",
+    "LogDateTime": "2026-02-10T17:09:27.000Z",
+    "EmployeeName": "VARATHAN P",
+    "DeviceCode": "31285",
+    "Department": "CNC",
+    "Designation": "HELPER",
+    "__v": 0
+  },
+  {
+    "_id": "698b18d2a251b248c21f2ba9",
+    "EmployeeCode": "A30177",
+    "LogDateTime": "2026-02-10T17:08:42.000Z",
+    "EmployeeName": "Kumaresan.R",
+    "DeviceCode": "A30177",
+    "Department": "MDU",
+    "Designation": "JR.ASSISTANT",
+    "__v": 0
+  },
+  {
+    "_id": "698b18bea251b248c21f2ba7",
+    "EmployeeCode": "31340",
+    "LogDateTime": "2026-02-10T17:08:18.000Z",
+    "EmployeeName": "Rosily",
+    "DeviceCode": "31340",
+    "Department": "MAR",
+    "Designation": "NON-ITI HELPER",
+    "__v": 0
+  },
+  {
+    "_id": "698b1887a251b248c21f2ba2",
+    "EmployeeCode": "AT4454",
+    "LogDateTime": "2026-02-10T17:07:26.000Z",
+    "EmployeeName": "R.DANYMOSES",
+    "DeviceCode": "AT4454",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b186ea251b248c21f2ba0",
+    "EmployeeCode": "11205",
+    "LogDateTime": "2026-02-10T17:07:06.000Z",
+    "EmployeeName": "VEERAMANI T",
+    "DeviceCode": "11205",
+    "Department": "CNC",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b1869a251b248c21f2b9e",
+    "EmployeeCode": "42069",
+    "LogDateTime": "2026-02-10T17:06:55.000Z",
+    "EmployeeName": "Murugesan",
+    "DeviceCode": "42069",
+    "Department": "DGL",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1850a251b248c21f2b9c",
+    "EmployeeCode": "7110",
+    "LogDateTime": "2026-02-10T17:06:31.000Z",
+    "EmployeeName": "Kamatchisundaram",
+    "DeviceCode": "7110",
+    "Department": "TV1",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b1828a251b248c21f2b9a",
+    "EmployeeCode": "9800",
+    "LogDateTime": "2026-02-10T17:05:49.000Z",
+    "EmployeeName": "Annadurai",
+    "DeviceCode": "9800",
+    "Department": "TV1",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b180fa251b248c21f2b98",
+    "EmployeeCode": "HD00065",
+    "LogDateTime": "2026-02-10T17:05:27.000Z",
+    "EmployeeName": "P.Rajamanickam",
+    "DeviceCode": "HD00065",
+    "Department": "DGL",
+    "Designation": "HELPER-NON ITI",
+    "__v": 0
+  },
+  {
+    "_id": "698b1800a251b248c21f2b93",
+    "EmployeeCode": "39333",
+    "LogDateTime": "2026-02-10T17:05:06.000Z",
+    "EmployeeName": "Paramasivam",
+    "DeviceCode": "39333",
+    "Department": "DGL",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b17d8a251b248c21f2b8e",
+    "EmployeeCode": "38763",
+    "LogDateTime": "2026-02-10T17:04:28.000Z",
+    "EmployeeName": "K.Muthukumar",
+    "DeviceCode": "38763",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b17bfa251b248c21f2b8c",
+    "EmployeeCode": "D230015",
+    "LogDateTime": "2026-02-10T17:04:06.000Z",
+    "EmployeeName": "RAJA",
+    "DeviceCode": "D230015",
+    "Department": "CNB",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b17aba251b248c21f2b87",
+    "EmployeeCode": "14",
+    "LogDateTime": "2026-02-10T17:03:49.000Z",
+    "EmployeeName": "Jaya Balan A",
+    "DeviceCode": "14",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b17a6a251b248c21f2b85",
+    "EmployeeCode": "35353",
+    "LogDateTime": "2026-02-10T17:03:41.000Z",
+    "EmployeeName": "Sakthivel",
+    "DeviceCode": "35353",
+    "Department": "TRY",
+    "Designation": "SR DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698b1792a251b248c21f2b80",
+    "EmployeeCode": "AT4463",
+    "LogDateTime": "2026-02-10T17:03:22.000Z",
+    "EmployeeName": "A.JEEVANATHAM",
+    "DeviceCode": "AT4463",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b178da251b248c21f2b7e",
+    "EmployeeCode": "7135",
+    "LogDateTime": "2026-02-10T17:03:20.000Z",
+    "EmployeeName": "Peermohamed",
+    "DeviceCode": "7135",
+    "Department": "TV1",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b176ea251b248c21f2b77",
+    "EmployeeCode": "4388",
+    "LogDateTime": "2026-02-10T17:02:47.000Z",
+    "EmployeeName": "Suresh",
+    "DeviceCode": "4388",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1769a251b248c21f2b75",
+    "EmployeeCode": "31375",
+    "LogDateTime": "2026-02-10T17:02:41.000Z",
+    "EmployeeName": "P.kaja",
+    "DeviceCode": "31375",
+    "Department": "DGL",
+    "Designation": "NON-ITI HELPER",
+    "__v": 0
+  },
+  {
+    "_id": "698b1755a251b248c21f2b73",
+    "EmployeeCode": "D230150",
+    "LogDateTime": "2026-02-10T17:02:28.000Z",
+    "EmployeeName": "Balaji",
+    "DeviceCode": "D230150",
+    "Department": "CNC",
+    "Designation": "SG.SR.T M - CAR",
+    "__v": 0
+  },
+  {
+    "_id": "698b174ba251b248c21f2b71",
+    "EmployeeCode": "9985",
+    "LogDateTime": "2026-02-10T17:02:11.000Z",
+    "EmployeeName": "BALASUBRAMANIAN S",
+    "DeviceCode": "9985",
+    "Department": "SLM",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b1741a251b248c21f2b6c",
+    "EmployeeCode": "AT4407",
+    "LogDateTime": "2026-02-10T17:02:00.000Z",
+    "EmployeeName": "S.RAJA",
+    "DeviceCode": "AT4407",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1737a251b248c21f2b6a",
+    "EmployeeCode": "AT4478",
+    "LogDateTime": "2026-02-10T17:01:52.000Z",
+    "EmployeeName": "AT4478",
+    "DeviceCode": "AT4478",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1732a251b248c21f2b68",
+    "EmployeeCode": "30905",
+    "LogDateTime": "2026-02-10T17:01:49.000Z",
+    "EmployeeName": "ROBINSON",
+    "DeviceCode": "30905",
+    "Department": "CNB",
+    "Designation": "HELPER",
+    "__v": 0
+  },
+  {
+    "_id": "698b16eca251b248c21f2b59",
+    "EmployeeCode": "91Th027",
+    "LogDateTime": "2026-02-10T17:00:33.000Z",
+    "EmployeeName": "L.Balamurali",
+    "DeviceCode": "91Th027",
+    "Department": "SHN",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b16d3a251b248c21f2b57",
+    "EmployeeCode": "35",
+    "LogDateTime": "2026-02-10T17:00:08.000Z",
+    "EmployeeName": "35",
+    "DeviceCode": "35",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b16cea251b248c21f2b55",
+    "EmployeeCode": "37617",
+    "LogDateTime": "2026-02-10T17:00:07.000Z",
+    "EmployeeName": "Suresh",
+    "DeviceCode": "37617",
+    "Department": "KAR",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b166fa251b248c21f2b53",
+    "EmployeeCode": "35399",
+    "LogDateTime": "2026-02-10T16:58:24.000Z",
+    "EmployeeName": "MANIVANNAN V",
+    "DeviceCode": "35399",
+    "Department": "SLM",
+    "Designation": "SR DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698b166aa251b248c21f2b51",
+    "EmployeeCode": "38867",
+    "LogDateTime": "2026-02-10T16:58:20.000Z",
+    "EmployeeName": "Balamurugan",
+    "DeviceCode": "38867",
+    "Department": "TRY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b163da251b248c21f2b4f",
+    "EmployeeCode": "32479",
+    "LogDateTime": "2026-02-10T16:57:36.000Z",
+    "EmployeeName": "Albertbabu",
+    "DeviceCode": "32479",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1638a251b248c21f2b4d",
+    "EmployeeCode": "32479",
+    "LogDateTime": "2026-02-10T16:57:34.000Z",
+    "EmployeeName": "Albertbabu",
+    "DeviceCode": "32479",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b15e3a251b248c21f2b48",
+    "EmployeeCode": "D230130",
+    "LogDateTime": "2026-02-10T16:56:14.000Z",
+    "EmployeeName": "PURUSHOTHAMAN K",
+    "DeviceCode": "D230130",
+    "Department": "CNC",
+    "Designation": "SG.SR.T M - TIN",
+    "__v": 0
+  },
+  {
+    "_id": "698b15c0a251b248c21f2b46",
+    "EmployeeCode": "37983",
+    "LogDateTime": "2026-02-10T16:55:30.000Z",
+    "EmployeeName": "Ayyanarpandi",
+    "DeviceCode": "37983",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b15bba251b248c21f2b44",
+    "EmployeeCode": "34623",
+    "LogDateTime": "2026-02-10T16:55:27.000Z",
+    "EmployeeName": "AntonyrajS",
+    "DeviceCode": "34623",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b1552a251b248c21f2b3f",
+    "EmployeeCode": "41903",
+    "LogDateTime": "2026-02-10T16:53:45.000Z",
+    "EmployeeName": "Mahendran",
+    "DeviceCode": "41903",
+    "Department": "KAN",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1501a251b248c21f2b3d",
+    "EmployeeCode": "37437",
+    "LogDateTime": "2026-02-10T16:52:24.000Z",
+    "EmployeeName": "A.Samynathan",
+    "DeviceCode": "37437",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b14e3a251b248c21f2b38",
+    "EmployeeCode": "30989",
+    "LogDateTime": "2026-02-10T16:51:54.000Z",
+    "EmployeeName": "RAMACHANDRAN S",
+    "DeviceCode": "30989",
+    "Department": "PDY",
+    "Designation": "SG.SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1466a251b248c21f2b36",
+    "EmployeeCode": "35779",
+    "LogDateTime": "2026-02-10T16:49:48.000Z",
+    "EmployeeName": "SIVAKUMAR R",
+    "DeviceCode": "35779",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1425a251b248c21f2b34",
+    "EmployeeCode": "A30429",
+    "LogDateTime": "2026-02-10T16:48:52.000Z",
+    "EmployeeName": "Shyamala.G",
+    "DeviceCode": "A30429",
+    "Department": "HSR",
+    "Designation": "JR.ASSISTANT",
+    "__v": 0
+  },
+  {
+    "_id": "698b12eaa251b248c21f2b32",
+    "EmployeeCode": "36327",
+    "LogDateTime": "2026-02-10T16:43:32.000Z",
+    "EmployeeName": "Shanmugam",
+    "DeviceCode": "36327",
+    "Department": "TCN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b12c6a251b248c21f2b2a",
+    "EmployeeCode": "40979",
+    "LogDateTime": "2026-02-10T16:42:46.000Z",
+    "EmployeeName": "Karuppasamypandian",
+    "DeviceCode": "40979",
+    "Department": "TRY",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b123aa251b248c21f2b25",
+    "EmployeeCode": "A1649",
+    "LogDateTime": "2026-02-10T16:40:38.000Z",
+    "EmployeeName": "Umasankar",
+    "DeviceCode": "A1649",
+    "Department": "TAPAL",
+    "Designation": "TELE.OPERATOR",
+    "__v": 0
+  },
+  {
+    "_id": "698b11c7a251b248c21f2b23",
+    "EmployeeCode": "33997",
+    "LogDateTime": "2026-02-10T16:38:39.000Z",
+    "EmployeeName": "Seker",
+    "DeviceCode": "33997",
+    "Department": "TRY",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1118a251b248c21f2b1e",
+    "EmployeeCode": "8970",
+    "LogDateTime": "2026-02-10T16:35:38.000Z",
+    "EmployeeName": "M.Vaigundamoorthy",
+    "DeviceCode": "8970",
+    "Department": "SHN",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b10aaa251b248c21f2b19",
+    "EmployeeCode": "38657",
+    "LogDateTime": "2026-02-10T16:33:49.000Z",
+    "EmployeeName": "M.Poomanikandan",
+    "DeviceCode": "38657",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b1018a251b248c21f2b17",
+    "EmployeeCode": "173",
+    "LogDateTime": "2026-02-10T16:31:30.000Z",
+    "EmployeeName": "WILLSON   P",
+    "DeviceCode": "173",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b0f96a251b248c21f2b15",
+    "EmployeeCode": "35997",
+    "LogDateTime": "2026-02-10T16:29:11.000Z",
+    "EmployeeName": "R.Rajavaithilingam",
+    "DeviceCode": "35997",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0e6aa251b248c21f2b13",
+    "EmployeeCode": "33791",
+    "LogDateTime": "2026-02-10T16:24:16.000Z",
+    "EmployeeName": "J.JOSEPHJFFVAKUMAR",
+    "DeviceCode": "33791",
+    "Department": "KAN",
+    "Designation": "SR DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698b0e3da251b248c21f2b11",
+    "EmployeeCode": "40997",
+    "LogDateTime": "2026-02-10T16:23:33.000Z",
+    "EmployeeName": "K.Manikandapraphu",
+    "DeviceCode": "40997",
+    "Department": "SHN",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0e33a251b248c21f2b0f",
+    "EmployeeCode": "31661",
+    "LogDateTime": "2026-02-10T16:23:19.000Z",
+    "EmployeeName": "K.Selvaganesan",
+    "DeviceCode": "31661",
+    "Department": "SHN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0e2da251b248c21f2b0d",
+    "EmployeeCode": "41063",
+    "LogDateTime": "2026-02-10T16:23:16.000Z",
+    "EmployeeName": "MANIKANDAN",
+    "DeviceCode": "41063",
+    "Department": "CNB",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0e23a251b248c21f2b0b",
+    "EmployeeCode": "9795",
+    "LogDateTime": "2026-02-10T16:23:04.000Z",
+    "EmployeeName": "Rajasingh",
+    "DeviceCode": "9795",
+    "Department": "TV2",
+    "Designation": "SG.SR.T M - MMV",
+    "__v": 0
+  },
+  {
+    "_id": "698b0df1a251b248c21f2b09",
+    "EmployeeCode": "177",
+    "LogDateTime": "2026-02-10T16:22:13.000Z",
+    "EmployeeName": "RENJITH  M",
+    "DeviceCode": "177",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b0d97a251b248c21f2b07",
+    "EmployeeCode": "36399",
+    "LogDateTime": "2026-02-10T16:20:44.000Z",
+    "EmployeeName": "Mahalingam",
+    "DeviceCode": "36399",
+    "Department": "CNB",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0d74a251b248c21f2b05",
+    "EmployeeCode": "34477",
+    "LogDateTime": "2026-02-10T16:20:18.000Z",
+    "EmployeeName": "Sivasankar",
+    "DeviceCode": "34477",
+    "Department": "KAN",
+    "Designation": "SR. D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0bc5a251b248c21f2b00",
+    "EmployeeCode": "35561",
+    "LogDateTime": "2026-02-10T16:12:55.000Z",
+    "EmployeeName": "RAJAGOPALAKRISHNAN R",
+    "DeviceCode": "35561",
+    "Department": "SLM",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0b11a251b248c21f2af8",
+    "EmployeeCode": "41431",
+    "LogDateTime": "2026-02-10T16:09:55.000Z",
+    "EmployeeName": "YOGA T",
+    "DeviceCode": "41431",
+    "Department": "SLM",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0b0ca251b248c21f2af6",
+    "EmployeeCode": "41431",
+    "LogDateTime": "2026-02-10T16:09:53.000Z",
+    "EmployeeName": "YOGA T",
+    "DeviceCode": "41431",
+    "Department": "SLM",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0adaa251b248c21f2af4",
+    "EmployeeCode": "103",
+    "LogDateTime": "2026-02-10T16:09:03.000Z",
+    "EmployeeName": "Murali",
+    "DeviceCode": "103",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b0aada251b248c21f2af2",
+    "EmployeeCode": "97CR007",
+    "LogDateTime": "2026-02-10T16:08:21.000Z",
+    "EmployeeName": "Manikandan",
+    "DeviceCode": "97CR007",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b0aa8a251b248c21f2af0",
+    "EmployeeCode": "39557",
+    "LogDateTime": "2026-02-10T16:08:13.000Z",
+    "EmployeeName": "DEENADHAYALAN K",
+    "DeviceCode": "39557",
+    "Department": "PDY",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0a8aa251b248c21f2aee",
+    "EmployeeCode": "37751",
+    "LogDateTime": "2026-02-10T16:07:40.000Z",
+    "EmployeeName": "E.Gomathinayagam",
+    "DeviceCode": "37751",
+    "Department": "SHN",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0a7ba251b248c21f2aec",
+    "EmployeeCode": "37159",
+    "LogDateTime": "2026-02-10T16:07:37.000Z",
+    "EmployeeName": "S.DAMODARAN",
+    "DeviceCode": "37159",
+    "Department": "DGL",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0a53a251b248c21f2ae7",
+    "EmployeeCode": "38011",
+    "LogDateTime": "2026-02-10T16:06:51.000Z",
+    "EmployeeName": "Govindaraj",
+    "DeviceCode": "38011",
+    "Department": "CNB",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0a21a251b248c21f2ae2",
+    "EmployeeCode": "69",
+    "LogDateTime": "2026-02-10T16:06:03.000Z",
+    "EmployeeName": "Arumuga Perumal P",
+    "DeviceCode": "69",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b09f4a251b248c21f2add",
+    "EmployeeCode": "32471",
+    "LogDateTime": "2026-02-10T16:05:13.000Z",
+    "EmployeeName": "Rajakumar",
+    "DeviceCode": "32471",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b09b8a251b248c21f2adb",
+    "EmployeeCode": "39263",
+    "LogDateTime": "2026-02-10T16:04:16.000Z",
+    "EmployeeName": "Saravanan",
+    "DeviceCode": "39263",
+    "Department": "TV1",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b09a9a251b248c21f2ad9",
+    "EmployeeCode": "32261",
+    "LogDateTime": "2026-02-10T16:03:59.000Z",
+    "EmployeeName": "PRABAKARAN C",
+    "DeviceCode": "32261",
+    "Department": "SLM",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0985a251b248c21f2ad7",
+    "EmployeeCode": "39407",
+    "LogDateTime": "2026-02-10T16:03:34.000Z",
+    "EmployeeName": "Vijayasarathi",
+    "DeviceCode": "39407",
+    "Department": "KKM",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b093fa251b248c21f2ad2",
+    "EmployeeCode": "305",
+    "LogDateTime": "2026-02-10T16:02:12.000Z",
+    "EmployeeName": "305",
+    "DeviceCode": "305",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b093aa251b248c21f2ad0",
+    "EmployeeCode": "305",
+    "LogDateTime": "2026-02-10T16:02:10.000Z",
+    "EmployeeName": "305",
+    "DeviceCode": "305",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b08c7a251b248c21f2ace",
+    "EmployeeCode": "9775",
+    "LogDateTime": "2026-02-10T16:00:18.000Z",
+    "EmployeeName": "9775",
+    "DeviceCode": "9775",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b0890a251b248c21f2acc",
+    "EmployeeCode": "34413",
+    "LogDateTime": "2026-02-10T15:59:18.000Z",
+    "EmployeeName": "S.KRISHNAKUMAR",
+    "DeviceCode": "34413",
+    "Department": "KAN",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b07eba251b248c21f2ac7",
+    "EmployeeCode": "120",
+    "LogDateTime": "2026-02-10T15:56:39.000Z",
+    "EmployeeName": "Rajesh",
+    "DeviceCode": "120",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b0740a251b248c21f2ac5",
+    "EmployeeCode": "35709",
+    "LogDateTime": "2026-02-10T15:53:51.000Z",
+    "EmployeeName": "SIVA P",
+    "DeviceCode": "35709",
+    "Department": "HSR",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b05c4a251b248c21f2ac3",
+    "EmployeeCode": "96DV004",
+    "LogDateTime": "2026-02-10T15:47:19.000Z",
+    "EmployeeName": "SENGUTTUVAN",
+    "DeviceCode": "96DV004",
+    "Department": "CNB",
+    "Designation": "SG.SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b05bfa251b248c21f2ac1",
+    "EmployeeCode": "96DV004",
+    "LogDateTime": "2026-02-10T15:47:17.000Z",
+    "EmployeeName": "SENGUTTUVAN",
+    "DeviceCode": "96DV004",
+    "Department": "CNB",
+    "Designation": "SG.SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b058da251b248c21f2abf",
+    "EmployeeCode": "37363",
+    "LogDateTime": "2026-02-10T15:46:21.000Z",
+    "EmployeeName": "Karuppasamy",
+    "DeviceCode": "37363",
+    "Department": "TV2",
+    "Designation": "D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0583a251b248c21f2abd",
+    "EmployeeCode": "37573",
+    "LogDateTime": "2026-02-10T15:46:09.000Z",
+    "EmployeeName": "P.VIGNESH",
+    "DeviceCode": "37573",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0574a251b248c21f2abb",
+    "EmployeeCode": "37573",
+    "LogDateTime": "2026-02-10T15:46:07.000Z",
+    "EmployeeName": "P.VIGNESH",
+    "DeviceCode": "37573",
+    "Department": "MDU",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b051aa251b248c21f2ab9",
+    "EmployeeCode": "30930",
+    "LogDateTime": "2026-02-10T15:44:45.000Z",
+    "EmployeeName": "Babujohnson.L",
+    "DeviceCode": "30930",
+    "Department": "HSR",
+    "Designation": "SG.SR.T M",
+    "__v": 0
+  },
+  {
+    "_id": "698b039da251b248c21f2ab1",
+    "EmployeeCode": "30849",
+    "LogDateTime": "2026-02-10T15:38:06.000Z",
+    "EmployeeName": "BABU R",
+    "DeviceCode": "30849",
+    "Department": "SLM",
+    "Designation": "SG.SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0398a251b248c21f2aaf",
+    "EmployeeCode": "30849",
+    "LogDateTime": "2026-02-10T15:38:04.000Z",
+    "EmployeeName": "BABU R",
+    "DeviceCode": "30849",
+    "Department": "SLM",
+    "Designation": "SG.SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b02e4a251b248c21f2aa8",
+    "EmployeeCode": "36171",
+    "LogDateTime": "2026-02-10T15:35:03.000Z",
+    "EmployeeName": "Murugaiah",
+    "DeviceCode": "36171",
+    "Department": "Default",
+    "Designation": "",
+    "__v": 0
+  },
+  {
+    "_id": "698b02a3a251b248c21f296c",
+    "EmployeeCode": "41859",
+    "LogDateTime": "2026-02-10T12:13:22.000Z",
+    "EmployeeName": "Maikandanathan",
+    "DeviceCode": "41859",
+    "Department": "NGL",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b029ea251b248c21f296a",
+    "EmployeeCode": "40599",
+    "LogDateTime": "2026-02-10T12:13:12.000Z",
+    "EmployeeName": "Suthakar",
+    "DeviceCode": "40599",
+    "Department": "TRY",
+    "Designation": "DP D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b028fa251b248c21f2968",
+    "EmployeeCode": "37729",
+    "LogDateTime": "2026-02-10T12:12:59.000Z",
+    "EmployeeName": "JAYAPRAKASAM J",
+    "DeviceCode": "37729",
+    "Department": "HSR",
+    "Designation": "SR.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b0280a251b248c21f2966",
+    "EmployeeCode": "34507",
+    "LogDateTime": "2026-02-10T12:10:09.000Z",
+    "EmployeeName": "JAYACHANDRAN S",
+    "DeviceCode": "34507",
+    "Department": "SLM",
+    "Designation": "SR. D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b027ba251b248c21f2964",
+    "EmployeeCode": "33311",
+    "LogDateTime": "2026-02-10T12:10:04.000Z",
+    "EmployeeName": "Raja",
+    "DeviceCode": "33311",
+    "Department": "KKM",
+    "Designation": "SG DCC",
+    "__v": 0
+  },
+  {
+    "_id": "698b0276a251b248c21f2962",
+    "EmployeeCode": "32069",
+    "LogDateTime": "2026-02-10T11:54:26.000Z",
+    "EmployeeName": "ANTHONITHILAGAR R",
+    "DeviceCode": "32069",
+    "Department": "TCN",
+    "Designation": "SG.D C C",
+    "__v": 0
+  },
+  {
+    "_id": "698b025ca251b248c21f295c",
+    "EmployeeCode": "A30111",
+    "LogDateTime": "2026-02-10T11:02:49.000Z",
+    "EmployeeName": "Lingeshwaran.D",
+    "DeviceCode": "A30111",
+    "Department": "KAN",
+    "Designation": "SR.R C",
+    "__v": 0
+  }
+]

@@ -111,7 +111,7 @@ async function uploadAttendanceDictToMongo() {
         const dateData = attendanceDict[dateKey] || {};
 
         for (const emp in dateData) {
-            if (!Object.prototype.hasOwnProperty.call(dateData, emp)) continue;
+           // if (!Object.prototype.hasOwnProperty.call(dateData, emp)) continue;
             const entry = dateData[emp] || {};
 
             const doc = {
