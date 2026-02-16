@@ -208,6 +208,8 @@ app.get('/employee', async (req, res) => {
     if (!id) return res.status(400).json({ status: 'error', message: 'Missing id parameter' });
     try {
         const docs = await getDataByEmployeeCode(id);
+        const todaydoc=attendanceDict[formattedDate][id];
+        if (todaydoc)docs.push(todaydoc);
         res.json(docs);
     } catch (err) {
         res.status(500).json({ status: 'error', message: err.message });
@@ -217,15 +219,15 @@ app.get('/employee', async (req, res) => {
 
 app.get('/attendanceToday', (req, res) => {
     const today = new Date().toISOString().split('T')[0];
-    
-    if (!attendanceDict ) return res.status(500).json({ status: 'error', message: 'No attendance data for today' });
+    //console.log(attendanceDict[today])
+    if (!attendanceDict[today] ) return res.status(500).json({ status: 'error', message: 'No attendance data for today' });
     
     const docs = [];
     
     
-    for (const emp in attendanceDict) {
+    for (const emp in attendanceDict[today]) {
         if (!Object.prototype.hasOwnProperty.call(dateData, emp)) continue;
-        const entry = dateData[emp] || {};
+        const entry = emp || {};
 
         const doc = {
             EmployeeCode: entry.EmployeeCode || emp,

@@ -1,6 +1,7 @@
 const parameters = new URLSearchParams(window.location.search);  
 const loginUserName = parameters.get('loginName');
 let data = [];
+let todayData=[];
 let allData = [];
 let direction = ['', '', '', '', '', '', ''];
 showabsent = false;
@@ -23,6 +24,7 @@ const searchByDepotRadio = document.getElementById('searchByDepot');
 let startDate = document.getElementById("startDate");
 let endDate = document.getElementById("endDate");
 const PORT = 5501;
+const delay=1000*60*60;
 
 
 
@@ -117,19 +119,33 @@ endDate.addEventListener('change', () => {
 
 
 //functions
+async function getTodayData() {
+    const response=await fetch(`http://127.0.0.1:${PORT}/attendanceToday`);
+    
+    if(response.status==500)
+    {
+        console.log(response.json())
+        return;
+    }
+        
+    todayData=await response.json();
+    data=[...todayData,allData]
+}
 
+setInterval(getTodayData,delay);
 async function getdata() {
     const loadingOverlay = document.getElementById('loading-overlay');
     loadingOverlay.style.display = 'flex';
     try {
         let jsonFile = await fetch(`http://127.0.0.1:${PORT}/data?start=2026-01-28&end=${formattedDate}`);
+        
         if (!jsonFile.ok) {
             throw new Error("can't pull data");
         }
         const response = await jsonFile.json();
         allData=response;
-
         data = allData;
+        await getTodayData();
         resetSortArray();
         datefilter(data);
     } catch (error) {
